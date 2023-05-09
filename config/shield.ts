@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Config source: https://git.io/Jvwvt
  *
@@ -92,7 +93,9 @@ export const csrf: ShieldConfig['csrf'] = {
 	| ```
   |
   */
-  exceptRoutes: [],
+  exceptRoutes: [
+    '/'
+  ],
 
   /*
   |--------------------------------------------------------------------------
