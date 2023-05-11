@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { join } = require('path')
 const Encore = require('@symfony/webpack-encore')
 
@@ -169,7 +170,7 @@ Encore.configureDevServerOptions((options) => {
 | PostCSS or CSS.
 |
 */
-// Encore.enablePostCssLoader()
+Encore.enablePostCssLoader()
 // Encore.configureCssLoader(() => {})
 
 /*
