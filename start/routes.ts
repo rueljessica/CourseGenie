@@ -25,6 +25,6 @@ Route.get('/', async ({ view }) => {
   return view.render('home')
 })
 
-Route.get('/cadastro', async ({ view }) => {
-  return view.render('cadastro')
+Route.get('/sobre', async ({ view }) => {
+  return view.render('sobre')
 })

@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         violet: '#b469ff',
         blue: '#137dc5',
+        violetone: '#f3e6ff',
+        blueone: '#e8f4fd',
       },
     },
     fontFamily: {
