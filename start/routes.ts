@@ -16,11 +16,12 @@ Route.group(() => {
 
   Route.get('/cadastro', 'AuthController.registerIndex')
   Route.post('/cadastro', 'AuthController.register').as('auth.register')
+  Route.patch('/update', 'AuthController.registerUpdate').as('auth.registerUpdate').middleware('auth')
 
   Route.get('/logout', 'AuthController.logout').middleware('auth')
-
 })
 
 
-Route.get('/teste', async () => {
+Route.get('/teste', async ({ view, auth }) => {
+  //return view.render('update')
 }).middleware('auth')

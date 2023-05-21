@@ -2,26 +2,27 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import User from 'App/Models/User'
+import Hash from '@ioc:Adonis/Core/Hash'
+import Application from '@ioc:Adonis/Core/Application'
 
 export default class AuthController {
     public async loginIndex({ view }: HttpContextContract) {
         return view.render('login')
     }
 
-    public async login({ request, response, auth, session}: HttpContextContract) {
+    public async login({ request, response, auth, session }: HttpContextContract) {
         const { email, password } = request.all()
         const userDate = User.findBy('email', email)
 
-        if(!userDate){
+        if (!userDate) {
             session.flash('notification', 'Email ou senha inválidos.')
             return response.redirect('back')
         }
 
-        try{
+        try {
             await auth.use('web').attempt(email, password)
             return response.redirect("/")
-        }catch (error){
-            console.log(error)
+        } catch (error) {
             session.flash('notification', 'Email ou senha inválidos.')
             return response.redirect('back')
         }
@@ -51,18 +52,66 @@ export default class AuthController {
                 "email.unique": "Esse e-mail já está sendo utilizado.",
                 required: "Esse campo é obrigatório",
                 "password.minLength": "Sua senha precisa ter no mínimo 4 caracteres."
-            }
+            },
         })
 
-        try{
+        try {
             const user = await User.create(newUserSchema)
+            const avatar = request.file('avatar')
+            if (!avatar) {
+                return response.badRequest('Please upload file')
+            }
+            const imageName = new Date().getTime().toString() + `.${avatar.extname}`
+            await avatar?.move(Application.publicPath('imgs'), {
+                name: imageName
+            })
+
+            user.avatar = `imgs/${imageName}`
+            await user.save();
+
             return response.redirect('/login')
-        }catch (error){
+        } catch (error) {
             return response.badRequest(error.messages)
         }
     }
 
-    public async logout({auth, response}: HttpContextContract) {
+    public async registerUpdate({ auth, request, response }: HttpContextContract) {
+        try {
+            if (request.input('name')) {
+                await User
+                    .query()
+                    .where('email', auth.user?.email)
+                    .update({ name: request.input('name') })
+            } else
+            if (request.input('password')) {
+                var password = await Hash.make(request.input('password'))
+
+                await User
+                    .query()
+                    .where('email', auth.user?.email)
+                    .update({ password: password })
+            } else
+            if (request.file('avatar')) {
+                const user = auth.user
+                const avatar = request.file('avatar')
+                const imageName = new Date().getTime().toString() + `.${avatar.extname}`
+
+                await avatar?.move(Application.publicPath('imgs'), {
+                    name: imageName
+                })
+
+                user.avatar = `imgs/${imageName}`
+                user?.save()
+            } else {
+                return response.redirect('/teste')
+            }
+            response.ok('Alterado com sucesso!') // criar pg/pop para alterado com sucesso
+        } catch (error) {
+            response.badRequest('Não foi possível executar a alteração' + error.messages) // criar pg/pop para falha na alteração
+        }
+    }
+
+    public async logout({ auth, response }: HttpContextContract) {
         await auth.use('web').logout()
         return response.redirect('/')
     }
