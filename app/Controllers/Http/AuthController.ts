@@ -108,7 +108,7 @@ export default class AuthController {
                 user.avatar = `imgs/${imageName}`
                 user?.save()
             } else {
-                return response.redirect('/teste')
+                return response.badRequest('Erro ao carregar a imagem!') // criar pg/pop senhas diferentes
             }
             return response.ok('Alterado com sucesso!') // criar pg/pop para alterado com sucesso
         } catch (error) {
