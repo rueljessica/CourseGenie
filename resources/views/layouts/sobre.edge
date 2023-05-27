@@ -6,16 +6,28 @@
     <title>{{ title }}</title>
     @entryPointStyles('app')
     @entryPointScripts('app')
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
     @!section('body')
     
-    @include('layouts/navbar')
+    @if(auth.isAuthenticated)
+      @include('layouts/navbar_user')
+    @else
+      @include('layouts/navbar')
+    @endif
 
    <div class="bg-white dark:bg-gray-900 flex items-start justify-center h-screen px-96 pt-60">
         <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-10">
-            <a class="flex items-center mb-3">
-                <img src="{{tecoteco}}" class="h-10 alt="CourseGenie Logo"/>
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Sobre nós</span>
+            <a class="flex items-center mb-10">
+                <span class="self-center text-2xl font-sans whitespace-nowrap dark:text-white">Sobre nós</span>
+                <img src="{{tecoteco}}" class="h-10 mb-2 alt="CourseGenie Logo"/>
             </a>
             <p class="text-justify font-normal text-gray-500 dark:text-gray-400 mb-10">Lorem ipsum dolor sit amet. A blanditiis consequatur est cumque consequatur ut dolor tempora et molestias similique? Aut enim maiores 33 earum galisum et consequatur internos et porro provident a aliquid error non laudantium cupiditate.
             Qui quia itaque et facilis animi hic pariatur quis et laborum nesciunt. Ea quia dolor aut earum consequatur aut iste facere et dolorem nihil ut asperiores molestiae.
