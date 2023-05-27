@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
 
@@ -19,6 +20,7 @@ module.exports = {
     },
     fontFamily: {
       body: [
+        'staatliches',
         'Inter',
         'ui-sans-serif',
         'system-ui',
@@ -36,6 +38,7 @@ module.exports = {
         'Noto Color Emoji',
       ],
       sans: [
+        'staatliches',
         'Inter',
         'ui-sans-serif',
         'system-ui',
@@ -51,6 +54,7 @@ module.exports = {
         'Segoe UI Emoji',
         'Segoe UI Symbol',
         'Noto Color Emoji',
+        
       ],
     },
   },

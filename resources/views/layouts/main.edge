@@ -16,9 +16,12 @@
     </script>
   </head>
     @!section('body')
-    
 
-    @include('layouts/navbar')
+    @if(auth.isAuthenticated)
+        @include('layouts/navbar_user')
+    @else
+        @include('layouts/navbar')
+    @endif
 
     @include('layouts/banner')
 
