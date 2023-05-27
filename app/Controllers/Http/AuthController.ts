@@ -83,13 +83,18 @@ export default class AuthController {
                     .where('email', auth.user?.email)
                     .update({ name: request.input('name') })
             } else
-            if (request.input('password')) {
-                var password = await Hash.make(request.input('password'))
+            if (request.input('password') && request.input('password_confirmation')) {
+                if (request.input('password') === request.input('password_confirmation')) {
+                    var password = await Hash.make(request.input('password'))
 
-                await User
-                    .query()
-                    .where('email', auth.user?.email)
-                    .update({ password: password })
+                    await User
+                        .query()
+                        .where('email', auth.user?.email)
+                        .update({ password: password })
+                }
+                else{
+                    return response.badRequest('Senhas diferentes!') // criar pg/pop senhas diferentes
+                }
             } else
             if (request.file('avatar')) {
                 const user = auth.user
@@ -105,9 +110,9 @@ export default class AuthController {
             } else {
                 return response.redirect('/teste')
             }
-            response.ok('Alterado com sucesso!') // criar pg/pop para alterado com sucesso
+            return response.ok('Alterado com sucesso!') // criar pg/pop para alterado com sucesso
         } catch (error) {
-            response.badRequest('Não foi possível executar a alteração' + error.messages) // criar pg/pop para falha na alteração
+            return response.badRequest('Não foi possível executar a alteração' + error.messages) // criar pg/pop para falha na alteração
         }
     }
 

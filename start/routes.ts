@@ -29,7 +29,7 @@ Route.group(() => {
   Route.get('/logout', 'AuthController.logout').middleware('auth')
 })
 
-
+/*
 Route.get('/teste', async ({ view, auth }) => {
   //return view.render('update')
-}).middleware('auth')
+}).middleware('auth')*/

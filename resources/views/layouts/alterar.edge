@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
@@ -14,58 +14,72 @@
           document.documentElement.classList.remove('dark')
         }
     </script>
-  </head>
-    @!section('body')
-    
-    @include('layouts/sidebar')
+</head>
+@!section('body')
 
-    <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-        <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-            <div class="grid grid-cols-3 m-3 gap-5">
-                <div class="flex pl-5 pt-5 h-full w-full rounded bg-gray-50 dark:bg-gray-800">
-                    <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 mb-5 dark:bg-gray-600">
-                        <svg class="w-26 h-26 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    
-                    <div class="pl-5 pt-4">    
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Alterar foto</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+@include('layouts/sidebar')
+
+<div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
+    <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+        <div class="grid grid-cols-3 m-3 gap-5">
+            <div class="flex pl-5 pt-5 h-full w-full rounded bg-gray-50 dark:bg-gray-800">
+                <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 mb-5 dark:bg-gray-600">
+                    <svg class="w-26 h-26 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <!--img auth.user?.avatar-->
+                </div>
+                <form method="POST" action="/update?_method=PATCH" enctype="multipart/form-data">
+                    <div class="pl-5 pt-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            for="avatar">Alterar
+                            foto</label>
+                        <input
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                            id="avatar" type="file" name="avatar">
                     </div>
                     <div class="pt-20 pr-10">
                         <button type="submit"
                             class="mt-6 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar</button>
-                        </div>
                     </div>
-                 
-                </div>
-                <div class="pl-5 pt-2 w-fit rounded bg-gray-50 dark:bg-gray-800">
-                    <div class="pt-1 pr-20 pb-5">    
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">Alterar senha</p>
-                    </div>
-                    <form>
-                        <div class="flex flex-col space-y-4 ">
-                            <div class="w-fit">
-                                <label for="senha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            </div>
-                            <div class="w-fit">
-                                <label for="senha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar senha</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            </div>
-                            </div>
-                            <div class="flex mb-10">
-                                <button type="submit"
-                                    class="mt-6 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
+
         </div>
-     </div>
-    <footer class="footer">
-        @include('layouts/footer')
-    </footer>
-    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+        <div class="pl-5 pt-2 w-fit rounded bg-gray-50 dark:bg-gray-800">
+            <div class="pt-1 pr-20 pb-5">
+                <p class="text-2xl text-gray-400 dark:text-gray-500">Alterar senha</p>
+            </div>
+            <form method="POST" action="/update?_method=PATCH">
+                <div class="flex flex-col space-y-4 ">
+                    <div class="w-fit">
+                        <label for="senha"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                    </div>
+                    <div class="w-fit">
+                        <label for="senha"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar senha</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                    </div>
+                </div>
+                <div class="flex mb-10">
+                    <button type="submit"
+                        class="mt-6 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    @include('layouts/footer')
+</footer>
+<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>
