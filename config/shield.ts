@@ -121,7 +121,7 @@ export const csrf: ShieldConfig['csrf'] = {
   | Define an array of HTTP methods to be validated for a valid CSRF token.
   |
   */
-  methods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+  methods: ['POST', 'PUT', 'DELETE'],
 }
 
 /*
