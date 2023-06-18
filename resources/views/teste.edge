@@ -1,0 +1,12 @@
+
+@set('title', 'CourseGenie')
+
+@section('body')
+  <section class="hero is-warning">
+    <div class="hero-body">
+      @each(item in disciplina.ementa)
+        <p> {{item}}</p>
+      @end
+    </div>
+  </section>
+@end

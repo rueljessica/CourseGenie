@@ -48,36 +48,38 @@
                 <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
                     <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
                         <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Circuitos Digitais >
-                                </button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Computadores e Sociedade >
-                                </button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Geometria Analítica >
-                                </button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Introdução a Ciência da Computação >
-                                </button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Matemática Discreta para Ciência da Computação >
-                                </button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
-                                    < Programação Estruturada >
-                                </button>
-                            </li>
+                            <form method="GET" action="{{ route('disciplinas.get')}}">
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button type="submit" class="hover:bg-gray-200 dark:hover:bg-gray-700" value="2" name="disc"> 
+                                        < Circuitos Digitais >
+                                    </button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700" value="3" name="disc"> 
+                                        < Computadores e Sociedade >
+                                    </button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700" value="IM885" name="disc"> 
+                                        < Geometria Analítica >
+                                    </button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
+                                        < Introdução a Ciência da Computação >
+                                    </button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
+                                        < Matemática Discreta para Ciência da Computação >
+                                    </button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="hover:bg-gray-200 dark:hover:bg-gray-700"> 
+                                        < Programação Estruturada >
+                                    </button>
+                                </li>
+                            </form>
                         </ul>
                     </div>
                 </div>

@@ -15,6 +15,9 @@ Route.get('/resetar', async ({ view }) => {
 })
 
 Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
+Route.get('/disc', 'DisciplinasController.get')
+  .middleware('auth')
+  .as('disciplinas.get')
 
 Route.get('/perfil', async ({ view }) => {
   return view.render('perfil')
