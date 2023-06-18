@@ -10,6 +10,12 @@ Route.get('/sobre', async ({ view }) => {
   return view.render('sobre')
 })
 
+Route.get('/resetar', async ({ view }) => {
+  return view.render('reset_senha')
+})
+
+Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
+
 Route.get('/perfil', async ({ view }) => {
   return view.render('perfil')
 }).middleware('auth')
@@ -17,6 +23,7 @@ Route.get('/perfil', async ({ view }) => {
 Route.get('/alterar', async ({ view }) => {
   return view.render('alterar')
 }).middleware('auth')
+
 
 Route.group(() => {
   Route.get('/login', 'AuthController.loginIndex')

@@ -20,13 +20,13 @@
     @include('layouts/sidebar')
 
     <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-      <div class="h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-         <div class="grid grid-cols-3 m-3">
+      <div class="flex h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+         <div class="grid grid-cols-3 m-3 flex-shrink-0">
             <div class="flex pl-5 pt-5 h-96 rounded bg-gray-50 dark:bg-gray-800">
                <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 dark:bg-gray-600">
-               <svg class="w-36 h-36 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                  <img class=" rounded w-36 h-36" src="{../../public/img/img.png}">
                </div>
-               <div>
+               <div class="mr-10">
                   <p class="pl-10 pt-5 text-2xl text-gray-400 dark:text-gray-500">Usuário: {{auth.user.name}}</p>
                   <p class="pl-10 pt-2 text-xl text-gray-400 dark:text-gray-500">E-mail: {{auth.user.email}}</p>
                   <p class="pl-10 pt-2 text-xl text-gray-400 dark:text-gray-500">Matrícula: {{auth.user.registration}}</p>
@@ -35,9 +35,5 @@
          </div>
       </div>
    </div>
-
-    <footer class="footer">
-        @include('layouts/footer')
-    </footer>
-    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+   <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>
