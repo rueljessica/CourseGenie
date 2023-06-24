@@ -1,12 +1,17 @@
-
 @set('title', 'CourseGenie')
 
 @section('body')
-  <section class="hero is-warning">
-    <div class="hero-body">
-      @each(item in disciplina.ementa)
-        <p> {{item}}</p>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <p> Nome: {{item.nome}}</p>
+    <p> Código: {{item.codigo}}</p>
+    @each(unidade in item.unidades)
+      <p> Unidade: {{unidade.titulo}}</p>
+      <p>Tópicos:</p>
+      @each(topico in unidade.topicos)
+        <p> {{topico}}</p>
       @end
-    </div>
-  </section>
+    @end
+  </div>
+</section>
 @end
