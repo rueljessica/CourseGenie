@@ -3,14 +3,19 @@
 @section('body')
 <section class="hero is-warning">
   <div class="hero-body">
-    <p> Nome: {{item.nome}}</p>
-    <p> Código: {{item.codigo}}</p>
-    @each(unidade in item.unidades)
+    <p> Nome: {{disciplina.nome}}</p>
+    <p> Código: {{disciplina.codigo}}</p>
+    @each(unidade in disciplina.unidades)
       <p> Unidade: {{unidade.titulo}}</p>
       <p>Tópicos:</p>
       @each(topico in unidade.topicos)
         <p> {{topico}}</p>
       @end
+    @end
+    @each(pre_requisito in disciplina.pre_requisitos)
+      <p> Pré Requisitos</p>
+      <p>Nome: {{ pre_requisito.nome }}</p>
+      <p>Código: {{ pre_requisito.codigo }}</p>
     @end
   </div>
 </section>

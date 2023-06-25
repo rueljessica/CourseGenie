@@ -10,10 +10,31 @@ export default class Disciplina extends BaseModel {
   public nome: string
 
   @column()
+  public nucleo: string
+
+  @column()
   public codigo: string
 
   @column()
   public periodo: number
+
+  @column()
+  public creditos: number
+
+  @column()
+  public carga_horaria: string
+
+  @column()
+  public objetivo: string[]
+
+  @column()
+  public ementa: string[]
+
+  @column()
+  public bibliografia_basica: string[]
+
+  @column()
+  public bibliografia_complementar: string[]
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

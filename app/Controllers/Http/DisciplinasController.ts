@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Disciplina from 'App/Models/Disciplina'
+import PreRequisito from 'App/Models/PreRequisito'
 import Unidade from 'App/Models/Unidade'
 
 export default class DisciplinasController {
@@ -25,19 +26,30 @@ export default class DisciplinasController {
             const unidades = await Unidade
             .query()
             .where('disciplina_id', disciplina?.id)
+            
+            const prerequisitos = await PreRequisito
+            .query()
+            .where('disciplina_id', disciplina?.id)
 
             const item = {
                 nome: disciplina?.nome,
+                nucleo: disciplina?.nucleo,
                 codigo: disciplina?.codigo,
-                unidades: unidades
+                periodo: disciplina?.periodo,
+                creditos: disciplina?.creditos,
+                carga_horaria: disciplina?.carga_horaria,
+                objetivo: disciplina?.objetivo,
+                ementa: disciplina?.ementa,
+                bibliografia_basica: disciplina?.bibliografia_basica,
+                bibliografia_complementar: disciplina?.bibliografia_complementar,
+                unidades: unidades,
+                pre_requisitos: prerequisitos
             }
 
-            console.log(item)
-
-            return view.render('teste', { item: item})
+            return view.render('teste', { disciplina: item})
 
         } catch (error) {
-            return response.badRequest('Error')
+            return response.badRequest('Error' + error)
         }
     }
 }
