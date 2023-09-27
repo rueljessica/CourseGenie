@@ -47,7 +47,7 @@ Route.group(() => {
   Route.get('/logout', 'AuthController.logout').middleware('auth')
 })
 
-
+/*
 Route.get('/teste', async ({ view }) => {
   return view.render('teste')
-}).middleware('auth')
+}).middleware('auth')*/
