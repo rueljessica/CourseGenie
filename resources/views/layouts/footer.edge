@@ -4,7 +4,8 @@
             <img src="{{tecoteco}}" class="h-12 alt="CourseGenie Logo"/>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-600 sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Termos e Condições</a>
+                    <button data-modal-target="termosModal" data-modal-toggle="termosModal" class="hover:underline" type="button"> Termos e Condições</button>
+                    @include('layouts/modal_termos')
                 </li>
             </ul>
         </div>

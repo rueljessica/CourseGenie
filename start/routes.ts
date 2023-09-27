@@ -23,6 +23,14 @@ Route.get('/perfil', async ({ view }) => {
   return view.render('perfil')
 }).middleware('auth')
 
+Route.get('/grade', async ({ view }) => {
+  return view.render('grade_curricular')
+}).middleware('auth')
+
+Route.get('/eixos', async ({ view }) => {
+  return view.render('eixos')
+}).middleware('auth')
+
 Route.get('/alterar', async ({ view }) => {
   return view.render('alterar')
 }).middleware('auth')
