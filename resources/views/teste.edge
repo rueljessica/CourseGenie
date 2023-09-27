@@ -1,22 +1,9 @@
-@set('title', 'CourseGenie')
+@layout('layouts/disciplina')
+@set('title', 'Course Genie | Disciplina')
+
 
 @section('body')
-<section class="hero is-warning">
-  <div class="hero-body">
-    <p> Nome: {{disciplina.nome}}</p>
-    <p> Código: {{disciplina.codigo}}</p>
-    @each(unidade in disciplina.unidades)
-      <p> Unidade: {{unidade.titulo}}</p>
-      <p>Tópicos:</p>
-      @each(topico in unidade.topicos)
-        <p> {{topico}}</p>
-      @end
-    @end
-    @each(pre_requisito in disciplina.pre_requisitos)
-      <p> Pré Requisitos</p>
-      <p>Nome: {{ pre_requisito.nome }}</p>
-      <p>Código: {{ pre_requisito.codigo }}</p>
-    @end
-  </div>
+<section class="hero is-warning"> 
+  
 </section>
 @end

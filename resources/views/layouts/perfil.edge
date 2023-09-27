@@ -20,16 +20,17 @@
     @include('layouts/sidebar')
 
     <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-      <div class="flex h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+      <div class="h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+         <p class="select-none text-3xl pt-1 pl-7 text-gray-900 dark:text-white"> < Perfil /> </p>
          <div class="grid grid-cols-3 m-3 flex-shrink-0">
             <div class="flex pl-5 pt-5 h-96 rounded bg-gray-50 dark:bg-gray-800">
                <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 dark:bg-gray-600">
                   <img class=" rounded w-36 h-36" src="{../../public/img/img.png}">
                </div>
                <div class="mr-10">
-                  <p class="pl-10 pt-5 text-2xl text-gray-400 dark:text-gray-500">Usuário: {{auth.user.name}}</p>
-                  <p class="pl-10 pt-2 text-xl text-gray-400 dark:text-gray-500">E-mail: {{auth.user.email}}</p>
-                  <p class="pl-10 pt-2 text-xl text-gray-400 dark:text-gray-500">Matrícula: {{auth.user.registration}}</p>
+                  <p class="pl-10 pt-5 text-2xl text-gray-600 dark:text-gray-400">{{auth.user.name}}</p>
+                  <p class="pl-10 pt-2 text-xl text-gray-600 dark:text-gray-400">E-mail: {{auth.user.email}}</p>
+                  <p class="pl-10 pt-2 text-xl text-gray-600 dark:text-gray-400">Matrícula: {{auth.user.registration}}</p>
                </div>
             </div>
          </div>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+  </head>
+    @!section('body')
+
+    @include('layouts/sidebar')
+    
+    <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
+        <div class="flex items-center justify-center h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20 overflow-auto">
+            <div>
+                <table class="border-separate border-spacing-10 text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-lg text-center text-gray-700  dark:text-gray-400">
+                        <tr class="bg-gray-300 dark:bg-gray-800">
+                            <th scope="col" class="w-20 px-10 rounded-lg">1º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">2º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">3º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">4º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">5º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">6º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">7º Período</th>
+                            <th scope="col" class="w-20 px-10 rounded-lg">8º Período</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="py-6 rounded-lg">
+                                Computadores e Sociedade
+                            </td>
+                            <td class="rounded-lg">
+                                Cálculo I
+                            </td>
+                            <td class="rounded-lg">
+                                Cálculo II
+                            </td>
+                            <td class="rounded-lg">
+                                Cálculo III
+                            </td>
+                            <td class="px-3 rounded-lg">
+                                Inteligência Artificial
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                        </tr>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="rounded-lg">
+                                <div id="div1">
+                                Geometria Analítica  
+                                </div>
+                            </td>
+                            <td class="rounded-lg">
+                                <div id="div2">
+                                Álgebra Linear I
+                                </div>
+                            </td>
+                            <svg width="500" height="500"><line x1="-200" y1="45" x2="750" y2="850" stroke="white"/></svg>
+                            <td class="py-6 rounded-lg">
+                                Álgebra Linear Computacional
+                            </td>
+                            <td class="rounded-lg">
+                                Linguagens de Programação
+                            </td>
+                            <td class="rounded-lg">
+                                Compiladores
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                        </tr>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="py-6 rounded-lg">
+                                Matemática Discreta para Computação
+                            </td>
+                            <td class="px-3 rounded-lg">
+                                Lógica para Computação
+                            </td>
+                            <td class="rounded-lg">
+                                Linguagens Formais e Autômatos
+                            </td>
+                            <td class="rounded-lg">
+                                Probabilidade e Estatística para Ciência da Computação
+                            </td>
+                            <td class="rounded-lg">
+                                Métodos Numéricos
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                        </tr>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="py-6 rounded-lg">
+                                Programação Estruturada
+                            </td>
+                            <td class="px-3 rounded-lg">
+                                Engenharia de Software I
+                            </td>
+                            <td class="px-1 rounded-lg">
+                                Modelagem e Projeto de Software
+                            </td>
+                            <td class="px-3 rounded-lg">
+                                Sistemas Operacionais
+                            </td>
+                            <td class="rounded-lg">
+                                Banco de Dados
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                            <td class="rounded-lg">
+                                Optativa
+                            </td>
+                        </tr>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="py-6 px-3 rounded-lg">
+                                Introdução a Ciência da Computação
+                            </td>
+                            <td class="px-4 rounded-lg">
+                                Estrutura de Dados I
+                            </td> 
+                            <td class="px-3 rounded-lg">
+                                Programação Orientada a Objetos
+                            </td>
+                            <td class="px-3 rounded-lg">
+                                Física para Ciência da Computação
+                            </td>
+                            <td class="rounded-lg">
+                                Computação Gráfica
+                            </td>
+                            <td class="rounded-lg">
+                                Redes e Sistemas Distribuídos
+                            </td>
+                            <td class="rounded-lg">
+                                TCC 1
+                            </td>
+                            <td class="rounded-lg">
+                                TCC 2
+                            </td>
+                        </tr>
+                        <tr class="font-medium text-center text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700">
+                            <td scope="row" class="py-6 rounded-lg">
+                                Circuitos Digitais
+                            </td>
+                            <td class="py-6 rounded-lg">
+                                Arquitetura de Computadores
+                            </td>
+                            <td class="px-4 rounded-lg">
+                                Grafos e Algoritmos
+                            </td>
+                            <td class="rounded-lg">
+                                Análise e Projeto de Algoritmos
+                            </td>
+                            <td class="rounded-lg">
+                                Otimização Linear
+                            </td>
+                            <td class="px-4 rounded-lg">
+                                Estrutura de Dados II
+                            </td>
+                            <td class="rounded-lg">
+                                TCC 1
+                            </td>
+                            <td class="rounded-lg">
+                                TCC 2
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     </div>
+
+    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+</html>
