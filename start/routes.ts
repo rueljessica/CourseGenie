@@ -10,6 +10,15 @@ Route.get('/sobre', async ({ view }) => {
   return view.render('sobre')
 })
 
+Route.get('/resetar', async ({ view }) => {
+  return view.render('reset_senha')
+})
+
+Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
+Route.get('/disc', 'DisciplinasController.get')
+  .middleware('auth')
+  .as('disciplinas.get')
+
 Route.get('/perfil', async ({ view }) => {
   return view.render('perfil')
 }).middleware('auth')
@@ -17,6 +26,7 @@ Route.get('/perfil', async ({ view }) => {
 Route.get('/alterar', async ({ view }) => {
   return view.render('alterar')
 }).middleware('auth')
+
 
 Route.group(() => {
   Route.get('/login', 'AuthController.loginIndex')
@@ -29,7 +39,7 @@ Route.group(() => {
   Route.get('/logout', 'AuthController.logout').middleware('auth')
 })
 
-/*
-Route.get('/teste', async ({ view, auth }) => {
-  //return view.render('update')
-}).middleware('auth')*/
+
+Route.get('/teste', async ({ view }) => {
+  return view.render('teste')
+}).middleware('auth')
