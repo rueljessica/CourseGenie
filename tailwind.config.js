@@ -12,10 +12,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+
         violet: '#b469ff',
-        blue: '#137dc5',
-        violetone: '#f3e6ff',
-        blueone: '#e8f4fd',
+        blue: '#009999',
+        violetone: '#cc99ff',
+        blueone: '#47d1d1',
       },
     },
     fontFamily: {
@@ -53,9 +54,9 @@ module.exports = {
         'Apple Color Emoji',
         'Segoe UI Emoji',
         'Segoe UI Symbol',
-        'Noto Color Emoji',
-        
+        'Noto Color Emoji',   
       ],
     },
-  },
+  }, 
 }
+

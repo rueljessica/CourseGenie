@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }}</title>
-  @entryPointStyles('app')
-  @entryPointScripts('app')
-  <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
           document.documentElement.classList.add('dark');
       } else {
           document.documentElement.classList.remove('dark')
       }
-  </script>
-</head>
-@!section('body')
+    </script>
+  </head>
+    @!section('body')
+    
+    @if(auth.isAuthenticated)
+      @include('layouts/navbar_user')
+    @else
+      @include('layouts/navbar')
+    @endif
+    
+    <div class="bg-white dark:bg-gray-900 flex items-center justify-center h-screen px-96">
+      <div class=" bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-10">
+        <a class="flex items-center mb-10">
+          <span class="self-center text-2xl font-sans dark:text-white">Sobre nós</span>
+        </a>
+        <div class="text-justify font-normal text-gray-500 dark:text-gray-400">
+          <p class="mb-3">
+            Bem-vindo(a) ao CourseGenie, a plataforma que visa simplificar e aprimorar suas escolhas de disciplinas optativas durante sua jornada acadêmica. 
+          </p>  
+          <p class="mb-3">
+            Nós, como estudantes do curso de Bacharelado em Ciência da Computação, sempre enfrentamos com dificuldade o momento de selecionar as disciplinas do próximo semestre, dado que são muitas as opções oferecidas e é preciso levar alguns fatores em consideração, o que torna esse processo desafiador.
+          </p>
+          <p>
+            Com o CourseGenie, queremos transformar esse processo mais informado e personalizado do que nunca.
+          </p>
+        </div>
+        <p class="pt-4 text-lg text-gray-900 dark:text-white">Como Funciona</p>
+        <p class="pt-2 text-gray-500 dark:text-gray-400">
+          Utilizamos algoritmos alimentados pelos dados do histórico acadêmico para gerar recomendações personalizadas de disciplinas optativas, além de um perfil que mostre todo o progresso, de forma prática e simplificada. Através de uma abordagem cuidadosamente projetada, analisamos suas realizações acadêmicas anteriores e áreas de interesse para apresentar sugestões que melhor se alinhem com seus objetivos.
+        </p>   
+        
+        <p class="mt-10 text-justify font-normal text-gray-500 dark:text-gray-400">
+          Estamos entusiasmados por fazer parte de sua jornada acadêmica e ajudá-lo(a) a tomar decisões mais informadas e alinhadas com seus objetivos pessoais e profissionais.
+        </p>
+      </div>    
+    </div>
+    <footer class="footer fixed bottom-0">
+      @include('layouts/footer')
+    </footer>
 
-@if(auth.isAuthenticated)
-@include('layouts/navbar_user')
-@else
-@include('layouts/navbar')
-@endif
-
-<div class="bg-white dark:bg-gray-900 flex items-start justify-center h-screen px-96 pt-60">
-  <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-10">
-    <a class="flex items-center mb-10">
-      <span class="self-center text-2xl font-sans whitespace-nowrap dark:text-white">Sobre nós</span>
-      <img src="{{tecoteco}}" class="h-10 mb-2 alt=" CourseGenie Logo" />
-    </a>
-    <p class="text-justify font-normal text-gray-500 dark:text-gray-400 mb-10">Lorem ipsum dolor sit amet. A blanditiis
-      consequatur est cumque consequatur ut dolor tempora et molestias similique? Aut enim maiores 33 earum galisum et
-      consequatur internos et porro provident a aliquid error non laudantium cupiditate.
-      Qui quia itaque et facilis animi hic pariatur quis et laborum nesciunt. Ea quia dolor aut earum consequatur aut
-      iste facere et dolorem nihil ut asperiores molestiae.
-      Aut veniam quis eos quos error vel accusamus quia ea fuga dolorum. Eos vero quia ab corrupti deleniti ut
-      aspernatur tempore. Et repellat galisum ut laudantium deleniti aut internos facilis et dolorem quia in sunt
-      dolor..</p>
-  </div>
-</div>
-<footer class="footer">
-  @include('layouts/footer')
-</footer>
-
-<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+  <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        @entryPointStyles('app')
+        @entryPointScripts('app')
+        <script>
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        </script>
+    </head>
+    
+    @!section('body')
+
+    @include('layouts/sidebar')
+    
+    <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
+        <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20 overflow-auto">
+            <p class="select-none text-3xl pt-5 pl-7 text-gray-900 dark:text-white">< Eixos de Formação /></p>
+            <div class="grid grid-cols-4">
+                <div class="col-1 col-span-1 pt-5 pr-5 px-12">
+                    <div class="border border-b border-gray-500 rounded-t-xl sm:rounded-lg">
+                        <h1 class="flex items-center justify-center pt-3 text-xl text-gray-800 dark:text-white">Algoritmos e Combinatória 
+                            <!-- Modal toggle -->
+                            <button data-modal-target="alCombModal" data-modal-toggle="alCombModal" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </button>
+                        </h1>
+                        <p class="flex items-center justify-center pb-5 text-xl text-gray-800 dark:text-white">0/3
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>                                                            
+                        </p>
+                        <!-- Modal -->
+                        @include('layouts/modal_alComb')
+                        <ul class="flex items-center justify-center">
+                            <form method="GET" action="{{ route('disciplinas.get')}}">
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN751" name="disc">Tópicos Especiais em Otimização</button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN750" name="disc">Otimização Combinatória</button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN737" name="disc">Introdução a Biologia Computacional</button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN749" name="disc">Teoria dos Grafos</button>
+                                </li> 
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN740" name="disc">Tópicos Especiais em Grafos e Algoritmos</button>
+                                </li>
+                                <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN739" name="disc">Teoria dos Jogos Algorítmica</button>
+                                </li>
+                                <li class="pb-5 mb-2 text-gray-500 dark:text-gray-400">
+                                    <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value=" " name="disc">Introdução à Pesquisa Operacional</button>
+                                </li>
+                            </from>
+                        </ul>       
+                    </div>
+                </div>
+                <div class="col-2 col-span-1 p-5">
+                    <div class="border border-b border-gray-500 rounded-t-xl sm:rounded-lg">
+                        <h1 class="flex items-center justify-center pt-3 text-xl text-gray-800 dark:text-white">Sistemas Inteligentes 
+                            <!-- Modal toggle -->
+                            <button data-modal-target="sisInModal" data-modal-toggle="sisInModal" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </button>
+                        </h1>
+                        <p class="flex items-center justify-center pb-5 text-lg text-gray-800 dark:text-white">0/5
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>                                                            
+                        </p>
+                        <!-- Modal -->
+                        @include('layouts/modal_sisIn')
+                        <div class="flex items-center justify-center">
+                            <ul>
+                                <form method="GET" action="{{ route('disciplinas.get')}}">
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN751" name="disc">Tópicos Especiais em Otimização</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN745" name="disc">Aprendizado de Máquina</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN746" name="disc">Redes Neurais Artificiais</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM434" name="disc">Mineração de Dados</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM441" name="disc">Processamento de Linguagem Natural</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM438" name="disc">Processamento de Imagens</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM429" name="disc">Introdução à Teoria de Sistemas de Recomendação</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN747" name="disc">Inteligência de Negócios</button>
+                                    </li>
+                                    <li class="pb-5 mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Tópicos Especiais em Inteligência Artificial</button>
+                                    </li>
+                                </from>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-span-1 p-5">
+                    <div class="border border-b border-gray-500 rounded-t-xl sm:rounded-lg">
+                        <h1 class="flex items-center justify-center pt-3 text-xl text-gray-800 dark:text-white">Sistemas de Computação 
+                            <!-- Modal toggle -->
+                            <button data-modal-target="sisCompModal" data-modal-toggle="sisCompModal" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </button>
+                        </h1>
+                        <p class="flex items-center justify-center pb-5 text-lg text-gray-800 dark:text-white">0/5
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>                                                            
+                        </p>
+                        <!-- Modal -->
+                        @include('layouts/modal_sisComp')
+                        <div class="flex items-center justify-center">
+                            <ul>
+                                <form method="GET" action="{{ route('disciplinas.get')}}">
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN748" name="disc">Arquitetura de Computadores II</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="IM873" name="disc">Redes e Sistemas Distribuídos</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM435" name="disc">Programação Paralela e Distribuída</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN741" name="disc">Computação de Alto Desempenho</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM436" name="disc">Algoritmos Paralelos e Distribuídos</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN743" name="disc">Introdução aos Dispositivos Móveis</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN742" name="disc">Programação em GPU</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM430" name="disc">Redes de Computadores Sem Fio</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN744" name="disc">Roteamento em Redes de Computadores</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Tópicos Especiais em Ciência da Computação</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Tópicos Especiais em Programação de Computadores</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Sistemas Multimídia</button>
+                                    </li>
+                                    <li class="pb-5 mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Roteamento em Redes de Computadores</button>
+                                    </li>
+                                </from>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-span-1 p-5">
+                    <div class="border border-b border-gray-500 rounded-t-xl sm:rounded-lg">
+                        <h1 class="flex items-center justify-center pt-3 text-xl text-gray-800 dark:text-white">Engenharia de Sistemas e Informação 
+                            <!-- Modal toggle -->
+                            <button data-modal-target="engSisModal" data-modal-toggle="engSisModal" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </button>
+                        </h1>
+                        <p class="flex items-center justify-center pb-5 text-lg text-gray-800 dark:text-white">0/4
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 pl-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>                                                            
+                        </p>
+                        <!-- Modal -->
+                        @include('layouts/modal_engSis')
+                        <div class="flex items-center justify-center">
+                            <ul>
+                                <form method="GET" action="{{ route('disciplinas.get')}}">
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="IM877" name="disc">Empreendedorismo em Informática</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN713" name="disc">Introdução aos Sistemas de Informação</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN719" name="disc">Engenharia de Software II</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN731" name="disc">Gerência de Projetos</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN721" name="disc">Arquitetura de Software</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM431" name="disc">Introdução à Teoria das Redes de Petri</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TM432" name="disc">Modelagem de Software com Redes de Petri</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN722" name="disc">Modelagem e Análise de Processos de Negócio</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN732" name="disc">Medição e Qualidade de Software</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN755" name="disc">Gestão de Processos</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN704" name="disc">Intro à Engenharia de Software Experimental</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN708" name="disc">Governança de Tecnologia da Informação</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN733" name="disc">Interação Humano-Computador</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN734" name="disc">Engenharia de Requisitos</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN735" name="disc">Banco de Dados II</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN736" name="disc">Introdução à Web Semântica</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="IM877" name="disc">Empreendedorismo em Informática</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="TN747" name="disc">Inteligência de Negócios</button>
+                                    </li>
+                                    <li class="mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Tópicos Especiais em BD e Engenharia de Software</button>
+                                    </li>
+                                    <li class="pb-5 mb-2 text-gray-500 dark:text-gray-400">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-2.5 py-2 rounded hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600" value="" name="disc">Tópicos Especiais em Ciência da Computação</button>
+                                    </li>
+                                </from>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+</html>
