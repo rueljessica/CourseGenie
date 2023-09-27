@@ -17,3 +17,4 @@ View.global('tecoteco', 'https://i.ibb.co/m5rV9tM/png-logo.png')
 
 View.global('typo', 'https://i.ibb.co/SKk9kNd/png-typo.png')
 
+
