@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 const pdfjs = require('pdfjs-dist');
-const Aluno = require('../Models/Aluno');
-const DisciplinasCursada = require('../Models/DisciplinasCursada');
 
 var customVar;
 const historicoInfo = {};
