@@ -35,6 +35,10 @@ Route.get('/alterar', async ({ view }) => {
   return view.render('alterar')
 }).middleware('auth')
 
+Route.get('/pos_cadastro', async ({ view }) => {
+  return view.render('pos_cadastro')
+}).middleware('auth')
+
 
 Route.group(() => {
   Route.get('/login', 'AuthController.loginIndex')
