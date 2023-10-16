@@ -15,7 +15,7 @@ Route.get('/resetar', async ({ view }) => {
 })
 
 Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
-Route.get('/disc', 'DisciplinasController.get')
+Route.get('/disciplinas/:id', 'DisciplinasController.get')
   .middleware('auth')
   .as('disciplinas.get')
 
@@ -35,17 +35,21 @@ Route.get('/alterar', async ({ view }) => {
   return view.render('alterar')
 }).middleware('auth')
 
-
 Route.group(() => {
   Route.get('/login', 'AuthController.loginIndex')
   Route.post('/login', 'AuthController.login').as('auth.login')
 
   Route.get('/cadastro', 'AuthController.registerIndex')
   Route.post('/cadastro', 'AuthController.register').as('auth.register')
+  Route.post('/validar', 'AuthController.edit').as('auth.edit')
+  Route.post('/validarDisciplinas', 'AuthController.confirm_registration').as('auth.confirm_registration')
   Route.patch('/update', 'AuthController.registerUpdate').as('auth.registerUpdate').middleware('auth')
 
   Route.get('/logout', 'AuthController.logout').middleware('auth')
 })
+
+//disciplinas cursadas
+Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
 
 /*
 Route.get('/teste', async ({ view }) => {

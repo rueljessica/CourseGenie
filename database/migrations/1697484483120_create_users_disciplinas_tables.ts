@@ -29,13 +29,12 @@ export default class extends BaseSchema {
     this.schema.createTable('disciplinas_cursadas', (table) => {
       table.increments('id')
       table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE');
-      table.string('disciplina', 255).notNullable();
+      table.string('nome', 255).notNullable();
       table.string('codigo', 255).notNullable();
       table.string('situacao', 255);
       table.string('ano', 255);
       table.string('professor', 255);
       table.float('media');
-      table.string('creditos', 255);
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

@@ -20,21 +20,75 @@
     @include('layouts/sidebar')
 
     <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-      <div class="h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-         <p class="select-none text-3xl pt-1 pl-7 text-gray-900 dark:text-white"> < Perfil /> </p>
-         <div class="grid grid-cols-3 m-3 flex-shrink-0">
-            <div class="flex pl-5 pt-5 h-96 rounded bg-gray-50 dark:bg-gray-800">
-               <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 dark:bg-gray-600">
-                  <img class=" rounded w-36 h-36" src="{../../public/img/img.png}">
-               </div>
-               <div class="mr-10">
-                  <p class="pl-10 pt-5 text-2xl text-gray-600 dark:text-gray-400">{{auth.user.name}}</p>
-                  <p class="pl-10 pt-2 text-xl text-gray-600 dark:text-gray-400">E-mail: {{auth.user.email}}</p>
-                  <p class="pl-10 pt-2 text-xl text-gray-600 dark:text-gray-400">Matrícula: {{auth.user.matricula}}</p>
-               </div>
+      <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+         <h1 class="select-none text-3xl pt-5 pl-7 text-gray-900 dark:text-white"> < Perfil /> </h1>
+            <div class="grid grid-cols-2 p-2">
+                <div class="col-1 col-span-1 p-2">
+                    <div class="flex flex-col p-5 h-fit w-full rounded bg-gray-50 dark:bg-gray-800">
+                        <form action="#">
+                            <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
+                                 <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
+                                    <img class="rounded w-36 h-36" src="{../../public/img/img.png}">
+                                 </div>
+                                 <div class="sm:col-span-2">
+                                       <p class="text-white text-xl pl-1">{{auth.user.name}}</p>
+                                 </div>
+                                <div class="w-full">
+                                    <label for="matricula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula</label>
+                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.matricula}}" placeholder="123456789" required="">
+                                    <p class="text-white text-xl pl-1">{{auth.user.name}}</p>
+                                 </div>
+
+                                <div class="w-full">
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+                                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.email}}" placeholder="seu@email.com" required="">
+                                </div>
+                               
+                                <div class="w-full">
+                                    <label for="nacionalidade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nacionalidade</label>
+                                    <input type="text" name="nacionalidade" id="nacionalidade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.nacionalidade}}" placeholder="Nacionalidade" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="rg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RG</label>
+                                    <input type="text" name="rg" id="rg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.rg}}" placeholder="RG" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
+                                    <input type="text" name="cpf" id="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.cpf}}" placeholder="123.456.789-10" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="dataNascimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de Nascimento</label>
+                                    <input type="text" name="dataNascimento" id="dataNascimento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.dataNascimento}}" placeholder="DD/MM/AAAA" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="prazoConclusao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prazo para Conclusão (Padrão / Máximo)</label>
+                                    <input type="text" name="prazoConclusao" id="prazoConclusao" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.prazoConclusao}}" placeholder="AAAA.M / AAAA.M" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                    <input type="text" name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.status}}" placeholder="Status" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="ira" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRA</label>
+                                    <input type="text" name="ira" id="ira" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.ira}}" placeholder="0.00" required="">
+                                </div>
+                                <div class="w-full">
+                                    <label for="anoLetivo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano Letivo</label>
+                                    <input type="text" name="anoLetivo" id="anoLetivo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.anoLetivo}}" placeholder="AAAA.1" required="">
+                                </div>
+                            </div>   
+                        </form>
+                    </div>       
+                </div>
+                <div class="col-1 col-span-1 p-2">
+                    <div class="flex flex-col p-5 h-fit w-full rounded bg-gray-50 dark:bg-gray-800">
+                        <h1 class="select-none text-lg text-gray-900 dark:text-white"> Componentes Curriculares </h1>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+         </div> 
+      </div> 
+
+
    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>

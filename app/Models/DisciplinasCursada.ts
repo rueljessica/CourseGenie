@@ -7,7 +7,7 @@ export default class DisciplinasCursada extends BaseModel {
   public id: number
 
   @column()
-  public disciplina: string
+  public nome: string
 
   @column()
   public codigo: string
@@ -23,9 +23,6 @@ export default class DisciplinasCursada extends BaseModel {
 
   @column()
   public media: number
-
-  @column()
-  public creditos: string
 
   @column()
   public userId: number
