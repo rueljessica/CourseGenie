@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import User from 'App/Models/User'
 import ParsePDF from 'App/Helpers/ParsePDF'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Application from '@ioc:Adonis/Core/Application'
-import DisciplinasCursada from 'App/Models/DisciplinasCursada'
+import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursadasController'
+
+const disciplinasCursadas = new DisciplinasCursadaController();
 
 export default class AuthController {
     public async loginIndex({ view }: HttpContextContract) {
@@ -34,82 +35,79 @@ export default class AuthController {
         return view.render('register')
     }
 
+    public async register({ auth, request, response, view }: HttpContextContract) {
+        const user = new User();
+        user.name = request.input('name');
+        user.email = request.input('email');
+        user.password = request.input('password');
 
-    public async register({ request, response }: HttpContextContract) {
-        const newUserSchema = await request.validate({
-            schema: schema.create({
-                name: schema.string(),
-                email: schema.string([
-                    rules.email(),
-                    rules.unique({ table: 'users', column: 'email' })
-                ]),
-                password: schema.string([
-                    rules.minLength(4)
-                ])
-            }),
-            //não ta funcionando
-            messages: {
-                "email.unique": "Esse e-mail já está sendo utilizado.",
-                required: "Esse campo é obrigatório",
-                "password.minLength": "Sua senha precisa ter no mínimo 4 caracteres."
-            },
+        //avatar
+        const avatar = request.file('avatar')
+        if (!avatar) {
+            return response.badRequest('Please upload file')
+        }
+        const imageName = new Date().getTime().toString() + `.${avatar.extname}`
+        await avatar?.move(Application.publicPath('imgs'), {
+            name: imageName
         })
 
+        user.avatar = `imgs/${imageName}`
+
+        //historico
+        const historico = request.file('historico')
+        if (!historico) {
+            return response.badRequest('Please upload file')
+        }
+        const fileName = new Date().getTime().toString() + `.${historico.extname}`
+        await historico?.move(Application.publicPath('historicos'), {
+            name: fileName
+        })
+
+        user.historico = `historico/${fileName}`
+
+        var parse = new ParsePDF();
+        var json = await parse.read(Application.publicPath('historicos') + "/" + fileName)
+
+        user.nomeCompleto = json.nome
+        user.nacionalidade = json.nacionalidade
+        user.rg = json.rg
+        user.cpf = json.cpf
+        user.dataNascimento = json.dataNascimento
+        user.prazoConclusao = json.prazoConclusao
+        user.status = json.status
+        user.ira = json.ira
+        user.anoLetivo = json.anoLetivo
+        user.matricula = json.matricula
+        
+        await user.save();
+        await disciplinasCursadas.store(user, json.disciplinas)
+        await auth.use('web').attempt(user.email, request.input('password'))
+
+        return view.render('confirm_dadosPessoais', { user: user })
+    }
+
+    public async edit({ auth, request, response, view }: HttpContextContract) {
         try {
-            const user = await User.create(newUserSchema)
+            const user = await User
+                .query()
+                .where('email', auth.user?.email)
+                .update({
+                    name: request.input('name'),
+                    email: request.input('email'),
+                    matricula: request.input('matricula'),
+                    nacionalidade: request.input('nacionalidade'),
+                    rg: request.input('rg'),
+                    cpf: request.input('cpf'),
+                    dataNascimento: request.input('dataNascimento'),
+                    prazoConclusao: request.input('prazoConclusao'),
+                    status: request.input('status'),
+                    ira: request.input('ira'),
+                    anoLetivo: request.input('anoLetivo')
+                })
+            
+            const disciplinas = await disciplinasCursadas.list(auth);
 
-            //avatar
-            const avatar = request.file('avatar')
-            if (!avatar) {
-                return response.badRequest('Please upload file')
-            }
-            const imageName = new Date().getTime().toString() + `.${avatar.extname}`
-            await avatar?.move(Application.publicPath('imgs'), {
-                name: imageName
-            })
-
-            user.avatar = `imgs/${imageName}`
-
-            //historico
-            const historico = request.file('historico')
-            if (!historico) {
-                return response.badRequest('Please upload file')
-            }
-            const fileName = new Date().getTime().toString() + `.${historico.extname}`
-            await historico?.move(Application.publicPath('historicos'), {
-                name: fileName
-            })
-
-            user.historico = `historico/${fileName}`
-
-            var parse = new ParsePDF();
-            var json = await parse.read(Application.publicPath('historicos') + "/" + fileName)
-
-            user.nomeCompleto = json.nome
-            user.nacionalidade = json.nacionalidade
-            user.rg = json.rg
-            user.cpf = json.cpf
-            user.dataNascimento = json.dataNascimento
-            user.prazoConclusao = json.prazoConclusao
-            user.status = json.status
-            user.ira = json.ira
-            user.anoLetivo = json.anoLetivo
-            user.matricula = json.matricula
-            await user.save();
-
-            const disciplinasData = json.disciplinas
-            const disciplinas = []
-
-            for (const disciplinaData of disciplinasData) {
-                const disciplina = new DisciplinasCursada()
-                disciplina.fill(disciplinaData)
-                disciplinas.push(disciplina)
-            }
-
-            await user.related('disciplinas').saveMany(disciplinas)
-            await user.save();
-
-            return response.redirect('/login')
+            return view.render('confirm_dadosHistorico', { disciplinas: disciplinas })
         } catch (error) {
             return response.badRequest(error.messages)
         }

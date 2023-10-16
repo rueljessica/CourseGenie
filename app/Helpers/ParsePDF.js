@@ -39,7 +39,6 @@ class ParsePDF {
         const anoPattern = /Ano: (.+)/;
         const professorPattern = /Professor: (.+)\(.+\)/;
         const mediaPattern = /Média: ([\d,]+)/;
-        const creditosPattern = /\(.*\)/;
 
         const disciplinas = [];
         const lines = historicoTexto.split('-----------------------\n');
@@ -48,7 +47,7 @@ class ParsePDF {
             const disciplinaMatch = lines[i].match(disciplinaPattern);
             if (disciplinaMatch) {
                 const disciplina = {
-                    disciplina: disciplinaMatch[1].trim(),
+                    nome: disciplinaMatch[1].trim(),
                 };
 
                 const codigoMatch = lines[i].match(codigoPattern);
@@ -74,12 +73,6 @@ class ParsePDF {
                 const mediaMatch = lines[i].match(mediaPattern);
                 if (mediaMatch) {
                     disciplina.media = parseFloat(mediaMatch[1].replace(',', '.'));
-                }
-
-                const creditosMatch = lines[i].match(creditosPattern);
-                if (creditosMatch) {
-                    var aux = creditosMatch[0].replace('(', '');
-                    disciplina.creditos = aux.replace('h)', '');
                 }
                 disciplinas.push(disciplina);
             }
