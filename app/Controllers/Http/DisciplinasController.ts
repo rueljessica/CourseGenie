@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Disciplina from 'App/Models/Disciplina'
-import PreRequisito from 'App/Models/PreRequisito'
-import Unidade from 'App/Models/Unidade'
 
 export default class DisciplinasController {
     public async list({ view, response }: HttpContextContract) {
@@ -19,34 +17,17 @@ export default class DisciplinasController {
             const body = request.only(['disc'])
             var codigo = body.disc
 
-            const disciplina = await Disciplina
-                .query()
-                .where('codigo', codigo)
-                .first()
-            const unidades = await Unidade
-            .query()
-            .where('disciplina_id', disciplina?.id)
-            
-            const prerequisitos = await PreRequisito
-            .query()
-            .where('disciplina_id', disciplina?.id)
+            const disciplina = await Disciplina.query()
+            .where('codigo', codigo)
+            .preload('preRequisitos', (preRequisito) => {
+                preRequisito.select(['id', 'nome', 'codigo']);
+            })
+            .preload('conteudoProgramaticos', (conteudo) => {
+                conteudo.select(['id', 'unidade', 'topicos']);
+            })
+            .first();
 
-            const item = {
-                nome: disciplina?.nome,
-                nucleo: disciplina?.nucleo,
-                codigo: disciplina?.codigo,
-                periodo: disciplina?.periodo,
-                creditos: disciplina?.creditos,
-                carga_horaria: disciplina?.carga_horaria,
-                objetivo: disciplina?.objetivo,
-                ementa: disciplina?.ementa,
-                bibliografia_basica: disciplina?.bibliografia_basica,
-                bibliografia_complementar: disciplina?.bibliografia_complementar,
-                unidades: unidades,
-                pre_requisitos: prerequisitos
-            }
-
-            return view.render('teste', { disciplina: item})
+            return view.render('teste', { disciplina: disciplina })
 
         } catch (error) {
             return response.badRequest('Error' + error)

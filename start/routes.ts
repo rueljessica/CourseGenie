@@ -2,9 +2,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('home')
-})
+Route.get('/', 'InitsController.index')
 
 Route.get('/sobre', async ({ view }) => {
   return view.render('sobre')
@@ -51,7 +49,5 @@ Route.group(() => {
 //disciplinas cursadas
 Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
 
-/*
-Route.get('/teste', async ({ view }) => {
-  return view.render('teste')
-}).middleware('auth')*/
+
+//Route.get('/teste', 'InitsController.teste')

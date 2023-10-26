@@ -28,7 +28,7 @@
                     <p class="pl-2 pt-1 text-xl text-gray-900 dark:text-white"> Código: {{disciplina.codigo}}</p>
                 </div>
                 <p class="inline-flex pl-10 text-base text-gray-900 dark:text-white"> Pré Requisitos:</p>
-                @each(pre_requisito in disciplina.pre_requisitos)  
+                @each(pre_requisito in disciplina.preRequisitos)  
                     <div class="inline-flex pl-3 ">
                         <kbd class="px-0.5 py-1.5 text-xs font-semibold border border-gray-200 rounded-lg bg-gradient-to-tr from-violet to-blue text-white dark:border-gray-500">{{ pre_requisito.nome }} #{{ pre_requisito.codigo }}</kbd>   
                     </div>
@@ -44,7 +44,7 @@
                     <div id="accordion-collapse-body-1" class="hidden overflow-auto h-80" aria-labelledby="accordion-collapse-heading-1">
                         <div class="p-5 border rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900">
                             <dl class="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                                @each(unidade in disciplina.unidades)
+                                @each(unidade in disciplina.conteudoProgramaticos)
                                     <div class="flex flex-col pb-3">
                                         <dt class="text-xl pt-3 font-medium text-gray-900 dark:text-white"> {{unidade.titulo}}</p>
                                         @each(topico in unidade.topicos)
