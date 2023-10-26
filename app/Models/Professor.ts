@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
@@ -9,7 +10,7 @@ export default class Professor extends BaseModel {
   public nome: string
 
   @column()
-  public sala: number
+  public sala: string
 
   @column()
   public descricao: string

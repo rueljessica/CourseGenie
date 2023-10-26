@@ -1,19 +1,21 @@
 /* eslint-disable prettier/prettier */
 import { DateTime } from 'luxon'
-import { column, BaseModel} from '@ioc:Adonis/Lucid/Orm'
+import { column, BaseModel, manyToMany, ManyToMany, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import ConteudoProgramatico from './ConteudoProgramatico'
+import DisciplinaPreRequisito from './DisciplinaPreRequisito'
 
 export default class Disciplina extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public nome: string
+  public codigo: string
 
   @column()
   public nucleo: string
 
   @column()
-  public codigo: string
+  public nome: string
 
   @column()
   public periodo: number
@@ -22,7 +24,7 @@ export default class Disciplina extends BaseModel {
   public creditos: number
 
   @column()
-  public carga_horaria: string
+  public cargaHoraria: number
 
   @column()
   public objetivo: string[]
@@ -35,6 +37,24 @@ export default class Disciplina extends BaseModel {
 
   @column()
   public bibliografia_complementar: string[]
+
+  @manyToMany(() => Disciplina, {
+    localKey: 'id',
+    pivotForeignKey: 'disciplina_id',
+    //relatedKey: 'id',
+    pivotRelatedForeignKey: 'pre_requisito_id',
+    pivotTable: 'disciplina_pre_requisitos',
+  })
+  public preRequisitos: ManyToMany<typeof Disciplina>
+
+  // Define o relacionamento um-para-muitos com a tabela 'disciplina_pre_requisito' para obter os pré-requisitos
+  @hasMany(() => DisciplinaPreRequisito, {
+    foreignKey: 'disciplina_id',
+  })
+  public preRequisitosRelacionados: HasMany<typeof DisciplinaPreRequisito>;
+
+  @hasMany(() => ConteudoProgramatico)
+  public conteudoProgramaticos: HasMany<typeof ConteudoProgramatico>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
