@@ -27,7 +27,7 @@ export default class DisciplinasController {
             })
             .first();
 
-            return view.render('teste', { disciplina: disciplina })
+            return view.render('disciplina', { disciplina: disciplina })
 
         } catch (error) {
             return response.badRequest('Error' + error)

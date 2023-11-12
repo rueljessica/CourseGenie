@@ -1186,7 +1186,7 @@
         ]
     },
     {
-        "codigo": "IM877",
+        "codigo": "TN754",
         "nucleo": "Formação Específica e Optativas",
         "nome": "EMPREENDEDORISMO EM INFORMÁTICA",
         "periodo": -1,
@@ -3565,7 +3565,7 @@
     {
         "codigo": "TM431",
         "nucleo": "Formação Especéfica e Optativas",
-        "nome": "Introdução a Teoria das Redes de Petri",
+        "nome": "Introdução à Teoria das Redes de Petri",
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -6278,5 +6278,65 @@
             "Soares, L.F.G., Lemos, G., Colcher, S. Redes de Computadores: Das LANs, MANs, e WANs às Redes ATM. Ed. Campus, Rio de Janeiro, 2002",
             "Comer, D.E. Redes de Computadores e Internet. 2a Ed., Bookman, Porto Alegre, 2001"
         ]
+    },
+    {
+        "nome": "Fundamentos de Sistemas",
+        "codigo": "IM899",
+        "periodo": -1
+    },
+    {
+        "nome": "Arquitetura de Computadores II",
+        "codigo": "TM409",
+        "periodo": -1
+    },
+    {
+        "nome": "Tópicos Especiais em Ciência da Computação",
+        "codigo": "TM411",
+        "periodo": -1
+    },
+    {
+        "nome": "Projeto de Sistemas",
+        "codigo": "TM413",
+        "periodo": -1
+    },
+    {
+        "nome": "Sistemas Distribuídos",
+        "codigo": "IM873",
+        "periodo": -1
+    },
+    {
+        "nome": "Computação III",
+        "codigo": "TM414",
+        "periodo": -1
+    },
+    {
+        "nome": "Tópicos Especiais em Banco de Dados e Engenharia de Software",
+        "codigo": "TM415",
+        "periodo": -1
+    },
+    {
+        "nome": "Tópicos Especiais em Inteligência Artificial",
+        "codigo": "TN753",
+        "periodo": -1
+    },
+    {
+        "nome": "Tópicos Especiais em Programação de Computadores",
+        "codigo": "TM418",
+        "periodo": -1
+    },
+    {
+        "nome": "Empreendedorismo em Informática",
+        "codigo": "IM877",
+        "periodo": -1
+    },
+    {
+        "nome": "Gerência de Projetos",
+        "codigo": "TM419",
+        "periodo": -1
+    },
+    {
+        "nome": "Tópicos Especiais em Otimização",
+        "codigo": "TM420",
+        "periodo": -1
     }
 ]

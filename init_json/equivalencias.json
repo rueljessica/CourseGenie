@@ -1,0 +1,212 @@
+[
+    {
+        "disciplina": {
+            "nome": "Computação I",
+            "codigo": "TM422"
+        },
+        "equivalente": {
+            "nome": "Programação Estruturada",
+            "codigo": "TN706"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Matemática Discreta para Computação",
+            "codigo": "TM403"
+        },
+        "equivalente": {
+            "nome": "Matemática Discreta para Computação",
+            "codigo": "TN705"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Introdução à Ciência da Computação",
+            "codigo": "TM404"
+        },
+        "equivalente": {
+            "nome": "Introdução à Ciência da Computação",
+            "codigo": "TN707"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Computação II",
+            "codigo": "TM423"
+        },
+        "equivalente": {
+            "nome": "Programação Orientada a Objetos",
+            "codigo": "TN717"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Estrutura de Dados I",
+            "codigo": "TM424"
+        },
+        "equivalente": {
+            "nome": "Estruturas de Dados I",
+            "codigo": "TN711"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Linguagens Formais e Autômatos",
+            "codigo": "IM854"
+        },
+        "equivalente": {
+            "nome": "Linguagens Formais e Autômatos",
+            "codigo": "TN715"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Arquitetura de Computadores i",
+            "codigo": "TM405"
+        },
+        "equivalente": {
+            "nome": "Arquitetura de Computadores",
+            "codigo": "TN712"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Grafos e Algoritmos",
+            "codigo": "TM408"
+        },
+        "equivalente": {
+            "nome": "Grafos e Algoritmos",
+            "codigo": "TN718"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Cálculo Aplicado",
+            "codigo": "TM406"
+        },
+        "equivalente": {
+            "nome": "Cálculo III",
+            "codigo": "IM425"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Estruturas de Dados II",
+            "codigo": "IM860"
+        },
+        "equivalente": {
+            "nome": "Estruturas de Dados II",
+            "codigo": "TN730"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Métodos Numéricos",
+            "codigo": "TM410"
+        },
+        "equivalente": {
+            "nome": "Métodos Numéricos",
+            "codigo": "TN726"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Linguagens de Programação",
+            "codigo": "IM864"
+        },
+        "equivalente": {
+            "nome": "Linguagens de Programação",
+            "codigo": "TN720"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Inteligência Artificial",
+            "codigo": "IM870"
+        },
+        "equivalente": {
+            "nome": "Inteligência Artificial",
+            "codigo": "TN724"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Projeto e Análise de Algoritmos",
+            "codigo": "TM425"
+        },
+        "equivalente": {
+            "nome": "Análise e Projeto de Algoritmos",
+            "codigo": "TN723"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Compiladores",
+            "codigo": "IM861"
+        },
+        "equivalente": {
+            "nome": "Compiladores",
+            "codigo": "TN725"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Banco de Dados",
+            "codigo": "TM426"
+        },
+        "equivalente": {
+            "nome": "Banco de Dados",
+            "codigo": "TN727"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Modelagem de Sistemas",
+            "codigo": "TM412"
+        },
+        "equivalente": {
+            "nome": "Modelagem e Projeto de Software",
+            "codigo": "TN716"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Redes de Computadores",
+            "codigo": "TM427"
+        },
+        "equivalente": {
+            "nome": "Redes e Sistemas Distribuídos",
+            "codigo": "TN729"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Engenharia de Software I",
+            "codigo": "IM866"
+        },
+        "equivalente": {
+            "nome": "Engenharia de Software I",
+            "codigo": "TN710"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Otimização Linear",
+            "codigo": "TM417"
+        },
+        "equivalente": {
+            "nome": "Otimização Linear",
+            "codigo": "TN728"
+        }
+    },
+    {
+        "disciplina": {
+            "nome": "Computadores e Sociedade",
+            "codigo": "IM871"
+        },
+        "equivalente": {
+            "nome": "Computadores e Sociedade",
+            "codigo": "TN703"
+        }
+    }
+]

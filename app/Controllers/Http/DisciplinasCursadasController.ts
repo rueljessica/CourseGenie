@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
+import Disciplina from 'App/Models/Disciplina'
 
 export default class DisciplinasCursadasController {
     public async store(user, disciplinasData) {
@@ -15,6 +16,23 @@ export default class DisciplinasCursadasController {
             disciplinaData.ano = disciplinaData.ano || '--'
             disciplinaData.professor = disciplinaData.professor || '--'
 
+            //busca de tipo
+
+            const discByCode = await Disciplina.query()
+                .where('codigo', disciplinaData.codigo)
+                .first()
+
+            if (discByCode?.periodo) {
+                if (discByCode?.periodo === -1) {
+                    disciplinaData.tipo = "OPTATIVA"
+                } else {
+                    disciplinaData.tipo = "OBRIGATORIA"
+                }
+            }
+            else {
+                disciplinaData.tipo = " "
+            }
+
             disciplina.fill(disciplinaData)
             disciplinas.push(disciplina)
         }
@@ -22,30 +40,40 @@ export default class DisciplinasCursadasController {
         await user.related('disciplinas').saveMany(disciplinas)
     }
 
+    public async listGrade({ auth, response, view }: HttpContextContract) {
+        try {
+            const listDisciplinas = await DisciplinasCursada
+                .query()
+                .where('user_id', auth.user?.id)
+                .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
+
+            const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
+
+            const codigosOP = listDisciplinas
+                .filter((disciplina) => disciplina.tipo === "OPTATIVA")
+                .flatMap((_, index) => `OP${index + 1}`);
+
+            const codigosEletiva = listDisciplinas
+                .filter((disciplina) => disciplina.tipo === "ELETIVA")
+                .map((_) => `ELETIVA`);
+
+            const result = codigos.concat(codigosOP, codigosEletiva);
+
+            return view.render('grade_curricular', { disciplinas: result })
+        } catch (error) {
+            return response.status(500).json({ error: error.message })
+        }
+    }
+
     public async list(auth) {
         return await DisciplinasCursada
             .query()
             .where('user_id', auth.user?.id)
     }
-    /*
-    public async get({ params, view, auth }: HttpContextContract) {
-        const disciplina = await DisciplinasCursada.query()
-            .where('user_id', auth.user?.id)
-            .where('codigo', params.codigo)
-            .where('ano', params.ano)
-            .where('situacao', params.situacao)
-            .first()
-
-        if (!disciplina) {
-            return 'Disciplina não encontrada'
-        }
-        console.log(disciplina.nome)
-        return view.render('layouts/disciplinas/edit', { disciplina })
-    }*/
 
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, codigo, media, anoAnterior, codigoAnterior, situacaoAnterior} = request.all()
+            const { disciplina, ano, professor, situacao, codigo, media, tipo, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
 
             const disciplinaToUpdate = await DisciplinasCursada.query()
                 .where('user_id', auth.user?.id)
@@ -65,6 +93,7 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.situacao = situacao
             disciplinaToUpdate.codigo = codigo
             disciplinaToUpdate.media = media
+            disciplinaToUpdate.tipo = tipo
 
             // Salva as alterações no banco de dados
             await disciplinaToUpdate.save()

@@ -54,6 +54,9 @@
                 Média
               </th>
               <th scope="col" class="px-6 py-3">
+                Classificação
+              </th>
+              <th scope="col" class="px-6 py-3">
 
               </th>
             </tr>
@@ -81,8 +84,11 @@
                 {{ disciplina.media || "" }}
               </td>
               <td class="px-6 py-4">
+                {{ disciplina.tipo || "" }}
+              </td>
+              <td class="px-6 py-4">
                 <button
-                  onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}')"
+                  onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}', '{{ disciplina.tipo }}')"
                   class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
               </td>
             </tr>
@@ -209,6 +215,18 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             value="" placeholder="" required="">
                         </div>
+                        <div class="w-full">
+                          <label for="tipo"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
+                          <select id="editTipo" name="tipo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="OBRIGATORIO"> </option>
+                            <option value="OBRIGATORIO">OBRIGATORIO</option>
+                            <option value="OPTATIVA">OPTATIVA</option>
+                            <option value="ELETIVA">ELETIVA</option>
+                            <option value="EQUIVALENTE">EQUIVALENTE</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
                     <!-- Modal footer -->
@@ -249,7 +267,7 @@
   let codigo;
   let ano;
   let situacao;
-  function openEditModal(nome, codigo, situacao, ano, professor, media) {
+  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo) {
     this.ano = ano;
     this.codigo = codigo;
     this.situacao = situacao;
@@ -261,6 +279,7 @@
     const editAnoField = document.getElementById('editAno');
     const editProfessorField = document.getElementById('editProfessor');
     const editMediaField = document.getElementById('editMedia');
+    const editTipoField = document.getElementById('editTipo');
 
     editNomeField.value = nome;
     editCodigoField.value = codigo;
@@ -268,6 +287,7 @@
     editAnoField.value = ano;
     editProfessorField.value = professor;
     editMediaField.value = media;
+    editTipoField.value = tipo;
 
     editModal.classList.remove('hidden');
   }

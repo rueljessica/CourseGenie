@@ -25,6 +25,9 @@ export default class DisciplinasCursada extends BaseModel {
   public media: number
 
   @column()
+  public tipo: string
+
+  @column()
   public userId: number
 
   @belongsTo(() => User)
