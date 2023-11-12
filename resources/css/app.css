@@ -3,3 +3,27 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+
+
+.dark svg > g > path {
+    stroke-width: 4px;
+    stroke: white;
+}
+
+svg > g > path {
+    stroke-width: 4px;
+    stroke: black;
+}
+
+svg > g > path:hover {
+    stroke-width: 8px;
+}
+
+use {
+    opacity: 0.9;
+}
+
+#periodo{
+    stroke: none;
+}

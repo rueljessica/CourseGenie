@@ -83,11 +83,13 @@ class ParsePDF {
     async map(paragraph, i) {
         const regex1 = /[0-9]{4}.[0-9]/g;
         const regex2 = /.*\([0-9]+h\)/g;
-        const regex3 = /^[a-zA-Zá-úÁ-Úà-ùÀ-Ù ]{5,}$/g;
-        const regex4 = /^[a-zA-Z]{2}[0-9]{3}|ENADE$/g;
-        const regex5 = /^APR|APRN|CANC|DISP|MATRICULADO|MATR|REC|REP|REPF|REPMF|REPN|REPNF|TRANCADO|TRANC|TRANS|INCORP|CUMP|INCORP$/g;
-        const regex6 = /^[0-9]{1,2},[0-9]{1}$/g;
+        const regex3 = /^([a-zA-Zá-úÁ-Úà-ùÀ-Ù ]{5,})$/g;
+        const regex4 = /^([a-zA-Z]{2}[0-9]{3}|ENADE)$/g;
+        const regex5 = /^(APR|APRN|CANC|DISP|MATRICULADO|MATR|REC|REP|REPF|REPMF|REPN|REPNF|TRANCADO|TRANC|TRANS|INCORP|CUMP|INCORP)$/g;
+        const regex6 = /^([0-9]{1,2},[0-9]{1})$/g;
         const regex7 = /^Componentes Curriculares Obrigat[oó]rios Pendentes:[0-9]+$/g;
+        const regex8 = /^Atividades Aut[ôo]nomas do Discente$/g;
+        const regex9 = /^Legenda$/g;
 
         if (paragraph.match(regex1)) {
             customVar += '-----------------------\n';
@@ -97,14 +99,14 @@ class ParsePDF {
         } else if (paragraph.match(regex4)) {
             customVar += 'Código: ' + paragraph + '\n';
             i += 5;
-        } else if (paragraph.match(regex3)) {
-            customVar += 'Disciplina: ' + paragraph + '\n';
         } else if (paragraph.match(regex2)) {
             customVar += 'Professor: ' + paragraph + '\n';
         } else if (paragraph.match(regex6)) {
             customVar += 'Média: ' + paragraph + '\n';
-        } else if (paragraph.match(regex7)) {
+        } else if (paragraph.match(regex7) || paragraph.match(regex8) || paragraph.match(regex9)) {
             return -1;
+        } else if (paragraph.match(regex3)) {
+            customVar += 'Disciplina: ' + paragraph + '\n';
         }
         return i;
     }
@@ -124,7 +126,7 @@ class ParsePDF {
                 historicoInfo.ira = pageText[76];
                 historicoInfo.anoLetivo = pageText[91];
                 historicoInfo.matricula = pageText[103];
-
+                
                 var historico = pageText.slice(122, pageText.length - 9);
                 for (var i = 0; i < historico.length; i++) {
                     i = await this.map(historico[i], i);

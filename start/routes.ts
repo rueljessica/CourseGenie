@@ -21,9 +21,9 @@ Route.get('/perfil', async ({ view }) => {
   return view.render('perfil')
 }).middleware('auth')
 
-Route.get('/grade', async ({ view }) => {
+/*Route.get('/grade', async ({ view }) => {
   return view.render('grade_curricular')
-}).middleware('auth')
+}).middleware('auth')*/
 
 Route.get('/eixos', async ({ view }) => {
   return view.render('eixos')
@@ -51,3 +51,5 @@ Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('di
 
 
 //Route.get('/teste', 'InitsController.teste')
+
+Route.get('/grade', 'DisciplinasCursadasController.listGrade').middleware('auth')
