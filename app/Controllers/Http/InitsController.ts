@@ -88,6 +88,6 @@ export default class InitsController {
                 return response.badRequest(`Erro ao fazer o parsing do JSON: ${parseError}`);
             }
         });
-        return view.render('home');
+        return view.render('home/home');
     }
 }

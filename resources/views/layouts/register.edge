@@ -18,13 +18,13 @@
 </head>
 @!section('body')
 
-@include('layouts/navbar')
+@include('components/navbar')
 
-<section class="bg-gray-50 dark:bg-gray-900">
+<section class="bg-gray-50 dark:bg-black w-screen">
     <form method="POST" action="{{ route('auth.register')}}" enctype="multipart/form-data"> {{ csrfField() }}
         <div class="flex flex-col items-center justify-center px-6 py-8 mt-10 mx-auto md:h-screen lg:py-0">
-            <img class="h-20 pb-3 mr-2" src={{tecoteco}} alt="CourseGenie Logo">
-            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            
+            <div class="w-full bg-white rounded-lg shadow-sm dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1
                         class="text-xl text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -58,7 +58,7 @@
                             <div class="inline-flex ml-3 text-sm">
                                 <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Eu aceito os</label>
                                 <button data-modal-target="termosModal" data-modal-toggle="termosModal" class="pl-1 text-gray-500 dark:text-gray-300 font-medium hover:underline" type="button"> Termos e Condições</button>
-                                @include('layouts/modal_termos')
+                                @include('components/modal_termos')
                             </div>
                         </div>
                         <button type="submit"
@@ -74,7 +74,7 @@
 </section>
 
 <footer class="footer">
-    @include('layouts/footer')
+    @include('components/footer')
 </footer>
 
 <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>

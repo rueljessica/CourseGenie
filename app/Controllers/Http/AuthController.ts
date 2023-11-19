@@ -10,7 +10,7 @@ const disciplinasCursadas = new DisciplinasCursadaController();
 
 export default class AuthController {
     public async loginIndex({ view }: HttpContextContract) {
-        return view.render('login')
+        return view.render('users/login')
     }
 
     public async login({ request, response, auth, session }: HttpContextContract) {
@@ -32,7 +32,7 @@ export default class AuthController {
     }
 
     public async registerIndex({ view }: HttpContextContract) {
-        return view.render('register')
+        return view.render('users/register')
     }
 
     public async register({ auth, request, response, view }: HttpContextContract) {
