@@ -18,15 +18,15 @@
     @!section('body')
 
     @if(auth.isAuthenticated)
-        @include('layouts/navbar_user')
+        @include('components/navbar_user')
     @else
-        @include('layouts/navbar')
+        @include('components/navbar')
     @endif
 
-    @include('layouts/banner')
+    @include('components/banner')
 
     <footer class="footer">
-        @include('layouts/footer')
+        @include('components/footer')
     </footer>
 
     <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>

@@ -1,94 +1,144 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    @entryPointStyles('app')
-    @entryPointScripts('app')
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-    </script>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        @entryPointStyles('app')
+        @entryPointScripts('app')
+        <script>
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            } else {
+            document.documentElement.classList.remove('dark')
+            }
+        </script>
+    </head>
     @!section('body')
     
-    @include('layouts/sidebar')
+    @include('components/sidebar')
 
-    <div class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-      <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-         <h1 class="select-none text-3xl pt-5 pl-7 text-gray-900 dark:text-white"> < Perfil /> </h1>
-            <div class="grid grid-cols-2 p-2">
-                <div class="col-1 col-span-1 p-2">
-                    <div class="flex flex-col p-5 h-fit w-full rounded bg-gray-50 dark:bg-gray-800">
-                        <form action="#">
-                            <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
-                                 <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
+    <div class="bg-white dark:bg-black h-screen p-4 sm:ml-64">
+        <div class="p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+            <div class="container mx-auto my-5 p-1">
+                <div class="md:flex no-wrap md:-mx-2">
+                    <div class="w-full md:w-3/12 md:mx-2">
+                        <!-- Profile Card -->
+                        <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+                            <div class="image overflow-hidden">
+                                <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
                                     <img class="rounded w-36 h-36" src="{../../public/img/img.png}">
                                  </div>
-                                 <div class="sm:col-span-2">
-                                       <p class="text-white text-xl pl-1">{{auth.user.name}}</p>
-                                 </div>
-                                <div class="w-full">
-                                    <label for="matricula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula</label>
-                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.matricula}}" placeholder="123456789" required="">
-                                    <p class="text-white text-xl pl-1">{{auth.user.name}}</p>
-                                 </div>
+                            </div>
+                            <h1 class="text-gray-900 dark:text-white font-bold text-xl leading-8 my-1 pt-1">{{auth.user.name}}</h1>
+                            <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">Matrícula: {{auth.user.matricula}} </h3>
+                            <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">Ano Letivo: {{auth.user.anoLetivo}}</h3>
+                            <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">IRA: {{auth.user.ira}}</h3>    
+                            <ul class="bg-gray-100 dark:bg-gray-600 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                <li class="flex items-center py-3 text-gray-500 dark:text-white">
+                                    <span>Status</span>
+                                    <span class="ml-auto"><span class="bg-gradient-to-br from-violet to-blue py-1 px-2 rounded text-white text-sm">{{auth.user.status}}</span></span>
+                                </li>
+                                <li class="flex items-center py-3 text-gray-500 dark:text-white">
+                                    <span>Prazo para Conclusão</span>
+                                    <span class="ml-auto">{{auth.user.prazoConclusao}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End of profile card -->
+                        <div class="my-60"></div> 
+                    </div>
+                    <!-- Right Side -->
+                    <div class="w-full md:w-9/12 mx-2 h-64">
+                        <!-- Profile tab -->
+                        <!-- About Section -->
+                        <div class="bg-white dark:bg-gray-800 p-3 border-dashed rounded-lg shadow-md">
+                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                                <span>
+                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="gray">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </span>
+                                <span class="tracking-wide text-lg text-gray-900 dark:text-white">Sobre</span>
+                            </div>
+                            <div>
+                                <div class="grid md:grid-cols-2 text-sm">
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Nome</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nomeCompleto}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Data de Nascimento</div>
+                                        <div class="px-4 py-2">
+                                            <a class="text-base text-gray-500 dark:text-gray-400">{{auth.user.dataNascimento}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">RG</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.rg}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Matrícula</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.matricula}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CPF</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.cpf}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Nacionalidade</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nacionalidade}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">E-mail</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.email}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Prazo para Conclusão (Padrão / Máximo)</div>
+                                        <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.prazoConclusao}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of about section -->
 
-                                <div class="w-full">
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
-                                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.email}}" placeholder="seu@email.com" required="">
+                        <div class="my-5"></div>
+
+                        <!-- Experience and education -->
+                        <div class="bg-white dark:bg-gray-800 p-3 border-dashed rounded-lg shadow-md">
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                        <span clas="text-green-500">
+                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="gray">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                        </span>
+                                        <span class="tracking-wide text-lg text-gray-900 dark:text-white">Componentes Curriculares</span>
+                                    </div>
+                                    <ul class="list-inside space-y-2">
+                                        <li>
+                                            <div class="text-gray-500 dark:text-gray-400">Owner at Her Company Inc.</div>
+                                        </li>
+                                        <li>
+                                            <div class="text-gray-500 dark:text-gray-400">Owner at Her Company Inc.</div>
+                                        </li>
+                                        <li>
+                                            <div class="text-gray-500 dark:text-gray-400">Owner at Her Company Inc.</div>
+                                        </li>
+                                        <li>
+                                            <div class="text-gray-500 dark:text-gray-400">Owner at Her Company Inc.</div>
+                                        </li>
+                                    </ul>
                                 </div>
-                               
-                                <div class="w-full">
-                                    <label for="nacionalidade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nacionalidade</label>
-                                    <input type="text" name="nacionalidade" id="nacionalidade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.nacionalidade}}" placeholder="Nacionalidade" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="rg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RG</label>
-                                    <input type="text" name="rg" id="rg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.rg}}" placeholder="RG" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
-                                    <input type="text" name="cpf" id="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.cpf}}" placeholder="123.456.789-10" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="dataNascimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de Nascimento</label>
-                                    <input type="text" name="dataNascimento" id="dataNascimento" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.dataNascimento}}" placeholder="DD/MM/AAAA" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="prazoConclusao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prazo para Conclusão (Padrão / Máximo)</label>
-                                    <input type="text" name="prazoConclusao" id="prazoConclusao" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.prazoConclusao}}" placeholder="AAAA.M / AAAA.M" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                    <input type="text" name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.status}}" placeholder="Status" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="ira" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRA</label>
-                                    <input type="text" name="ira" id="ira" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.ira}}" placeholder="0.00" required="">
-                                </div>
-                                <div class="w-full">
-                                    <label for="anoLetivo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano Letivo</label>
-                                    <input type="text" name="anoLetivo" id="anoLetivo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value="{{auth.user.anoLetivo}}" placeholder="AAAA.1" required="">
-                                </div>
-                            </div>   
-                        </form>
-                    </div>       
-                </div>
-                <div class="col-1 col-span-1 p-2">
-                    <div class="flex flex-col p-5 h-fit w-full rounded bg-gray-50 dark:bg-gray-800">
-                        <h1 class="select-none text-lg text-gray-900 dark:text-white"> Componentes Curriculares </h1>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </div>
-         </div> 
-      </div> 
-
+        </div>
+    </div>
 
    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>

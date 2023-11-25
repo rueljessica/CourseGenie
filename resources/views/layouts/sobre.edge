@@ -18,13 +18,13 @@
     @!section('body')
     
     @if(auth.isAuthenticated)
-      @include('layouts/navbar_user')
+      @include('components/navbar_user')
     @else
-      @include('layouts/navbar')
+      @include('components/navbar')
     @endif
     
-    <div class="bg-white dark:bg-gray-900 flex items-center justify-center h-screen px-96">
-      <div class=" bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-10">
+    <div class="bg-white dark:bg-black flex items-center pb-20 h-screen px-96">
+      <div class=" bg-gray-50 dark:bg-gray-800 border shadow-md border-gray-200 dark:border-gray-700 rounded-lg md:p-10">
         <a class="flex items-center mb-10">
           <span class="self-center text-2xl font-sans dark:text-white">Sobre nós</span>
         </a>
@@ -50,7 +50,7 @@
       </div>    
     </div>
     <footer class="footer fixed bottom-0">
-      @include('layouts/footer')
+      @include('components/footer')
     </footer>
 
   <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
