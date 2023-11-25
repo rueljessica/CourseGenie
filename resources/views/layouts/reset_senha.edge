@@ -18,7 +18,7 @@
 </head>
 
 @!section('body')
-@include('layouts/navbar')
+@include('components/navbar')
 <section class="bg-gray-50 dark:bg-gray-900 w-screen h-screen">
     <form method="POST" action="{{ route('auth.login')}}">
         {{ csrfField() }}
@@ -67,7 +67,7 @@
 </section>
 
 <footer class="footer fixed bottom-0">
-    @include('layouts/footer')
+    @include('components/footer')
 </footer>
 
 <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>

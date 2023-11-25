@@ -18,7 +18,7 @@ Route.get('/disciplinas/:id', 'DisciplinasController.get')
   .as('disciplinas.get')
 
 Route.get('/perfil', async ({ view }) => {
-  return view.render('perfil')
+  return view.render('users/perfil')
 }).middleware('auth')
 
 Route.get('/grade', 'DisciplinasCursadasController.listGrade').middleware('auth')
@@ -28,7 +28,7 @@ Route.get('/eixos', async ({ view }) => {
 }).middleware('auth')
 
 Route.get('/alterar', async ({ view }) => {
-  return view.render('alterar')
+  return view.render('users/alterar')
 }).middleware('auth')
 
 Route.group(() => {
