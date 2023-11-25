@@ -50,3 +50,5 @@ Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('di
 //Route.get('/teste', 'InitsController.teste')
 
 Route.get('/generateTestData/:id', 'TestDataController.main')
+
+Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')

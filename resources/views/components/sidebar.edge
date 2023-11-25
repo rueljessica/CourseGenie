@@ -21,6 +21,7 @@
             <div id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
               data-dropdown-placement="bottom-start"
               class="w-10 h-10 overflow-hidden rounded-full cursor-pointer bg-gray-100 dark:bg-gray-600">
+              <img class="rounded" src="{{ route('files.show', { id: auth.user.avatar }) }}" />
               <!-- Dropdown menu -->
               <div id="userDropdown"
                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
