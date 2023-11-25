@@ -59,7 +59,7 @@ export default class DisciplinasCursadasController {
 
             const result = codigos.concat(codigosOP, codigosEletiva);
 
-            return view.render('grade_curricular', { disciplinas: result })
+            return view.render('disciplinas/grade_curricular', { disciplinas: result })
         } catch (error) {
             return response.status(500).json({ error: error.message })
         }
@@ -99,7 +99,7 @@ export default class DisciplinasCursadasController {
             await disciplinaToUpdate.save()
             const disciplinas = await this.list(auth);
 
-            return view.render('confirm_dadosHistorico', { disciplinas: disciplinas })
+            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
         } catch (error) {
             return response.status(500).json({ message: 'Ocorreu um erro ao atualizar a disciplina', error: error.message })
         }
