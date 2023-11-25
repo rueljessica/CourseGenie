@@ -52,3 +52,5 @@ Route.get('/teste', async ({ auth, view }) => {
 }).middleware('auth')
 
 Route.get('/generateTestData/:id', 'TestDataController.main')
+
+Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')
