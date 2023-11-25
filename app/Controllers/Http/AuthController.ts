@@ -107,7 +107,7 @@ export default class AuthController {
             
             const disciplinas = await disciplinasCursadas.list(auth);
 
-            return view.render('confirm_dadosHistorico', { disciplinas: disciplinas })
+            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
         } catch (error) {
             return response.badRequest(error.messages)
         }
