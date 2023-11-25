@@ -6,7 +6,7 @@ export default class DisciplinasController {
     public async list({ view, response }: HttpContextContract) {
         try {
             const list = await Disciplina.all()
-            return view.render('disciplinas', { disciplinas: list })
+            return view.render('disciplinas/disciplinas', { disciplinas: list })
         } catch (error) {
             return response.badRequest('Error')
         }
@@ -27,7 +27,7 @@ export default class DisciplinasController {
             })
             .first();
 
-            return view.render('disciplina', { disciplina: disciplina })
+            return view.render('disciplinas/disciplina', { disciplina: disciplina })
 
         } catch (error) {
             return response.badRequest('Error' + error)

@@ -4,8 +4,8 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'InitsController.index')
 
-Route.get('/sobre', async ({ view }) => {
-  return view.render('sobre')
+Route.get('sobre', async ({ view }) => {
+  return view.render('home/sobre')
 })
 
 Route.get('/resetar', async ({ view }) => {
@@ -24,7 +24,7 @@ Route.get('/perfil', async ({ view }) => {
 Route.get('/grade', 'DisciplinasCursadasController.listGrade').middleware('auth')
 
 Route.get('/eixos', async ({ view }) => {
-  return view.render('eixos')
+  return view.render('disciplinas/eixos')
 }).middleware('auth')
 
 Route.get('/alterar', async ({ view }) => {
@@ -47,7 +47,9 @@ Route.group(() => {
 //disciplinas cursadas
 Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
 
-//Route.get('/teste', 'InitsController.teste')
+Route.get('/teste', async ({ auth, view }) => {
+  return view.render('users/confirm_dadosPessoais', {user: auth.user})
+}).middleware('auth')
 
 Route.get('/generateTestData/:id', 'TestDataController.main')
 

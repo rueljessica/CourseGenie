@@ -1,85 +1,138 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    @entryPointStyles('app')
-    @entryPointScripts('app')
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-    </script>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        @entryPointStyles('app')
+        @entryPointScripts('app')
+        <script>
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            } else {
+            document.documentElement.classList.remove('dark')
+            }
+        </script>
+    </head>
     @!section('body')
     
     @include('components/sidebar')
 
-    <div class="bg-white dark:bg-black p-4 sm:ml-64 md:">
-        <div class="h-screen p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-            <p class="select-none text-3xl pt-5 pl-7 text-gray-900 dark:text-white">< Informações do Usuário /></p>
-            <div class="grid grid-cols-2 p-2 ">
-                <div class="col-1 col-span-1 p-2">
-                    <div class="flex flex-col pl-5 pt-5 h-fit w-full rounded bg-gray-50 dark:bg-gray-800">
-                        <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 mb-5 dark:bg-gray-600">
-                            <svg class="w-36 h-36 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                        </div> 
-                        <div class="">    
-                            <input class="block w-fit text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-                        </div>   
-                        <div class="flex flex-col items-end pr-5 pb-5 pt-2">
-                            <button type="submit"
-                                class="mt-3 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
-                            </button>
-                        </div>
-                    </div>       
-                </div>
-                <div class="col-2 col-span-1 p-2">
-                    <div class="flex flex-col pl-5 pt-5 w-full rounded bg-gray-50 dark:bg-gray-800">
-                        <form method="POST" action="/update?_method=PATCH">
-                            <div class="w-96">
-                                <label for="usuario"
-                                    class="block mb-2 text-sm font-mediumtext-gray-500 dark:text-gray-400">Nome do Usuário</label>
-                                <input type="name" name="name" id="name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="aluno" required="">
-                            </div>
-                            <div class="flex flex-col items-end pr-5 pb-5">
-                                <button type="submit"
-                                    class="mt-6 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
-                                </button>
-                            </div>
-                        </form>
-                    </div> 
-                </div>
-                <div class="col-1 col-span-1 p-2">
-                    <div class="flex flex-col pl-5 pt-5 w-full rounded bg-gray-50 dark:bg-gray-800">
+    <div class="bg-white dark:bg-black h-screen overflow-hidden p-4 sm:ml-64">
+        <div class="p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+            <div class="container mx-auto my-5 p-1">
+                <div class="md:flex no-wrap md:-mx-2">
+                    <div class="w-full md:w-3/12 md:mx-2">
+                        <!-- Profile Pic -->
                         <form>
-                            <div class="flex flex-col space-y-3">
-                                <div class="w-fit">
-                                    <label for="senha" class="block mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">Senha</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <div class="bg-white p-3 h-96 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+                                <div class="image overflow-hidden">
+                                    <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
+                                        <img class="rounded w-36 h-36" src="{../../public/img/img.png}">
+                                    </div>
                                 </div>
-                                <div class="w-fit">
-                                    <label for="senha" class="block mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">Confirmar senha</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                                </div>
-                                <div class="flex flex-col items-end pr-5 pb-5">
+                                <div class="pt-5">    
+                                    <input class="block w-fit text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                </div>   
+                                <div class="pt-20">
                                     <button type="submit"
-                                        class="mt-6 w-30 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
+                                        class="mt-8 w-fit text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
                                     </button>
                                 </div>
                             </div>
-                        </form> 
-                    </div>       
+                        </form>
+                        <!-- End -->
+                        <div class="my-96"></div> 
+                    </div>
+                    <div class="w-full md:w-3/12 md:mx-2">
+                        <!-- Historic -->
+                        <form>
+                            <div class="bg-white p-3 h-96 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+                                <div class="image overflow-hidden">
+                                    <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
+                                        <img class="rounded w-36 h-36" src="{../../public/img/img.png}">
+                                    </div>
+                                </div>
+                                <div class="pt-5">    
+                                    <input class="block w-fit text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                </div>   
+                                <div class="pt-20">
+                                    <button type="submit"
+                                        class="mt-8 w-fit text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- End -->
+                        <div class="my-96"></div> 
+                    </div>
+                    <!-- Right Side -->
+                    <div class="w-full md:w-9/12 mx-2 h-64">
+                        <!-- Chance name -->
+                        <div class="bg-white dark:bg-gray-800 p-3 border-dashed rounded-lg shadow-md">
+                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                                <span>
+                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="gray">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </span>
+                                <span class="tracking-wide text-lg text-gray-900 dark:text-white">Alterar nome de usuário</span>
+                            </div>
+                            <div>
+                                <div class="grid md:grid-cols-2 text-sm">
+                                    <form method="POST" action="/update?_method=PATCH">
+                                        <div class="w-96 pt-3">
+                                            <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nome de usuário" value="{{auth.user.name}}" required="">
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="mt-6 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of about section -->
+
+                        <div class="my-3"></div>
+
+                        <!-- Experience and education -->
+                        <div class="bg-white dark:bg-gray-800 p-3 border-dashed rounded-lg shadow-md">
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                        <span clas="text-green-500">
+                                            <svg class="h-5" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path>
+                                              </svg>
+                                        </span>
+                                        <span class="tracking-wide text-lg text-gray-900 dark:text-white">Alterar senha</span>
+                                    </div>
+                                    <form>
+                                        <div class="flex flex-col space-y-3">
+                                            <div class="w-96">
+                                                <input type="password" name="password" id="password" placeholder="Senha" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                            </div>
+                                            <div class="w-96">
+                                                <input type="password" name="password" id="password" placeholder="Confirmar senha" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                                            </div>
+                                            <div>
+                                                <button type="submit"
+                                                    class="mt-3 text-white text-center justify-center bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Salvar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
                 </div>
-         
             </div>
-        </div> 
-    </div> 
-    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+        </div>
+    </div>
+
+   <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>
