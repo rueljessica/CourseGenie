@@ -37,7 +37,7 @@ export default class DisciplinasCursadasController {
             disciplinas.push(disciplina)
         }
 
-        await user.related('disciplinas').saveMany(disciplinas)
+        await user.related('disciplinas').saveMany(disciplinas);
     }
 
     public async listGrade({ auth, response, view }: HttpContextContract) {
@@ -64,13 +64,7 @@ export default class DisciplinasCursadasController {
             return response.status(500).json({ error: error.message })
         }
     }
-
-    public async list(auth) {
-        return await DisciplinasCursada
-            .query()
-            .where('user_id', auth.user?.id)
-    }
-
+    
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
             const { disciplina, ano, professor, situacao, codigo, media, tipo, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()

@@ -17,9 +17,7 @@ Route.get('/disciplinas/:id', 'DisciplinasController.get')
   .middleware('auth')
   .as('disciplinas.get')
 
-Route.get('/perfil', async ({ view }) => {
-  return view.render('users/perfil')
-}).middleware('auth')
+Route.get('/perfil', 'AuthController.get').middleware('auth')
 
 Route.get('/grade', 'DisciplinasCursadasController.listGrade').middleware('auth')
 
