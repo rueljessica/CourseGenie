@@ -1,38 +1,58 @@
-<section class="bg-white dark:bg-gray-900 p-4 sm:ml-64">
-    <div class="flex h-screen p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20 overflow-auto">
-        <div class="hero-body">
-            <div class="inline-flex w-fit bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:p-5">
-                <p class="text-2xl text-gray-900 dark:text-white"> < {{disciplina.nome}} /></p>
-                <p class="pl-2 pt-1 text-xl text-gray-900 dark:text-white"> Código: {{disciplina.codigo}}</p>
+<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64">
+    <div class="p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+        <div class="grid md:grid-cols-2 gap-2 p-5">
+            <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+                <h1 class="text-gray-900 dark:text-white font-bold text-xl leading-8 my-1 pt-3 pl-1 pb-2">{{disciplina.nome}}</h1>
+                <ul class="bg-gray-100 dark:bg-gray-700 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 divide-y rounded shadow-sm">
+                    <li class="flex items-center py-3 text-gray-500 dark:text-white">
+                        <span>Código</span>
+                        <span class="ml-auto"><span class="bg-gradient-to-br from-violet to-blue py-1 px-2 rounded text-white text-sm">{{disciplina.codigo}}</span></span>
+                    </li>
+                    <li class="py-3 text-gray-500 dark:text-white">
+                        <span>Pré-Requisito</span>
+                        @each(pre_requisito in disciplina.preRequisitos)  
+                            <div class="flex pb-1">
+                                <span class="ml-auto"><span class="text-gray-500 dark:text-gray-400 py-1 px-2">{{ pre_requisito.nome }} ({{ pre_requisito.codigo }})</span></span>
+                            </div>
+                        @endeach
+                    </li>
+                    <li class="py-3 text-gray-500 dark:text-white">
+                        <span>Professores</span>
+                        @each(pre_requisito in disciplina.preRequisitos)  
+                            <div class="flex pb-1">
+                                <span class="ml-auto"><span class="text-gray-500 dark:text-gray-400 py-1 px-2">{{ pre_requisito.nome }} ({{ pre_requisito.codigo }})</span></span>
+                            </div>
+                        @endeach
+                    </li>
+                </ul>
             </div>
-            <p class="inline-flex pl-10 text-base text-gray-900 dark:text-white"> Pré Requisitos:</p>
-            @each(pre_requisito in disciplina.preRequisitos)  
-                <div class="inline-flex pl-3 ">
-                    <kbd class="px-0.5 py-1.5 text-xs font-semibold border border-gray-200 rounded-lg bg-gradient-to-tr from-violet to-blue text-white dark:border-gray-500">{{ pre_requisito.nome }} #{{ pre_requisito.codigo }}</kbd>   
-                </div>
-            @end
-            <div id="accordion-collapse" data-accordion="collapse" class="pt-10">
-                <div id="accordion-collapse-heading-1">
-                    <button type="button" class="flex items-center justify-between w-full p-5 text-xl text-left text-gray-500 border border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                        <span>Conteúdo Programático </span>
-                        <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </button>
-                </div>  
-                <div id="accordion-collapse-body-1" class="hidden overflow-auto h-80" aria-labelledby="accordion-collapse-heading-1">
-                    <div class="p-5 border rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                        <dl class="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                            @each(unidade in disciplina.conteudoProgramaticos)
-                                <div class="flex flex-col pb-3">
-                                    <dt class="text-xl pt-3 font-medium text-gray-900 dark:text-white"> {{unidade.unidade}}</p>
-                                    @each(topico in unidade.topicos)
-                                    <div>
-                                        <dd class="pl-3 text-lg text-gray-500 dark:text-gray-400"> {{topico}}</p>
-                                    @end
-                                </div>
-                            @end
-                        </dl> 
+            <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+                <div class="">
+                    <div id="accordion-collapse" data-accordion="collapse">
+                        <div id="accordion-collapse-heading-1">
+                            <button type="button" class="flex items-center justify-between w-full p-5 text-xl text-left text-gray-500 border border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                <span>Conteúdo Programático </span>
+                                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </button>
+                        </div>  
+                        <div id="accordion-collapse-body-1" class="hidden overflow-auto h-80" aria-labelledby="accordion-collapse-heading-1">
+                            <div class="p-5 border rounded-b-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800">
+                                <dl class="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                                    @each(unidade in disciplina.conteudoProgramaticos)
+                                        <div class="flex flex-col pb-3">
+                                            <dt class="text-xl pt-3 font-medium text-gray-900 dark:text-white"> {{unidade.unidade}}</dt>
+                                            @each(topico in unidade.topicos)
+                                                <div>
+                                                    <dd class="pl-3 text-lg text-gray-500 dark:text-gray-400"> {{topico}}</dd>
+                                                </div>
+                                            @endeach    
+                                        </div>
+                                    @endeach
+                                </dl> 
+                            </div>
+                        </div>  
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>

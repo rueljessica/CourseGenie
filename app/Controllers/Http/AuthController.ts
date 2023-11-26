@@ -78,12 +78,12 @@ export default class AuthController {
         user.ira = json.ira
         user.anoLetivo = json.anoLetivo
         user.matricula = json.matricula
-        
+
         await user.save();
         await disciplinasCursadas.store(user, json.disciplinas)
         await auth.use('web').attempt(user.email, request.input('password'))
 
-        return view.render('confirm_dadosPessoais', { user: user })
+        return view.render('users/confirm_dadosPessoais', { user: user })
     }
 
     public async edit({ auth, request, response, view }: HttpContextContract) {
@@ -104,7 +104,7 @@ export default class AuthController {
                     ira: request.input('ira'),
                     anoLetivo: request.input('anoLetivo')
                 })
-            
+
             const disciplinas = await disciplinasCursadas.list(auth);
 
             return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })

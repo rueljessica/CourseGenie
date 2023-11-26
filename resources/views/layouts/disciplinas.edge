@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     @entryPointStyles('app')
     @entryPointScripts('app')
     <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     </script>
-</head>
-@!section('body')
+  </head>
+  @!section('body')
 
-@include('components/sidebar')
+  @include('components/sidebar')
 
-@include('components/disciplinas')
+  @include('components/disciplinas')
 
-<footer class="footer">
-</footer>
-<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+  <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>
