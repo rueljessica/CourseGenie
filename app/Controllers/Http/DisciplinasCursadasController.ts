@@ -4,6 +4,12 @@ import DisciplinasCursada from 'App/Models/DisciplinasCursada'
 import Disciplina from 'App/Models/Disciplina'
 
 export default class DisciplinasCursadasController {
+    public async list(auth) {
+        return await DisciplinasCursada
+            .query()
+            .where('user_id', auth.user?.id)
+    }
+
     public async store(user, disciplinasData) {
         const disciplinas = []
 
