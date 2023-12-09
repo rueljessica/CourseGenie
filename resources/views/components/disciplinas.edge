@@ -25,8 +25,8 @@
                     </div>
                     <input type="text" id="search-navbar"
                         class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Buscar..." oninput="performSearch()" list="searchOptions">
-                    <datalist id="searchOptions"></datalist>
+                        placeholder="Buscar..." oninput="performSearch()">
+                    <div id="buttonResults"></div>
                 </div>
             </div>
         </div>
@@ -53,32 +53,38 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button type="submit" class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM853')">< Circuitos Digitais>
+                                    onclick="setDiscValue('IM853')">
+                                    < Circuitos Digitais>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN703')">< Computadores e Sociedade>
+                                    onclick="setDiscValue('TN703')">
+                                    < Computadores e Sociedade>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM885')">< Geometria Analítica>
+                                    onclick="setDiscValue('IM885')">
+                                    < Geometria Analítica>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN707')">< Introdução a Ciência da Computação>
+                                    onclick="setDiscValue('TN707')">
+                                    < Introdução a Ciência da Computação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN705')">< Matemática Discreta para Ciência da Computação>
+                                    onclick="setDiscValue('TN705')">
+                                    < Matemática Discreta para Ciência da Computação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN706')">< Programação Estruturada>
+                                    onclick="setDiscValue('TN706')">
+                                    < Programação Estruturada>
                                 </button>
                             </li>
                         </ul>
@@ -103,32 +109,38 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM429')">< Álgebra Linear I>
+                                    onclick="setDiscValue('IM429')">
+                                    < Álgebra Linear I>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN712')">< Arquitetura de Computadores>
+                                    onclick="setDiscValue('TN712')">
+                                    < Arquitetura de Computadores>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM403')">< Cálculo I>
+                                    onclick="setDiscValue('IM403')">
+                                    < Cálculo I>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN710')">< Engenharia de Software>
+                                    onclick="setDiscValue('TN710')">
+                                    < Engenharia de Software>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN711')">< Estrutura de Dados I>
+                                    onclick="setDiscValue('TN711')">
+                                    < Estrutura de Dados I>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN709')">< Lógica para Computação>
+                                    onclick="setDiscValue('TN709')">
+                                    < Lógica para Computação>
                                 </button>
                             </li>
                         </ul>
@@ -153,32 +165,38 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM478')">< Álgebra Linear Computacional>
+                                    onclick="setDiscValue('IM478')">
+                                    < Álgebra Linear Computacional>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM404')">< Cálculo II>
+                                    onclick="setDiscValue('IM404')">
+                                    < Cálculo II>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN718')">< Grafos e Algoritmos>
+                                    onclick="setDiscValue('TN718')">
+                                    < Grafos e Algoritmos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN715')">< Linguagens Formais e Autômatos>
+                                    onclick="setDiscValue('TN715')">
+                                    < Linguagens Formais e Autômatos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN716')">< Modelagem e Projeto de Software>
+                                    onclick="setDiscValue('TN716')">
+                                    < Modelagem e Projeto de Software>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN717')">< Programação Orientada a Objetos>
+                                    onclick="setDiscValue('TN717')">
+                                    < Programação Orientada a Objetos>
                                 </button>
                             </li>
                         </ul>
@@ -203,32 +221,38 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN723')">< Análise e Projeto de Algoritmos>
+                                    onclick="setDiscValue('TN723')">
+                                    < Análise e Projeto de Algoritmos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM425')">< Cálculo III>
+                                    onclick="setDiscValue('IM425')">
+                                    < Cálculo III>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM407')">< Física para Ciência da Computação>
+                                    onclick="setDiscValue('TM407')">
+                                    < Física para Ciência da Computação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN720')">< Linguagens de Programação>
+                                    onclick="setDiscValue('TN720')">
+                                    < Linguagens de Programação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM859')">< Probabilidade e Estatística para Ciência da Computação>
+                                    onclick="setDiscValue('IM859')">
+                                    < Probabilidade e Estatística para Ciência da Computação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM868')">< Sistemas Operacionais>
+                                    onclick="setDiscValue('IM868')">
+                                    < Sistemas Operacionais>
                                 </button>
                             </li>
                         </ul>
@@ -253,32 +277,38 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN727')">< Banco de Dados>
+                                    onclick="setDiscValue('TN727')">
+                                    < Banco de Dados>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN725')">< Compiladores>
+                                    onclick="setDiscValue('TN725')">
+                                    < Compiladores>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM421')">< Computação Gráfica>
+                                    onclick="setDiscValue('TM421')">
+                                    < Computação Gráfica>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN724')">< Inteligência Artificial>
+                                    onclick="setDiscValue('TN724')">
+                                    < Inteligência Artificial>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN726')">< Métodos Numéricos>
+                                    onclick="setDiscValue('TN726')">
+                                    < Métodos Numéricos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN728')">< Otimização Linear>
+                                    onclick="setDiscValue('TN728')">
+                                    < Otimização Linear>
                                 </button>
                             </li>
                         </ul>
@@ -303,12 +333,14 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN730')">< Estrutura de Dados II>
+                                    onclick="setDiscValue('TN730')">
+                                    < Estrutura de Dados II>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM873')">< Redes e Sistemas Distribuídos>
+                                    onclick="setDiscValue('IM873')">
+                                    < Redes e Sistemas Distribuídos>
                                 </button>
                             </li>
                         </ul>
@@ -334,202 +366,242 @@
                         <ul>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM461')">< Língua Brasileira de Sinais (LIBRAS)>
+                                    onclick="setDiscValue('IM461')">
+                                    < Língua Brasileira de Sinais (LIBRAS)>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM188')">< Cultura Afro-Brasileira>
+                                    onclick="setDiscValue('IM188')">
+                                    < Cultura Afro-Brasileira>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN719')">< Engenharia de Software II>
+                                    onclick="setDiscValue('TN719')">
+                                    < Engenharia de Software II>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN721')">< Arquitetura de Software>
+                                    onclick="setDiscValue('TN721')">
+                                    < Arquitetura de Software>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM431')">< Introdução à Teoria das Redes de Petri>
+                                    onclick="setDiscValue('TM431')">
+                                    < Introdução à Teoria das Redes de Petri>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN722')">< Modelagem e Análise Formal de Processos de Negócio>
+                                    onclick="setDiscValue('TN722')">
+                                    < Modelagem e Análise Formal de Processos de Negócio>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM432')">< Modelagem de Software com Redes de Petri>
+                                    onclick="setDiscValue('TM432')">
+                                    < Modelagem de Software com Redes de Petri>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN735')">< Banco de Dados II>
+                                    onclick="setDiscValue('TN735')">
+                                    < Banco de Dados II>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN736')">< Introdução à Web Semântica>
+                                    onclick="setDiscValue('TN736')">
+                                    < Introdução à Web Semântica>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN733')">< Interação Humano-Computador>
+                                    onclick="setDiscValue('TN733')">
+                                    < Interação Humano-Computador>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN731')">< Gerência de Projetos>
+                                    onclick="setDiscValue('TN731')">
+                                    < Gerência de Projetos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM877')">< Empreendedorismo em Informática>
+                                    onclick="setDiscValue('IM877')">
+                                    < Empreendedorismo em Informática>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN708')">< Governança de Tecnologia da Informação>
+                                    onclick="setDiscValue('TN708')">
+                                    < Governança de Tecnologia da Informação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN713')">< Introdução aos Sistemas de Informação>
+                                    onclick="setDiscValue('TN713')">
+                                    < Introdução aos Sistemas de Informação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN732')">< Medição e Qualidade de Software>
+                                    onclick="setDiscValue('TN732')">
+                                    < Medição e Qualidade de Software>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN755')">< Gestão de Processos>
+                                    onclick="setDiscValue('TN755')">
+                                    < Gestão de Processos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN734')">< Engenharia de Requisitos>
+                                    onclick="setDiscValue('TN734')">
+                                    < Engenharia de Requisitos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN704')">< Introdução à Engenharia de Software Experimental>
+                                    onclick="setDiscValue('TN704')">
+                                    < Introdução à Engenharia de Software Experimental>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM436')">< Algoritmos Paralelos e Distribuídos>
+                                    onclick="setDiscValue('TM436')">
+                                    < Algoritmos Paralelos e Distribuídos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM435')">< Programação Paralela e Distribuída>
+                                    onclick="setDiscValue('TM435')">
+                                    < Programação Paralela e Distribuída>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM430')">< Redes de Computadores Sem Fio>
+                                    onclick="setDiscValue('TM430')">
+                                    < Redes de Computadores Sem Fio>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN748')">< Arquitetura de Computadores II>
+                                    onclick="setDiscValue('TN748')">
+                                    < Arquitetura de Computadores II>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN741')">< Computação de Alto Desempenho>
+                                    onclick="setDiscValue('TN741')">
+                                    < Computação de Alto Desempenho>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN742')">< Programação em GPU>
+                                    onclick="setDiscValue('TN742')">
+                                    < Programação em GPU>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN743')">< Introdução aos Dispositivos Móveis>
+                                    onclick="setDiscValue('TN743')">
+                                    < Introdução aos Dispositivos Móveis>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN744')">< Roteamento em Redes de Computadores>
+                                    onclick="setDiscValue('TN744')">
+                                    < Roteamento em Redes de Computadores>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN745')">< Aprendizado de Máquina>
+                                    onclick="setDiscValue('TN745')">
+                                    < Aprendizado de Máquina>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM429')">< Introdução à Teoria de Sistemas de Recomendação>
+                                    onclick="setDiscValue('TM429')">
+                                    < Introdução à Teoria de Sistemas de Recomendação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN746')">< Redes Neurais Artificiais>
+                                    onclick="setDiscValue('TN746')">
+                                    < Redes Neurais Artificiais>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM434')">< Mineração de Dados>
+                                    onclick="setDiscValue('TM434')">
+                                    < Mineração de Dados>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM441')">< Processamento de Linguagem Natural>
+                                    onclick="setDiscValue('TM441')">
+                                    < Processamento de Linguagem Natural>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM444')">< Busca e Recuperação de Informação>
+                                    onclick="setDiscValue('TM444')">
+                                    < Busca e Recuperação de Informação>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN747')">< Inteligência de Negócios>
+                                    onclick="setDiscValue('TN747')">
+                                    < Inteligência de Negócios>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TM438')">< Processamento de Imagens>
+                                    onclick="setDiscValue('TM438')">
+                                    < Processamento de Imagens>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN749')">< Teoria dos Grafos>
+                                    onclick="setDiscValue('TN749')">
+                                    < Teoria dos Grafos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN740')">< Tópicos Especiais em Grafos e Algoritmos>
+                                    onclick="setDiscValue('TN740')">
+                                    < Tópicos Especiais em Grafos e Algoritmos>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN751')">< Tópicos Especiais em Otimização>
+                                    onclick="setDiscValue('TN751')">
+                                    < Tópicos Especiais em Otimização>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN750')">< Otimização Combinatória>
+                                    onclick="setDiscValue('TN750')">
+                                    < Otimização Combinatória>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN739')">< Teoria dos Jogos Algorítmica>
+                                    onclick="setDiscValue('TN739')">
+                                    < Teoria dos Jogos Algorítmica>
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
                                 <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('TN737')">< Introdução a Biologia Computacional>
+                                    onclick="setDiscValue('TN737')">
+                                    < Introdução a Biologia Computacional>
                                 </button>
                             </li>
                         </ul>
@@ -540,23 +612,31 @@
     </div>
 </section>
 <script>
+    const formElement = document.getElementById('disciplina-form');
+    const items = formElement.querySelectorAll('ul li button');
+    
     function performSearch() {
-        const searchText = document.getElementById('search-navbar').value.toLowerCase();
-        const items = document.querySelectorAll('button');
-        const dataList = document.getElementById('searchOptions');
-        dataList.innerHTML = '';
-        
+        const searchInput = document.getElementById('search-navbar');
+        const searchText = searchInput.value.toLowerCase().trim();
+
+        if (searchText === '') {
+            buttonResults.innerHTML = '';
+            return;
+        }
+
+        buttonResults.innerHTML = '';
+
         for (let i = 0; i < items.length; i++) {
             const currentItem = items[i];
             const itemText = currentItem.textContent.toLowerCase();
 
             if (itemText.includes(searchText)) {
-                const buttonOnClick = currentItem.onclick;
-                //const buttonText = this.textContent.trim();
-                //alert('Ação do botão original:', buttonOnClick); ///////////NÃO FUNCIONAA
-                const option = document.createElement('option');
-                option.value = itemText;
-                dataList.appendChild(option);
+                const button = document.createElement('button');
+                button.className = 'searchButton';
+                button.classList.add('searchButton', 'block','w-full','p-2','pl-10','text-sm','text-gray-900','border','border-gray-300','rounded-lg','bg-gray-50','focus:ring-blue-500','focus:border-blue-500','dark:bg-gray-700','dark:border-gray-600','dark:placeholder-gray-400','dark:text-white','dark:focus:ring-blue-500','dark:focus:border-blue-500');
+                button.textContent = itemText;
+                button.onclick = currentItem.onclick;
+                buttonResults.appendChild(button);
             }
         }
     }
