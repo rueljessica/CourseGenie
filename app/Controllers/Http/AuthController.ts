@@ -5,6 +5,7 @@ import ParsePDF from 'App/Helpers/ParsePDF'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Application from '@ioc:Adonis/Core/Application'
 import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursadasController'
+import DisciplinasCursada from 'App/Models/DisciplinasCursada'
 
 const disciplinasCursadas = new DisciplinasCursadaController();
 
@@ -51,7 +52,7 @@ export default class AuthController {
             name: imageName
         })
 
-        user.avatar = `imgs/${imageName}`
+        user.avatar = `${imageName}`
 
         //historico
         const historico = request.file('historico')
@@ -63,7 +64,7 @@ export default class AuthController {
             name: fileName
         })
 
-        user.historico = `historico/${fileName}`
+        user.historico = `${fileName}`
 
         var parse = new ParsePDF();
         var json = await parse.read(Application.publicPath('historicos') + "/" + fileName)
@@ -78,12 +79,12 @@ export default class AuthController {
         user.ira = json.ira
         user.anoLetivo = json.anoLetivo
         user.matricula = json.matricula
-        
+
         await user.save();
         await disciplinasCursadas.store(user, json.disciplinas)
         await auth.use('web').attempt(user.email, request.input('password'))
 
-        return view.render('confirm_dadosPessoais', { user: user })
+        return view.render('users/confirm_dadosPessoais', { user: user })
     }
 
     public async edit({ auth, request, response, view }: HttpContextContract) {
@@ -104,7 +105,7 @@ export default class AuthController {
                     ira: request.input('ira'),
                     anoLetivo: request.input('anoLetivo')
                 })
-            
+
             const disciplinas = await disciplinasCursadas.list(auth);
 
             return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
@@ -152,5 +153,12 @@ export default class AuthController {
     public async logout({ auth, response }: HttpContextContract) {
         await auth.use('web').logout()
         return response.redirect('/')
+    }
+    public async get({ auth, view }: HttpContextContract) {
+        const disciplinas = await DisciplinasCursada
+            .query()
+            .where('user_id', auth.user?.id)
+
+        return view.render('users/perfil', { disciplinas: disciplinas })
     }
 }
