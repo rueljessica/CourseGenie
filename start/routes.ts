@@ -25,8 +25,8 @@ Route.get('/eixos', async ({ view }) => {
   return view.render('disciplinas/eixos')
 }).middleware('auth')
 
-Route.get('/alterar', async ({ view }) => {
-  return view.render('users/alterar')
+Route.get('/alterar-senha', async ({ view }) => {
+  return view.render('users/alterar-senha')
 }).middleware('auth')
 
 Route.group(() => {
@@ -45,7 +45,7 @@ Route.group(() => {
 //disciplinas cursadas
 Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
 
-Route.get('/teste', async ({ auth, view }) => {
+Route.get('/alterar', async ({ auth, view }) => {
   return view.render('users/confirm_dadosPessoais', {user: auth.user})
 }).middleware('auth')
 
