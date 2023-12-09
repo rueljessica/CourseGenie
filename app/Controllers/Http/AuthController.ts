@@ -116,37 +116,15 @@ export default class AuthController {
 
     public async registerUpdate({ auth, request, response }: HttpContextContract) {
         try {
-            if (request.input('name')) {
-                await User
-                    .query()
-                    .where('email', auth.user?.email)
-                    .update({ name: request.input('name') })
-            } else
-                if (request.input('password')) {
-                    var password = await Hash.make(request.input('password'))
+            var password = await Hash.make(request.input('password'))
+            await User
+                .query()
+                .where('email', auth.user?.email)
+                .update({ password: password })
 
-                    await User
-                        .query()
-                        .where('email', auth.user?.email)
-                        .update({ password: password })
-                } else
-                    if (request.file('avatar')) {
-                        const user = auth.user
-                        const avatar = request.file('avatar')
-                        const imageName = new Date().getTime().toString() + `.${avatar.extname}`
-
-                        await avatar?.move(Application.publicPath('imgs'), {
-                            name: imageName
-                        })
-
-                        user.avatar = `imgs/${imageName}`
-                        user?.save()
-                    } else {
-                        return response.redirect('/teste')
-                    }
-            response.ok('Alterado com sucesso!') // criar pg/pop para alterado com sucesso
+            response.ok('Senha alterada com sucesso!') // criar pg/pop para alterado com sucesso
         } catch (error) {
-            response.badRequest('Não foi possível executar a alteração' + error.messages) // criar pg/pop para falha na alteração
+            response.badRequest('Não foi possível executar a alteração de senha' + error.messages) // criar pg/pop para falha na alteração
         }
     }
 
