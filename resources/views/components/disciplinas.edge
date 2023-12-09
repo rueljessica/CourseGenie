@@ -1,6 +1,7 @@
-<section class="bg-white dark:bg-black p-4 sm:ml-64">
-    <div class="h-screen w-auto p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
-        <div class="flex pt-5 pl-7 pb-10">
+<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64 overflow-hidden">
+    <div class="p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">
+        <!-- Search button -->
+        <div class="p-3 pb-10">
             <div class="absolute right-10">
                 <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
                     aria-expanded="false"
@@ -15,11 +16,8 @@
                 </button>
                 <div class="relative hidden md:block">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                clip-rule="evenodd"></path>
+                        <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
@@ -30,7 +28,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- End of Search button -->
         <div id="accordion-collapse" data-accordion="collapse" class="p-4">
             <form method="GET" action="" id="disciplina-form">
                 <input type="hidden" name="disc" id="disc-value" value="">
@@ -430,8 +428,8 @@
                                 </button>
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700"
-                                    onclick="setDiscValue('IM877')">
+                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" 
+                                    onclick="setDiscValue('TN754')">
                                     < Empreendedorismo em Informática>
                                 </button>
                             </li>
