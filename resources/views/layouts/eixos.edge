@@ -23,4 +23,18 @@
     @include('components/eixos')
 
     <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+    <script>
+        
+
+        function mostrarDiv(divId) {
+            // Esconder todas as divs
+            const divs = document.querySelectorAll('.conteudo');
+            divs.forEach(div => div.style.display = 'none');
+
+            // Mostrar a div clicada
+            const divClicada = document.getElementById(divId);
+            divClicada.style.display = 'block'; 
+        }
+
+    </script>
 </html>
