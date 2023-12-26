@@ -1,10 +1,10 @@
 <section class="bg-white dark:bg-black h-screen p-4 sm:ml-64">
-    <div class="p-1 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-20">  
-        <!-- Modal -->
-        @include('components/modal_alComb')
-        @include('components/modal_sisIn')
-        @include('components/modal_sisComp')
-        @include('components/modal_engSis')
+    <div class="mt-20">  
+        <!-- Include Modal -->
+        @include('components/eixos/modal_alComb')
+        @include('components/eixos/modal_sisIn')
+        @include('components/eixos/modal_sisComp')
+        @include('components/eixos/modal_engSis')
         <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value" value="">
             <!-- Eixos -->
             <div class="container mx-auto m-5">

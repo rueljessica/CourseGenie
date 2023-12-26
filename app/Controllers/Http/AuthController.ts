@@ -33,7 +33,7 @@ export default class AuthController {
     }
 
     public async registerIndex({ view }: HttpContextContract) {
-        return view.render('users/register')
+        return view.render('users/cadastro')
     }
 
     public async register({ auth, request, response, view }: HttpContextContract) {
@@ -84,7 +84,7 @@ export default class AuthController {
         await disciplinasCursadas.store(user, json.disciplinas)
         await auth.use('web').attempt(user.email, request.input('password'))
 
-        return view.render('users/confirm_dadosPessoais', { user: user })
+        return view.render('users/editar_dadosPessoais', { user: user })
     }
 
     public async edit({ auth, request, response, view }: HttpContextContract) {
@@ -108,7 +108,7 @@ export default class AuthController {
 
             const disciplinas = await disciplinasCursadas.list(auth);
 
-            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
+            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas })
         } catch (error) {
             return response.badRequest(error.messages)
         }

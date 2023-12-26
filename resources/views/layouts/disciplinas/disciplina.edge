@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
@@ -10,26 +9,17 @@
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
+            document.documentElement.classList.add('dark');
         } else {
-          document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('dark')
         }
     </script>
-</head>
-@!section('body')
+  </head>
+    @!section('body')
 
-@if(auth.isAuthenticated)
-    @include('components/navbar_user')
-@else
-    @include('components/navbar')
-@endif
+    @include('components/sidebar')
 
-@include('components/confirm_dadosPessoais')
+    @include('components/disciplinas/disciplina')
 
-<footer class="footer fixed bottom-0">
-    @include('components/footer')
-</footer>
-
-<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
-
+    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>

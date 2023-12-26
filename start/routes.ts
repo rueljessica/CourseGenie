@@ -26,7 +26,7 @@ Route.get('/eixos', async ({ view }) => {
 }).middleware('auth')
 
 Route.get('/alterar-senha', async ({ view }) => {
-  return view.render('users/alterar-senha')
+  return view.render('users/editar_senha')
 }).middleware('auth')
 
 Route.group(() => {
@@ -46,9 +46,37 @@ Route.group(() => {
 Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
 
 Route.get('/alterar', async ({ auth, view }) => {
-  return view.render('users/confirm_dadosPessoais', {user: auth.user})
+  return view.render('users/editar_dadosPessoais', {user: auth.user})
 }).middleware('auth')
 
 Route.get('/generateTestData/:id', 'TestDataController.main')
 
 Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')
+
+Route.get('/primeiro-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_um')
+}).middleware('auth')
+
+Route.get('/segundo-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_dois')
+}).middleware('auth')
+
+Route.get('/terceiro-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_tres')
+}).middleware('auth')
+
+Route.get('/quarto-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_quatro')
+}).middleware('auth')
+
+Route.get('/quinto-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_cinco')
+}).middleware('auth')
+
+Route.get('/sexto-periodo', async ({ view }) => {
+  return view.render('disciplinas/periodo_seis')
+}).middleware('auth')
+
+Route.get('/optativas', async ({ view }) => {
+  return view.render('disciplinas/optativas')
+}).middleware('auth')
