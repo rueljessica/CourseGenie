@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @each(disciplina in disciplinas)
+                        @each(disciplina in disciplinasCursadas)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                 id="rowDisc">
@@ -199,6 +199,17 @@
                                                 <option value="OPTATIVA">OPTATIVA</option>
                                                 <option value="ELETIVA">ELETIVA</option>
                                                 <option value="EQUIVALENTE">EQUIVALENTE</option>
+                                                </select>
+                                            </div>
+                                            <div id="divEquivalente"  class="w-full" style="display:none">
+                                                <label for="tipo"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina Equivalente</label>
+                                                <select id="setDiscEquivalente" name="discEquivalente"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value=" "> </option>
+                                                @each(disciplina in disciplinas)
+                                                    <option value='{{ disciplina.id }}'>{{ disciplina.nome }}</option>
+                                                @end
                                                 </select>
                                             </div>
                                             </div>

@@ -6196,6 +6196,129 @@
         ]
     },
     {
+        "codigo": "TN758",
+        "nucleo": "Formação Específica e Optativas",
+        "nome": "Programação para Web",
+        "periodo": -1,
+        "creditos": 4,
+        "carga_horaria": 60,
+        "pre_requisito": [
+            {
+                "nome": "Programação Orientado Objetos",
+                "codigo": "TN717"
+            },
+            {
+                "nome": "Modelagem e Projeto de Software",
+                "codigo": "TN716"
+            },
+            {
+                "nome": "Banco de Dados",
+                "codigo": "TN727"
+            }
+        ],
+        "objetivo": [
+            "Capacitar o aluno a compreender o funcionamento das aplicações baseadas em web",
+            "Capacitar o aluno a entender os padrões arquiteturais para o desenvolvimento de aplicações web",
+            "Desenvolver um raciocínio crítico, lógico e analítico voltado à concepção de soluções envolvendo o desenvolvimento de aplicações voltados para web",
+            "Possibilitar  ao  aluno  o  conhecimento  das  tecnologias  para o desenvolvimento de aplicações web",
+            "Fomentar o desenvolvimento de aplicações web"
+        ],
+        "ementa": [
+            "Internet",
+            "World Wide Web",
+            "Linguagens de Marcação",
+            "Arquitetura cliente-servidor",
+            "Hypertext Transfer Protocol",
+            "Desenvolvimento de Sistemas Web",
+            "Aplicação Web Moderna"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - INTRODUÇÃO",
+                "topicos": [
+                    "Conceitos gerais e histórico",
+                    "Definição de hipertexto, multimídia e hipermídia",
+                    "Internet",
+                    "World Wide Web (WWW)"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - Linguagens de Marcação e Folhas de Estilos",
+                "topicos": [
+                    "Linguagens de Marcação",
+                    "Extensible Markup Language (XML)",
+                    "JavaScript Object Notation (JSON)",
+                    "Linguagem de Marcação de Hipertexto (HTML)",
+                    "Cascading Style Sheets (CSS)"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - Conceitos de Sistema Web",
+                "topicos": [
+                    "Arquitetura cliente-servidor",
+                    "Introdução ao serviço HTTP",
+                    "Solicitações HTTP",
+                    "Statefull vs Stateless",
+                    "Formulários e componentes básicos"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - Desenvolvimento de Sistemas WEB",
+                "topicos": [
+                    "Tecnologias para server-side",
+                    "Padrões arquiteturais",
+                    "Rotas",
+                    "Base de dados",
+                    "Paradigma CRUD",
+                    "Validação e verificação"
+                ]
+            },
+            {
+                "unidade": "UNIDADE V - Web Dinâmica",
+                "topicos": [
+                    "Client-side Javascript",
+                    "Templates",
+                    "Tecnologias para client-side",
+                    "Chamada assíncrona (AJAJ e AJAX)",
+                    "Document Object Model (DOM)",
+                    "Websockets"
+                ]
+            },
+            {
+                "unidade": "UNIDADE VI - Segurança na Web",
+                "topicos": [
+                    "Cibersegurança",
+                    "Segurança na web",
+                    "Mecanismos de armazenamento: cookies e sessions",
+                    "Métodos de autenticação"
+                ]
+            },
+            {
+                "unidade": "UNIDADE VII - Aplicação Web Moderna",
+                "topicos": [
+                    "Application Programming Interface (API)",
+                    "Representational State Transfer (REST)",
+                    "Arquitetura Orientado a Serviços",
+                    "Single Pages Applications",
+                    "Arquitetura"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "FLANAGAN, David. JavaScript: o guia definitivo. Bookman Editora, 2004.",
+            "FREEMAN, Eric. Use a Cabeça! Programação em HTML 5. Alta Books Editora, 2014.",
+            "QUEIRÓS, R., PORTELA, F. Desenvolvimento Avançado para a Web: do Front-end ao Back-end. FCA, 2020."
+            
+        ],
+        "bibliografia_complementar": [
+            "KUROSE, J. F., ROSS, K. W. . Redes de computadores e a Internet: Uma abordagem top-down. Tradução da 5ª edição, Pearson, 2010.",
+            "SEBESTA, Robert W. Conceitos de Linguagens de Programação. 11. ed. Bookman Editora, 2018.",
+            "Date, C. J. Introdução a Sistemas de Bancos de Dados, 8ª. ed., Campus, Rio de Janeiro, 2004.",
+            "FOWLER, Martin. Padrões de arquitetura de aplicações corporativas. Bookman, 2009.",
+            "CROCKFORD, D. O melhor do JavaScript. 1. ed. Alta Books, 2009."
+        ]
+    },
+    {
         "codigo": "TN744",
         "nucleo": "Formação Específica e Optativas",
         "nome": "ROTEAMENTO EM REDES DE COMPUTADORES",
@@ -6266,17 +6389,9 @@
         ],
         "bibliografia_basica": [
             "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5",
-            "A. S. Tanenbaum, Redes de Computadores, Trad. da 4a Edição, Ed. Campus, 2003, ISBN 85-352-1185-3",
-            "James F. Kurose, Keith W. Ross. Redes de computadores e a Internet: Uma abordagem top-down. Tradução da 3a edição, Pearson, 2005",
-            "W. Stallings, Wireless Communications and Networks, 2a edição, Prentice Hall, 2004"
         ],
         "bibliografia_complementar": [
             "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003",
-            "T. S. Rappaport, Wireless Communications: Principles and Practice, Prentice Hall, 2001",
-            "D. E. Comer, Interligação de Redes com TCP/IP. Tradução da 6a edição, Volume 1, Campus, 2015",
-            "Forouzan, B. A. Comunicação de Dados e Redes de Computadores. 4a Edição. McGraw-Hill Interamericana, 2008",
-            "Soares, L.F.G., Lemos, G., Colcher, S. Redes de Computadores: Das LANs, MANs, e WANs às Redes ATM. Ed. Campus, Rio de Janeiro, 2002",
-            "Comer, D.E. Redes de Computadores e Internet. 2a Ed., Bookman, Porto Alegre, 2001"
         ]
     },
     {

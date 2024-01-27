@@ -6,6 +6,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import Application from '@ioc:Adonis/Core/Application'
 import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursadasController'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
+import Disciplina from 'App/Models/Disciplina'
 
 const disciplinasCursadas = new DisciplinasCursadaController();
 
@@ -106,9 +107,12 @@ export default class AuthController {
                     anoLetivo: request.input('anoLetivo')
                 })
 
-            const disciplinas = await disciplinasCursadas.list(auth);
+            const disciplinas = await Disciplina
+                .query()
 
-            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
+            const disciplinasCurs = await disciplinasCursadas.list(auth);
+
+            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
             return response.badRequest(error.messages)
         }
