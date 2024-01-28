@@ -107,9 +107,11 @@ export default class AuthController {
                     anoLetivo: request.input('anoLetivo')
                 })
 
-            const disciplinas = await disciplinasCursadas.list(auth);
+            const disciplinasCurs = await disciplinasCursadas.list(auth);
+            const disciplinas = await Disciplina
+                .query()
 
-            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas })
+            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
             return response.badRequest(error.messages)
         }

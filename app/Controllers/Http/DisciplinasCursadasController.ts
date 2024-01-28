@@ -94,7 +94,7 @@ export default class DisciplinasCursadasController {
 
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, codigo, media, tipo, discEquivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
+            const { disciplina, ano, professor, situacao, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
             const disciplinaToUpdate = await DisciplinasCursada.query()
                 .where('user_id', auth.user?.id)
                 .where('codigo', codigoAnterior)
@@ -105,7 +105,7 @@ export default class DisciplinasCursadasController {
             if (!disciplinaToUpdate) {
                 return response.status(404).json({ message: 'Disciplina não encontrada' })
             }
-
+            
             // Atualiza os campos da disciplina
             disciplinaToUpdate.nome = disciplina
             disciplinaToUpdate.ano = ano
@@ -114,7 +114,7 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.codigo = codigo
             disciplinaToUpdate.media = media
             disciplinaToUpdate.tipo = tipo
-            disciplinaToUpdate.equivalenciaId = discEquivalente;
+            disciplinaToUpdate.equivalenciaId = equivalente;
 
             // Salva as alterações no banco de dados
             await disciplinaToUpdate.save()
@@ -123,7 +123,7 @@ export default class DisciplinasCursadasController {
             const disciplinas = await Disciplina
                 .query()
 
-            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
+            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
             return response.status(500).json({ message: 'Ocorreu um erro ao atualizar a disciplina', error: error.message })
         }
