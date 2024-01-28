@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { DateTime } from 'luxon'
-import { column, BaseModel, manyToMany, ManyToMany, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { column, BaseModel, manyToMany, ManyToMany, hasMany, HasMany, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
 import ConteudoProgramatico from './ConteudoProgramatico'
 import DisciplinaPreRequisito from './DisciplinaPreRequisito'
+import DisciplinasCursada from './DisciplinasCursada'
 
 export default class Disciplina extends BaseModel {
   @column({ isPrimary: true })
@@ -55,6 +56,9 @@ export default class Disciplina extends BaseModel {
 
   @hasMany(() => ConteudoProgramatico)
   public conteudoProgramaticos: HasMany<typeof ConteudoProgramatico>
+  
+  @hasOne(() => DisciplinasCursada)
+  public equivalencia: HasOne<typeof DisciplinasCursada>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

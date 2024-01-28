@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    @entryPointStyles('app')
-    @entryPointScripts('app')
-    <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark')
       }
-    </script>
+  </script>
 </head>
 @!section('body')
 
 @if(auth.isAuthenticated)
-  @include('components/navbar_user')
+@include('components/navbar_user')
 @else
-  @include('components/navbar')
+@include('components/navbar')
 @endif
 
 @include('components/users/editar_dadosHistorico')
@@ -34,7 +35,8 @@
   let codigo;
   let ano;
   let situacao;
-  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo) {
+
+  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo, idEquiv) {
     this.ano = ano;
     this.codigo = codigo;
     this.situacao = situacao;
@@ -47,6 +49,7 @@
     const editProfessorField = document.getElementById('editProfessor');
     const editMediaField = document.getElementById('editMedia');
     const editTipoField = document.getElementById('editTipo');
+    const editEquivalenteField = document.getElementById('editEquivalente');
 
     editNomeField.value = nome;
     editCodigoField.value = codigo;
@@ -55,8 +58,16 @@
     editProfessorField.value = professor;
     editMediaField.value = media;
     editTipoField.value = tipo;
+    editEquivalenteField.value = idEquiv;
 
     editModal.classList.remove('hidden');
+    const equivalenteSelect = document.getElementById('divEquivalente');
+
+    if(editEquivalenteField.value){
+      equivalenteSelect.style.display = 'block';
+    }else{
+      equivalenteSelect.style.display = 'none';
+    }
   }
 
   function closeEditModal() {
@@ -88,6 +99,21 @@
 
     modalForm.submit();
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const editTipoField = document.getElementById('editTipo');
+
+    editTipoField.addEventListener('change', function () {
+      const selectedValue = this.value;
+      const equivalenteSelect = document.getElementById('divEquivalente');
+
+      if (selectedValue === 'EQUIVALENTE' && equivalenteSelect.style.display === 'none') {
+        equivalenteSelect.style.display = 'block';
+      }else{
+        equivalenteSelect.style.display = 'none';
+      }
+    });
+});
 </script>
 
 </html>

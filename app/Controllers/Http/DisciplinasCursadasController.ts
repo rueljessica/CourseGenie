@@ -3,6 +3,8 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
 import Disciplina from 'App/Models/Disciplina'
 
+const unorm = require('unorm');
+
 export default class DisciplinasCursadasController {
     public async list(auth) {
         return await DisciplinasCursada
@@ -23,7 +25,6 @@ export default class DisciplinasCursadasController {
             disciplinaData.professor = disciplinaData.professor || '--'
 
             //busca de tipo
-
             const discByCode = await Disciplina.query()
                 .where('codigo', disciplinaData.codigo)
                 .first()
@@ -36,7 +37,20 @@ export default class DisciplinasCursadasController {
                 }
             }
             else {
-                disciplinaData.tipo = " "
+                const normalizeString = (str) => unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
+
+                // Consulta no banco de dados
+                const discByName = await Disciplina.query()
+                    .whereRaw("LOWER(UNACCENT(nome)) = ?",
+                        normalizeString(disciplinaData.nome.toLowerCase()))
+                    .first();
+
+                if (discByName) {
+                    disciplinaData.tipo = "EQUIVALENTE"
+                    disciplinaData.equivalenciaId = discByName.id;
+                } else {
+                    disciplinaData.tipo = " "
+                }
             }
 
             disciplina.fill(disciplinaData)
@@ -54,6 +68,13 @@ export default class DisciplinasCursadasController {
                 .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
 
             const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
+            const idEquivalentes = listDisciplinas.map((disciplina) => disciplina.equivalenciaId);
+
+            const listDisciplinasEquiv = await Disciplina
+                .query()
+                .whereIn('id', idEquivalentes)
+
+            const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
 
             const codigosOP = listDisciplinas
                 .filter((disciplina) => disciplina.tipo === "OPTATIVA")
@@ -63,18 +84,17 @@ export default class DisciplinasCursadasController {
                 .filter((disciplina) => disciplina.tipo === "ELETIVA")
                 .map((_) => `ELETIVA`);
 
-            const result = codigos.concat(codigosOP, codigosEletiva);
+            const result = codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
 
             return view.render('disciplinas/grade_curricular', { disciplinas: result })
         } catch (error) {
             return response.status(500).json({ error: error.message })
         }
     }
-    
+
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, codigo, media, tipo, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
-
+            const { disciplina, ano, professor, situacao, codigo, media, tipo, discEquivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
             const disciplinaToUpdate = await DisciplinasCursada.query()
                 .where('user_id', auth.user?.id)
                 .where('codigo', codigoAnterior)
@@ -94,12 +114,16 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.codigo = codigo
             disciplinaToUpdate.media = media
             disciplinaToUpdate.tipo = tipo
+            disciplinaToUpdate.equivalenciaId = discEquivalente;
 
             // Salva as alterações no banco de dados
             await disciplinaToUpdate.save()
-            const disciplinas = await this.list(auth);
+            const disciplinasCurs = await this.list(auth);
 
-            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas })
+            const disciplinas = await Disciplina
+                .query()
+
+            return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
             return response.status(500).json({ message: 'Ocorreu um erro ao atualizar a disciplina', error: error.message })
         }

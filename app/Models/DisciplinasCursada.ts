@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
+import Disciplina from './Disciplina'
 
 export default class DisciplinasCursada extends BaseModel {
   @column({ isPrimary: true })
@@ -30,8 +32,14 @@ export default class DisciplinasCursada extends BaseModel {
   @column()
   public userId: number
 
+  @column()
+  public equivalenciaId: number
+
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
+
+  @belongsTo(() => Disciplina)
+  public equivalencia: BelongsTo<typeof Disciplina>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

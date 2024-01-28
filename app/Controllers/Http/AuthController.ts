@@ -6,6 +6,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import Application from '@ioc:Adonis/Core/Application'
 import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursadasController'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
+import Disciplina from 'App/Models/Disciplina'
 
 const disciplinasCursadas = new DisciplinasCursadaController();
 
