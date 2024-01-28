@@ -35,7 +35,8 @@
   let codigo;
   let ano;
   let situacao;
-  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo) {
+
+  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo, idEquiv) {
     this.ano = ano;
     this.codigo = codigo;
     this.situacao = situacao;
@@ -48,6 +49,7 @@
     const editProfessorField = document.getElementById('editProfessor');
     const editMediaField = document.getElementById('editMedia');
     const editTipoField = document.getElementById('editTipo');
+    const editEquivalenteField = document.getElementById('editEquivalente');
 
     editNomeField.value = nome;
     editCodigoField.value = codigo;
@@ -56,8 +58,16 @@
     editProfessorField.value = professor;
     editMediaField.value = media;
     editTipoField.value = tipo;
+    editEquivalenteField.value = idEquiv;
 
     editModal.classList.remove('hidden');
+    const equivalenteSelect = document.getElementById('divEquivalente');
+
+    if(editEquivalenteField.value){
+      equivalenteSelect.style.display = 'block';
+    }else{
+      equivalenteSelect.style.display = 'none';
+    }
   }
 
   function closeEditModal() {
@@ -92,7 +102,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     const editTipoField = document.getElementById('editTipo');
-    const modalForm = document.getElementById('modalForm');
 
     editTipoField.addEventListener('change', function () {
       const selectedValue = this.value;

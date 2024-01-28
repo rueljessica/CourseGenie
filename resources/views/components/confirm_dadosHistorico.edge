@@ -66,7 +66,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}', '{{ disciplina.tipo }}')"
+                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
                                 </td>
                             </tr>
@@ -193,8 +193,7 @@
                                                 <label for="tipo"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
                                                 <select id="editTipo" name="tipo"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="OBRIGATORIO"> </option>
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                                 <option value="OBRIGATORIO">OBRIGATORIO</option>
                                                 <option value="OPTATIVA">OPTATIVA</option>
                                                 <option value="ELETIVA">ELETIVA</option>
@@ -204,9 +203,8 @@
                                             <div id="divEquivalente"  class="w-full" style="display:none">
                                                 <label for="tipo"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina Equivalente</label>
-                                                <select id="setDiscEquivalente" name="discEquivalente"
+                                                <select id="editEquivalente" nome="equivalente"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value=" "> </option>
                                                 @each(disciplina in disciplinas)
                                                     <option value='{{ disciplina.id }}'>{{ disciplina.nome }}</option>
                                                 @end

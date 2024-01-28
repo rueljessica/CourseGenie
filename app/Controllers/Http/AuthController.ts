@@ -109,7 +109,7 @@ export default class AuthController {
 
             const disciplinas = await Disciplina
                 .query()
-
+            
             const disciplinasCurs = await disciplinasCursadas.list(auth);
 
             return view.render('users/confirm_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
