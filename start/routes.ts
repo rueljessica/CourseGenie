@@ -21,9 +21,7 @@ Route.get('/perfil', 'AuthController.get').middleware('auth')
 
 Route.get('/grade', 'DisciplinasCursadasController.listGrade').middleware('auth')
 
-Route.get('/eixos', async ({ view }) => {
-  return view.render('disciplinas/eixos')
-}).middleware('auth')
+Route.get('/eixos', 'DisciplinasCursadasController.listEixos').middleware('auth')
 
 Route.get('/alterar-senha', async ({ view }) => {
   return view.render('users/reset_senha')

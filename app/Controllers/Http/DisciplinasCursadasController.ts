@@ -92,6 +92,30 @@ export default class DisciplinasCursadasController {
         }
     }
 
+    public async listEixos({ auth, response, view }: HttpContextContract) {
+        try {
+            const listDisciplinas = await DisciplinasCursada
+                .query()
+                .where('user_id', auth.user?.id)
+                .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
+
+            const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
+            const idEquivalentes = listDisciplinas.map((disciplina) => disciplina.equivalenciaId);
+
+            const listDisciplinasEquiv = await Disciplina
+                .query()
+                .whereIn('id', idEquivalentes)
+
+            const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
+
+            const result = codigos.concat(codigosEquiv);
+            console.log(result)
+            return view.render('disciplinas/eixos', { disciplinas: result })
+        } catch (error) {
+            return response.status(500).json({ error: error.message })
+        }
+    }
+
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
             const { disciplina, ano, professor, situacao, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
