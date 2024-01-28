@@ -60,33 +60,46 @@ export default class DisciplinasCursadasController {
         await user.related('disciplinas').saveMany(disciplinas);
     }
 
+    private async listCods(auth):Promise<string[]> {
+        const listDisciplinas = await DisciplinasCursada
+            .query()
+            .where('user_id', auth.user?.id)
+            .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
+
+        const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
+        const idEquivalentes = listDisciplinas.map((disciplina) => disciplina.equivalenciaId);
+
+        const listDisciplinasEquiv = await Disciplina
+            .query()
+            .whereIn('id', idEquivalentes)
+
+        const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
+
+        const codigosOP = listDisciplinas
+            .filter((disciplina) => disciplina.tipo === "OPTATIVA")
+            .flatMap((_, index) => `OP${index + 1}`);
+
+        const codigosEletiva = listDisciplinas
+            .filter((disciplina) => disciplina.tipo === "ELETIVA")
+            .map((_) => `ELETIVA`);
+
+        
+        return codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
+    }
+
     public async listGrade({ auth, response, view }: HttpContextContract) {
         try {
-            const listDisciplinas = await DisciplinasCursada
-                .query()
-                .where('user_id', auth.user?.id)
-                .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
-
-            const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
-            const idEquivalentes = listDisciplinas.map((disciplina) => disciplina.equivalenciaId);
-
-            const listDisciplinasEquiv = await Disciplina
-                .query()
-                .whereIn('id', idEquivalentes)
-
-            const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
-
-            const codigosOP = listDisciplinas
-                .filter((disciplina) => disciplina.tipo === "OPTATIVA")
-                .flatMap((_, index) => `OP${index + 1}`);
-
-            const codigosEletiva = listDisciplinas
-                .filter((disciplina) => disciplina.tipo === "ELETIVA")
-                .map((_) => `ELETIVA`);
-
-            const result = codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
-
+            const result = await this.listCods(auth);
             return view.render('disciplinas/grade_curricular', { disciplinas: result })
+        } catch (error) {
+            return response.status(500).json({ error: error.message })
+        }
+    }
+
+    public async listEixos({ auth, response, view }: HttpContextContract) {
+        try {
+            const result = await this.listCods(auth);
+            return view.render('disciplinas/eixos', { disciplinas: result })
         } catch (error) {
             return response.status(500).json({ error: error.message })
         }
@@ -105,7 +118,7 @@ export default class DisciplinasCursadasController {
             if (!disciplinaToUpdate) {
                 return response.status(404).json({ message: 'Disciplina não encontrada' })
             }
-            
+
             // Atualiza os campos da disciplina
             disciplinaToUpdate.nome = disciplina
             disciplinaToUpdate.ano = ano
