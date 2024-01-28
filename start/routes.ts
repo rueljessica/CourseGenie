@@ -26,7 +26,7 @@ Route.get('/eixos', async ({ view }) => {
 }).middleware('auth')
 
 Route.get('/alterar-senha', async ({ view }) => {
-  return view.render('users/editar_senha')
+  return view.render('users/reset_senha')
 }).middleware('auth')
 
 Route.group(() => {
@@ -79,4 +79,8 @@ Route.get('/sexto-periodo', async ({ view }) => {
 
 Route.get('/optativas', async ({ view }) => {
   return view.render('disciplinas/optativas')
+}).middleware('auth')
+
+Route.get('/recomendacao', async ({ view }) => {
+  return view.render('disciplinas/recomendacao')
 }).middleware('auth')

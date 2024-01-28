@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Disciplina from 'App/Models/Disciplina'
+import DisciplinasCursada from 'App/Models/DisciplinasCursada'
 
 export default class DisciplinasController {
     public async list({ view, response }: HttpContextContract) {
@@ -17,6 +18,10 @@ export default class DisciplinasController {
             const body = request.only(['disc'])
             var codigo = body.disc
 
+            let media = 0;
+            let professoresSet = new Set<string>();
+            let notaMinimaAprovacao = 5.0;
+
             const disciplina = await Disciplina.query()
             .where('codigo', codigo)
             .preload('preRequisitos', (preRequisito) => {
@@ -27,7 +32,23 @@ export default class DisciplinasController {
             })
             .first();
 
-            return view.render('disciplinas/disciplina', { disciplina: disciplina })
+            const disciplinaCursada = await DisciplinasCursada.query()
+            .where('codigo', 'TM403')
+
+            for (const disc of disciplinaCursada) {
+                media+= disc.media;
+                professoresSet.add(disc.professor);
+            }
+
+            media=media/disciplinaCursada.length;
+
+            const alunosAprovados = disciplinaCursada.filter((aluno) => aluno.media >= notaMinimaAprovacao);
+            const indiceAprovacao = (alunosAprovados.length / disciplinaCursada.length) * 100;
+            const formattedIndiceAprovacao = indiceAprovacao.toFixed(2) + '%';
+
+            const professores = Array.from(professoresSet);
+            
+            return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, media: media, professores: professores, formattedIndiceAprovacao : formattedIndiceAprovacao})
 
         } catch (error) {
             return response.badRequest('Error' + error)
