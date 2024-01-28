@@ -6453,5 +6453,15 @@
         "nome": "Tópicos Especiais em Otimização",
         "codigo": "TM420",
         "periodo": -1
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO I",
+        "codigo": "AC783",
+        "periodo": 7
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO II",
+        "codigo": "AC784",
+        "periodo": 8
     }
 ]

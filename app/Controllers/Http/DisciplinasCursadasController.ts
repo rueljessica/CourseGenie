@@ -68,6 +68,13 @@ export default class DisciplinasCursadasController {
                 .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
 
             const codigos = listDisciplinas.map((disciplina) => disciplina.codigo);
+            const idEquivalentes = listDisciplinas.map((disciplina) => disciplina.equivalenciaId);
+
+            const listDisciplinasEquiv = await Disciplina
+                .query()
+                .whereIn('id', idEquivalentes)
+
+            const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
 
             const codigosOP = listDisciplinas
                 .filter((disciplina) => disciplina.tipo === "OPTATIVA")
@@ -77,7 +84,7 @@ export default class DisciplinasCursadasController {
                 .filter((disciplina) => disciplina.tipo === "ELETIVA")
                 .map((_) => `ELETIVA`);
 
-            const result = codigos.concat(codigosOP, codigosEletiva);
+            const result = codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
 
             return view.render('disciplinas/grade_curricular', { disciplinas: result })
         } catch (error) {
