@@ -72,6 +72,7 @@
     "@adonisjs/shield": "^7.1.0",
     "@adonisjs/view": "^6.2.0",
     "@faker-js/faker": "^8.3.1",
+    "chart.js": "^4.4.1",
     "flowbite": "^1.8.1",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
