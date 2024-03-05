@@ -1,6 +1,6 @@
-<section class="bg-gray-50 dark:bg-black h-screen p-20 pt-40 px-60 tracking-wide">
+<section class="bg-white dark:bg-black h-screen p-20 pt-40 px-60 tracking-wide">
     <div class="grid p-2">
-        <div class="bg-white dark:bg-gray-800 flex flex-col p-5 w-full border-dashed rounded-lg shadow-md">
+        <div class="bg-white dark:bg-gray-800 flex flex-col p-5 w-full shadow-2xl rounded-lg border-dashed">
             <div class="flex items-center space-x-1 text-gray-900 pb-7">
                 <span>
                     <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -214,9 +214,8 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                            <button type="button" onclick="saveEdit()"
-                                            class="text-white bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                            Salvar Alteração
+                                            <button type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar Alteração</span>
                                             </button>
                                         </div>
                                     </form>
@@ -227,10 +226,16 @@
                 </table>
             </div>
             <div class="flex items-end justify-end pt-5">
-                <a href="/perfil" class="text-white bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    Finalizar edição
-                </a>
+                <button id="salvarButton" type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Finalizar edição</span>
+                </button>        
             </div>
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    document.getElementById("salvarButton").onclick = function () {
+      location.href = "/perfil";
+    };
+</script>

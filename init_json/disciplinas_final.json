@@ -6403,63 +6403,163 @@
         ]
     },
     {
+        "codigo": "TN744",
+        "nucleo": "Formação Específica e Optativas",
+        "nome": "ROTEAMENTO EM REDES DE COMPUTADORES",
+        "periodo": -1,
+        "creditos": 4,
+        "carga_horaria": 60,
+        "pre_requisito": [
+            {
+                "nome": "Redes e Sistemas Distribuídos",
+                "codigo": "TN729"
+            }
+        ],
+        "objetivo": [
+            "Compreender conceitos fundamentais do encaminhamento e roteamento de pacotes unicast, multicast e broadcast em redes cabeadas e redes sem fio",
+            "Compreender modelos de roteamento por vetores de distância e por estado de enlace",
+            "Conhecer os principais padrões e protocolos relacionados ao roteamento de pacotes",
+            "Adquirir noções básicas sobre novas tecnologias na área de roteamento"
+        ],
+        "ementa": [
+            "Princípios do roteamento em redes de computadores: vetores de distância e estado de enlace",
+            "Roteamento na Internet",
+            "Endereçamento hierárquico",
+            "Roteamento intra-domínio",
+            "Roteamento inter-domínio",
+            "Roteamento multicast",
+            "Roteamento em redes sem fio",
+            "Tópicos avançados em roteamento"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - Princípios do roteamento em redes de computadores",
+                "topicos": [
+                    "Introdução",
+                    "Encaminhamento e roteamento",
+                    "Roteamento unicast, multicast e broadcast"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - Endereçamento",
+                "topicos": [
+                    "Tipos de endereço",
+                    "Protocolo IP",
+                    "Sub-redes",
+                    "Endereçamento hierárquico"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - ROTEAMENTO",
+                "topicos": [
+                    "Roteamento intra-domínio: RIP, OSPF",
+                    "Roteamento inter-domínio: BGP",
+                    "Roteamento multicast"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - ROTEAMENTO EM REDES SEM FIO",
+                "topicos": [
+                    "Desafios específicos das redes sem fio",
+                    "Protocolos para roteamento sem fio"
+                ]
+            },
+            {
+                "unidade": "UNIDADE V - TOPICOS AVANÇADOS",
+                "topicos": [
+                    "Novas tecnologias em roteamento"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5"
+        ],
+        "bibliografia_complementar": [
+            "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003"
+        ]
+    },
+    {
         "nome": "Fundamentos de Sistemas",
         "codigo": "IM899",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Arquitetura de Computadores II",
         "codigo": "TM409",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Ciência da Computação",
         "codigo": "TM411",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Projeto de Sistemas",
         "codigo": "TM413",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Sistemas Distribuídos",
         "codigo": "IM873",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Computação III",
         "codigo": "TM414",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Banco de Dados e Engenharia de Software",
         "codigo": "TM415",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Inteligência Artificial",
         "codigo": "TN753",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Programação de Computadores",
         "codigo": "TM418",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Empreendedorismo em Informática",
         "codigo": "IM877",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Gerência de Projetos",
         "codigo": "TM419",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Otimização",
         "codigo": "TM420",
+        "carga_horaria": 60,
         "periodo": -1
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO I",
+        "codigo": "AC783",
+        "carga_horaria": 120,
+        "periodo": 7
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO II",
+        "codigo": "AC784",
+        "carga_horaria": 120,
+        "periodo": 8
     }
 ]

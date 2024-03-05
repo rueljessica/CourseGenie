@@ -123,5 +123,3 @@ themeToggleBtn.addEventListener('click', function () {
     console.log(item);
   },
 };  
-
-

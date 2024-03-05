@@ -1,50 +1,63 @@
-<section class="bg-white dark:bg-black w-screen mt-10">
-    <div class="text-center lg:py-16 bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-700">
-        <h1 class="mb-4 text-4xl font-sans tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">CourseGenie: Seu Guia Pessoal</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Obtenha, em poucos cliques, recomendações personalizadas adaptadas à sua jornada acadêmica.</p>
-        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/cadastro" class="bg-gradient-to-br from-violet to-blue hover:bg-gradient-to-bl inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black rounded-lg hover:bg-blue-800 dark:focus:ring-blue-900 dark:text-white">
-                Começar
-                <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </a>
-        </div>
+<section class="bg-gray-50 dark:bg-black pb-20 h-screen px-96 overflow-hidden">
+  <div class="grid md:grid-cols-3">
+    <div class="pt-40 relative col-span-2">
+      <h1 class="text-4xl font-sans tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl dark:text-white">CourseGenie</h1>
+      <div class="inline-flex">
+        <span class="block h-0.5 w-fit bg-gradient-to-t from-blue to-violet rounded">
+        <h2 class="tracking-wide text-lg text-gray-800 dark:text-white relative z-10">Seu Guia Pessoal</h2>
+      </div>
+      <p class="pt-10 font-medium text-lg tracking-wide text-gray-600 dark:text-gray-300">Obtenha, em poucos cliques, recomendações personalizadas adaptadas à sua jornada acadêmica.</p>
     </div>
-</section>
-
-<section class="bg-white dark:bg-black w-screen">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="bg-gray-50 dark:bg-gray-800 border rounded-lg shadow-md border-gray-200 dark:border dark:border-gray-700 p-8 md:p-12">
-                <a class="bg-gray-200 inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700">
-                    <img class="w-5 h-5 mr-1" src={{icon}}>
-                </a>
-                <h2 class="text-gray-900 dark:text-white text-3xl font-sans mb-2">
-                    Recomendação de disciplinas optativas</h2>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Dificuldade para escolher disciplinas optativas? Podemos ajudar e te recomendar as melhores opções, utilizando apenas seu histórico.</p>
-            </div>
-            <div class="bg-gray-50 dark:bg-gray-800 border rounded-lg shadow-md border-gray-200 dark:border dark:border-gray-700 p-8 md:p-12">
-                <a class="bg-gray-200 inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700">
-                    <img class="w-5 h-5 mr-1" src={{icon}}>
-                </a>
-                <h2 class="text-gray-900 dark:text-white text-3xl font-sans mb-2">Sua Grade Curricular</h2>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Tenha sua Grade Curricular na palma da mão, com todas as informações sobre disciplinas que você já cursou ou não.</p>
-            </div>
-            <div class="bg-gray-50 dark:bg-gray-800 border rounded-lg shadow-md border-gray-200 dark:border dark:border-gray-700 p-8 md:p-12">
-                <a class="bg-gray-200 inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                        <path fill-rule="evenodd" d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21.324-.455.63-.739.914a.75.75 0 101.06 1.06c.37-.369.69-.77.96-1.193a26.61 26.61 0 013.095 2.348.75.75 0 00.992 0 26.547 26.547 0 015.93-3.95.75.75 0 00.42-.739 41.053 41.053 0 00-.39-3.114 29.925 29.925 0 00-5.199 2.801 2.25 2.25 0 01-2.514 0c-.41-.275-.826-.541-1.25-.797a6.985 6.985 0 01-1.084 3.45 26.503 26.503 0 00-1.281-.78A5.487 5.487 0 006 12v-.54z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-                <h2 class="text-gray-900 dark:text-white text-3xl font-sans mb-2">Eixos de Formação Profissional</h2>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Saiba tudo sobre os quatro Eixos de Formação Profissional e quais disciplinas você precisa cursar para obter o certificado ao se formar.</p>
-            </div>
-            <div class="bg-gray-50 dark:bg-gray-800 border rounded-lg shadow-md border-gray-200 dark:border dark:border-gray-700 p-8 md:p-12">
-                <a class="bg-gray-200 inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700">
-                    <img class="w-5 h-5 mr-1" src={{icon}}>
-                </a>
-                <h2 class="text-gray-900 dark:text-white text-3xl font-sans mb-2">Informações sobre disciplinas</h2>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">Visualize detalhes sobre as disciplinas e saiba quais são os tópicos abordados, a qual semestre percente, uma lista de possíveis docentes de tal disciplina, tudo em um só lugar.</p>
-            </div>
-        </div>
+    <div class="col-span-1">
+      <img class="ml-10 mt-20" src={{tecoteco}}>
     </div>
-</section>
+  </div>
+  <div class="grid md:grid-cols-1 mt-40">
+    <div class="grid divide-x divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-2xl shadow-2xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+      <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/30 dark:hover:shadow-black/95">
+        <div class="relative space-y-8 py-12 p-8">
+          <img src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png" class="w-12"/>
+          <div class="space-y-2">
+            <h5 class="tracking-wide font-medium text-xl text-gray-700 dark:text-white transition group-hover:text-secondary">Recomendação de disciplinas optativas</h5>
+            <p class="text-gray-600 dark:text-gray-300">
+              Dificuldade para escolher disciplinas optativas? Podemos ajudar e te recomendar as melhores opções, utilizando apenas seu histórico.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/30 dark:hover:shadow-black/95">
+        <div class="relative space-y-8 py-12 p-8">
+          <img src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png" class="w-12"/>
+          <div class="space-y-2">
+            <h5 class="tracking-wide font-medium text-xl text-gray-700 dark:text-white transition group-hover:text-secondary">Grade Curricular</h5>
+            <p class="text-gray-600 dark:text-gray-300">
+              Tenha sua Grade Curricular na palma da mão, com todas as informações sobre disciplinas que você já cursou ou não.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/30 dark:hover:shadow-black/95">
+        <div class="relative space-y-8 py-12 p-8">
+          <img src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png" class="w-12"/>
+          <div class="space-y-2">
+            <h5 class="tracking-wide font-medium text-xl text-gray-700 dark:text-white transition group-hover:text-secondary">Eixos de Formação Profissional</h5>
+            <p class="text-gray-600 dark:text-gray-300">
+              Saiba tudo sobre os quatro Eixos de Formação Profissional e quais disciplinas você precisa cursar para obter o certificado ao se formar.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/30 dark:hover:shadow-black/95">
+        <div class="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png" class="w-12"/>
+          <div class="space-y-2">
+            <h5 class="tracking-wide font-medium text-xl text-gray-700 dark:text-white transition group-hover:text-secondary">Informações sobre disciplinas</h5>
+            <p class="text-gray-600 dark:text-gray-300">
+              Visualize detalhes sobre as disciplinas e saiba quais são os tópicos abordados, a qual semestre percente, uma lista de possíveis docentes de tal disciplina, tudo em um só lugar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>        
