@@ -2,7 +2,7 @@
     <div class="mt-20">
         <div class="grid md:grid-cols-3 gap-2">
             <!-- Profile Card -->
-            <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800">
                 <div class="image overflow-hidden">
                     <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
                         <img class="rounded w-36 h-36" src="{{ route('files.show', { id: auth.user.avatar }) }}"/>
@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <!-- End of profile card -->
-            <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800 col-span-2">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800 col-span-2">
                 <!-- About Section -->
                 <div >
                     <div class="flex items-center space-x-2 text-gray-900 leading-8">
@@ -86,14 +86,14 @@
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Total</div>
                                 <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">2280h</div>
-                                <div class="px-4 py-2 pt-5 text-base text-gray-900 dark:text-white">CH. Obrigatória Pendente</div>
-                                <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400"></div>
+                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Pendente</div>
+                                <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaObrigatoriaPendente}}<span>h</span> </div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Total</div>
                                 <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400">720h</div>
                                 <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Pendente</div>
-                                <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400"></div>
+                                <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaOptativaPendente}}<span>h</span> </div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Total Currículo</div>
@@ -109,53 +109,53 @@
         </div>
         <div class="grid md:grid-cols-1 pt-5">
             <!-- Componentes Curriculares -->
-            <div class="bg-white p-3 border-dashed rounded-lg shadow-md dark:bg-gray-800 overflow-auto h-96">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800 overflow-auto h-96">
                 <div class="flex items-center space-x-2 text-gray-900 leading-8 mb-3">
                     <span clas="text-green-500">
-                        <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="gray">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="gray">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
                     </span>
                     <span class="tracking-wide text-lg text-gray-900 dark:text-white">Componentes Curriculares</span>
                 </div>
-                <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-lg text-gray-700 bg-gray-100 dark:bg-gray-600 dark:text-white">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Disciplina
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Código
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Situação
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Média
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @each(disciplina in disciplinas)
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" id="rowDisc">
-                                    {{ disciplina.nome }}
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-lg text-gray-700 bg-gray-100 dark:bg-gray-600 dark:text-white">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Disciplina
                                 </th>
-                                <td class="px-6 py-4">
-                                    {{ disciplina.codigo }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ disciplina.situacao }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ disciplina.media || "--" }}
-                                </td>
+                                <th scope="col" class="px-6 py-3">
+                                    Código
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Situação
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Média
+                                </th>
                             </tr>
-                        @endeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @each(disciplina in disciplinas)
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" id="rowDisc">
+                                        {{ disciplina.nome }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ disciplina.codigo }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ disciplina.situacao }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ disciplina.media || "--" }}
+                                    </td>
+                                </tr>
+                            @endeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- End of Componentes Curriculares section -->
         </div>

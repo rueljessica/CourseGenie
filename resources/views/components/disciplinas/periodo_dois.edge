@@ -1,28 +1,24 @@
-<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64">
+<section class="bg-white dark:bg-black h-screen flex items-center justify-center sm:ml-64">
     <form method="GET" action="" id="disciplina-form">
     <input type="hidden" name="disc" id="disc-value" value="">
-        <div class="mt-20">
-            <div class="grid md:grid-cols-1 pl-5 pr-5">
-                <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('IM429')">Álgebra Linear I</button>
-                    </div>
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('TN712')">Arquitetura de Computadores</button>
-                    </div>
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('IM403')">Cálculo I</button>
-                    </div>
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('TN710')">Engenharia de Software</button>
-                    </div>
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('TN711')">Estrutura de Dados I</button>
-                    </div>
-                    <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-2xl p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                        <button class="px-2 py-1 w-full h-full" onclick="setDiscValue('TN709')">Lógica para Computação</button>
-                    </div>
-                </div>
+        <div class="sm:pt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white w-full" onclick="setDiscValue('IM429')">Álgebra Linear I</button>
+            </div>
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white w-full" onclick="setDiscValue('TN712')">Arquitetura de Computadores</button>
+            </div>
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white w-full" onclick="setDiscValue('IM403')">Cálculo I</button>
+            </div>
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white px-2 py-1 w-full" onclick="setDiscValue('TN710')">Engenharia de Software</button>
+            </div>
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white w-full" onclick="setDiscValue('TN711')">Estrutura de Dados I</button>
+            </div>
+            <div class="p-6 md:p-10 bg-white rounded-2xl shadow-2xl dark:bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                <button class="text-gray-700 dark:text-white w-full" onclick="setDiscValue('TN709')">Lógica para Computação</button>
             </div>
         </div>
     </form>

@@ -6388,80 +6388,94 @@
             }
         ],
         "bibliografia_basica": [
-            "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5",
+            "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5"
         ],
         "bibliografia_complementar": [
-            "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003",
+            "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003"
         ]
     },
     {
         "nome": "Fundamentos de Sistemas",
         "codigo": "IM899",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Arquitetura de Computadores II",
         "codigo": "TM409",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Ciência da Computação",
         "codigo": "TM411",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Projeto de Sistemas",
         "codigo": "TM413",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Sistemas Distribuídos",
         "codigo": "IM873",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Computação III",
         "codigo": "TM414",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Banco de Dados e Engenharia de Software",
         "codigo": "TM415",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Inteligência Artificial",
         "codigo": "TN753",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Programação de Computadores",
         "codigo": "TM418",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Empreendedorismo em Informática",
         "codigo": "IM877",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Gerência de Projetos",
         "codigo": "TM419",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "Tópicos Especiais em Otimização",
         "codigo": "TM420",
+        "carga_horaria": 60,
         "periodo": -1
     },
     {
         "nome": "TRABALHO DE CONCLUSÃO DE CURSO I",
         "codigo": "AC783",
+        "carga_horaria": 120,
         "periodo": 7
     },
     {
         "nome": "TRABALHO DE CONCLUSÃO DE CURSO II",
         "codigo": "AC784",
+        "carga_horaria": 120,
         "periodo": 8
     }
 ]
