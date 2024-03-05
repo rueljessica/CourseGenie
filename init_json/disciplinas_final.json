@@ -6196,6 +6196,90 @@
         ]
     },
     {
+        "codigo": "TN744",
+        "nucleo": "Formação Específica e Optativas",
+        "nome": "ROTEAMENTO EM REDES DE COMPUTADORES",
+        "periodo": -1,
+        "creditos": 4,
+        "carga_horaria": 60,
+        "pre_requisito": [
+            {
+                "nome": "Redes e Sistemas Distribuídos",
+                "codigo": "TN729"
+            }
+        ],
+        "objetivo": [
+            "Compreender conceitos fundamentais do encaminhamento e roteamento de pacotes unicast, multicast e broadcast em redes cabeadas e redes sem fio",
+            "Compreender modelos de roteamento por vetores de distância e por estado de enlace",
+            "Conhecer os principais padrões e protocolos relacionados ao roteamento de pacotes",
+            "Adquirir noções básicas sobre novas tecnologias na área de roteamento"
+        ],
+        "ementa": [
+            "Princípios do roteamento em redes de computadores: vetores de distância e estado de enlace",
+            "Roteamento na Internet",
+            "Endereçamento hierárquico",
+            "Roteamento intra-domínio",
+            "Roteamento inter-domínio",
+            "Roteamento multicast",
+            "Roteamento em redes sem fio",
+            "Tópicos avançados em roteamento"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - Princípios do roteamento em redes de computadores",
+                "topicos": [
+                    "Introdução",
+                    "Encaminhamento e roteamento",
+                    "Roteamento unicast, multicast e broadcast"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - Endereçamento",
+                "topicos": [
+                    "Tipos de endereço",
+                    "Protocolo IP",
+                    "Sub-redes",
+                    "Endereçamento hierárquico"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - ROTEAMENTO",
+                "topicos": [
+                    "Roteamento intra-domínio: RIP, OSPF",
+                    "Roteamento inter-domínio: BGP",
+                    "Roteamento multicast"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - ROTEAMENTO EM REDES SEM FIO",
+                "topicos": [
+                    "Desafios específicos das redes sem fio",
+                    "Protocolos para roteamento sem fio"
+                ]
+            },
+            {
+                "unidade": "UNIDADE V - TOPICOS AVANÇADOS",
+                "topicos": [
+                    "Novas tecnologias em roteamento"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5",
+            "A. S. Tanenbaum, Redes de Computadores, Trad. da 4a Edição, Ed. Campus, 2003, ISBN 85-352-1185-3",
+            "James F. Kurose, Keith W. Ross. Redes de computadores e a Internet: Uma abordagem top-down. Tradução da 3a edição, Pearson, 2005",
+            "W. Stallings, Wireless Communications and Networks, 2a edição, Prentice Hall, 2004"
+        ],
+        "bibliografia_complementar": [
+            "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003",
+            "T. S. Rappaport, Wireless Communications: Principles and Practice, Prentice Hall, 2001",
+            "D. E. Comer, Interligação de Redes com TCP/IP. Tradução da 6a edição, Volume 1, Campus, 2015",
+            "Forouzan, B. A. Comunicação de Dados e Redes de Computadores. 4a Edição. McGraw-Hill Interamericana, 2008",
+            "Soares, L.F.G., Lemos, G., Colcher, S. Redes de Computadores: Das LANs, MANs, e WANs às Redes ATM. Ed. Campus, Rio de Janeiro, 2002",
+            "Comer, D.E. Redes de Computadores e Internet. 2a Ed., Bookman, Porto Alegre, 2001"
+        ]
+    },
+    {
         "codigo": "TN758",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Programação para Web",

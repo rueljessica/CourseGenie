@@ -24,8 +24,6 @@
 
     <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
     <script>
-        
-
         function mostrarDiv(divId) {
             // Esconder todas as divs
             const divs = document.querySelectorAll('.conteudo');
@@ -33,8 +31,67 @@
 
             // Mostrar a div clicada
             const divClicada = document.getElementById(divId);
-            divClicada.style.display = 'block'; 
+            divClicada.style.display = 'block';
         }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const disciplinas = '{{disciplinas}}';
+            const minhaLista = disciplinas.split(',');
+            // div 1
+            var div1Qnt = 0;
+            const div1 = document.getElementById('div1');
+            const hdiv1 = document.getElementById('hDiv1');
+            const buttonsDiv1 = div1.querySelectorAll("button");
+            
+            buttonsDiv1.forEach(function (button1) {
+                if(disciplinas.includes(button1.getAttribute('value'))){
+                    button1.classList.add('text-indigo-600');
+                    div1Qnt++;
+                }
+            });
+            hdiv1.textContent = div1Qnt+"/3";
 
+            // div 2
+            var div2Qnt = 0;
+            const div2 = document.getElementById('div2');
+            const hdiv2 = document.getElementById('hDiv2');
+            const buttonsDiv2 = div2.querySelectorAll("button");
+
+            buttonsDiv2.forEach(function (button2) {
+                if(disciplinas.includes(button2.getAttribute('value'))){
+                    button2.classList.add('text-indigo-600');
+                    div2Qnt++;
+                }
+            });
+            hdiv2.textContent = div2Qnt+"/5";
+
+            // div 3
+            var div3Qnt = 0;
+            const div3 = document.getElementById('div3');
+            const hdiv3 = document.getElementById('hDiv3');
+            const buttonsDiv3 = div3.querySelectorAll("button");
+
+            buttonsDiv3.forEach(function (button3) {
+                if(disciplinas.includes(button3.getAttribute('value'))){
+                    button3.classList.add('text-indigo-600');
+                    div3Qnt++;
+                }
+            });
+            hdiv3.textContent = div3Qnt+"/5";
+
+            // div 4
+            var div4Qnt = 0;
+            const div4 = document.getElementById('div4');
+            const hdiv4 = document.getElementById('hDiv4');
+            const buttonsDiv4 = div4.querySelectorAll("button");
+            
+            buttonsDiv4.forEach(function (button4) {
+                if(disciplinas.includes(button4.getAttribute('value'))){
+                    button4.classList.add('text-indigo-600');
+                    div4Qnt++;
+                }
+            });
+            hdiv4.textContent = div4Qnt+"/4";
+        });
     </script>
 </html>
