@@ -169,7 +169,7 @@ export default class AuthController {
             };
         });
         
-        console.log(mappedDisciplinas);
+        //console.log(mappedDisciplinas);
             
         let cargaHorariaObrigatoriaTotal = 0;
         let cargaHorariaOptativaTotal = 0;
@@ -189,8 +189,8 @@ export default class AuthController {
         const cargaHorariaOptativaPendente = Math.max(720 - cargaHorariaOptativaTotal, 0);
 
 
-        console.log('Carga Horária Obrigatória Pendente:', cargaHorariaObrigatoriaPendente);
-        console.log('Carga Horária Optativa Pendente:', cargaHorariaOptativaPendente);
+        //console.log('Carga Horária Obrigatória Pendente:', cargaHorariaObrigatoriaPendente);
+        //console.log('Carga Horária Optativa Pendente:', cargaHorariaOptativaPendente);
         
 
         return view.render('users/perfil', { disciplinas: disciplinas, cargaHorariaObrigatoriaPendente : cargaHorariaObrigatoriaPendente, cargaHorariaOptativaPendente : cargaHorariaOptativaPendente})
