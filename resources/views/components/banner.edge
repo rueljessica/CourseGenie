@@ -1,17 +1,22 @@
 <section class="bg-gray-50 dark:bg-black pb-20 h-screen px-96 overflow-hidden">
-  <div class="grid md:grid-cols-3">
-    <div class="pt-40 relative col-span-2">
+  <div class="grid md:grid-cols-4">
+    <div class="pt-40 relative col-span-3">
       <h1 class="text-4xl font-sans tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl dark:text-white">CourseGenie</h1>
       <div class="inline-flex">
         <h2 class="tracking-wide text-lg text-gray-800 dark:text-white relative z-10">Seu Guia Pessoal</h2>
       </div>
-      <p class="pt-10 font-medium text-lg tracking-wide text-gray-600 dark:text-gray-300">Obtenha, em poucos cliques, recomendações personalizadas adaptadas à sua jornada acadêmica.</p>
+      <div class="inline-flex text-lg tracking-wide pt-10">
+        <p class="text-gray-600 dark:text-gray-300">Obtenha, em poucos cliques, recomendações personalizadas adaptadas à sua jornada acadêmica.</p>
+        <div class="pl-2 transform origin-center hover:scale-95 transition duration-150 ease-in-out">
+          <button id="cadastroButton" class="text-indigo-700">Comece agora!</button>
+        </div>
+      </div>
     </div>
     <div class="col-span-1">
-      <img class="ml-10 mt-20" src={{tecoteco}}>
+      <img class="ml-10 mt-40" src={{tecoteco}}>
     </div>
   </div>
-  <div class="grid md:grid-cols-1 mt-40">
+  <div class="grid md:grid-cols-1 mt-20">
     <div class="grid divide-x divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-2xl shadow-2xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
       <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/30 dark:hover:shadow-black/95">
         <div class="relative space-y-8 py-12 p-8">
@@ -60,3 +65,9 @@
     </div>
   </div>
 </section>        
+
+<script type="text/javascript">
+  document.getElementById("cadastroButton").onclick = function () {
+    location.href = "/cadastro";
+  };
+</script>
