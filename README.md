@@ -1,3 +1,6 @@
+# CourseGenie
+Projeto de Conclusão de Curso
+
 ## Requisitos
 - [NodeJS ^14](https://nodejs.org/en/download)
 - [NPM](https://www.npmjs.com/package/download)
