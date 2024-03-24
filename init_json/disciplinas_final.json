@@ -6561,5 +6561,41 @@
         "codigo": "AC784",
         "carga_horaria": 120,
         "periodo": 8
+    },
+    {
+        "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO I",
+        "codigo": "TN756",
+        "carga_horaria": 60,
+        "periodo": 8
+    },
+    {
+        "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO II",
+        "codigo": "TN757",
+        "carga_horaria": 60,
+        "periodo": 8
+    },
+    {
+        "nome": "MÉTODOS UNIVERSITÁRIOS",
+        "codigo": "AA784",
+        "carga_horaria": 30,
+        "periodo": 8
+    },
+    {
+        "nome": "LABORATÓRIO DE COMPUTAÇÃO II",
+        "codigo": "AA785",
+        "carga_horaria": 30,
+        "periodo": 8
+    },
+    {
+        "nome": "LABORATÓRIO DE CIRCUITOS DIGITAIS",
+        "codigo": "AA786",
+        "carga_horaria": 30,
+        "periodo": 8
+    },
+    {
+        "nome": "LABORATÓRIO DE ESTRUTURA DE DADOS I",
+        "codigo": "AA787",
+        "carga_horaria": 30,
+        "periodo": 8
     }
 ]
