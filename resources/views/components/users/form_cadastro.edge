@@ -1,7 +1,6 @@
-<section class="bg-gray-50 dark:bg-black w-screen">
+<section class="bg-gray-50 dark:bg-black">
     <form method="POST" action="{{ route('auth.register')}}" enctype="multipart/form-data"> {{ csrfField() }}
-        <div class="flex flex-col items-center justify-center px-6 py-8 mt-10 mx-auto md:h-screen lg:py-0">
-            
+        <div class="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
             <div class="w-full bg-white rounded-lg shadow-sm dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1
@@ -39,9 +38,14 @@
                                 @include('components/modal_termos')
                             </div>
                         </div>
-                        <button type="submit"
-                            class="w-full text-white bg-gradient-to-br from-violet to-blue hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Criar conta
-                        </button>
+                        <div class="flex justify-center">
+                            <button type="submit" class="w-full relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
+                                <span class="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                    Criar conta
+                                </span>
+                            </button>
+                        </div>
+                        
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400"> Já possui uma conta? <a href="/login" class="font-medium text-gray-500 dark:text-gray-300 hover:underline">Entre aqui</a>
                         </p>
                     </form>

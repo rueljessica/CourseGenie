@@ -8,8 +8,8 @@ Route.get('sobre', async ({ view }) => {
   return view.render('home/sobre')
 })
 
-Route.get('/resetar', async ({ view }) => {
-  return view.render('reset_senha')
+Route.get('/esqueci-senha', async ({ view }) => {
+  return view.render('users/esqueci_senha')
 })
 
 Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
