@@ -1,7 +1,7 @@
 <section class="bg-gray-50 dark:bg-black w-screen h-screen">
     <form id="loginForm" method="POST" action="{{ route('auth.login')}}"> {{ csrfField() }}
         <div class="flex flex-col flex-shrink-0 overflow-hidden items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white rounded-lg shadow-sm dark:border md:mt-0 sm:max-w-md xl:p- dark:bg-gray-800 dark:border-gray-700">
+            <div class="w-full bg-white shadow-2xl rounded-lg border-dashed sm:max-w-md dark:bg-gunmetal dark:border-gray-700">
                 <h2 class="mt-5 text-center text-2xl font-sans leading-9 tracking-tight text-gray-900 dark:text-white">Entre na sua conta</h2>
                 @if(flashMessages.has('notification'))
                     <span class="text-danger">{{flashMessages.get('notification')}}</span>

@@ -1,8 +1,8 @@
-<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64 tracking-wide">
+<section class="bg-white dark:bg-black p-4 ml-64 md:h-screen sm:overflow-auto tracking-wide">
     <div class="mt-20">
         <div class="grid md:grid-cols-3 gap-2">
             <!-- Profile Card -->
-            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gunmetal">
                 <div class="image overflow-hidden">
                     <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-600">
                         <img class="rounded w-36 h-36" src="{{ route('files.show', { id: auth.user.avatar }) }}"/>
@@ -12,7 +12,7 @@
                 <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">Matrícula: {{auth.user.matricula}} </h3>
                 <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">Ano Letivo: {{auth.user.anoLetivo}}</h3>
                 <h3 class="text-gray-500 dark:text-gray-400 font-lg text-semibold leading-6">IRA: {{auth.user.ira}}</h3>
-                <ul class="bg-gray-100 dark:bg-gray-600 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                <ul class="bg-gray-100 dark:bg-charcoal text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                     <li class="flex items-center py-3 text-gray-500 dark:text-white">
                         <span>Status</span>
                         <span class="ml-auto"><span class="bg-gradient-to-br from-violet to-blue py-1 px-2 rounded text-white text-sm">{{auth.user.status}}<span></span>
@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <!-- End of profile card -->
-            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800 col-span-2">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gunmetal col-span-2">
                 <!-- About Section -->
                 <div >
                     <div class="flex items-center space-x-2 text-gray-900 leading-8">
@@ -108,7 +108,7 @@
         </div>
         <div class="grid md:grid-cols-1 pt-5">
             <!-- Componentes Curriculares -->
-            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gray-800 overflow-auto h-96">
+            <div class="bg-white p-3 shadow-2xl rounded-lg border-dashed dark:bg-gunmetal overflow-auto h-96">
                 <div class="flex items-center space-x-2 text-gray-900 leading-8 mb-3">
                     <span clas="text-green-500">
                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="gray">
@@ -117,9 +117,9 @@
                     </span>
                     <span class="tracking-wide text-lg text-gray-900 dark:text-white">Componentes Curriculares</span>
                 </div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="relative overflow-x-auto shadow-md rounded-lg">
                     <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-lg text-gray-700 bg-gray-100 dark:bg-gray-600 dark:text-white">
+                        <thead class="text-lg tracking-wide text-gray-700 bg-gray-100 dark:bg-charcoal dark:text-white">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Disciplina
@@ -137,7 +137,7 @@
                         </thead>
                         <tbody>
                             @each(disciplina in disciplinas)
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b dark:bg-gunmetal dark:border-gray-700">
                                     <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" id="rowDisc">
                                         {{ disciplina.nome }}
                                     </th>

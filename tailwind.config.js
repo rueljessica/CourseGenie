@@ -12,12 +12,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-
         violet: '#b469ff',
         blue: '#009999',
         violetone: '#cc99ff',
         blueone: '#47d1d1',
         black: '#11151C',
+        gunmetal:'#1F2833',
+        charcoal: '#424C58',
       },
     },
     fontFamily: {
