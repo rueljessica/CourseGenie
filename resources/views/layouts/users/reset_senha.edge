@@ -14,6 +14,7 @@
                 document.documentElement.classList.remove('dark')
                 }
         </script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
     </head>
     @!section('body')
 
@@ -23,28 +24,6 @@
 
     <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 
-    <script>
-        const form = document.querySelector('form');
-        const successModal = document.getElementById('successModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            if (password !== confirmPassword) {
-                alert('As senhas não correspondem. Por favor, digite senhas iguais.');
-            } else {
-                successModal.classList.remove('hidden');
-            }
-        });
-
-        closeModalBtn.addEventListener('click', function() {
-            successModal.classList.add('hidden');
-        });
-
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </html>
