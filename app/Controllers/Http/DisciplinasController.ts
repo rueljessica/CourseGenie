@@ -20,7 +20,6 @@ export default class DisciplinasController {
 
             let media = 0;
             let professoresSet = new Set<string>();
-            let notaMinimaAprovacao = 5.0;
 
             const disciplina = await Disciplina.query()
             .where('codigo', codigo)
@@ -33,16 +32,16 @@ export default class DisciplinasController {
             .first();
 
             const disciplinaCursada = await DisciplinasCursada.query()
-            .where('codigo', 'TM403')
+            .where('codigo', codigo)
 
             for (const disc of disciplinaCursada) {
                 media+= disc.media;
                 professoresSet.add(disc.professor);
             }
 
-            media=media/disciplinaCursada.length;
+            media = parseFloat((media/disciplinaCursada.length).toFixed(1));
 
-            const alunosAprovados = disciplinaCursada.filter((aluno) => aluno.media >= notaMinimaAprovacao);
+            const alunosAprovados = disciplinaCursada.filter((aluno) => aluno.media >= 5.0);
             const indiceAprovacao = (alunosAprovados.length / disciplinaCursada.length) * 100;
             const formattedIndiceAprovacao = indiceAprovacao.toFixed(2) + '%';
 
