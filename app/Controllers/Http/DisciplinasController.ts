@@ -18,38 +18,61 @@ export default class DisciplinasController {
             const body = request.only(['disc'])
             var codigo = body.disc
 
-            let media = 0;
-            let professoresSet = new Set<string>();
-            let notaMinimaAprovacao = 5.0;
-
             const disciplina = await Disciplina.query()
-            .where('codigo', codigo)
-            .preload('preRequisitos', (preRequisito) => {
-                preRequisito.select(['id', 'nome', 'codigo']);
-            })
-            .preload('conteudoProgramaticos', (conteudo) => {
-                conteudo.select(['id', 'unidade', 'topicos']);
-            })
-            .first();
+                .where('codigo', codigo)
+                .preload('preRequisitos', (preRequisito) => {
+                    preRequisito.select(['id', 'nome', 'codigo']);
+                })
+                .preload('conteudoProgramaticos', (conteudo) => {
+                    conteudo.select(['id', 'unidade', 'topicos']);
+                })
+                .first();
 
-            const disciplinaCursada = await DisciplinasCursada.query()
-            .where('codigo', 'TM403')
+            const disciplinasCursadas = await DisciplinasCursada.query()
+                .select('professor', 'media', 'situacao')
+                .where('codigo', codigo)
 
-            for (const disc of disciplinaCursada) {
-                media+= disc.media;
-                professoresSet.add(disc.professor);
-            }
 
-            media=media/disciplinaCursada.length;
+            // Calcula a média global da disciplina
+            const mediaGlobal = disciplinasCursadas.reduce((acc, cur) => acc + cur.media, 0) / disciplinasCursadas.length;
+            // Calcula o índice de aprovação global
+            const totalApr = disciplinasCursadas.filter(disciplina => ['cumpriu', 'apr', 'aprn', 'incorp', 'cump'].includes(disciplina.situacao.toLowerCase())).length;
+            const indiceAprGlobal = (totalApr / disciplinasCursadas.length) * 100;
 
-            const alunosAprovados = disciplinaCursada.filter((aluno) => aluno.media >= notaMinimaAprovacao);
-            const indiceAprovacao = (alunosAprovados.length / disciplinaCursada.length) * 100;
-            const formattedIndiceAprovacao = indiceAprovacao.toFixed(2) + '%';
+            // Calcula a média por professor que lecionou a disciplina
+            const mediasPorProfessor: { [key: string]: number } = {};
+            disciplinasCursadas.forEach(disciplina => {
+                if (!mediasPorProfessor[disciplina.professor]) {
+                    mediasPorProfessor[disciplina.professor] = 0;
+                }
+                mediasPorProfessor[disciplina.professor] += disciplina.media;
+            });
+            Object.keys(mediasPorProfessor).forEach(professor => {
+                mediasPorProfessor[professor] /= disciplinasCursadas.filter(disciplina => disciplina.professor === professor).length;
+                mediasPorProfessor[professor] = parseFloat(mediasPorProfessor[professor].toFixed(1))
+            });
 
-            const professores = Array.from(professoresSet);
-            
-            return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, media: media, professores: professores, formattedIndiceAprovacao : formattedIndiceAprovacao})
+            /// Calcula o índice de aprovação por professor
+            const indiceAprovacaoPorProfessor: { [key: string]: { aprovacao: number; reprovacao: number } } = {};
+            disciplinasCursadas.forEach(disciplina => {
+                if (!indiceAprovacaoPorProfessor[disciplina.professor]) {
+                    indiceAprovacaoPorProfessor[disciplina.professor] = { aprovacao: 0, reprovacao: 0 };
+                }
+                if (['cumpriu', 'apr', 'aprn', 'incorp', 'cump'].includes(disciplina.situacao.toLowerCase())) {
+                    indiceAprovacaoPorProfessor[disciplina.professor].aprovacao++;
+                } else {
+                    indiceAprovacaoPorProfessor[disciplina.professor].reprovacao++;
+                }
+            });
 
+            Object.keys(indiceAprovacaoPorProfessor).forEach(professor => {
+                const count = disciplinasCursadas.filter(disciplina => disciplina.professor.toLowerCase() === professor.toLowerCase()).length;
+                const indiceAprovacao = indiceAprovacaoPorProfessor[professor].aprovacao / count * 100;
+                const indiceReprovacao = indiceAprovacaoPorProfessor[professor].reprovacao / count * 100;
+                indiceAprovacaoPorProfessor[professor] = { aprovacao: parseInt(indiceAprovacao.toFixed(0)), reprovacao: parseInt(indiceReprovacao.toFixed(0)) };
+            });
+
+            return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
         } catch (error) {
             return response.badRequest('Error' + error)
         }

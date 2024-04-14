@@ -100,7 +100,8 @@ class ParsePDF {
             customVar += 'Código: ' + paragraph + '\n';
             i += 5;
         } else if (paragraph.match(regex2)) {
-            customVar += 'Professor: ' + paragraph + '\n';
+            let nomeLimpo = paragraph.replace(/^(Dr|Dra|PhD|MSc|MA|Prof|Ms|Mx|Eng|Enga|Lic|Lcda|Esq|Esp)\.\s*/i, '');
+            customVar += 'Professor: ' + nomeLimpo.toUpperCase() + '\n';
         } else if (paragraph.match(regex6)) {
             customVar += 'Média: ' + paragraph + '\n';
         } else if (paragraph.match(regex7) || paragraph.match(regex8) || paragraph.match(regex9)) {

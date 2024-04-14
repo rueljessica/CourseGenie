@@ -1,67 +1,72 @@
 [
     {
-        "nome": "Adria Ramos de Lyra",
+        "nome": "ADRIA RAMOS DE LYRA",
         "sala": "212",
         "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal Fluminense (2002), mestrado em Computação pela Universidade Federal Fluminense (2004) e doutorado em Computação pela Universidade Federal Fluminense (2009). Atualmente é professor de magistério superior da Universidade Federal Rural do Rio de Janeiro. Tem experiência na área de Ciência da Computação, com ênfase em Otimização Combinatória."
     },
     {
-        "nome": "Bruno José Dembogurski",
+        "nome": "BRUNO JOSÉ DEMBOGURSKI",
         "sala": "205",
         "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora (2006), Mestrado em Computação pela Universidade Federal Fluminense (2009) e doutorado (2014) também pela Universidade Federal do Fluminense (UFF) na área de Computação Visual. Atualmente é professor adjunto do departamento de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro. Tem experiência na área de Ciência da Computação, com ênfase em Processamento Geométrico, Geração Procedural, Computação Visual, Programação em GPU, Realidade Aumentada, Inteligência Computacional e Desenvolvimento de Sistemas."
     },
     {
-        "nome": "Filipe Braida do Carmo",
+        "nome": "FILIPE BRAIDA DO CARMO",
         "sala": "212",
         "descricao": "Filipe Braida é professor do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) desde 2013. Formou-se em Ciência da Computação pela Universidade Federal do Rio de Janeiro (UFRJ) em 2009, tendo recebido em 2010, a Dignidade Acadêmica Cum Laude, por conta de seu desempenho no curso de graduação. Obteve o grau de Mestre (2013) e Doutor (2018) em Ciências em Engenharia de Sistemas de Computação pelo programa de Engenharia de Sistemas e Computação da COPPE/UFRRJ. Tem experiência na área de desenvolvimento de sistemas. Em alguns projetos atuou como líder de equipe. Atualmente, ele pesquisa nas áreas de Inteligência Artificial, Mineração de Dados e Sistemas de Recomendação."
     },
     {
-        "nome": "Fellipe Ribeiro Duarte",
+        "nome": "FELLIPE RIBEIRO DUARTE",
         "sala": "205",
         "descricao": "Fellipe Duarte é professor do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) desde 2014. Formou-se em Ciência da Computação pela Universidade Federal do Rio de Janeiro (UFRJ) em 2008. Obteve o grau de Mestre (2011) e Doutor (2017) em Engenharia de Sistemas de Computação pelo programa de Engenharia de Sistemas e Computação da COPPE/UFRRJ. Tem experiência na área de desenvolvimento de sistemas. Em alguns projetos atuou como líder de equipe. Atualmente, ele pesquisa nas áreas de Inteligência Artificial, Mineração de Dados, Processamento de Linguagem Natural, Busca e Recuperação de Informação e Informação de plágio."
     },
     {
-        "nome": "Fernanda Vieira Dias Couto",
+        "nome": "FERNANDA VIEIRA DIAS COUTO",
         "sala": "211",
         "descricao": "Doutora em Ciências, Engenharia de Sistemas e Computação pelo Programa de Engenharia de Sistemas e Computação (PESC/COPPE - UFRJ). Obteve, em 2012, seu título de Mestre no mesmo programa. Graduou-se, ainda, em Licenciatura em Matemática pela Universidade Federal do Rio de Janeiro em 2010. Atualmente, é professora adjunta do Departamento de Ciência da Computação do Instituto Multidisciplinar da Universidade Federal Rural do Rio de Janeiro coordenadora do curso de Bacharelado em Ciência da Computação do IM/UFRRJ, e professora do Programa de Pós-graduação Interdisciplinar em Humanidades Digitais (PPGIHD) na mesma universidade. Além disso, é tutora a distância do Consórcio CEDERJ da disciplina Fundamentos de Algoritmos para Computação. Atua principalmente nas áreas de Teoria dos Grafos e Complexidade Computacional."
     },
     {
-        "nome": "Juliana Mendes Nascente e Silva Zamith",
+        "nome": "JULIANA MENDES NASCENTE E SILVA ZAMITH",
         "sala": "205",
         "descricao": "Juliana M N S Zamith é professora professora Adjunta do Curso de Ciência da Computação do Departamento de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro - UFRRJ desde 2010. Possui graduação em Ciência da Computação pelas Faculdades Integradas de Caratinga (2002). Obteve posteriormente o título de Mestre (M.Sc.) pelo Programa de Pós graduação em Computação da Universidade Federal Fluminense em 2006 e o título de doutora (D. Sc) em 2014 pela UFF na mesma área. Possui experiência e interesse na área de Sistemas distribuídos e Processamento Paralelo especialmente em balanceamento de carga de aplicações, escalonomento de processos, arquiteturas de alto desempenho, Computação nas nuvens e metaheurísticas paralelas. Atualmente, seus tópicos de interesse em pesquisa são escalonomento e balanceamento de carga em clusters de multicore."
     },
     {
-        "nome": "Leandro Guimarães Marques Alvim",
+        "nome": "LEANDRO GUIMARÃES MARQUES ALVIM",
         "sala": "211",
         "descricao": "É professor Adjunto do magistério superior (2010) do Departamento de Ciência da Computação (DCC) da Universidade Federal Rural do Rio de Janeiro (UFRRJ), Campus Nova Iguaçu. Foi chefe do Departamento de Tecnologias e Linguagens (2013-2014) e foi chefe do Departamento de Ciência da Computação. Doutor em Informática pela Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio) na área de concentração Algoritmos, Raciocínio Automático e Otimização. Fez mestrado em Informática na área de concentração Inteligência Computacional pelo IM/NCE na Universidade Federal do Rio de Janeiro (UFRJ). Possui bacharelado em Ciência da Computação pela Universidade Federal Fluminense (UFF). Na graduação, foi bolsista de iniciação científica (CNPQ)na linha de pesquisa Meta-heurísticas e Otimização. Foi bolsista de mestrado pelo órgão de fomento CNPQ e Bolsista de doutorado pelo órgão de fomento FAPERJ (Aluno Nota 10). E revisor de periódicos da editora Elsevier e de projetos da The Fund for Scientific Research-FNRS. Suas principais áreas de interesse são: Aprendizado de Máquina, Processamento de Linguagem Natural, Mercado Financeiro, Otimização, Grafos e Algoritmos."
     },
     {
-        "nome": "Lígia Maria Soares Passos",
+        "nome": "LÍGIA MARIA SOARES PASSOS",
         "sala": "205",
         "descricao": "Lígia M. S. Passos é professora adjunta, em regime de dedicação exclusiva, do Departamento de Ciência da Computação da UFRRJ, desde 2013. Possui graduação (2006), mestrado (2009) e doutorado (2016) em Ciência da Computação pela Universidade Federal de Uberlândia. Tem experiência na área da Ciência da Computação, com ênfase em Modelos Analíticos e de Simulação, Lógicas, Sistemas de Informação e Engenharia de Software, atuando principalmente nos seguintes temas: redes de Petri, WorkFlow nets, Lógica Linear, Workflow, Processos de Negócio e composição de Web services. Atualmente, tem desenvolvido trabalhos de pesquisa relacionados à saúde mental de estudantes da Computação (CS Student Mental Health)."
     },
     {
-        "nome": "Marcel William Rocha da Silva",
+        "nome": "MARCEL WILLIAM ROCHA DA SILVA",
         "sala": "211",
         "descricao": "Possui graduação em Engenharia Elétrica Com Enfase Em Telecomunicações pela Universidade do Estado do Rio de Janeiro(2004), mestrado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro(2006) e doutorado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro(2011). Atualmente é Professor Adjunto do Departamento de Ciência da Computação do Instituto Multidisciplinar da Universidade Federal Rural do Rio de Janeiro. Desde 2014 participa do Comitê de Programa do Simpósio Brasileiro de Redes de Computadores e Sistemas distribuídos (SBRC) da Sociedade Brasileira de Computação (SBC). Tem experiência na área de Redes de Computadores. Atuando principalmente nos seguintes temas: Redes Sem Fio, Rádios Cognitivos, Roteamento."
     },
     {
-        "nome": "Marcelo Panaro de Moraes Zamith",
+        "nome": "MARCELO PANARO DE MORAES ZAMITH",
         "sala": "211",
         "descricao": "Marcelo Zamith é graduado pela Universidade Gama Filho (2005) em Ciência da Computação. Concluiu seu mestrado (2007) e doutorado (2013) em Computação na Universidade Federal Fluminense. Atualmente é professor Adjunto do Departamento Ciência da Computação do Instituto Multidisciplinar na Universidade Federal Rural do Rio de Janeiro (UFRRJ) Campus de Nova Iguaçu. Em 2017 coordenou a Escola Regional de Alto Desempenho do Rio de Janeiro. Tem como linha de pesquisa: GPU Computing, simulação e jogos."
     },
     {
-        "nome": "Natália Chaves Lessa Schots",
+        "nome": "NÁTALIA CHAVES LESSA SCHOTS",
         "sala": "205",
         "descricao": "Possui doutorado e mestrado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro, e graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora. É implementadora e avaliadora do Modelo de Referência para Melhoria de Processos de Software Brasileiro (MR-MPS-SW) e do Modelo de Referência para Melhoria de Serviços (MR-MPS-SV). Possui interesse em Engenharia de Software e Melhoria de Processos de Software, atuando principalmente nos seguintes temas: Qualidade de Software, Processos de Software, Análise de Desempenho de Processos, Gerência do Conhecimento, Gerência de Projetos e Engenharia de Requisitos."
     },
     {
-        "nome": "Ricardo Cordeiro Correa",
+        "nome": "RICARDO CORDEIRO CORREA",
         "sala": "211",
         "descricao": "Possui graduação em Engenharia Eletrônica pela Universidade Federal do Rio de Janeiro (1989), mestrado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro (1992) e doutorado em Informática - Institut National Polytechnique de Grenoble (1997). Realizou estágios de pós-doutorado sênior no Programa de Engenharia de Sistemas e Computação da UFRJ (2006), no Institut National de Recherche en Informatique et Automatique de Sophia-Antipolis, França (2007) e na Universidad de General Sarmiento (2013), além de ter sido professor visitante na Université d`Avignon et du Pays de Vaucluse, França (2009). Foi um dos líderes do grupo de pesquisa ParGO - Paralelismo, Grafos e Otimização (http: //www.lia.ufc.br/~pargo) e docente efetivo e orientador credenciado do Programa de Mestrado e Doutorado em Ciência da Computação da Universidade Federal do Ceará. Atualmente é Professor Associado III da Universidade Federal Rural do Rio de Janeiro, Departamento de Ciência da Computação, onde é um dos líderes do grupo de pesquisa LAGOA - Laboratório de Algoritmos, Grafos, Otimização e Aplicações, e exerce a função de Coordenador de Pesquisa da Pró-Reitoria de Pesquisa e Pós-graduação. Tem experiência na área de Ciência da Computação, com ênfase em Algoritmos, Computação de Alto Desempenho, Paralelismo e Otimização Combinatória."
     },
     {
-        "nome": "Ubiratam Carvalho de Paula Junior",
+        "nome": "UBIRATAM CARVALHO DE PAULA JUNIOR",
         "sala": "205",
         "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal Fluminense (2009), mestrado (2011) e doutorado (2015) em Computação pela mesma instituição. Atualmente é professor adjunto do Departamento de Ciência da Computação (DCC) da Universidade Federal Rural do Rio de Janeiro (UFRRJ), Campus Nova Iguaçu. Possui interesse nos seguintes temas: sistemas distribuídos, otimização e Computação em nuvem."
+    },
+    {
+        "nome": "DANIEL FABIO DOMINGUES POSNER",
+        "sala": "",
+        "descricao": ""
     }
 ]
