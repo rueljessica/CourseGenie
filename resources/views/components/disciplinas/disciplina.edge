@@ -1,78 +1,63 @@
 <section class="bg-gray-50 dark:bg-gray-900 h-screen p-4 sm:ml-64 overflow-auto">
-    <div class="grid grid-cols-3 mt-20 gap-3">
+    <div class="grid grid-cols-1 mt-20 gap-2">
+        <div>
+            <span class="text-zinc-900 dark:text-zinc-200 text-3xl pl-2">{{disciplina.nome}}</span>
+            <span class="text-zinc-700 dark:text-zinc-400 text-lg pl-1">{{disciplina.codigo}}</span>
+        </div>
         <div class="col-span-1">
-            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 py-5 h-full">
-                <span class="dark:text-zinc-200 text-2xl pl-5">{{disciplina.nome}}</span>
-                <span class="text-zinc-500 dark:text-zinc-300 text-md pl-1">{{disciplina.codigo}}</span>
-                <div class="{{ disciplina.preRequisitos.length > 0 ? '' : 'hidden' }}">
-                    <div class="pl-5 pt-2">
-                        <div class="">
-                            <span class="text-gray-500 dark:text-gray-400">Pré-Requisito:</span>
-                            <div class=" ml-auto">
+            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 p-5 h-80 overflow-auto">
+                <div>
+                    <div>
+                        <div class="{{ disciplina.preRequisitos.length > 0 ? '' : 'hidden' }}">
+                            <span class="tracking-wide text-lg text-gray-900 dark:text-white">Pré-requisitos</span>
+                            <div class="ml-auto mb-3">
                                 @each(pre_requisito in disciplina.preRequisitos)  
-                                    <span class="text-gray-500 dark:text-gray-400">
+                                    <span class="text-lg text-gray-500 dark:text-gray-400">
                                         {{ pre_requisito.nome }} ({{ pre_requisito.codigo }})
                                     </span>
                                 @endeach
                             </div>
+                            <div class="border border-opacity-15 mb-2 border-gray-600"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-span-2">
-            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800">
-                <div class="">
-                    <div class="flex items-center space-x-1 text-gray-900 leading-8 py-3 px-3">
-                        <span>
-                            <svg class="flex-shrink-0 size-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"></path>
-                            </svg>
-                        </span>
                         <span class="tracking-wide text-lg text-gray-900 dark:text-white">Conteúdo Programático</span>
                     </div>
-                    <div class="h-60 overflow-auto">
-                        <table class="w-full border-collapse">
-                            <tbody>
-                                @each(unidade in disciplina.conteudoProgramaticos)
-                                <tr>
-                                    <td class="p-5 border-b border-gray-200 dark:border-gray-700 dark:text-white">
-                                        <span class="text-lg">{{unidade.unidade}}</span>
-                                        <ul class="list-disc list-inside">
-                                            @each(topico in unidade.topicos)
-                                                <li>{{ topico }}</li>
-                                            @endeach
-                                        </ul>
-                                    </td>
-                                </tr>
-                                @endeach
-                            </tbody>
-                        </table>
+                    <div>  
+                        <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                            @each(unidade in disciplina.conteudoProgramaticos)
+                                <div class="flex flex-col pt-3">
+                                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">{{unidade.unidade}}</dt>
+                                    @each(topico in unidade.topicos)
+                                        <dd class="pl-2 text-md text-gray-700 dark:text-gray-300">{{ topico }}</dd>
+                                    @endeach
+                                </div>
+                            @endeach
+                        </dl>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="grid grid-cols-2 gap-3">
+    <div class="grid grid-cols-2 gap-2">
         <div class="col-span-1">
-            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800">
-                <div class="flex justify-between m-5">
+            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 h-full">
+                <div class="flex justify-between m-2">
                     <dl>
-                        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1 pt-3">Índice de Aprovação da Disciplina</dt>
-                        <dd class="leading-none text-3xl text-gray-900 dark:text-white">{{ indiceAprGlobal }}%</dd>
+                        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1 pt-3 pl-3">Índice de Aprovação da Disciplina</dt>
+                        <dd class="leading-none text-3xl text-gray-900 dark:text-white pl-3">{{ indiceAprGlobal }}%</dd>
                     </dl>
                 </div>
                 <div class="text-sm" id="bar-chart"></div>
             </div>
         </div>
         <div class="col-span-1">
-            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800">
-                <div class="flex justify-between m-5">
+            <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 h-full">
+                <div class="flex justify-between m-2">
                     <dl>
-                        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1 pt-3">Média da Disciplina
+                        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1 pt-3 pl-3">Média da Disciplina
                         </dt>
-                        <dd class="leading-none text-3xl text-gray-900 dark:text-white">{{ mediaGlobal }}</dd>
+                        <dd class="leading-none text-3xl text-gray-900 dark:text-white pl-3">{{ mediaGlobal }}</dd>
                     </dl>
                 </div>
                 <div id="column-chart"></div>
