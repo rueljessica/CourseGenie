@@ -1,7 +1,7 @@
-<section class="bg-gray-50 dark:bg-black w-screen h-screen">
+<section class="bg-gray-50 dark:bg-gray-900 w-screen h-screen overflow-auto">
     <form id="loginForm" method="POST" action="{{ route('auth.login')}}"> {{ csrfField() }}
         <div class="flex flex-col flex-shrink-0 overflow-hidden items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white shadow-2xl rounded-lg border-dashed sm:max-w-md dark:bg-gunmetal dark:border-gray-700">
+            <div class="w-full bg-white shadow-md rounded-lg sm:max-w-md dark:bg-gray-800 dark:border-gray-700">
                 <h2 class="mt-5 text-center text-2xl font-sans leading-9 tracking-tight text-gray-900 dark:text-white">Entre na sua conta</h2>
                 @if(flashMessages.has('notification'))
                     <span class="text-danger">{{flashMessages.get('notification')}}</span>
@@ -12,20 +12,19 @@
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">E-mail</label>
                         <div class="mt-2">
                         <input id="email" name="email" type="email" autocomplete="email" required
-                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-0 focus:border-gray-600 form-input">
                         </div>
                     </div>
-            
                     <div>
                         <div class="flex items-center justify-between">
                         <label for="password" class="block text-sm pt-2 font-medium leading-6 text-gray-900 dark:text-white">Senha</label>
                         </div>
                         <div class="mt-2">
                         <input id="password" name="password" type="password" autocomplete="current-password" required
-                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-0 focus:border-gray-600 form-input">
                         </div>
                         <div class="text-sm mt-2 text-end">
-                        <a href="/esqueci-senha" class="font-medium text-gray-500 dark:text-gray-300 hover:underline">Esqueceu a senha?</a>
+                        <a href="/esqueci-senha" class="font-medium text-gray-600 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100e">Esqueceu a senha?</a>
                         </div>
                     </div>
                     <div class="flex justify-center">
