@@ -52,27 +52,27 @@ Route.get('/generateTestData/:id', 'TestDataController.main')
 Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')
 
 Route.get('/primeiro-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_um')
+  return view.render('disciplinas/periodos/periodo_um')
 }).middleware('auth')
 
 Route.get('/segundo-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_dois')
+  return view.render('disciplinas/periodos/periodo_dois')
 }).middleware('auth')
 
 Route.get('/terceiro-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_tres')
+  return view.render('disciplinas/periodos/periodo_tres')
 }).middleware('auth')
 
 Route.get('/quarto-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_quatro')
+  return view.render('disciplinas/periodos/periodo_quatro')
 }).middleware('auth')
 
 Route.get('/quinto-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_cinco')
+  return view.render('disciplinas/periodos/periodo_cinco')
 }).middleware('auth')
 
 Route.get('/sexto-periodo', async ({ view }) => {
-  return view.render('disciplinas/periodo_seis')
+  return view.render('disciplinas/periodos/periodo_seis')
 }).middleware('auth')
 
 Route.get('/optativas', async ({ view }) => {

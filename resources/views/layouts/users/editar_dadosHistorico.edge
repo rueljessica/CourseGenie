@@ -75,26 +75,32 @@
   function saveEdit() {
     const modalForm = document.getElementById('modalForm');
 
+    const editAno = document.getElementById('editAno').value;
+    const editCodigo = document.getElementById('editCodigo').value;
+    const editSituacao = document.getElementById('editSituacao').value;
+
     const anoAnterior = document.createElement('input');
-    anoAnterior.type = 'text';
+    anoAnterior.type = 'hidden';
     anoAnterior.name = 'anoAnterior';
-    anoAnterior.value = this.ano;
+    anoAnterior.value = editAno;
 
     const codigoAnterior = document.createElement('input');
-    codigoAnterior.type = 'text';
+    codigoAnterior.type = 'hidden';
     codigoAnterior.name = 'codigoAnterior';
-    codigoAnterior.value = this.codigo;
+    codigoAnterior.value = editCodigo;
 
     const situacaoAnterior = document.createElement('input');
-    situacaoAnterior.type = 'text';
+    situacaoAnterior.type = 'hidden';
     situacaoAnterior.name = 'situacaoAnterior';
-    situacaoAnterior.value = this.situacao;
+    situacaoAnterior.value = editSituacao;
 
     modalForm.appendChild(anoAnterior);
     modalForm.appendChild(codigoAnterior);
     modalForm.appendChild(situacaoAnterior);
+
     modalForm.submit();
-  }
+}
+
 
   document.addEventListener('DOMContentLoaded', function () {
     const editTipoField = document.getElementById('editTipo');

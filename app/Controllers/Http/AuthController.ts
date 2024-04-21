@@ -21,6 +21,7 @@ export default class AuthController {
 
         if (!userDate) {
             session.flash('notification', 'Email ou senha inválidos.')
+            session.flash('toast', 'toast-danger')
             return response.redirect('back')
         }
 
@@ -29,6 +30,7 @@ export default class AuthController {
             return response.redirect("/")
         } catch (error) {
             session.flash('notification', 'Email ou senha inválidos.')
+            session.flash('toast', 'toast-danger')
             return response.redirect('back')
         }
     }
@@ -117,7 +119,7 @@ export default class AuthController {
         }
     }
 
-    public async registerUpdate({ auth, request, response }: HttpContextContract) {
+    public async registerUpdate({ auth, request, response, session }: HttpContextContract) {
         try {
             var password = await Hash.make(request.input('password'))
             await User
@@ -125,7 +127,9 @@ export default class AuthController {
                 .where('email', auth.user?.email)
                 .update({ password: password })
 
-            response.ok('Senha alterada com sucesso!') // criar pg/pop para alterado com sucesso
+            session.flash('notification', 'Senha alterada com sucesso!')
+            session.flash('toast', 'toast-success')
+            return response.redirect('back')
         } catch (error) {
             response.badRequest('Não foi possível executar a alteração de senha' + error.messages) // criar pg/pop para falha na alteração
         }
