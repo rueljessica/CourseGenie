@@ -24,9 +24,9 @@
                 </ul>
             </div>
             <!-- End of profile card -->
-            <div class="bg-white p-3 shadow-md rounded-lg border-dashed dark:bg-gray-800 col-span-2">
+            <div class="bg-white p-3 shadow-md rounded-lg border-dashed dark:bg-gray-800 col-span-2 overflow-auto whitespace-nowrap">
                 <!-- About Section -->
-                <div >
+                <div>
                     <div class="flex items-center space-x-2 text-gray-900 leading-8">
                         <span>
                             <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -37,42 +37,46 @@
                         <span class="tracking-wide text-lg text-gray-900 dark:text-white">Sobre</span>
                     </div>
                     <div>
-                        <div class="grid md:grid-cols-2 text-sm pt-2">
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Nome</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nomeCompleto}}</div>
+                        <div class="grid grid-cols-3 pt-5">
+                            <div class="flex flex-col col-span-1 whitespace-nowrap">
+                                <div class="">
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">Nome</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nomeCompleto}}</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">Data de Nascimento</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400"> {{auth.user.dataNascimento}}</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Data de Nascimento</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.dataNascimento}}</div>
+                            <div class="flex flex-col col-span-1 whitespace-nowrap md:md-pl-20">
+                                <div class="md:pl-24 lg:pl-0">
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">RG</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.rg}}</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CPF</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.cpf}}</div>
+                                    </div>
+                                    
+                                </div>
                             </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">RG</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.rg}}</div>
-                            </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Matrícula</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.matricula}}</div>
-                            </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CPF</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.cpf}}</div>
-                            </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">Nacionalidade</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nacionalidade}}</div>
-                            </div>
-                            <div class="inline-flex">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">E-mail</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.email}}</div>
-                            </div>
-                            <div class="inline-flex">
-                                <div class="whitespace-nowrap px-4 py-2 text-base text-gray-900 dark:text-white">Prazo para Conclusão (Padrão / Máximo)</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.prazoConclusao}}</div>
+                            <div class="flex flex-col col-span-1 whitespace-nowrap md:md-pl-20">
+                                <div class="md:pl-36 lg:pl-0">
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">Nacionalidade</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.nacionalidade}}</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">E-mail</div>
+                                        <div class="py-2 text-base text-gray-500 dark:text-gray-400">{{auth.user.email}}</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="flex items-center space-x-2 pt-10 text-gray-900 leading-8">
                         <span>
                             <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -81,29 +85,45 @@
                         </span>
                         <span class="tracking-wide text-lg text-gray-900 dark:text-white">Integralização</span>
                     </div>
-                    <div>
-                        <div class="grid md:grid-cols-3 text-sm pt-2 whitespace-nowrap">
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Total</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">2280h</div>
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Pendente</div>
-                                <div class="px-4 py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaObrigatoriaPendente}}<span>h</span> </div>
+                    <div class="grid grid-cols-3 pt-5">
+                        <div class="flex flex-col col-span-1 whitespace-nowrap">
+                            <div class="">
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Total</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400">2280h</div>
+                                </div>
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Obrigatória Pendente</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaObrigatoriaPendente}}<span>h</span> </div>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Total</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">720h</div>
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Pendente</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaOptativaPendente}}<span>h</span> </div>
+                        </div>
+                        <div class="flex flex-col col-span-1 whitespace-nowrap md:md-pl-20">
+                            <div class="md:pl-20 lg:pl-0">
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Total</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400">720h</div>
+                                </div>
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Optativa Pendente</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400"> {{cargaHorariaOptativaPendente}}<span>h</span> </div>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Total Currículo</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400">3200h</div>
-                                <div class="px-4 py-2 text-base text-gray-900 dark:text-white">CH. Pendente</div>
-                                <div class="py-2 text-base text-gray-500 dark:text-gray-400"></div>
+                        </div>
+                        <div class="flex flex-col col-span-1 whitespace-nowrap md:md-pl-20">
+                            <div class="md:pl-40 lg:pl-0">
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Total Currículo</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400">3200h</div>
+                                </div>
+                                <div class="flex">
+                                    <div class="lg:px-4 md:px-1 py-2 text-base text-gray-900 dark:text-white">CH. Pendente</div>
+                                    <div class="py-2 text-base text-gray-500 dark:text-gray-400"> <span>h</span> </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                    
                 <!-- End of about section -->
             </div>
         </div>

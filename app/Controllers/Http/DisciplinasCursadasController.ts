@@ -90,7 +90,7 @@ export default class DisciplinasCursadasController {
     public async listGrade({ auth, response, view }: HttpContextContract) {
         try {
             const result = await this.listCods(auth);
-            return view.render('disciplinas/grade_curricular', { disciplinas: result })
+            return view.render('disciplinas/grade/grade_curricular', { disciplinas: result })
         } catch (error) {
             return response.status(500).json({ error: error.message })
         }
@@ -99,7 +99,7 @@ export default class DisciplinasCursadasController {
     public async listEixos({ auth, response, view }: HttpContextContract) {
         try {
             const result = await this.listCods(auth);
-            return view.render('disciplinas/eixos', { disciplinas: result })
+            return view.render('disciplinas/eixo/eixos', { disciplinas: result })
         } catch (error) {
             return response.status(500).json({ error: error.message })
         }
