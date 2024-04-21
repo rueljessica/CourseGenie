@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-black dark:border-gray-700">
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
       <div class="flex items-center justify-start">
@@ -8,37 +8,37 @@
       </div>  
       <div>
         <ul class="flex items-center">
-          <li class="dark:text-white border-b-2 border-opacity-0 hover:border-opacity-100 border-charcoal hover:text-charcoal dark:hover:text-charcoal duration-200 cursor-pointer active">
+          <li class="dark:text-white hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">
             <a href="/">Inicio</a>
           </li>
-          <li class="ml-4 mr-6 dark:text-white border-b-2 border-opacity-0 hover:border-opacity-100 border-charcoal hover:text-charcoal dark:hover:text-charcoal duration-200 cursor-pointer active">
+          <li class="ml-4 mr-6 dark:text-white hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">
             <a href="/sobre">Sobre</a>
           </li>
           <li>
             <div id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class= "w-10 h-10 mr-4 overflow-hidden rounded-full cursor-pointer bg-gray-100 dark:bg-gray-600">
               <img class="rounded" src="{{ route('files.show', { id: auth.user.avatar }) }}" />
               <!-- Dropdown menu -->
-              <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gunmetal dark:divide-gray-600">
+              <div id="userDropdown" class="w-44 z-10 hidden bg-gray-100 divide-y divide-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:divide-gray-600">
                 <div class="px-4 py-3 text-sm font-sans text-gray-900 dark:text-white">
                   <div>{{auth.user.name}}</div>
                 </div>
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
                   <li>
-                    <a href="/perfil" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-charcoal dark:hover:text-white">Dashboard</a>
+                    <a href="/perfil" class="block px-4 py-2 hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">Dashboard</a>
                   </li>
                   <li>
-                    <a href="/alterar" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-charcoal dark:hover:text-white">Editar dados</a>
+                    <a href="/alterar" class="block px-4 py-2 hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">Editar dados</a>
                   </li>
                   <li>
-                    <a href="/grade" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-charcoal dark:hover:text-white">Grade Curricular</a>
+                    <a href="/grade" class="block px-4 py-2 hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">Grade Curricular</a>
                   </li>
                   <li>
                     <a href="/alterar-senha"
-                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-charcoal dark:hover:text-white">Alterar Senha</a>
+                      class="block px-4 py-2 hover:text-violet dark:hover:text-violet duration-200 cursor-pointer active">Alterar Senha</a>
                   </li>
                 </ul>
                 <div class="py-1">
-                  <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-charcoal dark:text-gray-200 dark:hover:text-white">Sair</a>
+                  <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:text-violet dark:text-gray-200 dark:hover:text-violet duration-200 cursor-pointer active">Sair</a>
                 </div>
               </div>
             </div>

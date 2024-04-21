@@ -1,6 +1,6 @@
-<section class="bg-white dark:bg-black h-screen tracking-wide flex items-center justify-center">
+<section class="bg-gray-50 dark:bg-gray-900 h-screen tracking-wide flex items-center justify-center overflow-auto">
     <div class="grid p-2">
-        <div class="bg-white dark:bg-gunmetal flex flex-col p-5 w-full shadow-2xl rounded-lg border-dashed">
+        <div class="bg-white dark:bg-gray-800 flex flex-col p-5 w-full shadow-md rounded-lg border-dashed">
             <div class="flex items-center space-x-1 text-gray-900 pb-7">
                 <span>
                     <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24"
@@ -11,9 +11,9 @@
                 </span>
                 <span class="text-lg text-gray-900 dark:text-white">Edite seu histórico</span>
             </div>
-            <div class="overflow-y-scroll h-96 shadow-md sm:rounded-lg">
-                <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-lg tracking-wide text-gray-700 bg-gray-50 dark:bg-charcoal dark:text-white">
+            <div class="overflow-y-scroll h-96 shadow-md rounded-lg">
+                <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border rounded-lg border-gray-200 dark:border-gray-700">
+                    <thead class="text-lg tracking-wide text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-white border border-gray-200 dark:border-gray-700">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Disciplina
@@ -43,9 +43,8 @@
                     </thead>
                     <tbody>
                         @each(disciplina in disciplinasCursadas)
-                        <tr class="bg-white border-b dark:bg-gunmetal dark:border-gray-700">
-                            <th data-id="1" scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                 id="rowDisc">
                                 {{ disciplina.nome || "" }}
                             </th>
@@ -78,29 +77,24 @@
                             <div class="fixed inset-0 flex items-center justify-center z-10">
                                 <div class="relative w-full max-w-2xl max-h-full">
                                     <!-- Modal content -->
-                                    <div class="relative bg-white rounded-lg shadow dark:bg-gunmetal">
+                                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
                                         <!-- Modal header -->
-                                        <div
-                                            class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                            <h3 class="flex items-center text-xl text-gray-900 dark:text-white">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="w-8 pr-2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                                                </svg>
-                                                Editar Disciplina
-                                            </h3>
-                                            <button type="button"
-                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                data-modal-hide="editInfoModal" onclick="closeEditModal()">
-                                                <svg class="w-3 h-3" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2"
-                                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                </svg>
-                                                <span class="sr-only">Close modal</span>
-                                            </button>
+                                        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
+                                        <h3 class="flex items-center text-xl text-gray-900 dark:text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-8 pr-2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                            </svg>
+                                            Editar Disciplina
+                                        </h3>
+                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editInfoModal" onclick="closeEditModal()">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
                                         </div>
                                         <!-- Modal body -->
                                         <form method="POST" action="{{ route('disciplina.update') }}" id="modalForm"> {{
@@ -250,13 +244,12 @@
                                                 </div>
                                             </div>
                                             <!-- Modal footer -->
-                                            <div
-                                                class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                                <button type="button" onclick="saveEdit()"
-                                                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                                                    <span
-                                                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar
-                                                        Alteração</span>
+                                            <div class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-700">
+                                                <button type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 border rounded-lg border-violet hover:text-violet dark:hover:text-violet dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Excluir Disciplina</span>
+                                                </button>
+                                                <button type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar Alteração</span>
                                                 </button>
                                             </div>
                                         </form>
