@@ -532,7 +532,7 @@
         "nome": "Programação Estruturada",
         "periodo": 1,
         "creditos": 6,
-        "carga_horaria": 60,
+        "carga_horaria": 90,
         "objetivo": [
             "Compreender o conceito de computação",
             "Conhecer o processo de elaboração de algoritmos e sua transformação em um programa de computador",
@@ -1077,7 +1077,7 @@
     },
     {
         "codigo": "IM461",
-        "nucleo": "Formação Especéfica e Optativas",
+        "nucleo": "Formação Específica e Optativas",
         "nome": "Língua Brasileira de Sinais (LIBRAS)",
         "periodo": -1,
         "creditos": 2,
@@ -6575,27 +6575,87 @@
         "periodo": 8
     },
     {
+        "nome": "LABORATÓRIO DE COMPUTAÇÃO I",
+        "codigo": "AA783",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
         "nome": "MÉTODOS UNIVERSITÁRIOS",
         "codigo": "AA784",
         "carga_horaria": 30,
-        "periodo": 8
+        "periodo": -2
     },
     {
         "nome": "LABORATÓRIO DE COMPUTAÇÃO II",
         "codigo": "AA785",
         "carga_horaria": 30,
-        "periodo": 8
+        "periodo": -2
     },
     {
         "nome": "LABORATÓRIO DE CIRCUITOS DIGITAIS",
         "codigo": "AA786",
         "carga_horaria": 30,
-        "periodo": 8
+        "periodo": -2
     },
     {
         "nome": "LABORATÓRIO DE ESTRUTURA DE DADOS I",
         "codigo": "AA787",
         "carga_horaria": 30,
-        "periodo": 8
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE ARQUITETURA DE COMPUTADORES I",
+        "codigo": "AA788",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE ESTRUTURA DE DADOS II",
+        "codigo": "AA789",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE GRAFOS E ALGORITMOS",
+        "codigo": "AB781",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "INTELIGÊNCIA ARTIFICIAL",
+        "codigo": "AB782",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE SISTEMAS OPERACIONAIS",
+        "codigo": "AB783",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE BANCO DE DADOS E MODELAGEM",
+        "codigo": "AB784",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE REDES DE COMPUTADORES",
+        "codigo": "AB785",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE PROJETO DE SISTEMAS",
+        "codigo": "AB786",
+        "carga_horaria": 30,
+        "periodo": -2
+    },
+    {
+        "nome": "LABORATÓRIO DE COMPUTAÇÃO III",
+        "codigo": "AB787",
+        "carga_horaria": 30,
+        "periodo": -2
     }
 ]

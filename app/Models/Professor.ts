@@ -10,6 +10,9 @@ export default class Professor extends BaseModel {
   public nome: string
 
   @column()
+  public apelido: string
+
+  @column()
   public sala: string
 
   @column()
