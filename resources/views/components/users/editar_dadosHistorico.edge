@@ -29,6 +29,9 @@
                             Professor
                             </th>
                             <th scope="col" class="px-6 py-3">
+                            Carga Horária
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                             Média
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -59,6 +62,9 @@
                                 {{ disciplina.professor || "" }}
                                 </td>
                                 <td class="px-6 py-4">
+                                {{ disciplina.cargaHoraria ? disciplina.cargaHoraria + "H" : " "}}
+                                </td>
+                                <td class="px-6 py-4">
                                 {{ disciplina.media || "" }}
                                 </td>
                                 <td class="px-6 py-4">
@@ -66,7 +72,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
                                 </td>
                             </tr>

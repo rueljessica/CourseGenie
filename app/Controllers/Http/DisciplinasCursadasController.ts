@@ -125,7 +125,7 @@ export default class DisciplinasCursadasController {
 
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
+            const { disciplina, ano, professor, situacao, cargaHoraria, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
             const disciplinaToUpdate = await DisciplinasCursada.query()
                 .where('user_id', auth.user?.id)
                 .where('codigo', codigoAnterior)
@@ -146,6 +146,7 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.media = media
             disciplinaToUpdate.tipo = tipo
             disciplinaToUpdate.equivalenciaId = equivalente;
+            disciplinaToUpdate.cargaHoraria = cargaHoraria
 
             if (disciplinaToUpdate.equivalenciaId) {
                 const eq = await Disciplina.query()

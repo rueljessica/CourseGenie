@@ -33,7 +33,7 @@
   let ano;
   let situacao;
 
-  function openEditModal(nome, codigo, situacao, ano, professor, media, tipo, idEquiv) {
+  function openEditModal(nome, codigo, situacao, ano, professor, cargaHoraria, media, tipo, idEquiv) {
     this.ano = ano;
     this.codigo = codigo;
     this.situacao = situacao;
@@ -44,6 +44,7 @@
     const editSituacaoField = document.getElementById('editSituacao');
     const editAnoField = document.getElementById('editAno');
     const editProfessorField = document.getElementById('editProfessor');
+    const editCargaHorariaField = document.getElementById('editCargaHoraria');
     const editMediaField = document.getElementById('editMedia');
     const editTipoField = document.getElementById('editTipo');
     const editEquivalenteField = document.getElementById('editEquivalente');
@@ -53,6 +54,7 @@
     editSituacaoField.value = situacao;
     editAnoField.value = ano;
     editProfessorField.value = professor;
+    editCargaHorariaField.value = cargaHoraria;
     editMediaField.value = media;
     editTipoField.value = tipo;
     editEquivalenteField.value = idEquiv;
