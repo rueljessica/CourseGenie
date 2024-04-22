@@ -37,6 +37,7 @@ export default class DisciplinasCursadasController {
                 } else {
                     disciplinaData.tipo = "OBRIGATORIA"
                 }
+                disciplinaData.cargaHoraria = discByCode?.cargaHoraria
             }
             else {
                 const normalizeString = (str) => unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
@@ -50,6 +51,7 @@ export default class DisciplinasCursadasController {
                 if (discByName) {
                     disciplinaData.tipo = "EQUIVALENTE"
                     disciplinaData.equivalenciaId = discByName.id;
+                    disciplinaData.cargaHoraria = discByName.cargaHoraria
                 } else {
                     disciplinaData.tipo = null
                 }
@@ -69,6 +71,7 @@ export default class DisciplinasCursadasController {
                 let pes = disciplinas.filter(a => a.codigo == "TM422");
                 pes.forEach(a => a.equivalenciaId = pe?.id || a.equivalenciaId);
                 pes.forEach(a => a.tipo = "EQUIVALENTE");
+                pes.forEach(a => a.cargaHoraria = 60);
             }
         }
 
@@ -144,10 +147,19 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.tipo = tipo
             disciplinaToUpdate.equivalenciaId = equivalente;
 
+            if (disciplinaToUpdate.equivalenciaId) {
+                const eq = await Disciplina.query()
+                    .where('id', disciplinaToUpdate.equivalenciaId)
+                    .first()
+                if (eq)
+                    disciplinaToUpdate.cargaHoraria = eq.cargaHoraria
+            }
+
             // Salva as alterações no banco de dados
             await disciplinaToUpdate.save()
             const disciplinasCurs = await this.list(auth);
 
+            // list para modal de equivalntes
             const disciplinas = await Disciplina
                 .query()
 
