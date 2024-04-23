@@ -2,6 +2,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Disciplina from 'App/Models/Disciplina'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
+import Professor from 'App/Models/Professor'
 
 export default class DisciplinasController {
     public async list({ view, response }: HttpContextContract) {
@@ -12,6 +13,21 @@ export default class DisciplinasController {
             return response.badRequest('Error')
         }
     }
+
+    public async modApelido(list) {
+        const listMod = {};
+    
+        for (const professor of Object.keys(list)) {
+            const professorDb = await Professor.query()
+                .where('nome', professor)
+                .first();
+            if (professorDb)
+                listMod[professorDb.apelido] = list[professor]
+        }
+    
+        return listMod;
+    }
+    
 
     public async get({ request, response, view }: HttpContextContract) {
         try {
@@ -32,7 +48,6 @@ export default class DisciplinasController {
                 .select('professor', 'media', 'situacao')
                 .where('codigo', codigo)
 
-
             // Calcula a média global da disciplina
             const mediaGlobal = disciplinasCursadas.reduce((acc, cur) => acc + cur.media, 0) / disciplinasCursadas.length;
             // Calcula o índice de aprovação global
@@ -40,7 +55,7 @@ export default class DisciplinasController {
             const indiceAprGlobal = (totalApr / disciplinasCursadas.length) * 100;
 
             // Calcula a média por professor que lecionou a disciplina
-            const mediasPorProfessor: { [key: string]: number } = {};
+            let mediasPorProfessor: { [key: string]: number } = {};
             disciplinasCursadas.forEach(disciplina => {
                 if (!mediasPorProfessor[disciplina.professor]) {
                     mediasPorProfessor[disciplina.professor] = 0;
@@ -53,7 +68,7 @@ export default class DisciplinasController {
             });
 
             /// Calcula o índice de aprovação por professor
-            const indiceAprovacaoPorProfessor: { [key: string]: { aprovacao: number; reprovacao: number } } = {};
+            let indiceAprovacaoPorProfessor: { [key: string]: { aprovacao: number; reprovacao: number } } = {};
             disciplinasCursadas.forEach(disciplina => {
                 if (!indiceAprovacaoPorProfessor[disciplina.professor]) {
                     indiceAprovacaoPorProfessor[disciplina.professor] = { aprovacao: 0, reprovacao: 0 };
@@ -71,6 +86,9 @@ export default class DisciplinasController {
                 const indiceReprovacao = indiceAprovacaoPorProfessor[professor].reprovacao / count * 100;
                 indiceAprovacaoPorProfessor[professor] = { aprovacao: parseInt(indiceAprovacao.toFixed(0)), reprovacao: parseInt(indiceReprovacao.toFixed(0)) };
             });
+
+            mediasPorProfessor = await this.modApelido(mediasPorProfessor)
+            indiceAprovacaoPorProfessor = await this.modApelido(indiceAprovacaoPorProfessor)
 
             return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
         } catch (error) {

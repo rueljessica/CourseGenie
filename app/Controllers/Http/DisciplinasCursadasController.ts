@@ -13,7 +13,7 @@ export default class DisciplinasCursadasController {
     }
 
     public async store(user, disciplinasData) {
-        const disciplinas = []
+        let disciplinas: DisciplinasCursada[] = [];
 
         for (const disciplinaData of disciplinasData) {
             const disciplina = new DisciplinasCursada()
@@ -32,6 +32,8 @@ export default class DisciplinasCursadasController {
             if (discByCode?.periodo) {
                 if (discByCode?.periodo === -1) {
                     disciplinaData.tipo = "OPTATIVA"
+                } else if (discByCode?.periodo === -2) {
+                    disciplinaData.tipo = "AA"
                 } else {
                     disciplinaData.tipo = "OBRIGATORIA"
                 }
@@ -49,7 +51,7 @@ export default class DisciplinasCursadasController {
                     disciplinaData.tipo = "EQUIVALENTE"
                     disciplinaData.equivalenciaId = discByName.id;
                 } else {
-                    disciplinaData.tipo = " "
+                    disciplinaData.tipo = null
                 }
             }
 
@@ -57,10 +59,23 @@ export default class DisciplinasCursadasController {
             disciplinas.push(disciplina)
         }
 
+        if (disciplinas.filter(a => a.codigo === "TM422" && ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'].includes(a.situacao)).length > 0) {
+            if (disciplinas.filter(a => a.codigo === "AA783" && ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'].includes(a.situacao)).length > 0) {
+                const pe = await Disciplina.query()
+                    .where('codigo', "TN706")
+                    .first()
+
+                disciplinas = disciplinas.filter(a => a.codigo !== "AA783");
+                let pes = disciplinas.filter(a => a.codigo == "TM422");
+                pes.forEach(a => a.equivalenciaId = pe?.id || a.equivalenciaId);
+                pes.forEach(a => a.tipo = "EQUIVALENTE");
+            }
+        }
+
         await user.related('disciplinas').saveMany(disciplinas);
     }
 
-    private async listCods(auth):Promise<string[]> {
+    private async listCods(auth): Promise<string[]> {
         const listDisciplinas = await DisciplinasCursada
             .query()
             .where('user_id', auth.user?.id)
@@ -83,7 +98,7 @@ export default class DisciplinasCursadasController {
             .filter((disciplina) => disciplina.tipo === "ELETIVA")
             .map((_) => `ELETIVA`);
 
-        
+
         return codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
     }
 
