@@ -9,11 +9,11 @@
   @entryPointScripts('app')
   <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   </script>
 </head>
 @!section('body')
@@ -60,12 +60,19 @@
     editEquivalenteField.value = idEquiv;
 
     editModal.classList.remove('hidden');
-    const equivalenteSelect = document.getElementById('divEquivalente');
 
-    if(editEquivalenteField.value){
+    const equivalenteSelect = document.getElementById('divEquivalente');
+    const eletivaSelect = document.getElementById('divCH');
+
+    if (tipo === 'EQOB' || tipo === 'EQOP') {
       equivalenteSelect.style.display = 'block';
-    }else{
+      eletivaSelect.style.display = 'none';
+    } else if (tipo === 'EL') {
+      eletivaSelect.style.display = 'block';
       equivalenteSelect.style.display = 'none';
+    } else {
+      equivalenteSelect.style.display = 'none';
+      eletivaSelect.style.display = 'none';
     }
   }
 
@@ -73,7 +80,7 @@
     const editModal = document.getElementById('editInfoModal');
     editModal.classList.add('hidden');
   }
-  
+
   function saveEdit() {
     const modalForm = document.getElementById('modalForm');
 
@@ -101,7 +108,7 @@
     modalForm.appendChild(situacaoAnterior);
 
     modalForm.submit();
-}
+  }
 
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -110,14 +117,20 @@
     editTipoField.addEventListener('change', function () {
       const selectedValue = this.value;
       const equivalenteSelect = document.getElementById('divEquivalente');
+      const eletivaSelect = document.getElementById('divCH');
 
-      if (selectedValue === 'EQUIVALENTE' && equivalenteSelect.style.display === 'none') {
+      if (selectedValue === 'EQOB' || selectedValue === 'EQOP') {
         equivalenteSelect.style.display = 'block';
-      }else{
+        eletivaSelect.style.display = 'none';
+      } else if (selectedValue === 'EL') {
+        eletivaSelect.style.display = 'block';
         equivalenteSelect.style.display = 'none';
+      } else {
+        equivalenteSelect.style.display = 'none';
+        eletivaSelect.style.display = 'none';
       }
     });
-});
+  });
 </script>
 
 </html>

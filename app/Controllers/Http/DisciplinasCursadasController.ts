@@ -10,6 +10,8 @@ export default class DisciplinasCursadasController {
         return await DisciplinasCursada
             .query()
             .where('user_id', auth.user?.id)
+            .orderBy('ano')
+            .orderBy('nome')
     }
 
     public async store(user, disciplinasData) {
@@ -31,11 +33,11 @@ export default class DisciplinasCursadasController {
 
             if (discByCode?.periodo) {
                 if (discByCode?.periodo === -1) {
-                    disciplinaData.tipo = "OPTATIVA"
+                    disciplinaData.tipo = "OP"
                 } else if (discByCode?.periodo === -2) {
                     disciplinaData.tipo = "AA"
                 } else {
-                    disciplinaData.tipo = "OBRIGATORIA"
+                    disciplinaData.tipo = "OB"
                 }
                 disciplinaData.cargaHoraria = discByCode?.cargaHoraria
             }
@@ -49,9 +51,12 @@ export default class DisciplinasCursadasController {
                     .first();
 
                 if (discByName) {
-                    disciplinaData.tipo = "EQUIVALENTE"
                     disciplinaData.equivalenciaId = discByName.id;
                     disciplinaData.cargaHoraria = discByName.cargaHoraria
+                    if (discByName.periodo == -1)
+                        disciplinaData.tipo = "EQOP";
+                    else
+                        disciplinaData.tipo = "EQOB";
                 } else {
                     disciplinaData.tipo = null
                 }
@@ -70,8 +75,8 @@ export default class DisciplinasCursadasController {
                 disciplinas = disciplinas.filter(a => a.codigo !== "AA783");
                 let pes = disciplinas.filter(a => a.codigo == "TM422");
                 pes.forEach(a => a.equivalenciaId = pe?.id || a.equivalenciaId);
-                pes.forEach(a => a.tipo = "EQUIVALENTE");
-                pes.forEach(a => a.cargaHoraria = 60);
+                pes.forEach(a => a.tipo = "EQOB");
+                pes.forEach(a => a.cargaHoraria = pe?.cargaHoraria || 90);
             }
         }
 
@@ -94,11 +99,11 @@ export default class DisciplinasCursadasController {
         const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
 
         const codigosOP = listDisciplinas
-            .filter((disciplina) => disciplina.tipo === "OPTATIVA")
+            .filter((disciplina) => disciplina.tipo === "OP")
             .flatMap((_, index) => `OP${index + 1}`);
 
         const codigosEletiva = listDisciplinas
-            .filter((disciplina) => disciplina.tipo === "ELETIVA")
+            .filter((disciplina) => disciplina.tipo === "EL")
             .map((_) => `ELETIVA`);
 
 
@@ -163,6 +168,7 @@ export default class DisciplinasCursadasController {
             // list para modal de equivalntes
             const disciplinas = await Disciplina
                 .query()
+                .orderBy('nome')
 
             return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
