@@ -18,7 +18,12 @@
     </head>
     @!section('body')
 
-    @include('components/sidebar')
+    @if(auth.isAuthenticated)
+        @include('components/navbar_user')
+    @else
+        @include('components/navbar')
+    @endif
+
 
     @include('components/users/reset_senha')
 
