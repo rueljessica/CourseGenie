@@ -1,9 +1,10 @@
-<div id="editInfoModal" tabindex="-1" aria-hidden="true" class="flex hidden fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
-    <div class=" w-full max-w-2xl max-h-full"   >
+<div id="editInfoModal" tabindex="-1" aria-hidden="true"
+    class="flex hidden fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
+    <div class=" w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class=" bg-white rounded-lg shadow dark:bg-gray-800">
-             <!-- Modal header -->
-             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
                 <h3 class="flex items-center text-xl text-gray-900 dark:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 pr-2">
@@ -28,128 +29,161 @@
                 {{ csrfField() }}
                 <div class="p-6 space-y-3 text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
-                    <div class="sm:col-span-2">
-                        <label for="text"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina</label>
-                        <input id="editNome" name="disciplina"
-                        class="place-content-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Disciplina" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="text"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código</label>
-                        <input type="codigo" name="codigo" id="editCodigo"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Código" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="situacao"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
-                        <select id="editSituacao" name="situacao"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="APR">APR/APROVADO</option>
-                        <option value="APRN">APRN</option>
-                        <option value="CANC">CANC</option>
-                        <option value="CUMPRIU">CUMP/CUMPRIU</option>
-                        <option value="DISP">DISP</option>
-                        <option value="ENADE">ENADE</option>
-                        <option value="INCORP">INCORP</option>
-                        <option value="MATR">MATR/MATRICULADO</option>
-                        <option value="REC">REC</option>
-                        <option value="REP">REP/REPROVADO</option>
-                        <option value="REPF">REPF</option>
-                        <option value="REPMF">REPMF</option>
-                        <option value="REPN">REPN</option>
-                        <option value="REPNF">REPNF</option>
-                        <option value="TRANC">TRANC/TRANCADO</option>
-                        <option value="TRANS">TRANS</option>
-                        </select>
-                    </div>
-                    <div class="w-full">
-                        <label for="ano"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano</label>
-                        <input type="text" name="ano" id="editAno"
-                        class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        value="" placeholder="Ano" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="professor"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professor</label>
-                        <select id="editProfessor" name="professor"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <optgroup label="DCC">
-                            <option value="Dra. ADRIA RAMOS DE LYRA">Dra. ADRIA RAMOS DE LYRA</option>
-                            <option value="Dr. BRUNO JOSE DEMBOGURSKI">Dr. BRUNO JOSE DEMBOGURSKI</option>
-                            <option value="Dr. DANIEL FABIO DOMINGUES POSNER">Dr. DANIEL FABIO DOMINGUES POSNER
-                            </option>
-                            <option value="Dr. FELLIPE RIBEIRO DUARTE">Dr. FELLIPE RIBEIRO DUARTE</option>
-                            <option value="Dra. FERNANDA VIEIRA DIAS COUTO">Dra. FERNANDA VIEIRA DIAS COUTO</option>
-                            <option value="Dr. FILIPE BRAIDA DO CARMO">Dr. FILIPE BRAIDA DO CARMO</option>
-                            <option value="Dra. JULIANA MENDES NASCENTE E SILVA ZAMITH">Dra. JULIANA MENDES NASCENTE E
-                            SILVA ZAMITH</option>
-                            <option value="Dr. LEANDRO GUIMARAES MARQUES ALVIM">Dr. LEANDRO GUIMARAES MARQUES ALVIM
-                            </option>
-                            <option value="Dra. LIGIA MARIA SOARES PASSOS">Dra. LIGIA MARIA SOARES PASSOS</option>
-                            <option value="Dr. MARCEL WILLIAM ROCHA DA SILVA">Dr. MARCEL WILLIAM ROCHA DA SILVA
-                            </option>
-                            <option value="Dr. MARCELO PANARO DE MORAES ZAMITH">Dr. MARCELO PANARO DE MORAES ZAMITH
-                            </option>
-                            <option value="Dra. NATALIA CHAVES LESSA SCHOTS">Dra. NATALIA CHAVES LESSA SCHOTS</option>
-                            <option value="Dr. RICARDO CORDEIRO CORREA">Dr. RICARDO CORDEIRO CORREA</option>
-                            <option value="Dr. UBIRATAM CARVALHO DE PAULA JUNIOR">Dr. UBIRATAM CARVALHO DE PAULA
-                            JUNIOR</option>
-                            <option value="Outro">Outro</option>
-                        </optgroup>
-                        <optgroup label="DTL">
-                            <option value="Dr. ADEILTON PEDRO DE ALCANTARA">Dr. ADEILTON PEDRO DE ALCANTARA</option>
-                            <option value="Dr. ALEKSANDRO DE MELLO">Dr. ALEKSANDRO DE MELLO</option>
-                            <option value="Dra. CAMILA RIBEIRO DE LACERDA PACHECO">Dra. CAMILA RIBEIRO DE LACERDA
-                            PACHECO</option>
-                            <option value="Dr. ERITO MARQUES DE SOUZA FILHO">Dr. ERITO MARQUES DE SOUZA FILHO</option>
-                            <option value="Dr. MARCELO FERREIRA FARIAS">Dr. MARCELO FERREIRA FARIAS</option>
-                            <option value="Dr. MARCOS CARDOSO RODRIGUEZ">Dr. MARCOS CARDOSO RODRIGUEZ</option>
-                            <option value="MSc. VANIA CRISTINA MACHADO">MSc. VANIA CRISTINA MACHADO</option>
-                            <option value="Outro">Outro</option>
-                        </optgroup>
-                        </select>
-                    </div>
-                    <div class="w-full">
-                        <label for="media"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Média</label>
-                        <input type="text" name="media" id="editMedia"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        value="" placeholder="" required="">
-                    </div>
-                    <div class="w-full">
-                        <label for="tipo"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
-                        <select id="editTipo" name="tipo"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        <option value="OBRIGATORIO">OBRIGATORIO</option>
-                        <option value="OPTATIVA">OPTATIVA</option>
-                        <option value="ELETIVA">ELETIVA</option>
-                        <option value="EQUIVALENTE">EQUIVALENTE</option>
-                        </select>
-                    </div>
-                    <div id="divEquivalente"  class="w-full" style="display:none">
-                        <label for="equivalente"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina Equivalente</label>
-                        <select id="editEquivalente" name="equivalente"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        @each(disciplina in disciplinas)
-                            <option value='{{ disciplina.id }}'>{{ disciplina.nome }}</option>
-                        @end
-                        </select>
-                    </div>
+                        <div class="sm:col-span-2">
+                            <label for="text"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina</label>
+                            <input id="editNome" name="disciplina"
+                                class="place-content-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Disciplina" required="">
+                        </div>
+                        <div class="w-full">
+                            <label for="text"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código</label>
+                            <input type="codigo" name="codigo" id="editCodigo"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Código" required="">
+                        </div>
+                        <div class="w-full">
+                            <label for="situacao"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Situação</label>
+                            <select id="editSituacao" name="situacao"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="APR">APR/APROVADO</option>
+                                <option value="APRN">APRN</option>
+                                <option value="CANC">CANC</option>
+                                <option value="CUMPRIU">CUMP/CUMPRIU</option>
+                                <option value="DISP">DISP</option>
+                                <option value="ENADE">ENADE</option>
+                                <option value="INCORP">INCORP</option>
+                                <option value="MATR">MATR/MATRICULADO</option>
+                                <option value="REC">REC</option>
+                                <option value="REP">REP/REPROVADO</option>
+                                <option value="REPF">REPF</option>
+                                <option value="REPMF">REPMF</option>
+                                <option value="REPN">REPN</option>
+                                <option value="REPNF">REPNF</option>
+                                <option value="TRANC">TRANC/TRANCADO</option>
+                                <option value="TRANS">TRANS</option>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label for="ano"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano</label>
+                            <input type="text" name="ano" id="editAno"
+                                class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                value="" placeholder="Ano" required="">
+                        </div>
+                        <div class="w-full">
+                            <label for="professor"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Professor</label>
+                            <select id="editProfessor" name="professor"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <optgroup label="DCC">
+                                    <option value="Dra. ADRIA RAMOS DE LYRA">Dra. ADRIA RAMOS DE LYRA</option>
+                                    <option value="Dr. BRUNO JOSE DEMBOGURSKI">Dr. BRUNO JOSE DEMBOGURSKI</option>
+                                    <option value="Dr. DANIEL FABIO DOMINGUES POSNER">Dr. DANIEL FABIO DOMINGUES POSNER
+                                    </option>
+                                    <option value="Dr. FELLIPE RIBEIRO DUARTE">Dr. FELLIPE RIBEIRO DUARTE</option>
+                                    <option value="Dra. FERNANDA VIEIRA DIAS COUTO">Dra. FERNANDA VIEIRA DIAS COUTO
+                                    </option>
+                                    <option value="Dr. FILIPE BRAIDA DO CARMO">Dr. FILIPE BRAIDA DO CARMO</option>
+                                    <option value="Dra. JULIANA MENDES NASCENTE E SILVA ZAMITH">Dra. JULIANA MENDES
+                                        NASCENTE E
+                                        SILVA ZAMITH</option>
+                                    <option value="Dr. LEANDRO GUIMARAES MARQUES ALVIM">Dr. LEANDRO GUIMARAES MARQUES
+                                        ALVIM
+                                    </option>
+                                    <option value="Dra. LIGIA MARIA SOARES PASSOS">Dra. LIGIA MARIA SOARES PASSOS
+                                    </option>
+                                    <option value="Dr. MARCEL WILLIAM ROCHA DA SILVA">Dr. MARCEL WILLIAM ROCHA DA SILVA
+                                    </option>
+                                    <option value="Dr. MARCELO PANARO DE MORAES ZAMITH">Dr. MARCELO PANARO DE MORAES
+                                        ZAMITH
+                                    </option>
+                                    <option value="Dra. NATALIA CHAVES LESSA SCHOTS">Dra. NATALIA CHAVES LESSA SCHOTS
+                                    </option>
+                                    <option value="Dr. RICARDO CORDEIRO CORREA">Dr. RICARDO CORDEIRO CORREA</option>
+                                    <option value="Dr. UBIRATAM CARVALHO DE PAULA JUNIOR">Dr. UBIRATAM CARVALHO DE PAULA
+                                        JUNIOR</option>
+                                    <option value="Outro">Outro</option>
+                                </optgroup>
+                                <optgroup label="DTL">
+                                    <option value="Dr. ADEILTON PEDRO DE ALCANTARA">Dr. ADEILTON PEDRO DE ALCANTARA
+                                    </option>
+                                    <option value="Dr. ALEKSANDRO DE MELLO">Dr. ALEKSANDRO DE MELLO</option>
+                                    <option value="Dra. CAMILA RIBEIRO DE LACERDA PACHECO">Dra. CAMILA RIBEIRO DE
+                                        LACERDA
+                                        PACHECO</option>
+                                    <option value="Dr. ERITO MARQUES DE SOUZA FILHO">Dr. ERITO MARQUES DE SOUZA FILHO
+                                    </option>
+                                    <option value="Dr. MARCELO FERREIRA FARIAS">Dr. MARCELO FERREIRA FARIAS</option>
+                                    <option value="Dr. MARCOS CARDOSO RODRIGUEZ">Dr. MARCOS CARDOSO RODRIGUEZ</option>
+                                    <option value="MSc. VANIA CRISTINA MACHADO">MSc. VANIA CRISTINA MACHADO</option>
+                                    <option value="Outro">Outro</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label for="media"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Média</label>
+                            <input type="text" name="media" id="editMedia"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                value="" placeholder="" required="">
+                        </div>
+                        <div class="w-full">
+                            <label for="tipo"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classificação</label>
+                            <select id="editTipo" name="tipo"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
+                                <option value="AA">ATIVIDADE AUTÔNOMA (AA)</option>
+                                <option value="EL">ELETIVA</option>
+                                <option value="EQOB">EQUIVALENTE À OBRIGATORIA</option>
+                                <option value="EQOP">EQUIVALENTE À OPTATIVA</option>
+                                <option value="OB">OBRIGATORIA</option>
+                                <option value="OP">OPTATIVA</option>
+                            </select>
+                        </div>
+                        <div id="divCH" class="w-full" style="display:none">
+                            <label for="cargaHoraria"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Carga
+                                Horária</label>
+                            <select id="editCargaHoraria" name="cargaHoraria"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
+                                <option value="15">15H</option>
+                                <option value="30">30H</option>
+                                <option value="60">60H</option>
+                                <option value="90">90H</option>
+                            </select>
+                        </div>
+                        <div id="divEquivalente" class="w-full" style="display:none">
+                            <label for="equivalente"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina
+                                Equivalente</label>
+                            <select id="editEquivalente" name="equivalente"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                @each(disciplina in disciplinas)
+                                <option value='{{ disciplina.id }}'>{{ disciplina.nome }}</option>
+                                @end
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-700">
-                    <button type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 border rounded-lg border-violet hover:text-violet dark:hover:text-violet dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Excluir Disciplina</span>
+                <div
+                    class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-700">
+                    <button type="button" onclick="saveEdit()"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 border rounded-lg border-violet hover:text-violet dark:hover:text-violet dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Excluir
+                            Disciplina</span>
                     </button>
-                    <button type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar Alteração</span>
+                    <button type="button" onclick="saveEdit()"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar
+                            Alteração</span>
                     </button>
                 </div>
             </form>

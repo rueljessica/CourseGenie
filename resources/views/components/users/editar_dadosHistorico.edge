@@ -29,76 +29,100 @@
                 </div>
             </div>
             <div class="overflow-y-scroll h-96 shadow-md rounded-lg">
-                <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border rounded-lg border-gray-200 dark:border-gray-700">
-                    <thead class="text-lg tracking-wide text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-white border border-gray-200 dark:border-gray-700">
+                <table id="table"
+                    class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border rounded-lg border-gray-200 dark:border-gray-700">
+                    <thead
+                        class="text-lg tracking-wide text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-white border border-gray-200 dark:border-gray-700">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                            Disciplina
+                                Disciplina
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Código
+                                Código
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Situação
+                                Situação
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Ano
+                                Ano
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Professor
+                                Professor
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Média
+                                Carga Horária
                             </th>
                             <th scope="col" class="px-6 py-3">
-                            Classificação
+                                Média
                             </th>
                             <th scope="col" class="px-6 py-3">
-            
+                                Classificação
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @each(disciplina in disciplinasCursadas)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th data-id="1" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th data-id="1" scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                 id="rowDisc">
                                 {{ disciplina.nome || "" }}
-                                </th>
-                                <td class="px-6 py-4">
+                            </th>
+                            <td class="px-6 py-4">
                                 {{ disciplina.codigo || "" }}
-                                </td>
-                                <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ disciplina.situacao || "" }}
-                                </td>
-                                <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ disciplina.ano || "" }}
-                                </td>
-                                <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ disciplina.professor || "" }}
-                                </td>
-                                <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ disciplina.cargaHoraria ? disciplina.cargaHoraria + "H" : " "}}
+                            </td>
+                            <td class="px-6 py-4">
                                 {{ disciplina.media || "" }}
-                                </td>
-                                <td class="px-6 py-4">
-                                {{ disciplina.tipo || "" }}
-                                </td>
-                                <td class="px-6 py-4">
+                            </td>
+                            <td class="px-6 py-4">
+                                @if(disciplina.tipo == "AA")
+                                ATIVIDADE AUTÔNOMA (AA)
+                                @elseif(disciplina.tipo == "EL")
+                                ELETIVA
+                                @elseif(disciplina.tipo == "EQOB")
+                                EQUIVALENTE À OBRIGATORIA
+                                @elseif(disciplina.tipo == "EQOP")
+                                EQUIVALENTE À OPTATIVA
+                                @elseif(disciplina.tipo == "OB")
+                                OBRIGATORIA
+                                @elseif(disciplina.tipo == "OP")
+                                OPTATIVA
+                                @end
+                            </td>
+                            <td class="px-6 py-4">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
-                                </td>
-                            </tr>
-                            <!-- Modal -->
-                            @include('components/modals/modal_editHistorico')
+                            </td>
+                        </tr>
+                        <!-- Modal -->
+                        @include('components/modals/modal_editHistorico')
                         @endeach
                     </tbody>
                 </table>
             </div>
             <div class="flex items-end justify-end pt-5">
-                <button id="salvarButton" type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Finalizar edição</span>
-                </button>        
+                <button id="salvarButton" type="button" onclick="saveEdit()"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Finalizar
+                        edição</span>
+                </button>
             </div>
         </div>
     </div>

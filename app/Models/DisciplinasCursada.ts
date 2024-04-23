@@ -35,6 +35,9 @@ export default class DisciplinasCursada extends BaseModel {
   @column()
   public equivalenciaId: number
 
+  @column()
+  public cargaHoraria: number
+
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
 

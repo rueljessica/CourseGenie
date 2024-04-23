@@ -112,6 +112,7 @@ export default class AuthController {
             const disciplinasCurs = await disciplinasCursadas.list(auth);
             const disciplinas = await Disciplina
                 .query()
+                .orderBy('nome')
 
             return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {
@@ -146,71 +147,24 @@ export default class AuthController {
             .query()
             .where('user_id', auth.user?.id)
 
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        const _ = require('lodash');
 
-        const situacoesApr = ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'];
-        const disciplinasApr = disciplinas.filter(disciplina => situacoesApr.includes(disciplina.situacao));
-
-        const obApr = disciplinasApr.filter(a => a.tipo !== 'EQUIVALENTE' && a.tipo !== null);
-        const eqApr = disciplinasApr.filter(a => a.tipo === 'EQUIVALENTE');
-
-        const codigoDisciplinas = obApr.map((disciplina) => disciplina.codigo);
-        const idDisciplinas = eqApr.map((disciplina) => disciplina.equivalenciaId);
-
-        const listDisciplinasCod = await Disciplina
-            .query()
-            .whereIn('codigo', codigoDisciplinas)
-
-        const listDisciplinasId = await Disciplina
-            .query()
-            .whereIn('id', idDisciplinas);
-
-        const mappedDisciplinas = [
-            ...obApr.map((disciplina) => {
-                const infoCargaHoraria = _.find(listDisciplinasCod, { codigo: disciplina.codigo });
-
-                return {
-                    tipo: disciplina.tipo,
-                    disciplina: disciplina.nome,
-                    codigo: disciplina.codigo,
-                    cargaHoraria: infoCargaHoraria ? infoCargaHoraria.cargaHoraria : null,
-                };
-            }),
-            ...eqApr.map((disciplina) => {
-                const infoCargaHoraria = _.find(listDisciplinasId, { id: disciplina.equivalenciaId });
-
-                return {
-                    tipo: infoCargaHoraria.periodo,
-                    disciplina: disciplina.nome,
-                    codigo: disciplina.codigo,
-                    cargaHoraria: infoCargaHoraria ? infoCargaHoraria.cargaHoraria : null,
-                };
-            })
-        ];
+        const disciplinasApr = disciplinas.filter(disciplina => ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'].includes(disciplina.situacao));
 
         let cargaHorariaObrigatoriaTotal = 0;
         let cargaHorariaOptativaTotal = 0;
+        let cargaHorariaComplTotal = 0;
 
-        mappedDisciplinas.forEach((disciplina) => {
+        disciplinasApr.forEach((disciplina) => {
             // Verificando o tipo da disciplina
-            if (disciplina.tipo === 'OPTATIVA' || disciplina.tipo === -1) {
-                cargaHorariaOptativaTotal += disciplina.cargaHoraria || 0;
-            }else if (disciplina.codigo === 'TM422' || disciplina.codigo === 'TM404') {
-                cargaHorariaObrigatoriaTotal += 60;
-            }
-            else {
+            if (disciplina.tipo === 'OB' || disciplina.tipo === "EQOB") {
                 cargaHorariaObrigatoriaTotal += disciplina.cargaHoraria || 0;
+            } else if (disciplina.tipo === 'AA') {
+                cargaHorariaComplTotal += disciplina.cargaHoraria || 0;
+            } else {
+                cargaHorariaOptativaTotal += disciplina.cargaHoraria || 0;
             }
         });
 
-        // Calculando a carga horária pendente para cada tipo
-        const cargaHorariaObrigatoriaPendente = Math.max(2280 - cargaHorariaObrigatoriaTotal, 0);
-        const cargaHorariaOptativaPendente = Math.max(720 - cargaHorariaOptativaTotal, 0);
-
-        console.log('Carga Horária Obrigatória Pendente:', cargaHorariaObrigatoriaPendente);
-        console.log('Carga Horária Optativa Pendente:', cargaHorariaOptativaPendente);
-
-        return view.render('users/perfil', { disciplinas: disciplinas, cargaHorariaObrigatoriaPendente: cargaHorariaObrigatoriaPendente, cargaHorariaOptativaPendente: cargaHorariaOptativaPendente })
+        return view.render('users/perfil', { disciplinas: disciplinas, cargaHorariaObrigatoriaTotal: cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal: cargaHorariaOptativaTotal, cargaHorariaComplTotal: cargaHorariaComplTotal })
     }
 }
