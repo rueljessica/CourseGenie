@@ -1,5 +1,7 @@
 <section class="bg-gray-50 dark:bg-gray-900 h-screen tracking-wide flex items-center justify-center overflow-auto">
     <div class="grid p-2">
+        <!-- Include Modal -->
+        @include('components/modals/modal_novaDisciplina')
         <div class="bg-white dark:bg-gray-800 flex flex-col p-5 w-full shadow-md rounded-lg border-dashed">
             <div class="flex items-center justify-between space-x-1 text-gray-900 pb-7">
                 <div class="flex items-center gap-1">
@@ -10,23 +12,12 @@
                     </span>
                     <span class="text-lg text-gray-900 dark:text-white">Histórico</span>
                 </div>
-                <div class="flex items-end justify-end cursor-pointer active">
-                    <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-700 dark:text-gray-200 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:text-white hover:text-gray-900" type="button">
-                        <svg class="size-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"></path>
-                        </svg>  
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownHover" class="z-10 hidden bg-gray-100 dark:bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 ">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                        <li>                           
-                            <a href="/alterar" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Voltar para Dados Pessoais</a>
-                            <a href="#" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Adicionar Disciplina</a>
-                            <a href="/perfil" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Cancelar</a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
+                <button data-modal-target="novaDisciplinaModal" data-modal-toggle="novaDisciplinaModal" class="relative group">
+                    <svg class="text-gray-900 dark:text-white size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                    </svg>
+                    <span id="tooltip" class="absolute top-0 -left-24 whitespace-nowrap transform -translate-x-1/2 text-xs text-gray-400 -mt-1 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">Adicionar disciplina</span>
+                </button>  
             </div>
             <div class="overflow-y-scroll h-96 shadow-md rounded-lg">
                 <table id="table"
@@ -105,9 +96,9 @@
                                 @end
                             </td>
                             <td class="px-6 py-4">
-                                <button
-                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
-                                    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
+                                <button onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                    class="px-4 py-2 bg-blue-500 text-gray-700 dark:text-gray-200 rounded hover:bg-blue-700">Editar
+                                </button>
                             </td>
                         </tr>
                         <!-- Modal -->
@@ -116,20 +107,35 @@
                     </tbody>
                 </table>
             </div>
-            <div class="flex items-end justify-end pt-5">
-                <button id="salvarButton" type="button" onclick="saveEdit()"
-                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                    <span
-                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Finalizar
-                        edição</span>
+            <div class="flex items-end justify-between pt-5">
+                <button class="inline-flex items-center p-0.5 mb-2 me-2 px-2 py-2 text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 text-sm font-medium rounded-md duration-200 cursor-pointer active">
+                    <a href="/alterar">
+                        <svg class="size-5"  data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+                        </svg>
+                    </a>
                 </button>
+                <div>
+                    <button id="cancelar" type="button" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium border rounded-lg border-red-600 text-red-600 hover:text-red-400 dark:hover:text-red-700 duration-200 cursor-pointer active">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Cancelar</span>
+                    </button>                
+                    <button id="salvarButton" type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Finalizar edição</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+
 <script type="text/javascript">
     document.getElementById("salvarButton").onclick = function () {
+        location.href = "/perfil";
+    };
+
+
+    document.getElementById("cancelar").onclick = function () {
         location.href = "/perfil";
     };
 </script>
