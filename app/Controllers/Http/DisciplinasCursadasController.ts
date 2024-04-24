@@ -10,6 +10,8 @@ export default class DisciplinasCursadasController {
         return await DisciplinasCursada
             .query()
             .where('user_id', auth.user?.id)
+            .orderBy('ano')
+            .orderBy('nome')
     }
 
     public async store(user, disciplinasData) {
@@ -31,12 +33,13 @@ export default class DisciplinasCursadasController {
 
             if (discByCode?.periodo) {
                 if (discByCode?.periodo === -1) {
-                    disciplinaData.tipo = "OPTATIVA"
+                    disciplinaData.tipo = "OP"
                 } else if (discByCode?.periodo === -2) {
                     disciplinaData.tipo = "AA"
                 } else {
-                    disciplinaData.tipo = "OBRIGATORIA"
+                    disciplinaData.tipo = "OB"
                 }
+                disciplinaData.cargaHoraria = discByCode?.cargaHoraria
             }
             else {
                 const normalizeString = (str) => unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
@@ -48,8 +51,12 @@ export default class DisciplinasCursadasController {
                     .first();
 
                 if (discByName) {
-                    disciplinaData.tipo = "EQUIVALENTE"
                     disciplinaData.equivalenciaId = discByName.id;
+                    disciplinaData.cargaHoraria = discByName.cargaHoraria
+                    if (discByName.periodo == -1)
+                        disciplinaData.tipo = "EQOP";
+                    else
+                        disciplinaData.tipo = "EQOB";
                 } else {
                     disciplinaData.tipo = null
                 }
@@ -68,7 +75,8 @@ export default class DisciplinasCursadasController {
                 disciplinas = disciplinas.filter(a => a.codigo !== "AA783");
                 let pes = disciplinas.filter(a => a.codigo == "TM422");
                 pes.forEach(a => a.equivalenciaId = pe?.id || a.equivalenciaId);
-                pes.forEach(a => a.tipo = "EQUIVALENTE");
+                pes.forEach(a => a.tipo = "EQOB");
+                pes.forEach(a => a.cargaHoraria = pe?.cargaHoraria || 90);
             }
         }
 
@@ -91,11 +99,11 @@ export default class DisciplinasCursadasController {
         const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
 
         const codigosOP = listDisciplinas
-            .filter((disciplina) => disciplina.tipo === "OPTATIVA")
+            .filter((disciplina) => disciplina.tipo === "OP")
             .flatMap((_, index) => `OP${index + 1}`);
 
         const codigosEletiva = listDisciplinas
-            .filter((disciplina) => disciplina.tipo === "ELETIVA")
+            .filter((disciplina) => disciplina.tipo === "EL")
             .map((_) => `ELETIVA`);
 
 
@@ -122,7 +130,7 @@ export default class DisciplinasCursadasController {
 
     public async update({ auth, request, response, view }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
+            const { disciplina, ano, professor, situacao, cargaHoraria, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
             const disciplinaToUpdate = await DisciplinasCursada.query()
                 .where('user_id', auth.user?.id)
                 .where('codigo', codigoAnterior)
@@ -143,13 +151,24 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.media = media
             disciplinaToUpdate.tipo = tipo
             disciplinaToUpdate.equivalenciaId = equivalente;
+            disciplinaToUpdate.cargaHoraria = cargaHoraria
+
+            if (disciplinaToUpdate.equivalenciaId) {
+                const eq = await Disciplina.query()
+                    .where('id', disciplinaToUpdate.equivalenciaId)
+                    .first()
+                if (eq)
+                    disciplinaToUpdate.cargaHoraria = eq.cargaHoraria
+            }
 
             // Salva as alterações no banco de dados
             await disciplinaToUpdate.save()
             const disciplinasCurs = await this.list(auth);
 
+            // list para modal de equivalntes
             const disciplinas = await Disciplina
                 .query()
+                .orderBy('nome')
 
             return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
         } catch (error) {

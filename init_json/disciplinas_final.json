@@ -6485,12 +6485,6 @@
         "periodo": -1
     },
     {
-        "nome": "Arquitetura de Computadores II",
-        "codigo": "TM409",
-        "carga_horaria": 60,
-        "periodo": -1
-    },
-    {
         "nome": "Tópicos Especiais em Ciência da Computação",
         "codigo": "TM411",
         "carga_horaria": 60,
@@ -6529,24 +6523,6 @@
     {
         "nome": "Tópicos Especiais em Programação de Computadores",
         "codigo": "TM418",
-        "carga_horaria": 60,
-        "periodo": -1
-    },
-    {
-        "nome": "Empreendedorismo em Informática",
-        "codigo": "IM877",
-        "carga_horaria": 60,
-        "periodo": -1
-    },
-    {
-        "nome": "Gerência de Projetos",
-        "codigo": "TM419",
-        "carga_horaria": 60,
-        "periodo": -1
-    },
-    {
-        "nome": "Tópicos Especiais em Otimização",
-        "codigo": "TM420",
         "carga_horaria": 60,
         "periodo": -1
     },
@@ -6623,7 +6599,7 @@
         "periodo": -2
     },
     {
-        "nome": "INTELIGÊNCIA ARTIFICIAL",
+        "nome": "LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL",
         "codigo": "AB782",
         "carga_horaria": 30,
         "periodo": -2

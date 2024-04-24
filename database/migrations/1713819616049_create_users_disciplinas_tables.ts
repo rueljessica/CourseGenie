@@ -36,6 +36,7 @@ export default class extends BaseSchema {
       table.string('professor', 255);
       table.float('media');
       table.string('tipo', 255);
+      table.integer('carga_horaria');
       table.integer('equivalencia_id').unsigned().references('disciplinas.id').onDelete('CASCADE');
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
