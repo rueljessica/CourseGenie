@@ -4,26 +4,45 @@
             <div class="flex items-center justify-between space-x-1 text-gray-900 pb-7">
                 <div class="flex items-center gap-1">
                     <span>
-                        <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                        <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
                         </svg>
                     </span>
                     <span class="text-lg text-gray-900 dark:text-white">Histórico</span>
                 </div>
                 <div class="flex items-end justify-end cursor-pointer active">
-                    <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-700 dark:text-gray-200 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:text-white hover:text-gray-900" type="button">
-                        <svg class="size-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"></path>
-                        </svg>  
+                    <button type="button" data-modal-target="addInfoModal" data-modal-toggle="addInfoModal"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Add
+                        </span>
+                    </button>
+                    <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
+                        class="text-gray-700 dark:text-gray-200 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:text-white hover:text-gray-900"
+                        type="button">
+                        <svg class="size-7" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z">
+                            </path>
+                        </svg>
                     </button>
                     <!-- Dropdown menu -->
-                    <div id="dropdownHover" class="z-10 hidden bg-gray-100 dark:bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                    <div id="dropdownHover"
+                        class="z-10 hidden bg-gray-100 dark:bg-gray-700 divide-y divide-gray-100 rounded-lg shadow w-44 ">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                        <li>                           
-                            <a href="/alterar" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Voltar para Dados Pessoais</a>
-                            <a href="#" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Adicionar Disciplina</a>
-                            <a href="/perfil" class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Cancelar</a>
-                        </li>
+                            <li>
+                                <a href="/alterar"
+                                    class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Voltar
+                                    para Dados Pessoais</a>
+                                <a href="#"
+                                    class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Adicionar
+                                    Disciplina</a>
+                                <a href="/perfil"
+                                    class="block px-4 py-2 dark:bg-gray-700 hover:text-indigo-700 dark:hover:text-violet duration-200 cursor-pointer active">Cancelar</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -106,12 +125,13 @@
                             </td>
                             <td class="px-6 py-4">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Editar</button>
                             </td>
                         </tr>
                         <!-- Modal -->
                         @include('components/modals/modal_editHistorico')
+                        @include('components/modals/modal_addDisc')
                         @endeach
                     </tbody>
                 </table>
