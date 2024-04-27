@@ -42,6 +42,9 @@ Route.group(() => {
 
 //disciplinas cursadas
 Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('disciplina.update')
+Route.post('/disciplinas/create', 'DisciplinasCursadasController.create').as('disciplina.create')
+Route.delete('/disciplinas/:id', 'DisciplinasCursadasController.destroy').as('disciplina.destroy')
+Route.get('/validar', 'DisciplinasCursadasController.get').as('disciplina.get')
 
 Route.get('/alterar', async ({ auth, view }) => {
   return view.render('users/editar_dadosPessoais', {user: auth.user})

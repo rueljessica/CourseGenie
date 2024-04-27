@@ -6,18 +6,20 @@
             <div class="flex items-center justify-between space-x-1 text-gray-900 pb-7">
                 <div class="flex items-center gap-1">
                     <span>
-                        <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                        <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
                         </svg>
                     </span>
                     <span class="text-lg text-gray-900 dark:text-white">Histórico</span>
                 </div>
-                <button data-modal-target="novaDisciplinaModal" data-modal-toggle="novaDisciplinaModal" class="relative group">
+                <button data-modal-target="addInfoModal" data-modal-toggle="addInfoModal" class="relative group">
                     <svg class="text-gray-900 dark:text-white size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
                     </svg>
                     <span id="tooltip" class="absolute top-0 -left-24 whitespace-nowrap transform -translate-x-1/2 text-xs text-gray-400 -mt-1 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">Adicionar disciplina</span>
-                </button>  
+                </button>
             </div>
             <div class="overflow-y-scroll h-96 shadow-md rounded-lg">
                 <table id="table"
@@ -96,13 +98,15 @@
                                 @end
                             </td>
                             <td class="px-6 py-4">
-                                <button onclick="openEditModal('{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                <button
+                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-gray-700 dark:text-gray-200 rounded hover:bg-blue-700">Editar
                                 </button>
                             </td>
                         </tr>
                         <!-- Modal -->
                         @include('components/modals/modal_editHistorico')
+                        @include('components/modals/modal_addDisc')
                         @endeach
                     </tbody>
                 </table>

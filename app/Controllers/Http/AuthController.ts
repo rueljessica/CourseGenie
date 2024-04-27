@@ -90,7 +90,7 @@ export default class AuthController {
         return view.render('users/editar_dadosPessoais', { user: user })
     }
 
-    public async edit({ auth, request, response, view }: HttpContextContract) {
+    public async edit({ auth, request, response }: HttpContextContract) {
         try {
             const user = await User
                 .query()
@@ -109,12 +109,7 @@ export default class AuthController {
                     anoLetivo: request.input('anoLetivo')
                 })
 
-            const disciplinasCurs = await disciplinasCursadas.list(auth);
-            const disciplinas = await Disciplina
-                .query()
-                .orderBy('nome')
-
-            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
+            return response.redirect().toRoute('disciplina.get');
         } catch (error) {
             return response.badRequest(error.messages)
         }

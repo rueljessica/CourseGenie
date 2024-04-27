@@ -29,14 +29,10 @@
 
 <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 <script>
-  let codigo;
-  let ano;
-  let situacao;
+  let id;
 
-  function openEditModal(nome, codigo, situacao, ano, professor, cargaHoraria, media, tipo, idEquiv) {
-    this.ano = ano;
-    this.codigo = codigo;
-    this.situacao = situacao;
+  function openEditModal(id, nome, codigo, situacao, ano, professor, cargaHoraria, media, tipo, idEquiv) {
+    this.id = id;
 
     const editModal = document.getElementById('editInfoModal');
     const editNomeField = document.getElementById('editNome');
@@ -79,37 +75,26 @@
   function closeEditModal() {
     const editModal = document.getElementById('editInfoModal');
     editModal.classList.add('hidden');
+    document.getElementById("modalForm").reset();
+  }
+
+  function closeAddModal() {
+    const addModal = document.getElementById('addInfoModal');
+    addModal.classList.add('hidden');
+    document.getElementById("addModalForm").reset();
   }
 
   function saveEdit() {
     const modalForm = document.getElementById('modalForm');
+    const id = document.createElement('input');
+    
+    id.type = 'hidden';
+    id.name = 'id';
+    id.value = this.id;
 
-    const editAno = document.getElementById('editAno').value;
-    const editCodigo = document.getElementById('editCodigo').value;
-    const editSituacao = document.getElementById('editSituacao').value;
-
-    const anoAnterior = document.createElement('input');
-    anoAnterior.type = 'hidden';
-    anoAnterior.name = 'anoAnterior';
-    anoAnterior.value = editAno;
-
-    const codigoAnterior = document.createElement('input');
-    codigoAnterior.type = 'hidden';
-    codigoAnterior.name = 'codigoAnterior';
-    codigoAnterior.value = editCodigo;
-
-    const situacaoAnterior = document.createElement('input');
-    situacaoAnterior.type = 'hidden';
-    situacaoAnterior.name = 'situacaoAnterior';
-    situacaoAnterior.value = editSituacao;
-
-    modalForm.appendChild(anoAnterior);
-    modalForm.appendChild(codigoAnterior);
-    modalForm.appendChild(situacaoAnterior);
-
+    modalForm.appendChild(id);
     modalForm.submit();
   }
-
 
   document.addEventListener('DOMContentLoaded', function () {
     const editTipoField = document.getElementById('editTipo');
@@ -130,7 +115,50 @@
         eletivaSelect.style.display = 'none';
       }
     });
+
+    const addTipoField = document.getElementById('addTipo');
+
+    addTipoField.addEventListener('change', function () {
+      const selectedValue = this.value;
+      const equivalenteSelect = document.getElementById('divAddEquivalente');
+      const eletivaSelect = document.getElementById('divAddCH');
+
+      if (selectedValue === 'EQOB' || selectedValue === 'EQOP') {
+        equivalenteSelect.style.display = 'block';
+        document.getElementById("addEquivalente").setAttribute("required", "required");
+        document.getElementById("addCargaHoraria").removeAttribute("required");
+        eletivaSelect.style.display = 'none';
+        document.getElementById("addCargaHoraria").value = "";
+      } else if (selectedValue === 'EL') {
+        document.getElementById("addCargaHoraria").setAttribute("required", "required");
+        document.getElementById("addEquivalente").removeAttribute("required");
+        eletivaSelect.style.display = 'block';
+        equivalenteSelect.style.display = 'none';
+        document.getElementById("addEquivalente").value = "";
+      } else {
+        equivalenteSelect.style.display = 'none';
+        eletivaSelect.style.display = 'none';
+        document.getElementById("addEquivalente").value = "";
+        document.getElementById("addCargaHoraria").value = "";
+        document.getElementById("addCargaHoraria").removeAttribute("required");
+        document.getElementById("addEquivalente").removeAttribute("required");
+      }
+    });
   });
+
+  async function deleteDisciplina() {
+    try {
+      await fetch(`/disciplinas/${this.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+    }
+  }
 </script>
 
 </html>

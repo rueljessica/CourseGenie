@@ -6,14 +6,6 @@ import Disciplina from 'App/Models/Disciplina'
 const unorm = require('unorm');
 
 export default class DisciplinasCursadasController {
-    public async list(auth) {
-        return await DisciplinasCursada
-            .query()
-            .where('user_id', auth.user?.id)
-            .orderBy('ano')
-            .orderBy('nome')
-    }
-
     public async store(user, disciplinasData) {
         let disciplinas: DisciplinasCursada[] = [];
 
@@ -99,7 +91,7 @@ export default class DisciplinasCursadasController {
         const codigosEquiv = listDisciplinasEquiv.map((disciplina) => disciplina.codigo);
 
         const codigosOP = listDisciplinas
-            .filter((disciplina) => disciplina.tipo === "OP")
+            .filter((disciplina) => disciplina.tipo === "OP" || disciplina.tipo === "EQOP")
             .flatMap((_, index) => `OP${index + 1}`);
 
         const codigosEletiva = listDisciplinas
@@ -128,51 +120,96 @@ export default class DisciplinasCursadasController {
         }
     }
 
-    public async update({ auth, request, response, view }: HttpContextContract) {
+    public async get({ auth, view }: HttpContextContract) {
+        const disciplinasCurs = await await DisciplinasCursada
+            .query()
+            .where('user_id', auth.user?.id)
+            .orderBy('ano')
+            .orderBy('nome');
+
+        // list para modal de equivalntes
+        const disciplinas = await Disciplina
+            .query()
+            .orderBy('nome')
+        return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
+    }
+
+    public async update({ request, response }: HttpContextContract) {
         try {
-            const { disciplina, ano, professor, situacao, cargaHoraria, codigo, media, tipo, equivalente, anoAnterior, codigoAnterior, situacaoAnterior } = request.all()
-            const disciplinaToUpdate = await DisciplinasCursada.query()
-                .where('user_id', auth.user?.id)
-                .where('codigo', codigoAnterior)
-                .where('ano', anoAnterior)
-                .where('situacao', situacaoAnterior)
-                .first()
+            const data = request.all();
 
-            if (!disciplinaToUpdate) {
-                return response.status(404).json({ message: 'Disciplina não encontrada' })
+            // Valide os dados da requisição
+            await request.validate({
+                schema: DisciplinasCursada.schema,
+                data: data
+            })
+            const disciplinaToUpdate = await DisciplinasCursada.findOrFail(data.id);
+
+             // Se houver uma disciplina equivalente, atualize a carga horária
+             if (data.equivalenciaId) {
+                const eq = await Disciplina.findOrFail(data.equivalenciaId);
+                data.cargaHoraria = eq.cargaHoraria;
             }
 
-            // Atualiza os campos da disciplina
-            disciplinaToUpdate.nome = disciplina
-            disciplinaToUpdate.ano = ano
-            disciplinaToUpdate.professor = professor
-            disciplinaToUpdate.situacao = situacao
-            disciplinaToUpdate.codigo = codigo
-            disciplinaToUpdate.media = media
-            disciplinaToUpdate.tipo = tipo
-            disciplinaToUpdate.equivalenciaId = equivalente;
-            disciplinaToUpdate.cargaHoraria = cargaHoraria
+            // Atualizar os campos da disciplina
+            disciplinaToUpdate.merge({
+                nome: data.nome,
+                ano: data.ano,
+                professor: data.professor,
+                situacao: data.situacao,
+                codigo: data.codigo,
+                media: data.media,
+                tipo: data.tipo,
+                equivalenciaId: data.equivalenciaId,
+                cargaHoraria: data.cargaHoraria
+            })
 
-            if (disciplinaToUpdate.equivalenciaId) {
-                const eq = await Disciplina.query()
-                    .where('id', disciplinaToUpdate.equivalenciaId)
-                    .first()
-                if (eq)
-                    disciplinaToUpdate.cargaHoraria = eq.cargaHoraria
-            }
-
-            // Salva as alterações no banco de dados
-            await disciplinaToUpdate.save()
-            const disciplinasCurs = await this.list(auth);
-
-            // list para modal de equivalntes
-            const disciplinas = await Disciplina
-                .query()
-                .orderBy('nome')
-
-            return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
+            // Salve as alterações no banco de dados
+            await disciplinaToUpdate.save();
+            return response.redirect().toRoute('auth.edit');
         } catch (error) {
-            return response.status(500).json({ message: 'Ocorreu um erro ao atualizar a disciplina', error: error.message })
+            return response.status(400).json({ message: error });
+        }
+    }
+
+    public async create({ auth, request, response }: HttpContextContract) {
+        try {
+            const data = request.only(['addDisciplina', 'addCodigo', 'addSituacao', 'addAno', 'addProfessor', 'addMedia', 'addTipo', 'addCargaHoraria', 'addEquivalente']);
+
+            const disciplinaData = {
+                nome: data.addDisciplina,
+                codigo: data.addCodigo,
+                situacao: data.addSituacao,
+                ano: data.addAno,
+                professor: data.addProfessor,
+                media: parseFloat(data.addMedia),
+                tipo: data.addTipo,
+                cargaHoraria: parseInt(data.addCargaHoraria) || null,
+                equivalenciaId: parseInt(data.addEquivalente) || null,
+            }
+            // Valide os dados da requisição
+            await request.validate({
+                schema: DisciplinasCursada.schema,
+                data: disciplinaData
+            })
+            const disciplina = new DisciplinasCursada()
+            disciplina.fill(disciplinaData)
+
+            await auth.user?.related('disciplinas').save(disciplina);
+            return response.redirect().toRoute('disciplina.get');
+        } catch (error) {
+            return response.status(400).json({ message: error });
+        }
+    }
+
+    public async destroy({ params, response }: HttpContextContract) {
+        try {
+            const disciplina = await DisciplinasCursada.findOrFail(params.id)
+            await disciplina.delete()
+
+            return response.status(200)
+        } catch (error) {
+            return response.status(400).json({ message: 'Erro ao excluir a disciplina cursada', error: error.message })
         }
     }
 }
