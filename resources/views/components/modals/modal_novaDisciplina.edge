@@ -1,25 +1,19 @@
-<div id="editInfoModal" tabindex="-1" aria-hidden="true"
-    class="flex hidden fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
-    <div class=" w-full max-w-2xl max-h-full">
+<!-- Modal Nova Disciplina -->
+<div id="novaDisciplinaModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
-        <div class=" bg-white rounded-lg shadow dark:bg-gray-800">
+        <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
                 <h3 class="flex items-center text-xl text-gray-900 dark:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 pr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 pr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                     </svg>
-                    Editar Disciplina
+                    Criar Disciplina
                 </h3>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-hide="editInfoModal" onclick="closeEditModal()">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="novaDisciplinaModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
                     <span class="sr-only">Close modal</span>
                 </button>
@@ -32,7 +26,7 @@
                         <div class="sm:col-span-2">
                             <label for="text"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina</label>
-                            <input id="editNome" name="nome"
+                            <input id="editNome" name="disciplina"
                                 class="place-content-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Disciplina" required="">
                         </div>
@@ -79,46 +73,46 @@
                             <select id="editProfessor" name="professor"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <optgroup label="DCC">
-                                    <option value="ADRIA RAMOS DE LYRA">ADRIA RAMOS DE LYRA</option>
-                                    <option value="BRUNO JOSE DEMBOGURSKI">BRUNO JOSE DEMBOGURSKI</option>
-                                    <option value="DANIEL FABIO DOMINGUES POSNER">DANIEL FABIO DOMINGUES POSNER
+                                    <option value="Dra. ADRIA RAMOS DE LYRA">Dra. ADRIA RAMOS DE LYRA</option>
+                                    <option value="Dr. BRUNO JOSE DEMBOGURSKI">Dr. BRUNO JOSE DEMBOGURSKI</option>
+                                    <option value="Dr. DANIEL FABIO DOMINGUES POSNER">Dr. DANIEL FABIO DOMINGUES POSNER
                                     </option>
-                                    <option value="FELLIPE RIBEIRO DUARTE">FELLIPE RIBEIRO DUARTE</option>
-                                    <option value="FERNANDA VIEIRA DIAS COUTO">FERNANDA VIEIRA DIAS COUTO
+                                    <option value="Dr. FELLIPE RIBEIRO DUARTE">Dr. FELLIPE RIBEIRO DUARTE</option>
+                                    <option value="Dra. FERNANDA VIEIRA DIAS COUTO">Dra. FERNANDA VIEIRA DIAS COUTO
                                     </option>
-                                    <option value="FILIPE BRAIDA DO CARMO">FILIPE BRAIDA DO CARMO</option>
-                                    <option value="JULIANA MENDES NASCENTE E SILVA ZAMITH">JULIANA MENDES
+                                    <option value="Dr. FILIPE BRAIDA DO CARMO">Dr. FILIPE BRAIDA DO CARMO</option>
+                                    <option value="Dra. JULIANA MENDES NASCENTE E SILVA ZAMITH">Dra. JULIANA MENDES
                                         NASCENTE E
                                         SILVA ZAMITH</option>
-                                    <option value="LEANDRO GUIMARAES MARQUES ALVIM">LEANDRO GUIMARAES MARQUES
+                                    <option value="Dr. LEANDRO GUIMARAES MARQUES ALVIM">Dr. LEANDRO GUIMARAES MARQUES
                                         ALVIM
                                     </option>
-                                    <option value="LIGIA MARIA SOARES PASSOS">LIGIA MARIA SOARES PASSOS
+                                    <option value="Dra. LIGIA MARIA SOARES PASSOS">Dra. LIGIA MARIA SOARES PASSOS
                                     </option>
-                                    <option value="MARCEL WILLIAM ROCHA DA SILVA">MARCEL WILLIAM ROCHA DA SILVA
+                                    <option value="Dr. MARCEL WILLIAM ROCHA DA SILVA">Dr. MARCEL WILLIAM ROCHA DA SILVA
                                     </option>
-                                    <option value="MARCELO PANARO DE MORAES ZAMITH">MARCELO PANARO DE MORAES
+                                    <option value="Dr. MARCELO PANARO DE MORAES ZAMITH">Dr. MARCELO PANARO DE MORAES
                                         ZAMITH
                                     </option>
-                                    <option value="NATALIA CHAVES LESSA SCHOTS">NATALIA CHAVES LESSA SCHOTS
+                                    <option value="Dra. NATALIA CHAVES LESSA SCHOTS">Dra. NATALIA CHAVES LESSA SCHOTS
                                     </option>
-                                    <option value="RICARDO CORDEIRO CORREA">RICARDO CORDEIRO CORREA</option>
-                                    <option value="UBIRATAM CARVALHO DE PAULA JUNIOR">UBIRATAM CARVALHO DE PAULA
+                                    <option value="Dr. RICARDO CORDEIRO CORREA">Dr. RICARDO CORDEIRO CORREA</option>
+                                    <option value="Dr. UBIRATAM CARVALHO DE PAULA JUNIOR">Dr. UBIRATAM CARVALHO DE PAULA
                                         JUNIOR</option>
                                     <option value="Outro">Outro</option>
                                 </optgroup>
                                 <optgroup label="DTL">
-                                    <option value="ADEILTON PEDRO DE ALCANTARA">ADEILTON PEDRO DE ALCANTARA
+                                    <option value="Dr. ADEILTON PEDRO DE ALCANTARA">Dr. ADEILTON PEDRO DE ALCANTARA
                                     </option>
-                                    <option value="ALEKSANDRO DE MELLO">ALEKSANDRO DE MELLO</option>
-                                    <option value="CAMILA RIBEIRO DE LACERDA PACHECO">CAMILA RIBEIRO DE
+                                    <option value="Dr. ALEKSANDRO DE MELLO">Dr. ALEKSANDRO DE MELLO</option>
+                                    <option value="Dra. CAMILA RIBEIRO DE LACERDA PACHECO">Dra. CAMILA RIBEIRO DE
                                         LACERDA
                                         PACHECO</option>
-                                    <option value="ERITO MARQUES DE SOUZA FILHO">ERITO MARQUES DE SOUZA FILHO
+                                    <option value="Dr. ERITO MARQUES DE SOUZA FILHO">Dr. ERITO MARQUES DE SOUZA FILHO
                                     </option>
-                                    <option value="MARCELO FERREIRA FARIAS">MARCELO FERREIRA FARIAS</option>
-                                    <option value="MARCOS CARDOSO RODRIGUEZ">MARCOS CARDOSO RODRIGUEZ</option>
-                                    <option value="VANIA CRISTINA MACHADO">MSc. VANIA CRISTINA MACHADO</option>
+                                    <option value="Dr. MARCELO FERREIRA FARIAS">Dr. MARCELO FERREIRA FARIAS</option>
+                                    <option value="Dr. MARCOS CARDOSO RODRIGUEZ">Dr. MARCOS CARDOSO RODRIGUEZ</option>
+                                    <option value="MSc. VANIA CRISTINA MACHADO">MSc. VANIA CRISTINA MACHADO</option>
                                     <option value="Outro">Outro</option>
                                 </optgroup>
                             </select>
@@ -161,7 +155,7 @@
                             <label for="equivalente"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Disciplina
                                 Equivalente</label>
-                            <select id="editEquivalente" name="equivalenciaId"
+                            <select id="editEquivalente" name="equivalente"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 @each(disciplina in disciplinas)
                                 <option value='{{ disciplina.id }}'>{{ disciplina.nome }}</option>
