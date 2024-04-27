@@ -1,7 +1,7 @@
 <section class="bg-gray-50 dark:bg-gray-900 h-screen tracking-wide flex items-center justify-center overflow-auto">
     <div class="grid p-2">
         <!-- Include Modal -->
-        @include('components/modals/modal_novaDisciplina')
+        @include('components/modals/modal_addDisc')
         <div class="bg-white dark:bg-gray-800 flex flex-col p-5 w-full shadow-md rounded-lg border-dashed">
             <div class="flex items-center justify-between space-x-1 text-gray-900 pb-7">
                 <div class="flex items-center gap-1">
@@ -15,10 +15,14 @@
                     <span class="text-lg text-gray-900 dark:text-white">Histórico</span>
                 </div>
                 <button data-modal-target="addInfoModal" data-modal-toggle="addInfoModal" class="relative group">
-                    <svg class="text-gray-900 dark:text-white size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg class="text-gray-900 dark:text-white size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90"
+                        data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
                     </svg>
-                    <span id="tooltip" class="absolute top-0 -left-24 whitespace-nowrap transform -translate-x-1/2 text-xs text-gray-400 -mt-1 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">Adicionar disciplina</span>
+                    <span id="tooltip"
+                        class="absolute top-0 -left-24 whitespace-nowrap transform -translate-x-1/2 text-xs text-gray-400 -mt-1 opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto">Adicionar
+                        disciplina</span>
                 </button>
             </div>
             <div class="overflow-y-scroll h-96 shadow-md rounded-lg">
@@ -106,25 +110,32 @@
                         </tr>
                         <!-- Modal -->
                         @include('components/modals/modal_editHistorico')
-                        @include('components/modals/modal_addDisc')
                         @endeach
                     </tbody>
                 </table>
             </div>
             <div class="flex items-end justify-between pt-5">
-                <button class="inline-flex items-center p-0.5 mb-2 me-2 px-2 py-2 text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 text-sm font-medium rounded-md duration-200 cursor-pointer active">
+                <button
+                    class="inline-flex items-center p-0.5 mb-2 me-2 px-2 py-2 text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 text-sm font-medium rounded-md duration-200 cursor-pointer active">
                     <a href="/alterar">
-                        <svg class="size-5"  data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+                        <svg class="size-5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
                         </svg>
                     </a>
                 </button>
                 <div>
-                    <button id="cancelar" type="button" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium border rounded-lg border-red-600 text-red-600 hover:text-red-400 dark:hover:text-red-700 duration-200 cursor-pointer active">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Cancelar</span>
-                    </button>                
-                    <button id="salvarButton" type="button" onclick="saveEdit()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Finalizar edição</span>
+                    <button id="cancelar" type="button"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium border rounded-lg border-red-600 text-red-600 hover:text-red-400 dark:hover:text-red-700 duration-200 cursor-pointer active">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Cancelar</span>
+                    </button>
+                    <button id="salvarButton" type="button" onclick="saveEdit()"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Finalizar
+                            edição</span>
                     </button>
                 </div>
             </div>
