@@ -173,14 +173,19 @@
                 <!-- Modal footer -->
                 <div
                     class="flex items-center justify-between p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-700">
-                    <button class="inline-flex items-center px-2 py-2 border border-red-600 text-red-600 hover:text-red-500 text-sm font-medium rounded-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    <button onclick="deleteDisciplina()"
+                        class="inline-flex items-center px-2 py-2 border border-red-600 text-red-600 hover:text-red-500 text-sm font-medium rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                     </button>
                     <button type="button" onclick="saveEdit()"
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar Alteração</span>
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Salvar
+                            Alteração</span>
                     </button>
                 </div>
             </form>
