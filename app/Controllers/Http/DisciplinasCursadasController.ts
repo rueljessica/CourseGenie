@@ -134,7 +134,7 @@ export default class DisciplinasCursadasController {
         return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
     }
 
-    public async update({ request, response }: HttpContextContract) {
+    public async update({ auth, request, response }: HttpContextContract) {
         try {
             const data = request.all();
 
@@ -145,10 +145,23 @@ export default class DisciplinasCursadasController {
             })
             const disciplinaToUpdate = await DisciplinasCursada.findOrFail(data.id);
 
-             // Se houver uma disciplina equivalente, atualize a carga horária
-             if (data.equivalenciaId) {
-                const eq = await Disciplina.findOrFail(data.equivalenciaId);
+            // Se houver uma disciplina equivalente, atualiza a carga horária e define como equivalência para disciplinas semelhantes
+            if (data.equivalenciaId) {
+                const eq = await Disciplina.findOrFail(data.equivalenciaId)
                 data.cargaHoraria = eq.cargaHoraria;
+
+                // Encontre todas as disciplinas com o mesmo código
+                const disciplinas = await DisciplinasCursada.query()
+                    .where('user_id', auth.user?.id)
+                    .where('codigo', data.codigo)
+                    .whereNot('id', data.id) // Exclue a disciplina que está sendo atualizada
+
+                await Promise.all(disciplinas.map(async (disciplina) => {
+                    disciplina.equivalenciaId = data.equivalenciaId
+                    disciplina.cargaHoraria = eq.cargaHoraria
+                    disciplina.tipo = data.tipo
+                    await disciplina.save()
+                }))
             }
 
             // Atualizar os campos da disciplina
