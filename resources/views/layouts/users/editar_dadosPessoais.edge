@@ -26,6 +26,17 @@
 
 @include('components/users/editar_dadosPessoais')
 
-<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("cancelar").onclick = async function () {
+      location.href = "/perfil";
+    };
+  });
+
+  document.getElementById("prosseguir").onclick = async function () {
+    document.querySelector('form').action = "{{ route('auth.edit') }}";
+    document.querySelector('form').submit();
+  };
+</script>
 
 </html>

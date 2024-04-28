@@ -9,7 +9,7 @@ import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursad
 import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class TestDataController {
-    public async main({ response, params }: HttpContextContract) {
+    public async index({ response, params }: HttpContextContract) {
         const { faker } = require('@faker-js/faker');
         const random = require('lodash');
         let cods: string[] = [];

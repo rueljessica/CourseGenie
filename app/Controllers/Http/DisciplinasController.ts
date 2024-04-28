@@ -14,7 +14,7 @@ export default class DisciplinasController {
         }
     }
 
-    public async modApelido(list) {
+    private async mapearApelidos(list) {
         const listMod = {};
     
         for (const professor of Object.keys(list)) {
@@ -24,11 +24,9 @@ export default class DisciplinasController {
             if (professorDb)
                 listMod[professorDb.apelido] = list[professor]
         }
-    
         return listMod;
     }
     
-
     public async get({ request, response, view }: HttpContextContract) {
         try {
             const body = request.only(['disc'])
@@ -87,8 +85,8 @@ export default class DisciplinasController {
                 indiceAprovacaoPorProfessor[professor] = { aprovacao: parseInt(indiceAprovacao.toFixed(0)), reprovacao: parseInt(indiceReprovacao.toFixed(0)) };
             });
 
-            mediasPorProfessor = await this.modApelido(mediasPorProfessor)
-            indiceAprovacaoPorProfessor = await this.modApelido(indiceAprovacaoPorProfessor)
+            mediasPorProfessor = await this.mapearApelidos(mediasPorProfessor)
+            indiceAprovacaoPorProfessor = await this.mapearApelidos(indiceAprovacaoPorProfessor)
 
             return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
         } catch (error) {

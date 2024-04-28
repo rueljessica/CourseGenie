@@ -6,15 +6,10 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import Application from '@ioc:Adonis/Core/Application'
 import DisciplinasCursadaController from 'App/Controllers/Http/DisciplinasCursadasController'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
-import Disciplina from 'App/Models/Disciplina'
 
 const disciplinasCursadas = new DisciplinasCursadaController();
 
 export default class AuthController {
-    public async loginIndex({ view }: HttpContextContract) {
-        return view.render('users/login')
-    }
-
     public async login({ request, response, auth, session }: HttpContextContract) {
         const { email, password } = request.all()
         const userDate = User.findBy('email', email)
@@ -33,10 +28,6 @@ export default class AuthController {
             session.flash('toast', 'toast-danger')
             return response.redirect('back')
         }
-    }
-
-    public async registerIndex({ view }: HttpContextContract) {
-        return view.render('users/cadastro')
     }
 
     public async register({ auth, request, response, view }: HttpContextContract) {
@@ -86,30 +77,41 @@ export default class AuthController {
         await user.save();
         await disciplinasCursadas.store(user, json.disciplinas)
         await auth.use('web').attempt(user.email, request.input('password'))
-
-        return view.render('users/editar_dadosPessoais', { user: user })
+        return view.render('users/cadastro_dadosPessoais', { user: user })
     }
 
-    public async edit({ auth, request, response }: HttpContextContract) {
-        try {
-            const user = await User
-                .query()
-                .where('email', auth.user?.email)
-                .update({
-                    name: request.input('name'),
-                    email: request.input('email'),
-                    matricula: request.input('matricula'),
-                    nacionalidade: request.input('nacionalidade'),
-                    rg: request.input('rg'),
-                    cpf: request.input('cpf'),
-                    dataNascimento: request.input('dataNascimento'),
-                    prazoConclusao: request.input('prazoConclusao'),
-                    status: request.input('status'),
-                    ira: request.input('ira'),
-                    anoLetivo: request.input('anoLetivo')
-                })
+    private async edit(auth, request): Promise<void> {
+        await User
+            .query()
+            .where('email', auth.user?.email)
+            .update({
+                name: request.input('name'),
+                email: request.input('email'),
+                matricula: request.input('matricula'),
+                nacionalidade: request.input('nacionalidade'),
+                rg: request.input('rg'),
+                cpf: request.input('cpf'),
+                dataNascimento: request.input('dataNascimento'),
+                prazoConclusao: request.input('prazoConclusao'),
+                status: request.input('status'),
+                ira: request.input('ira'),
+                anoLetivo: request.input('anoLetivo')
+            })
+    }
 
-            return response.redirect().toRoute('disciplina.get');
+    public async update({ auth, request, response }: HttpContextContract) {
+        try {
+            this.edit(auth, request)
+            return response.redirect().toRoute('disciplina.historicoUpdate');
+        } catch (error) {
+            return response.badRequest(error.messages)
+        }
+    }
+
+    public async validate({ auth, request, response }: HttpContextContract) {
+        try {
+            this.edit(auth, request)
+            return response.redirect().toRoute('disciplina.historicoUpdate');
         } catch (error) {
             return response.badRequest(error.messages)
         }
@@ -131,12 +133,7 @@ export default class AuthController {
         }
     }
 
-    public async logout({ auth, response }: HttpContextContract) {
-        await auth.use('web').logout()
-        return response.redirect('/')
-    }
-
-    public async get({ auth, view }: HttpContextContract) {
+    public async show({ auth, view }: HttpContextContract) {
 
         const disciplinas = await DisciplinasCursada
             .query()
@@ -161,5 +158,16 @@ export default class AuthController {
         });
 
         return view.render('users/perfil', { disciplinas: disciplinas, cargaHorariaObrigatoriaTotal: cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal: cargaHorariaOptativaTotal, cargaHorariaComplTotal: cargaHorariaComplTotal })
+    }
+
+    public async destroy({ auth, response }: HttpContextContract) {
+        try {
+            const user = await User.findOrFail(auth.user?.id)
+            await user.delete()
+
+            return response.status(200)
+        } catch (error) {
+            return response.status(400).json({ message: 'Erro ao excluir a disciplina cursada', error: error.message })
+        }
     }
 }
