@@ -126,11 +126,6 @@
                     </a>
                 </button>
                 <div>
-                    <button id="cancelar" type="button"
-                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium border rounded-lg border-red-600 text-red-600 hover:text-red-400 dark:hover:text-red-700 duration-200 cursor-pointer active">
-                        <span
-                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Cancelar</span>
-                    </button>
                     <button id="salvarButton" type="button" onclick="saveEdit()"
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
                         <span
@@ -143,14 +138,8 @@
     </div>
 </section>
 
-
 <script type="text/javascript">
     document.getElementById("salvarButton").onclick = function () {
-        location.href = "/perfil";
-    };
-
-
-    document.getElementById("cancelar").onclick = function () {
         location.href = "/perfil";
     };
 </script>

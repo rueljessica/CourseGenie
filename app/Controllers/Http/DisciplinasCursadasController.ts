@@ -102,7 +102,7 @@ export default class DisciplinasCursadasController {
         return codigos.concat(codigosOP, codigosEletiva, codigosEquiv);
     }
 
-    public async listGrade({ auth, response, view }: HttpContextContract) {
+    public async showGrade({ auth, response, view }: HttpContextContract) {
         try {
             const result = await this.listCods(auth);
             return view.render('disciplinas/grade/grade_curricular', { disciplinas: result })
@@ -111,7 +111,7 @@ export default class DisciplinasCursadasController {
         }
     }
 
-    public async listEixos({ auth, response, view }: HttpContextContract) {
+    public async showEixos({ auth, response, view }: HttpContextContract) {
         try {
             const result = await this.listCods(auth);
             return view.render('disciplinas/eixo/eixos', { disciplinas: result })
@@ -120,7 +120,7 @@ export default class DisciplinasCursadasController {
         }
     }
 
-    public async get({ auth, view }: HttpContextContract) {
+    public async historicoUpdate({ auth, view }: HttpContextContract) {
         const disciplinasCurs = await await DisciplinasCursada
             .query()
             .where('user_id', auth.user?.id)
@@ -179,7 +179,7 @@ export default class DisciplinasCursadasController {
 
             // Salve as alterações no banco de dados
             await disciplinaToUpdate.save();
-            return response.redirect().toRoute('auth.edit');
+            return response.redirect().toRoute('disciplina.historicoUpdate');
         } catch (error) {
             return response.status(400).json({ message: error });
         }
