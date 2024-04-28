@@ -37,6 +37,9 @@
                 if(disciplinas.includes(path.getAttribute('value'))){
                     path.style.opacity = 1;
                 }
+                if(path.getAttribute('value') === "ELETIVA" && disciplinas.includes("OP12")){
+                    path.style.opacity = 1;
+                }
             });
         });
     </script>
