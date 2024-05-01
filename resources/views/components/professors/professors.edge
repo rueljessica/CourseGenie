@@ -1,0 +1,19 @@
+<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64 overflow-hidden">
+    <div class="mt-20">
+        <div id="accordion-collapse" data-accordion="collapse" class="p-4">
+            <form method="GET" action="" id="professoresForm">
+                <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                    <ul>
+                        @each(professor in professores)
+                        <li class="mb-2 text-gray-500 dark:text-gray-400">
+                            <button class="hover:bg-gray-200 dark:hover:bg-gray-700" id="professor"
+                                onclick="setProfessorId('{{ professor.id }}')">
+                                {{ professor.nome }}</button>
+                        </li>
+                        @end
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -54,6 +54,11 @@ Route.group(() => {
   Route.get('/recomendacao', async ({ view }) => { return view.render('disciplinas/recomendacao') })
 }).middleware('auth')
 
+// Professors Routes
+Route.get('/professores', 'ProfessorsController.list').middleware('auth')
+Route.get('/professores/:id', 'ProfessorsController.get').middleware('auth')
+
+
 // Salva as informações dos jsons no banco 
 Route.get('/', 'InitsController.index')
 
