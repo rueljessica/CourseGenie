@@ -78,7 +78,7 @@
                                 {{ disciplina.ano || "" }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ disciplina.professor || "" }}
+                                {{ professores.find(professor => professor.id === disciplina.professorId)?.nome || "" }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ disciplina.cargaHoraria ? disciplina.cargaHoraria + "H" : " "}}
@@ -103,7 +103,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professor }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
+                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professorId }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
                                     class="px-4 py-2 bg-blue-500 text-gray-700 dark:text-gray-200 rounded hover:bg-blue-700">Editar
                                 </button>
                             </td>

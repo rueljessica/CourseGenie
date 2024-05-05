@@ -30,7 +30,7 @@ Route.group(() => {
   Route.get('/grade', 'DisciplinasCursadasController.showGrade')
   Route.get('/eixos', 'DisciplinasCursadasController.showEixos')
 
-  // As Auth Group
+  // As Disciplinas Cursadas Group
   Route.group(() => {
     Route.post('/disciplinas/update', 'DisciplinasCursadasController.update').as('update')
     Route.post('/disciplinas/create', 'DisciplinasCursadasController.create').as('create')

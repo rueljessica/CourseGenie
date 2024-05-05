@@ -1,12 +1,11 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada';
 import Professor from 'App/Models/Professor'
-const unorm = require('unorm');
 
 export default class ProfessorsController {
     public async list({ response, view }: HttpContextContract) {
         try {
-            const list = await Professor.query().orderBy('nome', 'asc');
+            const list = await Professor.query().where('departamento', "dcc").orderBy('nome', 'asc');
             return view.render('professors/professors', { professores: list })
         } catch (error) {
             return response.badRequest('Error')
@@ -15,17 +14,14 @@ export default class ProfessorsController {
     public async get({ params, response, view }: HttpContextContract) {
         try {
             const id = params.id;
-            const normalizeString = (str) => unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
 
             const professor = await Professor.query()
                 .where('id', id)
                 .first();
 
             const disciplinasCursadas = await DisciplinasCursada.query()
-                .whereRaw("LOWER(UNACCENT(professor)) = ?",
-                normalizeString(professor?.nome.toLowerCase()))
+                .where('professor_id', id)
                 .select('media', 'situacao')
-
             
             const totalApr = disciplinasCursadas.filter(disciplina => ['cumpriu', 'apr', 'aprn', 'incorp', 'cump'].includes(disciplina.situacao.toLowerCase())).length;
             const totalRep = disciplinasCursadas.filter(disciplina => ['rec', 'rep', 'repf', 'repn', 'repmf', 'repnf'].includes(disciplina.situacao.toLowerCase())).length;

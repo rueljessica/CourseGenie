@@ -1,86 +1,421 @@
 [
     {
         "nome": "ADRIA RAMOS DE LYRA",
-        "apelido": "ADRIA L.",
+        "apelido": "ADRIA LYRA",
+        "email": "adrialyra@gmail.com",
+        "lattes": "http://lattes.cnpq.br/5312565962811745",
         "sala": "212",
+        "departamento": "dcc",
+        "areasInteresse": [
+            "Inteligência Computacional",
+            "Metaheurísticas",
+            "Inteligência Artificial",
+            "Otimização Combinatória",
+            "Grafos e Algoritmos",
+            "Algoritmos Paralelos em Otimização",
+            "Análise de Algoritmos"
+        ],
+        "disciplinas": [
+            "Análise e Projeto de Algoritmos",
+            "Estruturas de Dados I",
+            "Grafos e Algoritmos",
+            "Matemática Discreta para Computação",
+            "Otimização Linear",
+            "Tópicos Especiais em Otimização Linear"
+        ],
         "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal Fluminense (2002), mestrado em Computação pela Universidade Federal Fluminense (2004) e doutorado em Computação pela Universidade Federal Fluminense (2009). Atualmente é professor de magistério superior da Universidade Federal Rural do Rio de Janeiro. Tem experiência na área de Ciência da Computação, com ênfase em Otimização Combinatória."
     },
     {
         "nome": "BRUNO JOSÉ DEMBOGURSKI",
-        "apelido": "BRUNO D.",
+        "apelido": "BRUNO DEMBOGURSKI",
         "sala": "205",
-        "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora (2006), Mestrado em Computação pela Universidade Federal Fluminense (2009) e doutorado (2014) também pela Universidade Federal do Fluminense (UFF) na área de Computação Visual. Atualmente é professor adjunto do departamento de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro. Tem experiência na área de Ciência da Computação, com ênfase em Processamento Geométrico, Geração Procedural, Computação Visual, Programação em GPU, Realidade Aumentada, Inteligência Computacional e Desenvolvimento de Sistemas."
+        "email": "bdembogurski@ic.ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/5960813120832073",
+        "departamento": "dcc",
+        "areasInteresse": [
+            "Computação Gráfica",
+            "Processamento de Imagens",
+            "Processamento Paralelo"
+        ],
+        "disciplinas": [
+            "Computação Gráfica",
+            "Matemática Discreta para Computação"
+        ],
+        "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora (2006), Mestrado em Computação pela Universidade Federal Fluminense (2009) . Atualmente, é doutorando na Universidade Federal do Fluminense (UFF) na área de Computação Visual e Interfaces. É professor da Universidade Federal Rural do Rio de Janeiro (UFRRJ) e tutor a distância do Centro de Educação a Distância do Estado de Rio de Janeiro.  Tem experiência na área de Ciência da Computação - Computação Gráfica, com ênfase em Geração Procedural, Geração de Terrenos, Programação em GPU, Extração de Isosuperfícies, Geometria Computacional e Sistemas Interativos e Realidade Aumentada."
     },
     {
-        "nome": "FILIPE BRAIDA DO CARMO",
-        "apelido": "FILIPE BRAIDA",
-        "sala": "212",
-        "descricao": "Filipe Braida é professor do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) desde 2013. Formou-se em Ciência da Computação pela Universidade Federal do Rio de Janeiro (UFRJ) em 2009, tendo recebido em 2010, a Dignidade Acadêmica Cum Laude, por conta de seu desempenho no curso de graduação. Obteve o grau de Mestre (2013) e Doutor (2018) em Ciências em Engenharia de Sistemas de Computação pelo programa de Engenharia de Sistemas e Computação da COPPE/UFRRJ. Tem experiência na área de desenvolvimento de sistemas. Em alguns projetos atuou como líder de equipe. Atualmente, ele pesquisa nas áreas de Inteligência Artificial, Mineração de Dados e Sistemas de Recomendação."
+        "nome": "DANIEL FABIO DOMINGUES POSNER",
+        "apelido": "DANIEL POSNER",
+        "sala": "",
+        "departamento": "dcc",
+        "email": " posner@ufrrj.com",
+        "lattes": "http://lattes.cnpq.br/1522344958655955",
+        "areasInteresse": [
+            "Algoritmos em grafos",
+            "Teoria dos Grafos",
+            "Complexidade de Algoritmos"
+        ],
+        "disciplinas": [
+            "Linguagens Formais e Autômatos",
+            "Matemática Discreta para Computação",
+            "Estrutura de Dados I",
+            "Grafos e Algoritmos",
+            "Análise e Projeto de Algoritmos",
+            "Métodos Numéricos"
+        ],
+        "descricao": "Possui graduação em Bacharelado em Ciência da Computação pela Universidade Federal do Rio de Janeiro(2006), mestrado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro(2009), doutorado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro(2014), pós-doutorado pela Universidade Federal do Rio de Janeiro(2018), ensino-fundamental-primeiro-graupelo Colegio Santo Agostinho(1995) e ensino-medio-segundo-graupelo Colegio Santo Agostinho(1998). Atualmente é Revisor de periódico da Electronic Notes in Discrete Mathematics, Revisor de periódico do RAIRO - Theoretical Informatics and Applications e Professor Adjunto da Universidade Federal Rural do Rio de Janeiro. Tem experiência na área de Ciência da Computação, com ênfase em Teoria da Computação."
     },
     {
         "nome": "FELLIPE RIBEIRO DUARTE",
         "apelido": "FELLIPE DUARTE",
         "sala": "205",
-        "descricao": "Fellipe Duarte é professor do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) desde 2014. Formou-se em Ciência da Computação pela Universidade Federal do Rio de Janeiro (UFRJ) em 2008. Obteve o grau de Mestre (2011) e Doutor (2017) em Engenharia de Sistemas de Computação pelo programa de Engenharia de Sistemas e Computação da COPPE/UFRRJ. Tem experiência na área de desenvolvimento de sistemas. Em alguns projetos atuou como líder de equipe. Atualmente, ele pesquisa nas áreas de Inteligência Artificial, Mineração de Dados, Processamento de Linguagem Natural, Busca e Recuperação de Informação e Informação de plágio."
+        "departamento": "dcc",
+        "email": "duartefellipe@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/5263027569534311",
+        "areasInteresse": [
+            "Busca e Recuperação de informação",
+            "Processamento de linguagem natural",
+            "Mineração de texto",
+            "Identificação de plágio, autores e seus perfis"
+        ],
+        "disciplinas": [
+            "Modelagem e Projeto de Software",
+            "Banco de dados"
+        ],
+        "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal do Rio de Janeiro e mestrado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro. Atualmente é professor da Universidade Federal Rural do Rio de Janeiro. Atua principalmente nos seguintes temas: Busca e Recuperação de informação e Processamento de linguagem natural."
     },
     {
         "nome": "FERNANDA VIEIRA DIAS COUTO",
-        "apelido": "FERNANDA C.",
+        "apelido": "FERNANDA COUTO",
         "sala": "211",
+        "departamento": "dcc",
+        "email": "nandavdc@gmail.com",
+        "lattes": "http://lattes.cnpq.br/5253618485255010",
+        "areasInteresse": [
+            "Algoritmos em grafos",
+            "Teoria dos Grafos",
+            "Complexidade de Algoritmos"
+        ],
+        "disciplinas": [
+            "Linguagens Formais e Autômatos",
+            "Matemática Discreta para Computação",
+            "Estrutura de Dados I",
+            "Grafos e Algoritmos",
+            "Análise e Projeto de Algoritmos",
+            "Métodos Numéricos"
+        ],
         "descricao": "Doutora em Ciências, Engenharia de Sistemas e Computação pelo Programa de Engenharia de Sistemas e Computação (PESC/COPPE - UFRJ). Obteve, em 2012, seu título de Mestre no mesmo programa. Graduou-se, ainda, em Licenciatura em Matemática pela Universidade Federal do Rio de Janeiro em 2010. Atualmente, é professora adjunta do Departamento de Ciência da Computação do Instituto Multidisciplinar da Universidade Federal Rural do Rio de Janeiro coordenadora do curso de Bacharelado em Ciência da Computação do IM/UFRRJ, e professora do Programa de Pós-graduação Interdisciplinar em Humanidades Digitais (PPGIHD) na mesma universidade. Além disso, é tutora a distância do Consórcio CEDERJ da disciplina Fundamentos de Algoritmos para Computação. Atua principalmente nas áreas de Teoria dos Grafos e Complexidade Computacional."
     },
     {
+        "nome": "FILIPE BRAIDA DO CARMO",
+        "apelido": "FILIPE BRAIDA",
+        "sala": "212",
+        "departamento": "dcc",
+        "email": " filipebraida@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/0335454210905441",
+        "areasInteresse": [
+            "Aprendizado de Máquina",
+            "Sistemas de Recomendação",
+            "Data Mining"
+        ],
+        "disciplinas": [
+            "Compiladores",
+            "Programação Estruturada",
+            "Modelagem e Projeto de Software",
+            "Arquitetura",
+            "Introdução à Ciência da Computação"
+        ],
+        "descricao": "Filipe Braida é professor do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) desde 2013. Formou-se em Ciência da Computação pela Universidade Federal do Rio de Janeiro (UFRJ) em 2009, tendo recebido em 2010, a Dignidade Acadêmica Cum Laude, por conta de seu desempenho no curso de graduação. Obteve o grau de Mestre (2013) e Doutor (2018) em Ciências em Engenharia de Sistemas de Computação pelo programa de Engenharia de Sistemas e Computação da COPPE/UFRRJ. Tem experiência na área de desenvolvimento de sistemas. Em alguns projetos atuou como líder de equipe. Atualmente, ele pesquisa nas áreas de Inteligência Artificial, Mineração de Dados e Sistemas de Recomendação."
+    },
+    {
         "nome": "JULIANA MENDES NASCENTE E SILVA ZAMITH",
-        "apelido": "JULIANA Z.",
+        "apelido": "JULIANA ZAMITH",
         "sala": "205",
-        "descricao": "Juliana M N S Zamith é professora professora Adjunta do Curso de Ciência da Computação do Departamento de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro - UFRRJ desde 2010. Possui graduação em Ciência da Computação pelas Faculdades Integradas de Caratinga (2002). Obteve posteriormente o título de Mestre (M.Sc.) pelo Programa de Pós graduação em Computação da Universidade Federal Fluminense em 2006 e o título de doutora (D. Sc) em 2014 pela UFF na mesma área. Possui experiência e interesse na área de Sistemas distribuídos e Processamento Paralelo especialmente em balanceamento de carga de aplicações, escalonomento de processos, arquiteturas de alto desempenho, Computação nas nuvens e metaheurísticas paralelas. Atualmente, seus tópicos de interesse em pesquisa são escalonomento e balanceamento de carga em clusters de multicore."
+        "departamento": "dcc",
+        "email": "juliananascente@gmail.com",
+        "lattes": "http://lattes.cnpq.br/8035465631167768",
+        "areasInteresse": [
+            "Balanceamento de carga de aplicações",
+            "Escalonamento de processos",
+            "Arquiteturas de alto desempenho",
+            "Computação nas nuvens",
+            "Metaheurísticas paralelas",
+            "Escalonamento e balanceamento de carga em clusters de multicore"
+        ],
+        "disciplinas": [
+            "Circuitos Digitais",
+            "Arquitetura",
+            "Sistemas Operacionais",
+            "Redes e Sistemas Distribuídos"
+        ],
+        "descricao": "Juliana Mendes Nascente e Silva é professora Assistente do Departamento de Tecnologias e Linguagens do Instituto Multidisciplinar na Universidade Federal Rural do Rio de Janeiro - UFRRJ. Graduação em Ciência da Computação - Faculdades Integradas de Caratinga (2002). Obteve posteriormente o título de Mestre (M.Sc.) pelo Programa de Pós Graduação em Computação da Universidade Federal Fluminense em 2006 e o título de doutora (D. Sc) em 2014 pela UFF na mesma área."
     },
     {
         "nome": "LEANDRO GUIMARÃES MARQUES ALVIM",
         "apelido": "LEANDRO ALVIM",
         "sala": "211",
+        "departamento": "dcc",
+        "email": "alvim.lgm@gmail.com",
+        "lattes": "http://lattes.cnpq.br/3810771931191838",
+        "areasInteresse": [
+            "Aprendizado de Máquina",
+            "Processamento de Linguagem Natural"
+        ],
+        "disciplinas": [
+            "Programação Estruturada",
+            "Grafos e Algoritmos",
+            "Estruturas de Dados I",
+            "Processamento de Linguagem Natural",
+            "Inteligência Artificial",
+            "Aprendizado de Máquina"
+        ],
         "descricao": "É professor Adjunto do magistério superior (2010) do Departamento de Ciência da Computação (DCC) da Universidade Federal Rural do Rio de Janeiro (UFRRJ), Campus Nova Iguaçu. Foi chefe do Departamento de Tecnologias e Linguagens (2013-2014) e foi chefe do Departamento de Ciência da Computação. Doutor em Informática pela Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio) na área de concentração Algoritmos, Raciocínio Automático e Otimização. Fez mestrado em Informática na área de concentração Inteligência Computacional pelo IM/NCE na Universidade Federal do Rio de Janeiro (UFRJ). Possui bacharelado em Ciência da Computação pela Universidade Federal Fluminense (UFF). Na graduação, foi bolsista de iniciação científica (CNPQ)na linha de pesquisa Meta-heurísticas e Otimização. Foi bolsista de mestrado pelo órgão de fomento CNPQ e Bolsista de doutorado pelo órgão de fomento FAPERJ (Aluno Nota 10). E revisor de periódicos da editora Elsevier e de projetos da The Fund for Scientific Research-FNRS. Suas principais áreas de interesse são: Aprendizado de Máquina, Processamento de Linguagem Natural, Mercado Financeiro, Otimização, Grafos e Algoritmos."
     },
     {
         "nome": "LÍGIA MARIA SOARES PASSOS",
-        "apelido": "LÍGIA P.",
+        "apelido": "LÍGIA PASSOS",
         "sala": "205",
+        "departamento": "dcc",
+        "email": "ligia@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/6285960555725104",
+        "areasInteresse": [
+            "Saúde Mental do Estudante de Computação (CS student mental health)",
+            "Educação em Computação",
+            "Modelos Analíticos e de Simulação e Redes de Petri",
+            "Lógica clássica e não clássica",
+            "Modelagem e análise de processos de workflow/processos de negócio",
+            "Modelagem e análise de composições de Web Services",
+            "Informática na Educação",
+            "Informática em Saúde"
+        ],
+        "disciplinas": [
+            "Lógica para Computação",
+            "Computadores e Sociedade",
+            "Linguagens Formais e Autômatos",
+            "Matemática Discreta para Computação",
+            "Introdução à Teoria das Redes de Petri",
+            "Engenharia de Software I",
+            "Modelagem e Projeto de Software",
+            "Gerência de Projetos"
+        ],
         "descricao": "Lígia M. S. Passos é professora adjunta, em regime de dedicação exclusiva, do Departamento de Ciência da Computação da UFRRJ, desde 2013. Possui graduação (2006), mestrado (2009) e doutorado (2016) em Ciência da Computação pela Universidade Federal de Uberlândia. Tem experiência na área da Ciência da Computação, com ênfase em Modelos Analíticos e de Simulação, Lógicas, Sistemas de Informação e Engenharia de Software, atuando principalmente nos seguintes temas: redes de Petri, WorkFlow nets, Lógica Linear, Workflow, Processos de Negócio e composição de Web services. Atualmente, tem desenvolvido trabalhos de pesquisa relacionados à saúde mental de estudantes da Computação (CS Student Mental Health)."
     },
     {
         "nome": "MARCEL WILLIAM ROCHA DA SILVA",
-        "apelido": "MARCEL W.",
+        "apelido": "MARCEL SILVA",
         "sala": "211",
+        "departamento": "dcc",
+        "email": "marcelwrs@gmail.com",
+        "lattes": "http://lattes.cnpq.br/7821964888212839",
+        "areasInteresse": [
+            "Rádios Cognitivos",
+            "Roteamento",
+            "Redes Sem Fio IEEE 802.11",
+            "Qualidade de Serviço em Redes Sem Fio"
+        ],
+        "disciplinas": [
+            "Circuitos Digitais",
+            "Redes e Sistemas Distribuídos"
+        ],
         "descricao": "Possui graduação em Engenharia Elétrica Com Enfase Em Telecomunicações pela Universidade do Estado do Rio de Janeiro(2004), mestrado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro(2006) e doutorado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro(2011). Atualmente é Professor Adjunto do Departamento de Ciência da Computação do Instituto Multidisciplinar da Universidade Federal Rural do Rio de Janeiro. Desde 2014 participa do Comitê de Programa do Simpósio Brasileiro de Redes de Computadores e Sistemas distribuídos (SBRC) da Sociedade Brasileira de Computação (SBC). Tem experiência na área de Redes de Computadores. Atuando principalmente nos seguintes temas: Redes Sem Fio, Rádios Cognitivos, Roteamento."
     },
     {
         "nome": "MARCELO PANARO DE MORAES ZAMITH",
         "apelido": "MARCELO ZAMITH",
         "sala": "211",
-        "descricao": "Marcelo Zamith é graduado pela Universidade Gama Filho (2005) em Ciência da Computação. Concluiu seu mestrado (2007) e doutorado (2013) em Computação na Universidade Federal Fluminense. Atualmente é professor Adjunto do Departamento Ciência da Computação do Instituto Multidisciplinar na Universidade Federal Rural do Rio de Janeiro (UFRRJ) Campus de Nova Iguaçu. Em 2017 coordenou a Escola Regional de Alto Desempenho do Rio de Janeiro. Tem como linha de pesquisa: GPU Computing, simulação e jogos."
+        "departamento": "dcc",
+        "email": "mzamith.prof@gmail.com",
+        "lattes": "http://lattes.cnpq.br/0861194478089070",
+        "areasInteresse": [
+            "Computação Paralela baseada em GPU",
+            "Simulações baseadas em Autômato Celular",
+            "No campo do entretenimento digital com jogos"
+        ],
+        "disciplinas": [
+            "Inteligência Artificial",
+            "Arquitetura",
+            "Arquitetura II",
+            "Métodos Numéricos",
+            "Tópicos Especiais em Ciência da Computação"
+        ],
+        "descricao": "Possui graduação em pela Universidade Gama Filho (2005) e mestrado (2007) e doutorado (2013) em Computação pela Universidade Federal Fluminense. Atualmente é professor do Departamento de Tecnologias e Linguagens do Instituto Multidisciplinar na Universidade Rural do Rio de Janeiro - UFRRJ - Campus de Nova Iguaçu, atuando principalmente nos seguintes temas: GPU Computing, simulação e jogos."
     },
     {
         "nome": "NÁTALIA CHAVES LESSA SCHOTS",
         "apelido": "NÁTALIA S.",
         "sala": "205",
-        "descricao": "Possui doutorado e mestrado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro, e graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora. É implementadora e avaliadora do Modelo de Referência para Melhoria de Processos de Software Brasileiro (MR-MPS-SW) e do Modelo de Referência para Melhoria de Serviços (MR-MPS-SV). Possui interesse em Engenharia de Software e Melhoria de Processos de Software, atuando principalmente nos seguintes temas: Qualidade de Software, Processos de Software, Análise de Desempenho de Processos, Gerência do Conhecimento, Gerência de Projetos e Engenharia de Requisitos."
+        "departamento": "dcc",
+        "email": "natalia.schots@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/0200110507202895",
+        "areasInteresse": [
+            "Engenharia de Software",
+            "Melhoria de Processos de Software",
+            "Gerência de Projetos",
+            "Engenharia de Requisitos",
+            "Métricas de Software",
+            "Pensamento Computacional"
+        ],
+        "disciplinas": [
+            "Engenharia de Software I",
+            "Gerência de Projetos",
+            "Empreendedorismo em Informática",
+            "Medição e Qualidade de Software"
+        ],
+        "descricao": "É professora adjunta do Departamento de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ). Possui doutorado e mestrado em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro, e graduação em Ciência da Computação pela Universidade Federal de Juiz de Fora. É implementadora e avaliadora do Modelo de Referência para Melhoria de Processos de Software Brasileiro (MR-MPS-SW) e do Modelo de Referência para Melhoria de Serviços (MR-MPS-SV). Possui interesse em Engenharia de Software e Melhoria de Processos de Software, atuando principalmente nos seguintes temas: Qualidade de Software, Melhoria de Processos de Software, Métricas de Software, Gerência do Conhecimento, Gerência de Projetos e Engenharia de Requisitos."
     },
     {
         "nome": "RICARDO CORDEIRO CORREA",
-        "apelido": "RICARDO C.",
+        "apelido": "RICARDO CORREA",
         "sala": "211",
-        "descricao": "Possui graduação em Engenharia Eletrônica pela Universidade Federal do Rio de Janeiro (1989), mestrado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro (1992) e doutorado em Informática - Institut National Polytechnique de Grenoble (1997). Realizou estágios de pós-doutorado sênior no Programa de Engenharia de Sistemas e Computação da UFRJ (2006), no Institut National de Recherche en Informatique et Automatique de Sophia-Antipolis, França (2007) e na Universidad de General Sarmiento (2013), além de ter sido professor visitante na Université d`Avignon et du Pays de Vaucluse, França (2009). Foi um dos líderes do grupo de pesquisa ParGO - Paralelismo, Grafos e Otimização (http: //www.lia.ufc.br/~pargo) e docente efetivo e orientador credenciado do Programa de Mestrado e Doutorado em Ciência da Computação da Universidade Federal do Ceará. Atualmente é Professor Associado III da Universidade Federal Rural do Rio de Janeiro, Departamento de Ciência da Computação, onde é um dos líderes do grupo de pesquisa LAGOA - Laboratório de Algoritmos, Grafos, Otimização e Aplicações, e exerce a função de Coordenador de Pesquisa da Pró-Reitoria de Pesquisa e Pós-graduação. Tem experiência na área de Ciência da Computação, com ênfase em Algoritmos, Computação de Alto Desempenho, Paralelismo e Otimização Combinatória."
+        "departamento": "dcc",
+        "email": "correa@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/8599181647215929",
+        "areasInteresse": [
+            "Algoritmos",
+            "Estruturas de Dados",
+            "Teoria dos Grafos",
+            "Otimização Combinatória"
+        ],
+        "disciplinas": [
+            "Matemática Discreta para Computação",
+            "Otimização Linear"
+        ],
+        "descricao": "Possui graduação em Engenharia Eletrônica pela Universidade Federal do Rio de Janeiro, mestrado em Engenharia Elétrica pela Universidade Federal do Rio de Janeiro e doutorado em Informática - Institut National Polytechnique de Grenoble, França. Realizou estágios de pós-doutorado sênior no Programa de Engenharia de Sistemas e Computação da UFRJ (2006), no Institut National de Recherche en Informatique et Automatique de Sophia-Antipolis, França (2007) e na Universidad de General Sarmiento, Argentina (2013), além de ter sido professor visitante na Université d'Avignon et du Pays de Vaucluse, França (2009). Foi um dos líderes do grupo de pesquisa ParGO - Paralelismo, Grafos e Otimização (http://www.lia.ufc.br/~pargo) e docente efetivo e orientador credenciado do Programa de Mestrado e Doutorado em Ciência da Computação da Universidade Federal do Ceará. Atualmente é Professor Associado da Universidade Federal Rural do Rio de Janeiro, Departamento de Ciência da Computação, onde é um dos líderes do grupo de pesquisa LAGOA - Laboratório de Algoritmos, Grafos, Otimização e Aplicações."
     },
     {
         "nome": "UBIRATAM CARVALHO DE PAULA JUNIOR",
         "apelido": "UBIRATAM C.",
         "sala": "205",
-        "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal Fluminense (2009), mestrado (2011) e doutorado (2015) em Computação pela mesma instituição. Atualmente é professor adjunto do Departamento de Ciência da Computação (DCC) da Universidade Federal Rural do Rio de Janeiro (UFRRJ), Campus Nova Iguaçu. Possui interesse nos seguintes temas: sistemas distribuídos, otimização e Computação em nuvem."
+        "departamento": "dcc",
+        "email": "upaula@ufrrj.br",
+        "lattes": "http://lattes.cnpq.br/9134987253296215",
+        "areasInteresse": [
+            "Redes de Computadores",
+            "Sistemas Distribuídos e Paralelos",
+            "Computação em Nuvem"
+        ],
+        "disciplinas": [
+            "Programação Estruturada",
+            "Tópicos Especiais em Ciência da Computação",
+            "Estruturas de Dados I",
+            "Estruturas de Dados II",
+            "Redes e Sistemas Distribuídos"
+        ],
+        "descricao": "Possui graduação em Ciência da Computação pela Universidade Federal Fluminense (2009), mestrado (2011) e doutorado (2015) em Computação pela mesma instituição. Atualmente é professor adjunto do Departamento de Ciência da Computação (DCC) da Universidade Federal Rural do Rio de Janeiro (UFRRJ), Campus Nova Iguaçu."
     },
     {
-        "nome": "DANIEL FABIO DOMINGUES POSNER",
-        "apelido": "DANIEL POSNER",
-        "sala": "",
-        "descricao": ""
+        "nome": "ADEILTON PEDRO DE ALCANTARA",
+        "apelido": "ADEILTON A.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "ALEKSANDRO DE MELLO",
+        "apelido": "ALEKSANDRO M.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "AQUILES BRAGA DE QUEIROZ",
+        "apelido": "AQUILES Q.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "BENAIA SOBREIRA DE JESUS LIMA",
+        "apelido": "BENAIA L.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "BRIGIDA ALEXANDRE SARTINI",
+        "apelido": "BRIGIDA S.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "CAMILA RIBEIRO DE LACERDA PACHECO",
+        "apelido": "CAMILA P.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "CARLA REGINA GOMES",
+        "apelido": "CARLA G.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "CELINA DE CASTRO FRADE",
+        "apelido": "CELINA F.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "CLAUDIA MAZZA DIAS",
+        "apelido": "CLAUDIA D.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "ELAINE ARAUJO DA SILVA",
+        "apelido": "ELAINE S.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "ERITO MARQUES DE SOUZA FILHO",
+        "apelido": "ERITO F.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "JOSÉ AIRTON CHAVES CAVALCANTE JR.",
+        "apelido": "JOSÉ JR.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "JOSE WEBERSZPIL",
+        "apelido": "JOSE W.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "MARCELA LIMA SANTOS",
+        "apelido": "MARCELA S.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "MARCELLO FIDELIS",
+        "apelido": "MARCELLO FIDELIS",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "MARCELO FERREIRA FARIAS",
+        "apelido": "MARCELO FARIAS",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "MAURO BENAYON MENEZES",
+        "apelido": "MAURO M.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "PAULA TAKATSUKA",
+        "apelido": "PAULA T.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "RONALDO MALHEIROS GREGORIO",
+        "apelido": "RONALDO G.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "ROSEMBERG CARLOS VICENTE",
+        "apelido": "ROSEMBERG V.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "SUSAN WOUTERS",
+        "apelido": "SUSAN W.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "VANIA CRISTINA MACHADO",
+        "apelido": "VANIA M.",
+        "departamento": "dtl"
+    },
+    {
+        "nome": "Outro",
+        "apelido": "Outro",
+        "departamento": "Outro"
     }
 ]

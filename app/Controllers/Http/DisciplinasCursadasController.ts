@@ -2,6 +2,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import DisciplinasCursada from 'App/Models/DisciplinasCursada'
 import Disciplina from 'App/Models/Disciplina'
+import Professor from 'App/Models/Professor';
 
 const unorm = require('unorm');
 
@@ -16,7 +17,18 @@ export default class DisciplinasCursadasController {
             disciplinaData.codigo = disciplinaData.codigo || '--'
             disciplinaData.situacao = disciplinaData.situacao || '--'
             disciplinaData.ano = disciplinaData.ano || '--'
-            disciplinaData.professor = disciplinaData.professor || '--'
+
+            if (disciplinaData.professor) {
+                const normalizeString = (str) => unorm.nfd(str).replace(/[\u0300-\u036f]/g, '');
+                let professor = await Professor.query()
+                    .whereRaw("LOWER(UNACCENT(nome)) = ?",
+                        normalizeString(disciplinaData.professor.toLowerCase())).first();
+                if (!professor) {
+                    professor = await Professor.query()
+                        .where('nome', "Outro").first();
+                }
+                disciplinaData.professorId = professor?.id
+            }
 
             //busca de tipo
             const discByCode = await Disciplina.query()
@@ -131,13 +143,18 @@ export default class DisciplinasCursadasController {
         const disciplinas = await Disciplina
             .query()
             .orderBy('nome')
-        return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, disciplinasCursadas: disciplinasCurs })
+
+        // list para modal de professores
+        const professores = await Professor
+            .query()
+            .orderBy('nome')
+
+        return view.render('users/editar_dadosHistorico', { disciplinas: disciplinas, professores: professores, disciplinasCursadas: disciplinasCurs })
     }
 
     public async update({ auth, request, response }: HttpContextContract) {
         try {
             const data = request.all();
-
             // Valide os dados da requisição
             await request.validate({
                 schema: DisciplinasCursada.schema,
@@ -168,7 +185,7 @@ export default class DisciplinasCursadasController {
             disciplinaToUpdate.merge({
                 nome: data.nome,
                 ano: data.ano,
-                professor: data.professor,
+                professorId: parseInt(data.professor) || null,
                 situacao: data.situacao,
                 codigo: data.codigo,
                 media: data.media,
@@ -194,7 +211,7 @@ export default class DisciplinasCursadasController {
                 codigo: data.addCodigo,
                 situacao: data.addSituacao,
                 ano: data.addAno,
-                professor: data.addProfessor,
+                professorId: parseInt(data.addProfessor),
                 media: parseFloat(data.addMedia),
                 tipo: data.addTipo,
                 cargaHoraria: parseInt(data.addCargaHoraria) || null,
@@ -209,7 +226,7 @@ export default class DisciplinasCursadasController {
             disciplina.fill(disciplinaData)
 
             await auth.user?.related('disciplinas').save(disciplina);
-            return response.redirect().toRoute('disciplina.get');
+            return response.redirect().toRoute('disciplina.historicoUpdate');
         } catch (error) {
             return response.status(400).json({ message: error });
         }
