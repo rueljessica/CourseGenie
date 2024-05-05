@@ -33,7 +33,7 @@ export default class extends BaseSchema {
       table.string('codigo', 255).notNullable();
       table.string('situacao', 255);
       table.string('ano', 255);
-      table.string('professor', 255);
+      table.integer('professor_id').unsigned().references('id').inTable('professors').onDelete('CASCADE');
       table.float('media');
       table.string('tipo', 255);
       table.integer('carga_horaria');

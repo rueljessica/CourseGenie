@@ -14,19 +14,19 @@ export default class DisciplinasController {
         }
     }
 
-    private async mapearApelidos(list) {
+    private async mapearIds(list) {
         const listMod = {};
-    
+
         for (const professor of Object.keys(list)) {
             const professorDb = await Professor.query()
-                .where('nome', professor)
+                .where('id', professor)
                 .first();
             if (professorDb)
                 listMod[professorDb.apelido] = list[professor]
         }
         return listMod;
     }
-    
+
     public async get({ request, response, view }: HttpContextContract) {
         try {
             const body = request.only(['disc'])
@@ -43,7 +43,7 @@ export default class DisciplinasController {
                 .first();
 
             const disciplinasCursadas = await DisciplinasCursada.query()
-                .select('professor', 'media', 'situacao')
+                .select('professor_id', 'media', 'situacao')
                 .where('codigo', codigo)
 
             // Calcula a média global da disciplina
@@ -55,38 +55,42 @@ export default class DisciplinasController {
             // Calcula a média por professor que lecionou a disciplina
             let mediasPorProfessor: { [key: string]: number } = {};
             disciplinasCursadas.forEach(disciplina => {
-                if (!mediasPorProfessor[disciplina.professor]) {
-                    mediasPorProfessor[disciplina.professor] = 0;
+                if (disciplina.professorId) {
+                    if (!mediasPorProfessor[disciplina.professorId]) {
+                        mediasPorProfessor[disciplina.professorId] = 0;
+                    }
+                    mediasPorProfessor[disciplina.professorId] += disciplina.media;
                 }
-                mediasPorProfessor[disciplina.professor] += disciplina.media;
             });
             Object.keys(mediasPorProfessor).forEach(professor => {
-                mediasPorProfessor[professor] /= disciplinasCursadas.filter(disciplina => disciplina.professor === professor).length;
+                mediasPorProfessor[professor] /= disciplinasCursadas.filter(disciplina => disciplina.professorId?.toString() === professor).length;
                 mediasPorProfessor[professor] = parseFloat(mediasPorProfessor[professor].toFixed(1))
             });
 
             /// Calcula o índice de aprovação por professor
             let indiceAprovacaoPorProfessor: { [key: string]: { aprovacao: number; reprovacao: number } } = {};
             disciplinasCursadas.forEach(disciplina => {
-                if (!indiceAprovacaoPorProfessor[disciplina.professor]) {
-                    indiceAprovacaoPorProfessor[disciplina.professor] = { aprovacao: 0, reprovacao: 0 };
-                }
-                if (['cumpriu', 'apr', 'aprn', 'incorp', 'cump'].includes(disciplina.situacao.toLowerCase())) {
-                    indiceAprovacaoPorProfessor[disciplina.professor].aprovacao++;
-                } else {
-                    indiceAprovacaoPorProfessor[disciplina.professor].reprovacao++;
+                if (disciplina.professorId) {
+                    if (!indiceAprovacaoPorProfessor[disciplina.professorId]) {
+                        indiceAprovacaoPorProfessor[disciplina.professorId] = { aprovacao: 0, reprovacao: 0 };
+                    }
+                    if (['cumpriu', 'apr', 'aprn', 'incorp', 'cump'].includes(disciplina.situacao.toLowerCase())) {
+                        indiceAprovacaoPorProfessor[disciplina.professorId].aprovacao++;
+                    } else {
+                        indiceAprovacaoPorProfessor[disciplina.professorId].reprovacao++;
+                    }
                 }
             });
 
             Object.keys(indiceAprovacaoPorProfessor).forEach(professor => {
-                const count = disciplinasCursadas.filter(disciplina => disciplina.professor.toLowerCase() === professor.toLowerCase()).length;
+                const count = disciplinasCursadas.filter(disciplina => disciplina.professorId?.toString() === professor).length;
                 const indiceAprovacao = indiceAprovacaoPorProfessor[professor].aprovacao / count * 100;
                 const indiceReprovacao = indiceAprovacaoPorProfessor[professor].reprovacao / count * 100;
                 indiceAprovacaoPorProfessor[professor] = { aprovacao: parseInt(indiceAprovacao.toFixed(0)), reprovacao: parseInt(indiceReprovacao.toFixed(0)) };
             });
 
-            mediasPorProfessor = await this.mapearApelidos(mediasPorProfessor)
-            indiceAprovacaoPorProfessor = await this.mapearApelidos(indiceAprovacaoPorProfessor)
+            mediasPorProfessor = await this.mapearIds(mediasPorProfessor)
+            indiceAprovacaoPorProfessor = await this.mapearIds(indiceAprovacaoPorProfessor)
 
             return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
         } catch (error) {
