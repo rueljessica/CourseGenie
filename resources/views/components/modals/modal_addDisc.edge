@@ -81,47 +81,21 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="" disabled selected>Selecione uma opção</option>
                                 <optgroup label="DCC">
-                                    <option value="ADRIA RAMOS DE LYRA">ADRIA RAMOS DE LYRA</option>
-                                    <option value="BRUNO JOSE DEMBOGURSKI">BRUNO JOSE DEMBOGURSKI</option>
-                                    <option value="DANIEL FABIO DOMINGUES POSNER">DANIEL FABIO DOMINGUES POSNER
-                                    </option>
-                                    <option value="FELLIPE RIBEIRO DUARTE">FELLIPE RIBEIRO DUARTE</option>
-                                    <option value="FERNANDA VIEIRA DIAS COUTO">FERNANDA VIEIRA DIAS COUTO
-                                    </option>
-                                    <option value="FILIPE BRAIDA DO CARMO">FILIPE BRAIDA DO CARMO</option>
-                                    <option value="JULIANA MENDES NASCENTE E SILVA ZAMITH">JULIANA MENDES
-                                        NASCENTE E
-                                        SILVA ZAMITH</option>
-                                    <option value="LEANDRO GUIMARAES MARQUES ALVIM">LEANDRO GUIMARAES MARQUES
-                                        ALVIM
-                                    </option>
-                                    <option value="LIGIA MARIA SOARES PASSOS">LIGIA MARIA SOARES PASSOS
-                                    </option>
-                                    <option value="MARCEL WILLIAM ROCHA DA SILVA">MARCEL WILLIAM ROCHA DA SILVA
-                                    </option>
-                                    <option value="MARCELO PANARO DE MORAES ZAMITH">MARCELO PANARO DE MORAES
-                                        ZAMITH
-                                    </option>
-                                    <option value="NATALIA CHAVES LESSA SCHOTS">NATALIA CHAVES LESSA SCHOTS
-                                    </option>
-                                    <option value="RICARDO CORDEIRO CORREA">RICARDO CORDEIRO CORREA</option>
-                                    <option value="UBIRATAM CARVALHO DE PAULA JUNIOR">UBIRATAM CARVALHO DE PAULA
-                                        JUNIOR</option>
-                                    <option value="Outro">Outro</option>
+                                @each(professor in professores)
+                                    @if(professor.departamento == "dcc")
+                                        <option value="{{ professor.id }}">{{ professor.nome }}</option>
+                                    @end
+                                @end
                                 </optgroup>
                                 <optgroup label="DTL">
-                                    <option value="ADEILTON PEDRO DE ALCANTARA">ADEILTON PEDRO DE ALCANTARA
-                                    </option>
-                                    <option value="ALEKSANDRO DE MELLO">ALEKSANDRO DE MELLO</option>
-                                    <option value="CAMILA RIBEIRO DE LACERDA PACHECO">CAMILA RIBEIRO DE
-                                        LACERDA
-                                        PACHECO</option>
-                                    <option value="ERITO MARQUES DE SOUZA FILHO">ERITO MARQUES DE SOUZA FILHO
-                                    </option>
-                                    <option value="MARCELO FERREIRA FARIAS">MARCELO FERREIRA FARIAS</option>
-                                    <option value="MARCOS CARDOSO RODRIGUEZ">MARCOS CARDOSO RODRIGUEZ</option>
-                                    <option value="MSc. VANIA CRISTINA MACHADO">MSc. VANIA CRISTINA MACHADO</option>
-                                    <option value="Outro">Outro</option>
+                                @each(professor in professores)
+                                    @if(professor.departamento == "dtl")
+                                        <option value="{{ professor.id }}">{{ professor.nome }}</option>
+                                    @end
+                                @end
+                                </optgroup>
+                                <optgroup label=" ">
+                                    <option value="{{ professores.find(professor => professor.nome === "Outro")?.id }}">Outro</option>
                                 </optgroup>
                             </select>
                         </div>

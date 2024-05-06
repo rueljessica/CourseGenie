@@ -4,6 +4,7 @@ import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Disciplina from './Disciplina'
 import { rules, schema } from '@ioc:Adonis/Core/Validator'
+import Professor from './Professor'
 
 export default class DisciplinasCursada extends BaseModel {
   @column({ isPrimary: true })
@@ -22,9 +23,6 @@ export default class DisciplinasCursada extends BaseModel {
   public ano: string
 
   @column()
-  public professor: string
-
-  @column()
   public media: number
 
   @column()
@@ -34,6 +32,9 @@ export default class DisciplinasCursada extends BaseModel {
   public userId: number
 
   @column()
+  public professorId: number | null
+
+  @column()
   public equivalenciaId: number | null
 
   @column()
@@ -41,6 +42,9 @@ export default class DisciplinasCursada extends BaseModel {
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
+
+  @belongsTo(() => Professor)
+  public professor: BelongsTo<typeof Professor>
 
   @belongsTo(() => Disciplina)
   public equivalencia: BelongsTo<typeof Disciplina>
@@ -62,7 +66,7 @@ export default class DisciplinasCursada extends BaseModel {
     ano: schema.string({}, [
       rules.regex(/^\d{4}\.\d$/)
     ]),
-    professor: schema.string(),
+    professor: schema.number.optional(),
     media: schema.number(),
     tipo: schema.enum(['AA', 'OB', 'EQOB', 'EQOP', 'OP', 'EL']),
     cargaHoraria: schema.number.optional([
