@@ -1,317 +1,47 @@
-<section class="bg-gray-50 dark:bg-gray-900 md:h-screen sm:overflow-auto p-4 ml-64 tracking-wide">
-    <div class="mt-20">  
-        <!-- Include Modal -->
-        @include('components/modals/modal_alComb')
-        @include('components/modals/modal_sisIn')
-        @include('components/modals/modal_sisComp')
-        @include('components/modals/modal_engSis')
-        <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value" value="">
-            <!-- Eixos -->
-            <div class="container mx-auto m-5">
-                <div class="flex items-center justify-center h-full">
-                    <div class="bg-white dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed">
-                        <div class="flex flex-col">
-                            <div>
-                                <h2 class="text-gray-600 dark:text-white text-center">Algoritmos e Combinatória</h2>
-                            </div>
-                            <div class="my-6">
-                                <div class="flex space-x-4 items-center">
-                                    <div>
-                                        <button data-modal-target="alCombModal" data-modal-toggle="alCombModal" type="button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="gray" class="w-10 ml-1">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-4xl dark:text-white" id="hDiv1"></h4>
-                                        <p class="text-xs text-gray-500">Cumpridas</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full place-items-end text-right border-t-2 border-gray-200 dark:border-gray-700 mt-2">
-                                <button type="button" onclick="mostrarDiv('div1')" class="text-violet text-xs font-medium">Ver Disciplinas</button>
-                            </div>
-                        </div>
+<section class="bg-gray-50 dark:bg-gray-900 md:h-screen sm:overflow-auto p-4 ml-64">
+    <div class="mt-20">
+        <div class="font-sans flex items-center justify-center">
+            <div x-data="{ openTab: 1 }" class="p-8">
+                <div class=" mx-auto">
+                    <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                        <button x-on:click="openTab = 1"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 1 }"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200 rounded-md  transition-all duration-300">Algoritmos
+                            e Combinatória</button>
+                        <button x-on:click="openTab = 2"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 2 }"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">Sistemas
+                            Inteligentes</button>
+                        <button x-on:click="openTab = 3"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 3 }"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">Sistemas
+                            de Computação</button>
+                        <button x-on:click="openTab = 4"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 4 }"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">Engenharia
+                            de Sistemas</button>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 shadow-md p-6 ml-10 rounded-2xl border-dashed">
-                        <div class="flex flex-col">
-                            <div class="pl-3 pr-3">
-                                <div>
-                                    <h2 class="text-gray-600 dark:text-white text-center">Sistemas Inteligentes</h2>
-                                </div>
-                                <div class="my-6">
-                                    <div class="flex space-x-4 items-center">
-                                        <div>
-                                            <button data-modal-target="sisInModal" data-modal-toggle="sisInModal" type="button">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="gray" class="w-10 ml-1">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-4xl dark:text-white" id="hDiv2"></h4>
-                                            <p class="text-xs text-gray-500">Cumpridas</p>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="w-full place-items-end text-right border-t-2 border-gray-200 dark:border-gray-700 mt-2">
-                                <button type="button" onclick="mostrarDiv('div2')" class="text-violet text-xs font-medium">Ver Disciplinas</button>
-                            </div>
+                    <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value"
+                            value="">
+                        <div x-show="openTab === 1"
+                            class="transition-all duration-300 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border-l-4 border-gray-200 dark:border-gray-700 w-[850px]">
+                            @include('components/disciplinas/eixo/eixo_alComb')
                         </div>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 shadow-md p-6 ml-10 rounded-2xl border-dashed">
-                        <div class="flex flex-col">
-                            <div class="pl-2 pr-2">
-                                <div>
-                                    <h2 class="text-gray-600 dark:text-white text-center">Sistemas de Computação</h2>
-                                </div>
-                                <div class="my-6">
-                                    <div class="flex space-x-4 items-center">
-                                        <div>
-                                            <button data-modal-target="sisCompModal" data-modal-toggle="sisCompModal" type="button">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="gray" class="w-10 ml-1">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-4xl dark:text-white" id="hDiv3"></h4>
-                                            <p class="text-xs text-gray-500">Cumpridas</p>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="w-full place-items-end text-right border-t-2 border-gray-200 dark:border-gray-700 mt-2">
-                                <button type="button" onclick="mostrarDiv('div3')" class="text-violet text-xs font-medium">Ver Disciplinas</button>
-                            </div>
+                        <div x-show="openTab === 2"
+                            class="transition-all duration-300 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border-l-4 border-gray-200 dark:border-gray-700 w-[800px]">
+                            @include('components/disciplinas/eixo/eixo_sisIn')
                         </div>
-                    </div>
-                    <div class="bg-white dark:bg-gray-800 shadow-md p-6 ml-10 rounded-2xl border-dashed">
-                        <div class="flex flex-col">
-                            <div class="pl-3 pr-3">
-                                <div>
-                                    <h2 class="whitespace-pre-line text-gray-600 dark:text-white text-center">Engenharia de Sistemas</h2>
-                                </div>
-                                <div class="my-6">
-                                    <div class="flex space-x-4 items-center">
-                                        <div>
-                                            <button data-modal-target="engSisModal" data-modal-toggle="engSisModal" type="button">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="gray" class="w-10 ml-1">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-4xl dark:text-white" id="hDiv4"></h4>
-                                            <p class="text-xs text-gray-500">Cumpridas</p>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="w-full place-items-end text-right border-t-2 border-gray-200 dark:border-gray-700 mt-2">
-                                <button type="button" onclick="mostrarDiv('div4')" class="text-violet text-xs font-medium">Ver Disciplinas</button>
-                            </div>
-                        </div>                     
-                    </div>
+                        <div x-show="openTab === 3"
+                            class="transition-all duration-300 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border-l-4 border-gray-200 dark:border-gray-700 w-[800px]">
+                            @include('components/disciplinas/eixo/eixo_sisComp')
+                        </div>
+                        <div x-show="openTab === 4"
+                            class="transition-all duration-300 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border-l-4 border-gray-200 dark:border-gray-700 w-[800px]">
+                            @include('components/disciplinas/eixo/eixo_engSis')
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- Eixo Algoritmos e Combinatoria -->
-            <div class="grid md:grid-cols-1 pl-5 pr-5 pb-5">
-                <div id="div1" class="w-auto p-2 conteudo hidden pt-7">
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN751" onclick="setDiscValue('TN751')" type="submit">Tópicos Especiais em Otimização</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN750" onclick="setDiscValue('TN750')" type="submit">Otimização Combinatória</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN737" onclick="setDiscValue('TN737')" type="submit">Introdução a Biologia Computacional</button>
-                        </div>
-                    </div>  
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN749" onclick="setDiscValue('TN749')" type="submit">Teoria dos Grafos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN740" onclick="setDiscValue('TN740')" type="submit">Tópicos Especiais em Grafos e Algoritmos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN739" onclick="setDiscValue('TN739')" type="submit">Teoria dos Jogos Algorítmica</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value=" " onclick="setDiscValue(' ')" type="submit">Introdução à Pesquisa Operacional</button>
-                        </div>
-                    </div> 
-                </div>
-                <!-- Fim eixo Algoritmos e Combinatoria -->
-            </div>
-            <!-- Eixo Sistemas Inteligentes -->
-            <div class="grid md:grid-cols-1 pl-5 pr-5">
-                <div id="div2" class="w-auto p-2 conteudo hidden">
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN751" onclick="setDiscValue('TN751')" type="submit">Tópicos Especiais em Otimização</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN745" onclick="setDiscValue('TN745')" type="submit">Aprendizado de Máquina</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN746" onclick="setDiscValue('TN746')" type="submit">Redes Neurais Artificiais</button>
-                        </div>
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM434" onclick="setDiscValue('TM434')" type="submit">Mineração de Dados</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM441" onclick="setDiscValue('TM441')" type="submit">Processamento de Linguagem Natural</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM438" onclick="setDiscValue('TM438')" type="submit">Processamento de Imagens</button>
-                        </div>
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM429" onclick="setDiscValue('TM429')" type="submit">Introdução à Teoria de Sistemas de Recomendação</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN747" onclick="setDiscValue('TN747')" type="submit">Inteligência de Negócios</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN753" onclick="setDiscValue('TN753')" type="submit">Tópicos Especiais em Inteligência Artificial</button>
-                        </div>
-                    </div>                    
-                </div>
-                <!-- Fim eixo Sistemas Inteligentes -->
-            </div>
-            <!-- Eixo Sistemas de Computação -->
-            <div class="grid md:grid-cols-1 pl-5 pr-5">
-                <div id="div3" class="w-auto p-2 conteudo hidden">
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN748" onclick="setDiscValue('TN748')" type="submit">Arquitetura de Computadores II</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="IM873" onclick="setDiscValue('IM873')" type="submit">Redes e Sistemas Distribuídos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM435" onclick="setDiscValue('TM435')" type="submit">Programação Paralela e Distribuída</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN741" onclick="setDiscValue('TN741')" type="submit">Computação de Alto Desempenho</button>
-                        </div>
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM436" onclick="setDiscValue('TM436')" type="submit">Algoritmos Paralelos e Distribuídos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN743" onclick="setDiscValue('TN743')" type="submit">Introdução aos Dispositivos Móveis</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN742" onclick="setDiscValue('TN742')" type="submit">Programação em GPU</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM430" onclick="setDiscValue('TM430')" type="submit">Redes de Computadores Sem Fio</button>
-                        </div>
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM411" onclick="setDiscValue('TM411')" type="submit">Tópicos Especiais em Ciência da Computação</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-0.1 w-full h-full" value="TM418" onclick="setDiscValue('TM418')" type="submit">Tópicos Especiais em Programação de Computadores</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value=" " onclick="setDiscValue('')" type="submit">Sistemas Multimídia</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN744" onclick="setDiscValue('TN744')" type="submit">Roteamento em Redes de Computadores</button>
-                        </div>
-                    </div>                    
-                </div>
-                <!-- Fim eixo Sistemas de Computação -->
-            </div>
-            <!-- Eixo Engenharia de Sistemas -->
-            <div class="grid md:grid-cols-1 pl-5 pr-5">
-                <div id="div4" class="w-auto p-2 conteudo hidden">
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN708" onclick="setDiscValue('TN708')" type="submit">Governança de Tecnologia da Informação</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN713" onclick="setDiscValue('TN713')" type="submit">Introdução aos Sistemas de Informação</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN719" onclick="setDiscValue('TN719')" type="submit">Engenharia de Software II</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN731" onclick="setDiscValue('TN731')" type="submit">Gerência de Projetos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN721" onclick="setDiscValue('TN721')" type="submit">Arquitetura de Software</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM431" onclick="setDiscValue('TM431')" type="submit">Introdução à Teoria das Redes de Petri</button>
-                        </div>                       
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM432" onclick="setDiscValue('TM432')" type="submit">Modelagem de Software com Redes de Petri</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN722" onclick="setDiscValue('TN722')" type="submit">Modelagem e Análise Formal de Processos de Negócio</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN732" onclick="setDiscValue('TN732')" type="submit">Medição e Qualidade de Software</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN755" onclick="setDiscValue('TN755')" type="submit">Gestão de Processos</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN704" onclick="setDiscValue('TN704')" type="submit">Introdução à Engenharia de Software Experimental</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN733" onclick="setDiscValue('TN733')" type="submit">Interação Humano-Computador</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN734" onclick="setDiscValue('TN734')" type="submit">Engenharia de Requisitos</button>
-                        </div>
-                    </div>   
-                    <div class="flex flex-wrap md:justify-center text-base gap-3 items-center justify-center text-center">
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full whitespace-nowrap" value="TN735" onclick="setDiscValue('TN735')" type="submit">Banco de Dados II</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN736" onclick="setDiscValue('TN736')" type="submit">Introdução à Web Semântica</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full text-ellipsis overflow-hidden" value="TN754" onclick="setDiscValue('TN754')" type="submit">Empreendedorismo em Informática</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TN747" onclick="setDiscValue('TN747')" type="submit">Inteligência de Negócios</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM415" onclick="setDiscValue('TM415')" type="submit">Tópicos Especiais em BD e Engenharia de Software</button>
-                        </div>
-                        <div class="bg-white w-40 h-40 dark:bg-gray-800 shadow-md p-6 rounded-2xl border-dashed border-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 mx-2 my-2 aspect-w-1 aspect-h-1">
-                            <button class="px-2 py-1 w-full h-full" value="TM411" onclick="setDiscValue('TM411')" type="submit">Tópicos Especiais em Ciência da Computação</button>
-                        </div>                      
-                    </div>                       
-                </div>
-                <!-- Fim eixo Engenharia de Sistemas -->
-            </div>
-        </form>
+        </div>
     </div>
 </section>

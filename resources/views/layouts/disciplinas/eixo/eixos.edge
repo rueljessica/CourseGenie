@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }}</title>
-        @entryPointStyles('app')
-        @entryPointScripts('app')
-        <script>
-            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
                 if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                     document.documentElement.classList.add('dark');
                 } else {
                     document.documentElement.classList.remove('dark')
                 }
-        </script>
-    </head>
+    </script>
+</head>
 
-    @!section('body')
+@!section('body')
 
-    @include('components/sidebar')
+@include('components/sidebar')
 
-    @include('components/disciplinas/eixo/eixos')
+@include('components/disciplinas/eixo/eixos')
 
-    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
-    <script>
-        function mostrarDiv(divId) {
-            // Esconder todas as divs
-            const divs = document.querySelectorAll('.conteudo');
-            divs.forEach(div => div.style.display = 'none');
-
-            // Mostrar a div clicada
-            const divClicada = document.getElementById(divId);
-            divClicada.style.display = 'block';
-        }
-        
-        document.addEventListener("DOMContentLoaded", function() {
+<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
             const disciplinas = '{{disciplinas}}';
             const minhaLista = disciplinas.split(',');
             // div 1
@@ -93,5 +84,6 @@
             });
             hdiv4.textContent = div4Qnt+"/4";
         });
-    </script>
+</script>
+
 </html>

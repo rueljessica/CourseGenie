@@ -1,411 +1,83 @@
-<section class="bg-white dark:bg-black h-screen p-4 sm:ml-64 overflow-hidden">
+<section class="bg-gray-50 dark:bg-gray-900 md:h-screen sm:overflow-auto p-4 ml-64">
     <div class="mt-20">
-        <!-- Search button -->
-        <div class="p-3 pb-10">
-            <div class="absolute left pl-2">
-                <div class="relative hidden md:block">
-                    <div class="absolute pl-3 pt-2 pointer-events-none">
-                        <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                        </svg>                    
+        <div class="font-sans flex items-center justify-center">
+            <div x-data="{ openTab: 1 }" class="p-8">
+                <div class=" mx-auto">
+                    <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                        <button x-on:click="openTab = 1"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 1 }"
+                            onclick="handleButtonClick('content1')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200 rounded-md  transition-all duration-300">1º
+                            Periodo</button>
+                        <button x-on:click="openTab = 2"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 2 }"
+                            onclick="handleButtonClick('content2')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">2º
+                            Periodo</button>
+                        <button x-on:click="openTab = 3"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 3 }"
+                            onclick="handleButtonClick('content3')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">3º
+                            Periodo</button>
+                        <button x-on:click="openTab = 4"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 4 }"
+                            onclick="handleButtonClick('content4')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">4º
+                            Periodo</button>
+                        <button x-on:click="openTab = 5"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 5 }"
+                            onclick="handleButtonClick('content5')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">5º
+                            Periodo</button>
+                        <button x-on:click="openTab = 6"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 6 }"
+                            onclick="handleButtonClick('content6')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">6º
+                            Periodo</button>
+                        <button x-on:click="openTab = 7"
+                            :class="{ 'dark:text-violet-700 text-violet-600': openTab === 7 }"
+                            onclick="handleButtonClick('content7')"
+                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">Optativas</button>
                     </div>
-                    <input type="text" id="search-navbar" class="block w-80 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar disciplina" oninput="performSearch()">
-                    <div id="buttonResults" class="max-h-40 overflow-auto"></div>
+                    <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value"
+                            value="">
+                        <div x-show="openTab === 1" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_um')
+                        </div>
+                        <div x-show="openTab === 2" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_dois')
+                        </div>
+                        <div x-show="openTab === 3" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_tres')
+                        </div>
+                        <div x-show="openTab === 4" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_quatro')
+                        </div>
+                        <div x-show="openTab === 5" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_cinco')
+                        </div>
+                        <div x-show="openTab === 6" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/periodos/periodo_seis')
+                        </div>
+                        <div x-show="openTab === 7" class="transition-all duration-300 w-full">
+                            @include('components/disciplinas/optativas')
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- End of Search button -->
-        <div id="accordion-collapse" data-accordion="collapse" class="p-4">
-            <form method="GET" action="" id="disciplina-form">
-                <input type="hidden" name="disc" id="disc-value" value="">
-                <div id="accordion-collapse-heading-1">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                        aria-controls="accordion-collapse-body-1">
-                        <span>1º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
-                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-black">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM853')">Circuitos Digitais</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN703')">Computadores e Sociedade</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM885')">Geometria Analítica</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN707')">Introdução a Ciência da Computação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN705')">Matemática Discreta para Ciência da Computação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN706')">Programação Estruturada</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-2">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-2">
-                        <span>2º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM429')">Álgebra Linear I</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN712')">Arquitetura de Computadores</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM403')">Cálculo I</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN710')">Engenharia de Software</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN711')">Estrutura de Dados I</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN709')">Lógica para Computação</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-3">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-3">
-                        <span>3º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM478')">Álgebra Linear Computacional</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM404')">Cálculo II</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN718')">Grafos e Algoritmos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN715')">Linguagens Formais e Autômatos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN716')">Modelagem e Projeto de Software</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN717')">Programação Orientada a Objetos</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-4">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-4" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-4">
-                        <span>4º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN723')">Análise e Projeto de Algoritmos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM425')">Cálculo III</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM407')">Física para Ciência da Computação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN720')">Linguagens de Programação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM859')">Probabilidade e Estatística para Ciência da Computação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM868')">Sistemas Operacionais</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-5">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-5">
-                        <span>5º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN727')">Banco de Dados</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN725')">Compiladores</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM421')">Computação Gráfica</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN724')">Inteligência Artificial</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN726')">Métodos Numéricos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN728')">Otimização Linear</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-6">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-6" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-6">
-                        <span>6º Período</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN730')">Estrutura de Dados II</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM873')">Redes e Sistemas Distribuídos</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="accordion-collapse-heading-7">
-                    <button type="button"
-                        class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border rounded-b-xl border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        data-accordion-target="#accordion-collapse-body-7" aria-expanded="false"
-                        aria-controls="accordion-collapse-body-7">
-                        <span>Optativas</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="accordion-collapse-body-7" class="hidden overflow-auto h-80"
-                    aria-labelledby="accordion-collapse-heading-7">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <ul>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM461')">Língua Brasileira de Sinais (LIBRAS)</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('IM188')">Cultura Afro-Brasileira</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN719')">Engenharia de Software II</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN721')">Arquitetura de Software</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM431')">Introdução à Teoria das Redes de Petri</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN722')">Modelagem e Análise Formal de Processos de Negócio</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM432')">Modelagem de Software com Redes de Petri</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN735')">Banco de Dados II</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN736')">Introdução à Web Semântica</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN733')">Interação Humano-Computador</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN731')">Gerência de Projetos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN754')">Empreendedorismo em Informática</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN708')">Governança de Tecnologia da Informação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN713')">Introdução aos Sistemas de Informação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN732')">Medição e Qualidade de Software</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN755')">Gestão de Processos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN734')">Engenharia de Requisitos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN704')">Introdução à Engenharia de Software Experimental</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM436')">Algoritmos Paralelos e Distribuídos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM435')">Programação Paralela e Distribuída</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM430')">Redes de Computadores Sem Fio</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN748')">Arquitetura de Computadores II</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN741')">Computação de Alto Desempenho</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN742')">Programação em GPU</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN743')">Introdução aos Dispositivos Móveis</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN744')">Roteamento em Redes de Computadores</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN745')">Aprendizado de Máquina</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM429')">Introdução à Teoria de Sistemas de Recomendação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN746')">Redes Neurais Artificiais</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM434')">Mineração de Dados</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM441')">Processamento de Linguagem Natural</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM444')">Busca e Recuperação de Informação</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN747')">Inteligência de Negócios</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TM438')">Processamento de Imagens</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN749')">Teoria dos Grafos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN740')">Tópicos Especiais em Grafos e Algoritmos</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN751')">Tópicos Especiais em Otimização</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN750')">Otimização Combinatória</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN739')">Teoria dos Jogos Algorítmica</button>
-                            </li>
-                            <li class="mb-2 text-gray-500 dark:text-gray-400">
-                                <button class="hover:bg-gray-200 dark:hover:bg-gray-700" onclick="setDiscValue('TN737')">Introdução a Biologia Computacional</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
 </section>
+
 <script>
-    const formElement = document.getElementById('disciplina-form');
-    const items = formElement.querySelectorAll('ul li button');
-    
-    function performSearch() {
-        const searchInput = document.getElementById('search-navbar');
-        const searchText = searchInput.value.toLowerCase().trim();
-
-        if (searchText === '') {
-            buttonResults.innerHTML = '';
-            return;
-        }
-
-        buttonResults.innerHTML = '';
-
-        for (let i = 0; i < items.length; i++) {
-            const currentItem = items[i];
-            const itemText = currentItem.textContent.toLowerCase();
-
-            if (itemText.includes(searchText)) {
-                const button = document.createElement('button');
-                button.className = 'searchButton';
-                button.classList.add('searchButton', 'block','w-full','p-2', 'mt-1','text-sm', 'text-left', 'text-gray-900','border','border-gray-300', 'rounded-lg', 'bg-gray-50','dark:bg-gray-700','dark:border-gray-600','dark:text-white');
-                button.textContent = itemText;
-                button.onclick = currentItem.onclick;
-                buttonResults.appendChild(button);
-            }
-        }
+    function handleButtonClick(contentId) {
+        var contentToShow = document.getElementById(contentId);
+        document.querySelectorAll('.content').forEach(function(content) {
+            content.classList.add('transition', 'opacity-0', 'duration-500', 'flex');
+        });
+            
+        setTimeout(function() {
+            contentToShow.classList.remove('opacity-0');
+        }, 50);
     }
 </script>

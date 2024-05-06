@@ -26,11 +26,10 @@ export default class DisciplinasController {
         }
         return listMod;
     }
-
-    public async get({ request, response, view }: HttpContextContract) {
+    
+    public async get({ params, response, view }: HttpContextContract) {
         try {
-            const body = request.only(['disc'])
-            var codigo = body.disc
+            var codigo = params.id;
 
             const disciplina = await Disciplina.query()
                 .where('codigo', codigo)
@@ -92,7 +91,7 @@ export default class DisciplinasController {
             mediasPorProfessor = await this.mapearIds(mediasPorProfessor)
             indiceAprovacaoPorProfessor = await this.mapearIds(indiceAprovacaoPorProfessor)
 
-            return view.render('layouts/disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
+            return view.render('disciplinas/disciplina', { disciplina: disciplina, mediaGlobal: mediaGlobal.toFixed(1), indiceAprGlobal: indiceAprGlobal.toFixed(0), mediasPorProfessor: JSON.stringify(mediasPorProfessor), indiceAprovacaoPorProfessor: JSON.stringify(indiceAprovacaoPorProfessor) })
         } catch (error) {
             return response.badRequest('Error' + error)
         }
