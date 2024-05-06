@@ -13,6 +13,10 @@ module.exports = {
     extend: {
       colors: {
         violet: '#9a6aff',
+        violet: {
+          '700': '#A57BFF',
+          '800': '#9a6aff',
+        },
         blue: '#009999',
         gray: {
           '50': '#f9fafb',
