@@ -6,16 +6,14 @@
             <div class="flex items-center justify-between space-x-1 text-gray-900 pb-7">
                 <div class="flex items-center gap-1">
                     <span>
-                        <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                        <svg class="h-6 text-gray-500" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"></path>
                         </svg>
                     </span>
-                    <span class="text-lg text-gray-900 dark:text-white">Histórico</span>
+                    <span class="text-lg pl-1 text-gray-900 dark:text-white">Histórico</span>
                 </div>
                 <button data-modal-target="addInfoModal" data-modal-toggle="addInfoModal" class="relative group">
-                    <svg class="text-gray-900 dark:text-white size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90"
+                    <svg class="text-gray-400 dark:hover:text-gray-300 hover:text-gray-500 size-7 absolute top-1/2 -left-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90"
                         data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
@@ -116,9 +114,9 @@
             </div>
             <div class="flex items-end justify-between pt-5">
                 <button
-                    class="inline-flex items-center p-0.5 mb-2 me-2 px-2 py-2 text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 text-sm font-medium rounded-md duration-200 cursor-pointer active">
+                    class="inline-flex items-center p-0.5 mb-2 me-2 px-2 py-2 text-gray-400 dark:hover:text-gray-300 hover:text-gray-500 text-sm font-medium rounded-md duration-200 cursor-pointer active">
                     <a href="/alterar">
-                        <svg class="size-5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                        <svg class="h-5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
@@ -127,7 +125,7 @@
                 </button>
                 <div>
                     <button id="salvarButton" type="button" onclick="saveEdit()"
-                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white">
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet-800 to-blue group-hover:from-violet-800 group-hover:to-blue hover:text-white dark:text-white">
                         <span
                             class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Finalizar
                             edição</span>

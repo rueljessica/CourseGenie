@@ -1,113 +1,108 @@
-<section class="bg-gray-50 dark:bg-gray-900 h-screen tracking-wide flex items-center justify-center">
-    <div class="grid grid-cols-1">
-        <form method="POST" action=""> {{ csrfField() }}
-            <div class="w-[850px]">
-                <div class="bg-white dark:bg-gray-800 p-5 shadow-md rounded-lg border-dashed">
-                    <div class="flex items-center space-x-1 text-gray-900 pb-7">
-                        <span>
-                            <svg class="h-6" fill="none" stroke="gray" stroke-width="1.5" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
-                            </svg>
-                        </span>
-                        <span class="tracking-wide text-lg text-gray-900 dark:text-white">Dados pessoais</span>
+<section class="bg-gray-50 dark:bg-gray-900 md:h-screen overflow-auto tracking-wide flex items-center justify-center">
+    <form method="POST" action=""> {{ csrfField() }}
+        <div class="w-[1200px]">
+            <div class="bg-white dark:bg-gray-800 p-5 shadow-md rounded-lg border-dashed">
+                <div class="flex items-center space-x-1 text-gray-900 pb-7">
+                    <svg class="h-6 text-gray-500" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z">
+                        </path>
+                    </svg>
+                    <span class="text-lg pl-1 text-gray-900 dark:text-white">Dados pessoais</span>
+                </div>
+                <div class="grid gap-4 mb-4 sm:grid-cols-3 sm:gap-6 sm:mb-5">
+                    <div class="sm:col-span-1">
+                        <label for="usuario"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
+                        <input type="name" name="name" id="name"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.name || ''}}" placeholder="aluno" required="">
                     </div>
-                    <div class="grid gap-4 mb-4 sm:grid-cols-3 sm:gap-6 sm:mb-5">
-                        <div class="sm:col-span-1">
-                            <label for="usuario"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-                            <input type="name" name="name" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.name || ''}}" placeholder="aluno" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
-                            <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.email || ''}}" placeholder="seu@email.com" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="matricula"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula</label>
-                            <input type="text" name="matricula" id="matricula"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.matricula || ''}}" placeholder="123456789" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="nacionalidade"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nacionalidade</label>
-                            <input type="text" name="nacionalidade" id="nacionalidade"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.nacionalidade || ''}}" placeholder="Nacionalidade" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="rg"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RG</label>
-                            <input type="text" name="rg" id="rg"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.rg || ''}}" placeholder="RG" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="cpf"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
-                            <input type="text" name="cpf" id="cpf"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.cpf || ''}}" placeholder="123.456.789-10" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="dataNascimento"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de
-                                Nascimento</label>
-                            <input type="text" name="dataNascimento" id="dataNascimento"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.dataNascimento || ''}}" placeholder="DD/MM/AAAA" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="prazoConclusao"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prazo para
-                                Conclusão (Padrão / Máximo)</label>
-                            <input type="text" name="prazoConclusao" id="prazoConclusao"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.prazoConclusao || ''}}" placeholder="AAAA.M / AAAA.M" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="status"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                            <input type="text" name="status" id="status"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.status || ''}}" placeholder="Status" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="ira"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRA</label>
-                            <input type="text" name="ira" id="ira"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.ira || ''}}" placeholder="0.00" required="">
-                        </div>
-                        <div class="w-full">
-                            <label for="anoLetivo"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano Letivo</label>
-                            <input type="text" name="anoLetivo" id="anoLetivo"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value="{{user.anoLetivo || ''}}" placeholder="AAAA.1" required="">
-                        </div>
-                        <div class="flex items-end justify-end">
-                            <button id="cancelar" type="button"
-                                class="relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-sm font-medium border rounded-lg border-red-600 text-red-600 hover:text-red-400 dark:hover:text-red-700 duration-200 cursor-pointer active">
-                                <span
-                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0 focus:ring-0">Cancelar</span>
-                            </button>
-                            <button id="prosseguir" type="button"
-                                class="relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet to-blue group-hover:from-violet group-hover:to-blue hover:text-white dark:text-white  focus:outline-none">
-                                <span
-                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Prosseguir<span>
-                            </button>
-                        </div>
+                    <div class="w-full">
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+                        <input type="email" name="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.email || ''}}" placeholder="seu@email.com" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="matricula"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula</label>
+                        <input type="text" name="matricula" id="matricula"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.matricula || ''}}" placeholder="123456789" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="nacionalidade"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nacionalidade</label>
+                        <input type="text" name="nacionalidade" id="nacionalidade"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.nacionalidade || ''}}" placeholder="Nacionalidade" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="rg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RG</label>
+                        <input type="text" name="rg" id="rg"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.rg || ''}}" placeholder="RG" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="cpf"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
+                        <input type="text" name="cpf" id="cpf"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.cpf || ''}}" placeholder="123.456.789-10" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="dataNascimento"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de
+                            Nascimento</label>
+                        <input type="text" name="dataNascimento" id="dataNascimento"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.dataNascimento || ''}}" placeholder="DD/MM/AAAA" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="prazoConclusao"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prazo para
+                            Conclusão (Padrão / Máximo)</label>
+                        <input type="text" name="prazoConclusao" id="prazoConclusao"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.prazoConclusao || ''}}" placeholder="AAAA.M / AAAA.M" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="status"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                        <input type="text" name="status" id="status"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.status || ''}}" placeholder="Status" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="ira"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IRA</label>
+                        <input type="text" name="ira" id="ira"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.ira || ''}}" placeholder="0.00" required="">
+                    </div>
+                    <div class="w-full">
+                        <label for="anoLetivo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ano
+                            Letivo</label>
+                        <input type="text" name="anoLetivo" id="anoLetivo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                            value="{{user.anoLetivo || ''}}" placeholder="AAAA.1" required="">
+                    </div>
+                    <div class="flex items-end justify-end">
+                        <button id="cancelar" type="button"
+                            class="relative inline-flex items-center justify-center p-0.5 me-2 text-sm font-medium border rounded-md border-red-600 text-red-600 hover:text-white hover:bg-red-600 duration-200 cursor-pointer active focus:ring-0 px-5 py-2.5 ">
+                            Cancelar
+                        </button>
+                        <button id="prosseguir" type="button"
+                            class="relative inline-flex items-center justify-center p-0.5 me-2 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet-800 to-blue group-hover:from-violet-800 group-hover:to-blue hover:text-white dark:text-white focus:outline-none">
+                            <span
+                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Prosseguir<span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </section>

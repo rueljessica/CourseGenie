@@ -1,19 +1,30 @@
-<section class="bg-gray-50 dark:bg-gray-900 h-screen p-4 sm:ml-64 overflow-hidden">
-    <div class="mt-20">
-        <div id="accordion-collapse" data-accordion="collapse" class="p-4">
-            <form method="GET" action="" id="professoresForm">
-                <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                    <ul>
-                        @each(professor in professores)
-                        <li class="mb-2 text-gray-500 dark:text-gray-400">
-                            <button class="hover:bg-gray-200 dark:hover:bg-gray-700" id="professor"
-                                onclick="setProfessorId('{{ professor.id }}')">
-                                {{ professor.nome }}</button>
-                        </li>
-                        @end
-                    </ul>
+<section class="bg-gray-50 dark:bg-gray-900 h-screen p-4 sm:ml-64 overflow-auto flex items-center justify-center">
+    <form method="GET" action="" id="professoresForm">
+        <div class="grid lg:grid-cols-4 gap-5">
+            @each(professor in professores)
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-lg border-dashed">
+                <div class="flex flex-col">
+                    <div>
+                        <p class="text-gray-900 dark:text-white text-xl leading-8">{{ professor.nome }}</p>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">E-mail: {{professor.email}}</span>
+                    </div>
+                    <div class="border-t-2 border-gray-200 dark:border-gray-700 mt-5">
+                        <button onclick="setProfessorId('{{ professor.id }}')"
+                            class="flex items-center justify-between group mt-2">
+                            <span
+                                class="text-gray-600 dark:text-gray-500 text-xs group-hover:text-secondary hover:text-indigo-600 dark:hover:text-indigo-600">Ver
+                                Professor</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-indigo-600 ml-5">
+                                <path fill-rule="evenodd"
+                                    d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </form>
+            </div>
+            @endeach
         </div>
-    </div>
+    </form>
 </section>
