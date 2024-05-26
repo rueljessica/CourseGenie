@@ -9,11 +9,11 @@
     @entryPointScripts('app')
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-                if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark')
-                }
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
     </script>
 </head>
 
@@ -36,7 +36,7 @@
             
             buttonsDiv1.forEach(function (button1) {
                 if(disciplinas.includes(button1.getAttribute('value'))){
-                    button1.classList.add('text-indigo-600');
+                    button1.classList.add('text-indigo-700', 'dark:text-indigo-600');
                     div1Qnt++;
                 }
             });
@@ -50,7 +50,7 @@
 
             buttonsDiv2.forEach(function (button2) {
                 if(disciplinas.includes(button2.getAttribute('value'))){
-                    button2.classList.add('text-indigo-600');
+                    button2.classList.add('text-indigo-700', 'dark:text-indigo-600');
                     div2Qnt++;
                 }
             });
@@ -64,7 +64,7 @@
 
             buttonsDiv3.forEach(function (button3) {
                 if(disciplinas.includes(button3.getAttribute('value'))){
-                    button3.classList.add('text-indigo-600');
+                    button3.classList.add('text-indigo-700', 'dark:text-indigo-600');
                     div3Qnt++;
                 }
             });
@@ -78,7 +78,7 @@
             
             buttonsDiv4.forEach(function (button4) {
                 if(disciplinas.includes(button4.getAttribute('value'))){
-                    button4.classList.add('text-indigo-600');
+                    button4.classList.add('text-indigo-700', 'dark:text-indigo-600');
                     div4Qnt++;
                 }
             });
