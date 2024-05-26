@@ -43,6 +43,20 @@ Route.group(() => {
 Route.get('/disciplinas', 'DisciplinasController.list').middleware('auth')
 Route.get('/disciplinas/:id', 'DisciplinasController.get').middleware('auth').as('disciplinas.get')
 
+var turma = {
+  codigo: "TN716",
+  nome: "MODELAGEM E PROJETO DE SOFTWARE",
+  ano: "2024",
+  periodo: "1",
+  turma: "01",
+  professor: "FELLIPE RIBEIRO DUARTE",
+  horario: [
+    "3T34", "6T34"
+  ],
+  local: "Bloco Multimídia - Sala 210 - Terça Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Terça Horários 15:00 às 16:00Bloco Multimídia - Sala 210 - Sexta Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Sexta Horários 15:00 às 16:00",
+  capacidade: 50
+};
+
 Route.group(() => {
   Route.get('/primeiro-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_um') })
   Route.get('/segundo-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_dois') })
@@ -51,7 +65,7 @@ Route.group(() => {
   Route.get('/quinto-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_cinco') })
   Route.get('/sexto-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_seis') })
   Route.get('/optativas', async ({ view }) => { return view.render('disciplinas/optativas') })
-  Route.get('/recomendacao', async ({ view }) => { return view.render('disciplinas/recomendacao') })
+  Route.get('/recomendacao', async ({ view }) => { return view.render('disciplinas/recomendacao', { turma }) })
 }).middleware('auth')
 
 // Professors Routes
@@ -74,3 +88,4 @@ Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth
 Route.get('/esqueci-senha', async ({ view }) => {
   return view.render('users/esqueci_senha')
 })* O QUE FAZER??*/ 
+

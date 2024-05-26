@@ -1,69 +1,60 @@
-<section class="bg-gray-50 dark:bg-gray-900 md:h-screen sm:overflow-auto p-4 ml-64">
+<section class="bg-gray-50 dark:bg-gray-900 md:h-screen sm:overflow-auto p-4 ml-64 flex justify-center">
     <div class="mt-20">
-        <div class="font-sans flex items-center justify-center">
-            <div x-data="{ openTab: 1 }" class="p-8">
-                <div class=" mx-auto">
-                    <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                        <button x-on:click="openTab = 1"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 1 }"
-                            onclick="handleButtonClick('content1')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200 rounded-md  transition-all duration-300">1º
-                            Periodo</button>
-                        <button x-on:click="openTab = 2"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 2 }"
-                            onclick="handleButtonClick('content2')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">2º
-                            Periodo</button>
-                        <button x-on:click="openTab = 3"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 3 }"
-                            onclick="handleButtonClick('content3')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">3º
-                            Periodo</button>
-                        <button x-on:click="openTab = 4"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 4 }"
-                            onclick="handleButtonClick('content4')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">4º
-                            Periodo</button>
-                        <button x-on:click="openTab = 5"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 5 }"
-                            onclick="handleButtonClick('content5')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">5º
-                            Periodo</button>
-                        <button x-on:click="openTab = 6"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 6 }"
-                            onclick="handleButtonClick('content6')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">6º
-                            Periodo</button>
-                        <button x-on:click="openTab = 7"
-                            :class="{ 'dark:text-indigo-600 text-indigo-700': openTab === 7 }"
-                            onclick="handleButtonClick('content7')"
-                            class="flex-1 py-2 px-4 whitespace-nowrap text-gray-700 dark:text-gray-200  rounded-md  transition-all duration-300">Optativas</button>
+        <div x-data="{ openTab: 1 }" class="p-8">
+            <div class=" mx-auto">
+                <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <button x-on:click="openTab = 1" :class="{ 'dark:text-white text-gray-700': openTab === 1 }"
+                        onclick="handleButtonClick('content1')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400 rounded-md  transition-all duration-300">1º
+                        Periodo</button>
+                    <button x-on:click="openTab = 2" :class="{ 'dark:text-white text-gray-700': openTab === 2 }"
+                        onclick="handleButtonClick('content2')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">2º
+                        Periodo</button>
+                    <button x-on:click="openTab = 3" :class="{ 'dark:text-white text-gray-700': openTab === 3 }"
+                        onclick="handleButtonClick('content3')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">3º
+                        Periodo</button>
+                    <button x-on:click="openTab = 4" :class="{ 'dark:text-white text-gray-700': openTab === 4 }"
+                        onclick="handleButtonClick('content4')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">4º
+                        Periodo</button>
+                    <button x-on:click="openTab = 5" :class="{ 'dark:text-white text-gray-700': openTab === 5 }"
+                        onclick="handleButtonClick('content5')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">5º
+                        Periodo</button>
+                    <button x-on:click="openTab = 6" :class="{ 'dark:text-white text-gray-700': openTab === 6 }"
+                        onclick="handleButtonClick('content6')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">6º
+                        Periodo</button>
+                    <button x-on:click="openTab = 7" :class="{ 'dark:text-white text-gray-700': openTab === 7 }"
+                        onclick="handleButtonClick('content7')"
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">Optativas</button>
+                </div>
+                <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value"
+                        value="">
+                    <div x-show="openTab === 1" class="transition-all duration-300 w-[1300px]">
+                        @include('components/disciplinas/periodos/periodo_um')
                     </div>
-                    <form method="GET" action="" id="disciplina-form"> <input type="hidden" name="disc" id="disc-value"
-                            value="">
-                        <div x-show="openTab === 1" class="transition-all duration-300 w-[1300px]">
-                            @include('components/disciplinas/periodos/periodo_um')
-                        </div>
-                        <div x-show="openTab === 2" class="transition-all duration-300 w-[1300px]"">
+                    <div x-show="openTab === 2" class="transition-all duration-300 w-[1300px]"">
                             @include('components/disciplinas/periodos/periodo_dois')
                         </div>
-                        <div x-show="openTab === 3" class="transition-all duration-300 w-[1300px]">
-                            @include('components/disciplinas/periodos/periodo_tres')
-                        </div>
-                        <div x-show="openTab === 4" class="transition-all duration-300 w-[1300px]">
-                            @include('components/disciplinas/periodos/periodo_quatro')
-                        </div>
-                        <div x-show="openTab === 5" class="transition-all duration-300 w-[1300px]">
-                            @include('components/disciplinas/periodos/periodo_cinco')
-                        </div>
-                        <div x-show="openTab === 6" class="transition-all duration-300 w-[1300px]">
-                            @include('components/disciplinas/periodos/periodo_seis')
-                        </div>
-                        <div x-show="openTab === 7" class="transition-all duration-300 w-full">
-                            @include('components/disciplinas/optativas')
-                        </div>
-                    </form>
-                </div>
+                        <div x-show=" openTab===3" class="transition-all duration-300 w-[1300px]">
+                        @include('components/disciplinas/periodos/periodo_tres')
+                    </div>
+                    <div x-show="openTab === 4" class="transition-all duration-300 w-[1300px]">
+                        @include('components/disciplinas/periodos/periodo_quatro')
+                    </div>
+                    <div x-show="openTab === 5" class="transition-all duration-300 w-[1300px]">
+                        @include('components/disciplinas/periodos/periodo_cinco')
+                    </div>
+                    <div x-show="openTab === 6" class="transition-all duration-300 w-[1300px]">
+                        @include('components/disciplinas/periodos/periodo_seis')
+                    </div>
+                    <div x-show="openTab === 7" class="transition-all duration-300 w-full">
+                        @include('components/disciplinas/optativas')
+                    </div>
+                </form>
             </div>
         </div>
     </div>

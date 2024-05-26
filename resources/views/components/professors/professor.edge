@@ -1,6 +1,6 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-4 ml-64 md:h-screen sm:overflow-auto">
     <div class="mt-20">
-        <div class="grid md:grid-cols-3 gap-5">
+        <div class="grid md:grid-cols-3 gap-2">
             <div class="col-span-2">
                 <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 p-3">
                     <div>
@@ -16,7 +16,7 @@
                             <dl class="divide-y divide-gray-300 dark:divide-gray-600">
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                     <dt class="font-medium leading-6 text-gray-900 dark:text-white">Sala</dt>
-                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0">
+                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0 tracking-wide">
                                         {{ professor.sala }}
                                     </dd>
                                 </div>
@@ -24,7 +24,7 @@
                                     <dt class="font-medium leading-6 text-gray-900 dark:text-white">
                                         E-mail
                                     </dt>
-                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0">
+                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0 tracking-wide">
                                         {{ professor.email }}
                                     </dd>
                                 </div>
@@ -32,21 +32,21 @@
                                     <dt class="font-medium leading-6 text-gray-900 dark:text-white">
                                         Disciplinas
                                     </dt>
-                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0">
-                                        {{ professor.disciplinas }}
+                                    <dd id="disciplinas-list" class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0 tracking-wide text-justify">
+                                        {{ professor.disciplinas }}.
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">
+                                    <dt  class="font-medium leading-6 text-gray-900 dark:text-white">
                                         Áreas de interesse
                                     </dt>
-                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0">
-                                        {{ professor.areasInteresse }}
+                                    <dd id="areasInteresse-list" class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0 tracking-wide text-justify">
+                                        {{ professor.areasInteresse }}.
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white"> Sobre</dt>
-                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0">
+                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">Sobre</dt>
+                                    <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-2 sm:mt-0 tracking-wide text-justify">
                                         {{ professor.descricao }}
                                     </dd>
                                 </div>
@@ -186,6 +186,22 @@
 
             const chart = new ApexCharts(document.getElementById("donut-chart"), getChartOptions());
             chart.render();
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const disciplinasList = document.getElementById('disciplinas-list');
+        const areasInteresseList = document.getElementById('areasInteresse-list');
+        if (disciplinasList) {
+            const disciplinas = disciplinasList.textContent.split(',').map(disciplina => disciplina.trim());
+            disciplinasList.textContent = disciplinas.join(', ');
+        }
+        
+        if (areasInteresseList) {
+            const areasInteresse = areasInteresseList.textContent.split(',').map(interesses => interesses.trim());
+            areasInteresseList.textContent = areasInteresse.join(', ');
         }
     });
 </script>
