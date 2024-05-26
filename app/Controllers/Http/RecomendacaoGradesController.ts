@@ -334,8 +334,7 @@ export default class RecomendacaoGradesController {
         return { turmasRecomendadas, turmasRestantes };
     }
 
-    /// ajeitar
-    public async index({ response }: HttpContextContract) {
+    public async index({ view }: HttpContextContract) {
         let numberOfDiscs = 6;
         const limiteTurno = []
         const anoAtual = 2024
@@ -385,7 +384,7 @@ export default class RecomendacaoGradesController {
             console.log(turmaDispon?.$attributes.nome + " | " + turmaDispon?.$attributes.codigo + " | " + turmaDispon?.$attributes.turma + " | " + turmaDispon?.$attributes.horario + " | " + turmaDispon?.periodoAtual + " | " + turmaDispon?.periodoAnteriorPreReq + " | " + turmaDispon?.periodoAnterior + " | " + turmaDispon?.complementaEixo + " | " + turmaDispon?.indiceAprProfessor + " | " + turmaDispon?.indiceAprDisciplina + " | " + turmaDispon?.mediaProfessor + " | " + turmaDispon?.mediaDisciplina + " | " + turmaDispon?.pesoTotal);
         });
 
-        return response.ok({
+        return view.render('disciplinas/recomendacao', {
             turmasRecomendadas,
             turmasRestantes
         });
