@@ -112,7 +112,22 @@ export default class TurmasController {
                         }
                     }
                     if (turmaData.horario) {
-                        turma.horario = turmaData.horario.flatMap((item) => {
+                        turma.horario = turmaData.horario
+                        const todosFormatadosCorretamente = turma.horario.flatMap((item) => {
+                            if (!/^[1-7]{2}[TN][1-5]$/.test(item)) {
+                                return false;
+                            }
+                        });
+
+                        if (todosFormatadosCorretamente) {
+                            turma.horario = turma.horario.flatMap((item) => {
+                                const dias = item.substring(0, 2);
+                                return [`${dias}T56`];
+                            });
+                        }
+                        turma.horario = [...new Set(turma.horario)];
+
+                        turma.horario = turma.horario.flatMap((item) => {
                             if (item.length === 5 && /^[0-9]+$/.test(item.substring(0, 1))) {
                                 const dias = item.substring(0, 2);
                                 const periodo = item.substring(2, 3);
