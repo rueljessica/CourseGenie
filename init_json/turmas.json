@@ -1,0 +1,502 @@
+[
+    {
+        "codigo": "TN727",
+        "nome": "BANCO DE DADOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FELLIPE RIBEIRO DUARTE",
+        "horario": [
+            "36T5",
+            "36N1"
+        ],
+        "local": "Bloco Informática - Sala 203 - Terça Horários 16:00 às 17:00Bloco Informática - Sala 203 - Sexta Horários 16:00 às 17:00Bloco Informática - Sala 203 - Terça Horários 17:00 às 18:00Bloco Informática - Sala 203 - Sexta Horários 17:00 às 18:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "IM853",
+        "nome": "CIRCUITOS DIGITAIS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "MARCEL WILLIAM ROCHA DA SILVA",
+        "horario": [
+            "3M23",
+            "6M45"
+        ],
+        "local": "Bloco Multimídia - Sala 209 - Terça Horários 08:00 às 09:00Bloco Multimídia - Sala 209 - Terça Horários 09:00 às 10:00Bloco Multimídia - Sala 209 - Sexta Horários 10:00 às 11:00Bloco Multimídia - Sala 209 - Sexta Horários 11:00 às 12:00",
+        "capacidade": 65
+    },
+    {
+        "codigo": "TN725",
+        "nome": "COMPILADORES",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FILIPE BRAIDA DO CARMO",
+        "horario": [
+            "24M45"
+        ],
+        "local": "Bloco Informática - Sala 203 - Segunda Horários 10:00 às 11:00Bloco Informática - Sala 203 - Segunda Horários 11:00 às 12:00Bloco Informática - Sala 203 - Quarta Horários 10:00 às 11:00Bloco Informática - Sala 203 - Quarta Horários 11:00 às 12:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TM421",
+        "nome": "COMPUTAÇÃO GRÁFICA",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "BRUNO JOSE DEMBOGURSKI",
+        "horario": [
+            "36T34"
+        ],
+        "local": "Bloco Informática - Sala 203 - Terça Horários 14:00 às 15:00Bloco Informática - Sala 203 - Terça Horários 15:00 às 16:00Bloco Informática - Sala 203 - Sexta Horários 14:00 às 15:00Bloco Informática - Sala 203 - Sexta Horários 15:00 às 16:00",
+        "capacidade": 50
+    },
+    {
+        "codigo": "TN703",
+        "nome": "COMPUTADORES E SOCIEDADE",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "LIGIA MARIA SOARES PASSOS",
+        "horario": [
+            "24M45"
+        ],
+        "local": "Bloco Multimídia - Sala 210 - Segunda Horários 10:00 às 11:00Bloco Multimídia - Sala 210 - Segunda Horários 11:00 às 12:00Bloco Multimídia - Sala 210 - Quarta Horários 10:00 às 11:00Bloco Multimídia - Sala 210 - Quarta Horários 11:00 às 12:00",
+        "capacidade": 70
+    },
+    {
+        "codigo": "TN754",
+        "nome": "EMPREENDEDORISMO EM INFORMÁTICA",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "NATALIA CHAVES LESSA SCHOTS",
+        "horario": [
+            "35M45"
+        ],
+        "local": "Bloco Informática - Sala 203 - Terça Horários 10:00 às 11:00Bloco Informática - Sala 203 - Terça Horários 11:00 às 12:00Bloco Informática - Sala 203 - Quinta Horários 10:00 às 11:00Bloco Informática - Sala 203 - Quinta Horários 11:00 às 12:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN730",
+        "nome": "ESTRUTURAS DE DADOS II",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "UBIRATAM CARVALHO DE PAULA JUNIOR",
+        "horario": [
+            "24T34"
+        ],
+        "local": "Bloco Informática - Sala 103 - Segunda Horários 14:00 às 15:00Bloco Informática - Sala 103 - Segunda Horários 15:00 às 16:00Bloco Informática - Sala 103 - Quarta Horários 14:00 às 15:00Bloco Informática - Sala 103 - Quarta Horários 15:00 às 16:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN718",
+        "nome": "GRAFOS E ALGORITMOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "RICARDO CORDEIRO CORREA",
+        "horario": [
+            "24M45"
+        ],
+        "local": "Bloco Informática - Sala 310 - Segunda Horários 10:00 às 11:00Bloco Informática - Sala 310 - Segunda Horários 11:00 às 12:00Bloco Informática - Sala 310 - Quarta Horários 10:00 às 11:00Bloco Informática - Sala 310 - Quarta Horários 11:00 às 12:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "TN724",
+        "nome": "INTELIGÊNCIA ARTIFICIAL",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "LEANDRO GUIMARAES MARQUES ALVIM",
+        "horario": [
+            "35M23"
+        ],
+        "local": "Bloco Informática - Sala 203 - Terça Horários 08:00 às 09:00Bloco Informática - Sala 203 - Terça Horários 09:00 às 10:00Bloco Informática - Sala 203 - Quinta Horários 08:00 às 09:00Bloco Informática - Sala 203 - Quinta Horários 09:00 às 10:00",
+        "capacidade": 50
+    },
+    {
+        "codigo": "TN707",
+        "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "DANIEL FABIO DOMINGUES POSNER",
+        "horario": [
+            "3M45"
+        ],
+        "local": "Bloco Multimídia - Sala 209 - Terça Horários 10:00 às 11:00Bloco Multimídia - Sala 209 - Terça Horários 11:00 às 12:00",
+        "capacidade": 65
+    },
+    {
+        "codigo": "TN704",
+        "nome": "INTRODUÇÃO À ENGENHARIA DE SOFTWARE EXPERIMENTAL",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "NATALIA CHAVES LESSA SCHOTS",
+        "horario": [
+            "35T34"
+        ],
+        "local": "Bloco Informática - Sala 204 - Terça Horários 14:00 às 15:00Bloco Informática - Sala 204 - Terça Horários 15:00 às 16:00Bloco Informática - Sala 204 - Quinta Horários 14:00 às 15:00Bloco Informática - Sala 204 - Quinta Horários 15:00 às 16:00",
+        "capacidade": 47
+    },
+    {
+        "codigo": "TM429",
+        "nome": "INTRODUÇÃO À TEORIA DE SISTEMAS DE RECOMENDAÇÃO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FILIPE BRAIDA DO CARMO",
+        "horario": [
+            "24M23"
+        ],
+        "local": "Bloco Informática - Sala 204 - Segunda Horários 08:00 às 09:00Bloco Informática - Sala 204 - Segunda Horários 09:00 às 10:00Bloco Informática - Sala 204 - Quarta Horários 08:00 às 09:00Bloco Informática - Sala 204 - Quarta Horários 09:00 às 10:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN715",
+        "nome": "LINGUAGENS FORMAIS E AUTÔMATOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "LIGIA MARIA SOARES PASSOS",
+        "horario": [
+            "24T34"
+        ],
+        "local": "Bloco Multimídia - Sala 210 - Segunda Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Segunda Horários 15:00 às 16:00Bloco Multimídia - Sala 210 - Quarta Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Quarta Horários 15:00 às 16:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "TN705",
+        "nome": "MATEMÁTICA DISCRETA PARA COMPUTAÇÃO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FERNANDA VIEIRA DIAS COUTO",
+        "horario": [
+            "24T34"
+        ],
+        "local": "Bloco Multimídia - Sala 310 - Segunda Horários 14:00 às 15:00Bloco Multimídia - Sala 310 - Segunda Horários 15:00 às 16:00Bloco Multimídia - Sala 310 - Quarta Horários 14:00 às 15:00Bloco Multimídia - Sala 310 - Quarta Horários 15:00 às 16:00",
+        "capacidade": 65
+    },
+    {
+        "codigo": "TN726",
+        "nome": "MÉTODOS NUMÉRICOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "MARCELO PANARO DE MORAES ZAMITH",
+        "horario": [
+            "24T34"
+        ],
+        "local": "Bloco Multimídia - Sala 302 - Segunda Horários 14:00 às 15:00Bloco Multimídia - Sala 302 - Segunda Horários 15:00 às 16:00Bloco Multimídia - Sala 302 - Quarta Horários 14:00 às 15:00Bloco Multimídia - Sala 302 - Quarta Horários 15:00 às 16:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN716",
+        "nome": "MODELAGEM E PROJETO DE SOFTWARE",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FELLIPE RIBEIRO DUARTE",
+        "horario": [
+            "36T34"
+        ],
+        "local": "Bloco Multimídia - Sala 210 - Terça Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Terça Horários 15:00 às 16:00Bloco Multimídia - Sala 210 - Sexta Horários 14:00 às 15:00Bloco Multimídia - Sala 210 - Sexta Horários 15:00 às 16:00",
+        "capacidade": 50
+    },
+    {
+        "codigo": "TN756",
+        "nome": "ORIENTAÇÃO DE TRABALHO DE CONCLUSÃO DE CURSO I",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "15",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN756",
+        "nome": "ORIENTAÇÃO DE TRABALHO DE CONCLUSÃO DE CURSO I",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "16",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN757",
+        "nome": "ORIENTAÇÃO DE TRABALHO DE CONCLUSÃO DE CURSO II",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "15",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN757",
+        "nome": "ORIENTAÇÃO DE TRABALHO DE CONCLUSÃO DE CURSO II",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "16",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN728",
+        "nome": "OTIMIZAÇÃO LINEAR",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "ADRIA RAMOS DE LYRA",
+        "horario": [
+            "35M45"
+        ],
+        "local": "Bloco Informática - Sala 104 - Terça Horários 10:00 às 11:00Bloco Informática - Sala 104 - Terça Horários 11:00 às 12:00Bloco Informática - Sala 104 - Quinta Horários 10:00 às 11:00Bloco Informática - Sala 104 - Quinta Horários 11:00 às 12:00",
+        "capacidade": 50
+    },
+    {
+        "codigo": "TN706",
+        "nome": "PROGRAMAÇÃO ESTRUTURADA",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "DANIEL FABIO DOMINGUES POSNER",
+        "horario": [
+            "5M45",
+            "35T34"
+        ],
+        "local": "Bloco Multimídia - Sala 209 - Terça Horários 14:00 às 15:00Bloco Multimídia - Sala 209 - Terça Horários 15:00 às 16:00Bloco Multimídia - Sala 209 - Quinta Horários 10:00 às 11:00Bloco Multimídia - Sala 209 - Quinta Horários 11:00 às 12:00Bloco Multimídia - Sala 209 - Quinta Horários 14:00 às 15:00Bloco Multimídia - Sala 209 - Quinta Horários 15:00 às 16:00",
+        "capacidade": 40
+    },
+    {
+        "codigo": "TN706",
+        "nome": "PROGRAMAÇÃO ESTRUTURADA",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "02",
+        "professor": "JULIANA MENDES NASCENTE E SILVA ZAMITH",
+        "horario": [
+            "5M45",
+            "35T34"
+        ],
+        "local": "Bloco Informática - Sala 202 - Quinta Horários 10:00 às 11:00Bloco Informática - Sala 202 - Quinta Horários 11:00 às 12:00Bloco Informática - Sala 202 - Terça Horários 14:00 às 15:00Bloco Informática - Sala 202 - Terça Horários 15:00 às 16:00Bloco Informática - Sala 202 - Quinta Horários 14:00 às 15:00Bloco Informática - Sala 202 - Quinta Horários 15:00 às 16:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN717",
+        "nome": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "BRUNO JOSE DEMBOGURSKI",
+        "horario": [
+            "36M45"
+        ],
+        "local": "Bloco Informática - Sala 310 - Terça Horários 10:00 às 11:00Bloco Informática - Sala 310 - Terça Horários 11:00 às 12:00Bloco Informática - Sala 310 - Sexta Horários 10:00 às 11:00Bloco Informática - Sala 310 - Sexta Horários 11:00 às 12:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "TM430",
+        "nome": "REDES DE COMPUTADORES SEM FIO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "MARCEL WILLIAM ROCHA DA SILVA",
+        "horario": [
+            "3M45",
+            "6M23"
+        ],
+        "local": "Bloco Informática - Sala 103 - Terça Horários 10:00 às 11:00Bloco Informática - Sala 103 - Terça Horários 11:00 às 12:00Bloco Informática - Sala 103 - Sexta Horários 08:00 às 09:00Bloco Informática - Sala 103 - Sexta Horários 09:00 às 10:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN746",
+        "nome": "REDES NEURAIS ARTIFICIAIS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "LEANDRO GUIMARAES MARQUES ALVIM",
+        "horario": [
+            "35M45"
+        ],
+        "local": "Bloco Informática - Sala 204 - Terça Horários 10:00 às 11:00Bloco Informática - Sala 204 - Terça Horários 11:00 às 12:00Bloco Informática - Sala 204 - Quinta Horários 10:00 às 11:00Bloco Informática - Sala 204 - Quinta Horários 11:00 às 12:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "IM873",
+        "nome": "SISTEMAS DISTRIBUÍDOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "UBIRATAM CARVALHO DE PAULA JUNIOR",
+        "horario": [
+            "24M45"
+        ],
+        "local": "Bloco Informática - Sala 103 - Segunda Horários 10:00 às 11:00Bloco Informática - Sala 103 - Segunda Horários 11:00 às 12:00Bloco Informática - Sala 103 - Quarta Horários 10:00 às 11:00Bloco Informática - Sala 103 - Quarta Horários 11:00 às 12:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN749",
+        "nome": "TEORIA DOS GRAFOS",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "FERNANDA VIEIRA DIAS COUTO",
+        "horario": [
+            "24T5",
+            "24N1"
+        ],
+        "local": "Bloco Multimídia - Sala 310 - Segunda Horários 16:00 às 17:00Bloco Multimídia - Sala 310 - Quarta Horários 16:00 às 17:00Bloco Multimídia - Sala 310 - Segunda Horários 17:00 às 18:00Bloco Multimídia - Sala 310 - Quarta Horários 17:00 às 18:00",
+        "capacidade": 45
+    },
+    {
+        "codigo": "TN751",
+        "nome": "TÓPICOS ESPECIAIS EM OTIMIZAÇÃO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "ADRIA RAMOS DE LYRA",
+        "horario": [
+            "35M23"
+        ],
+        "capacidade": 45
+    },
+    {
+        "codigo": "IM478",
+        "nome": "ÁLGEBRA LINEAR COMPUTACIONAL",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "RONALDO MALHEIROS GREGORIO",
+        "horario": [
+            "2N45",
+            "5N23" 
+        ],
+        "local": "Bloco Administrativo - Sala 305 - Segunda Horários 20:00 às 21:00Bloco Administrativo - Sala 305 - Segunda Horários 21:00 às 22:00Bloco Administrativo - Sala 305 - Quinta Horários 18:00 às 19:00Bloco Administrativo - Sala 305 - Quinta Horários 19:00 às 20:00",
+        "capacidade": 30
+    },
+    {
+        "codigo": "IM478",
+        "nome": "ÁLGEBRA LINEAR COMPUTACIONAL",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "02",
+        "professor": "ERITO MARQUES DE SOUZA FILHO",
+        "horario": [
+            "34T5",
+            "34N1" 
+        ],
+        "local": "Bloco Multimídia - Sala 210 - Terça Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Quarta Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Terça Horários 17:00 às 18:00Bloco Multimídia - Sala 210 - Quarta Horários 17:00 às 18:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "IM429",
+        "nome": "ALGEBRA LINEAR I",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "CAMILA RIBEIRO DE LACERDA PACHECO",
+        "horario": [
+            "2N23",
+            "5N45"
+        ],
+        "local": "Bloco Informática - Sala 310 - Segunda Horários 18:00 às 19:00Bloco Informática - Sala 310 - Segunda Horários 19:00 às 20:00Bloco Informática - Sala 310 - Quinta Horários 20:00 às 21:00Bloco Informática - Sala 310 - Quinta Horários 21:00 às 22:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "TM406",
+        "nome": "CÁLCULO APLICADO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "RONALDO MALHEIROS GREGORIO",
+        "horario": [
+            "25T5",
+            "25N1"
+        ],
+        "local": "Bloco Informática - Sala 101 - Segunda Horários 16:00 às 17:00Bloco Informática - Sala 101 - Quinta Horários 16:00 às 17:00Bloco Informática - Sala 101 - Segunda Horários 17:00 às 18:00Bloco Informática - Sala 101 - Quinta Horários 17:00 às 18:00",
+        "capacidade": 50
+    },
+    {
+        "codigo": "IM403",
+        "nome": "CALCULO I",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "PAULA TAKATSUKA",
+        "horario": [
+            "34N23"
+        ],
+        "local": "Bloco Informática - Sala 310 - Terça Horários 18:00 às 19:00Bloco Informática - Sala 310 - Terça Horários 19:00 às 20:00Bloco Informática - Sala 310 - Quarta Horários 18:00 às 19:00Bloco Informática - Sala 310 - Quarta Horários 19:00 às 20:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "IM404",
+        "nome": "CALCULO II",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "BRIGIDA ALEXANDRE SARTINI",
+        "horario": [
+            "4N23",
+            "6N45"
+        ],
+        "local": "Bloco Informática - Sala 202 - Quarta Horários 18:00 às 19:00Bloco Informática - Sala 202 - Quarta Horários 19:00 às 20:00Bloco Informática - Sala 202 - Sexta Horários 20:00 às 21:00Bloco Informática - Sala 202 - Sexta Horários 21:00 às 22:00",
+        "capacidade": 60
+    },
+    {
+        "codigo": "IM404",
+        "nome": "CALCULO II",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "02",
+        "professor": "ALEKSANDRO DE MELLO",
+        "horario": [
+            "4N23",
+            "6N45"
+        ],
+        "local": "Bloco Multimídia - Sala 210 - Segunda Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Sexta Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Segunda Horários 17:00 às 18:00Bloco Multimídia - Sala 210 - Sexta Horários 17:00 às 18:00",
+        "capacidade": 65
+    },
+    {
+        "codigo": "IM425",
+        "nome": "CALCULO III",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "MARCELO FERREIRA FARIAS",
+        "horario": [
+            "23N23"
+        ],
+        "local": "Bloco Informática - Sala 203 - Segunda Horários 18:00 às 19:00Bloco Informática - Sala 203 - Segunda Horários 18:00 às 19:00Bloco Informática - Sala 203 - Segunda Horários 19:00 às 20:00Bloco Informática - Sala 203 - Segunda Horários 19:00 às 20:00Bloco Informática - Sala 203 - Terça Horários 18:00 às 19:00Bloco Informática - Sala 203 - Terça Horários 19:00 às 20:00",
+        "capacidade": 40
+    },
+    {
+        "codigo": "IM438",
+        "nome": "CALCULO NUMÉRICO",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "MARCELA LIMA SANTOS",
+        "horario": [
+            "4N23",
+            "6N45"
+        ],
+        "local": "Prédio da Pós-Graduação - Sala 103 - Quarta Horários 18:00 às 19:00Prédio da Pós-Graduação - Sala 103 - Quarta Horários 19:00 às 20:00Prédio da Pós-Graduação - Sala 103 - Sexta Horários 20:00 às 21:00Prédio da Pós-Graduação - Sala 103 - Sexta Horários 21:00 às 22:00",
+        "capacidade": 40
+    },
+    {
+        "codigo": "IM885",
+        "nome": "GEOMETRIA ANALÍTICA",
+        "ano": "2024",
+        "periodo": "1",
+        "turma": "01",
+        "professor": "CLAUDIA MAZZA DIAS",
+        "horario": [
+            "46T5",
+            "46N1"
+        ],
+        "local": "Bloco Multimídia - Sala 209 - Quarta Horários 16:00 às 17:00Bloco Multimídia - Sala 209 - Sexta Horários 16:00 às 17:00Bloco Multimídia - Sala 209 - Quarta Horários 17:00 às 18:00Bloco Multimídia - Sala 209 - Sexta Horários 17:00 às 18:00",
+        "capacidade": 70
+    }
+]

@@ -51,6 +51,7 @@ export default class InitsController {
                             periodo: data.periodo,
                             creditos: data.creditos,
                             cargaHoraria: data.carga_horaria,
+                            eixo: data.eixo,
                             objetivo: data.objetivo,
                             ementa: data.ementa,
                             bibliografia_basica: data.bibliografia_basica,

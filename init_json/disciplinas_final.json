@@ -1078,20 +1078,20 @@
     {
         "codigo": "IM461",
         "nucleo": "Formação Específica e Optativas",
-        "nome": "Língua Brasileira de Sinais (LIBRAS)",
+        "nome": "LÍNGUA BRASILEIRA DE SINAIS LIBRAS",
         "periodo": -1,
         "creditos": 2,
         "carga_horaria": 30,
         "objetivo": [
             "Apresentar os fundamentos teóricos da gramática da LIBRAS",
             "Aprofundar as noções linguísticas básicas da LIBRAS",
-            "Apresentar aspectos conceituais e filosóficos da cultura e identidade surda",
-            "Contextualizar as políticas públicas educacionais voltadas para as pessoas surdas e com deficiência auditiva",
+            "Apresentar aspectos conceituais e filosóficos da cultura e identidade surda (o surdo no mundo ouvinte)",
+            "Contextualizar as políticas públicas educacionais voltadas para as pessoas surdas e com deficiência auditiva estabelecendo as diferenças entre os conceitos de forma articulada com os movimentos sociais em defesa de seus direitos",
             "Discutir a relação linguagem e surdez e as implicações sociopsicolinguísticas da surdez no processo de ensino-aprendizagem",
             "Refletir sobre a atuação e as implicações do intérprete da Língua Brasileira de Sinais no processo de inclusão escolar de alunos surdos"
         ],
         "ementa": [
-            "Em consonância com as diretrizes educacionais vigentes de educação inclusiva e com o decreto-lei 5.626, de 22 de dezembro de 2005, essa disciplina objetiva promover o contato e a familiarização dos alunos dos cursos de licenciatura e afins com a cultura surda e a educação dos surdos, bem como promover conhecimentos sobre a aquisição e o desenvolvimento da Língua Brasileira de Sinais (LIBRAS). Teremos 15 encontros de 2h de aulas, em apenas um semestre, sendo que a maior parte das aulas será teórica a fim de que os alunos possuam uma base sólida para a sua formação docente e a prática em LIBRAS acontece, geralmente nos cursos, com duração de 2 anos, porém teremos 1h de prática na sala de aula de noções básicas de LIBRAS."
+            "Em consonância com as diretrizes educacionais vigentes de educação inclusiva e com o Decreto 5.626, de 22 de dezembro de 2005, essa disciplina objetiva promover o contato e a familiarização dos alunos com a cultura e a educação dos surdos, bem como promover conhecimentos sobre a aquisição e o desenvolvimento da Língua Brasileira de Sinais (LIBRAS)."
         ],
         "conteudo_programatico": [
             {
@@ -1127,7 +1127,16 @@
         "periodo": -1,
         "creditos": 2,
         "carga_horaria": 30,
-        "objetivo": [],
+        "objetivo": [
+            "Compreender a diversidade étnico-racial da sociedade brasileira",
+            "Contribuir para a efetivação da Educação das Relações Étnico-Raciais brasileiras em bases positivas",
+            "Identificar ações etnicamente estereotipadas, ou racistas no ambiente escolar e na sociedade abrangente",
+            "Influenciar no processo de desconstrução de imaginários que justifiquem ações étnica mente estereotipadas, ou racistas",
+            "Conduzir ao conhecimento e à valorização das culturas dos povos-africanos, dos Afro-brasileiros e de Indígenas",
+            "Construir estratégias efetivas de resistência e de combate às desigualdades étnico-raciais no cotidiano escolar",
+            "Potencializar a consciência política e histórica da diversidade",
+            "Possibilitar intervir criticamente e com sucesso em situações de racismo e de preconceito étnico no cotidiano escolar e na sociedade mais ampla"
+        ],
         "ementa": [
             "A Lei 10639/2003: texto e contexto",
             "Africanos no Brasil: Origens e Contribuições",
@@ -1189,6 +1198,9 @@
         "codigo": "TN754",
         "nucleo": "Formação Específica e Optativas",
         "nome": "EMPREENDEDORISMO EM INFORMÁTICA",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -1264,6 +1276,9 @@
         "codigo": "TN708",
         "nucleo": "Formação Específica e Optativas",
         "nome": "GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -1336,6 +1351,9 @@
         "codigo": "TN713",
         "nucleo": "Formação Específica e Optativas",
         "nome": "INTRODUÇÃO AOS SISTEMAS DE INFORMAÇÃO",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -1406,6 +1424,9 @@
         "codigo": "TN704",
         "nucleo": "Formação Específica e Optativas",
         "nome": "INTRODUÇÃO A ENGENHARIA DE SOFTWARE EXPERIMENTAL",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -1767,82 +1788,6 @@
             "Munem, M.A.; Foulis, D.J. Cálculo. Rio de Janeiro: LTC, 1982. 2 v.",
             "Simmons, G.F. Cálculo com geometria analítica. São Paulo: Editora Makron Books, 1987. 2 v.",
             "Swokowski, E.W. Cálculo com geometria analítica. 2. ed. São Paulo: Editora Makron Books, 1994. 2 v."
-        ]
-    },
-    {
-        "codigo": "IM425",
-        "nucleo": "Matemática",
-        "nome": "CÁLCULO III",
-        "periodo": 4,
-        "creditos": 4,
-        "carga_horaria": 60,
-        "pre_requisito": [
-            {
-                "nome": "Cálculo I",
-                "codigo": "IM403"
-            }
-        ],
-        "objetivo": [
-            "Compreender a derivada de funções de várias variáveis e relacioná-la com a teoria da derivada de funções de uma variável real",
-            "Reconhecer as funções deriváveis e dominar as condições necessárias e suficientes para que uma função seja derivável",
-            "Determinar o plano tangente e reconhecer sua importância no ponto de vista da aproximação linear",
-            "Dominar as técnicas de determinação de máximos e mínimos de funções de várias variáveis",
-            "Aplicar a integração múltipla na determinação de volumes de sólidos, centros de massa e momentos de inércia"
-        ],
-        "ementa": [
-            "Derivação de Funções de Várias Variáveis",
-            "Máximos e Mínimos",
-            "Integração Múltipla"
-        ],
-        "conteudo_programatico": [
-            {
-                "unidade": "UNIDADE I - DERIVAÇÃO DE FUNÇÕES DE VÁRIAS VARIÁVEIS",
-                "topicos": [
-                    "Derivadas parciais",
-                    "Função diferenciável. Uma condição suficiente para a diferenciabilidade",
-                    "Plano tangente e reta normal",
-                    "Diferencial total",
-                    "Regra da cadeia. Vetor gradiente",
-                    "Derivada direcional",
-                    "Derivadas parciais de ordens superiores",
-                    "Funções implícitas e Teorema da Função Implícita",
-                    "Fórmula de Taylor"
-                ]
-            },
-            {
-                "unidade": "UNIDADE II - MÁXIMOS E MÍNIMOS",
-                "topicos": [
-                    "Extremos relativos. Condição necessária para a existência de extremos relativos",
-                    "Ponto crítico. Teste da derivada segunda",
-                    "Máximos e mínimos sobre um compacto",
-                    "Multiplicadores de Lagrange"
-                ]
-            },
-            {
-                "unidade": "UNIDADE III - INTEGRAIS MÚLTIPLAS",
-                "topicos": [
-                    "Integral dupla. Definição e propriedades",
-                    "Integral repetida. Teorema de Fubini",
-                    "Mudança de variáveis na integral dupla",
-                    "Aplicações: área, volume, massa, centro de massa e momento de inércia",
-                    "Integrais triplas",
-                    "Redução da integral tripla a integral dupla",
-                    "Mudança de variáveis na integral tripla",
-                    "Aplicações: volume, massa, centro de massa e momento de inércia"
-                ]
-            }
-        ],
-        "bibliografia_basica": [
-            "ANTON, H., Cálculo, PORTO ALEGRE: Bookman, 2007.",
-            "STEWART, James. Cálculo; v.1. 5.ed. SÃO PAULO: Pioneira Thomson Learning, 2008.",
-            "THOMAS, G.; WEIR, M. CÁLCULO; v.1, SÃO PAULO: Addison-Wesley, 2009."
-        ],
-        "bibliografia_complementar": [
-            "MUNEM, Mustafa A.; FOULIS, David J.. Cálculo; v.1. RIO DE JANEIRO: LTC, 2008.",
-            "FLEMMING, D., GONÇALVES, M., Cálculo A, SÃO PAULO: Pearson Prentice Hall, 2007.",
-            "AVILA, Geraldo. Cálculo I, RIO DE JANEIRO: LTC, 1982.",
-            "GUIDORIZZI, L.. Um curso de cálculo; v.1, RIO DE JANEIRO: LTC, 2009.",
-            "LEITHOLD, Louis. O cálculo com geometria analítica; v.1, SÃO PAULO: Harbra, 1994."
         ]
     },
     {
@@ -3367,6 +3312,9 @@
         "codigo": "TN719",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "Engenharia de Software II",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3462,6 +3410,9 @@
         "codigo": "TN721",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "Arquitetura de Software",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3566,6 +3517,9 @@
         "codigo": "TM431",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "Introdução à Teoria das Redes de Petri",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3664,6 +3618,9 @@
         "codigo": "TN722",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "MODELAGEM E ANÁLISE FORMAL DE PROCESSOS DE NEGÓCIO",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3752,6 +3709,9 @@
         "codigo": "TM432",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "MODELAGEM DE SOFTWARE COM REDES DE PETRI",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3836,6 +3796,9 @@
         "codigo": "TN735",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "BANCO DE DADOS II",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3906,6 +3869,9 @@
         "codigo": "TN736",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "INTRODUÇÃO A WEB SEMÂNTICA",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -3975,6 +3941,9 @@
         "codigo": "TN733",
         "nucleo": "Formação Especéfica e Optativas",
         "nome": "INTERAÇÃO HUMANO-COMPUTADOR",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4052,6 +4021,9 @@
         "codigo": "TN731",
         "nucleo": "Formação Específica e Optativas",
         "nome": "GERÊNCIA DE PROJETOS",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4137,6 +4109,9 @@
         "codigo": "TN732",
         "nucleo": "Formação Específica e Optativas",
         "nome": "MEDIÇÃO E QUALIDADE DE SOFTWARE",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4216,6 +4191,9 @@
         "codigo": "TN755",
         "nucleo": "Formação Específica e Optativas",
         "nome": "GESTÃO DE PROCESSOS",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4289,6 +4267,9 @@
         "codigo": "TN734",
         "nucleo": "Formação Específica e Optativas",
         "nome": "ENGENHARIA DE REQUISITOS",
+        "eixo": [
+            2
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4369,6 +4350,9 @@
         "codigo": "TM436",
         "nucleo": "Formação Específica e Optativas",
         "nome": "ALGORITMOS PARALELOS E DISTRÍBUIDOS",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4440,6 +4424,9 @@
         "codigo": "TM435",
         "nucleo": "Formação Específica e Optativas",
         "nome": "PROGRAMAÇÃO PARALELA E DISTRIBUÍDA",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4522,6 +4509,15 @@
             "FOSTER, I., Designing and Building Parallel Programs, 2013. Disponível em https://www.mcs.anl.gov/itf/dbpp/text/book.html.",
             "TROBEC R, SLIVNIK, B., BULIC P. Introduction to Parallel Computing: From Algorithms to Programming on State-of-the-Art Platforms. Springer; Edição: 1st ed. 2018."
         ]
+    },
+    {
+        "codigo": "TM409",
+        "nome": "ARQUITETURA DE COMPUTADORES II",
+        "eixo": [
+            3
+        ],
+        "carga_horaria": 60,
+        "periodo": -1
     },
     {
         "codigo": "TN748",
@@ -4618,6 +4614,9 @@
         "codigo": "TN741",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Computação de Alto Desempenho",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4693,6 +4692,9 @@
         "codigo": "TN742",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Programação em GPU",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4772,6 +4774,9 @@
         "codigo": "TN743",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Introdução a Dispositivos Móveis",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4868,6 +4873,9 @@
         "codigo": "TN745",
         "nucleo": "Formação Específica e Optativas",
         "nome": "APRENDIZADO DE MÁQUINA",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -4959,6 +4967,9 @@
         "codigo": "TM429",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Introdução a Teoria de Sistemas de Recomendação",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5059,6 +5070,9 @@
         "codigo": "TN746",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Redes Neurais Artificiais",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5151,6 +5165,9 @@
         "codigo": "TM434",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Mineração de Dados",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5257,6 +5274,9 @@
         "codigo": "TM441",
         "nucleo": "Formação Específica e Optativas",
         "nome": "PROCESSAMENTO DE LINGUAGEM NATURAL",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5351,6 +5371,9 @@
         "codigo": "TM444",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Busca e Recuperação de Informação",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5460,6 +5483,10 @@
         "codigo": "TN747",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Inteligência de Negócios",
+        "eixo": [
+            2,
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5534,6 +5561,9 @@
         "codigo": "TM438",
         "nucleo": "Formação Específica e Optativas",
         "nome": "PROCESSAMENTO DE IMAGENS",
+        "eixo": [
+            4
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5646,6 +5676,9 @@
         "codigo": "TN749",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Teoria dos Grafos",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5716,6 +5749,9 @@
         "codigo": "TN740",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Tópicos Especiais em Grafos e Algoritmos",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5776,6 +5812,9 @@
         "codigo": "TN751",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Tópicos Especiais em Otimização",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5887,6 +5926,9 @@
         "codigo": "TN750",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Otimização Combinatória",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -5977,6 +6019,9 @@
         "codigo": "TN739",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Teoria dos Jogos Algorímica",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -6034,6 +6079,9 @@
         "codigo": "TN737",
         "nucleo": "Formação Específica e Optativas",
         "nome": "Introdução a Biologia Computacional",
+        "eixo": [
+            1
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -6095,6 +6143,9 @@
         "codigo": "TM430",
         "nucleo": "Formação Específica e Optativas",
         "nome": "REDES DE COMPUTADORES SEM FIO",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -6199,6 +6250,9 @@
         "codigo": "TN744",
         "nucleo": "Formação Específica e Optativas",
         "nome": "ROTEAMENTO EM REDES DE COMPUTADORES",
+        "eixo": [
+            3
+        ],
         "periodo": -1,
         "creditos": 4,
         "carga_horaria": 60,
@@ -6392,7 +6446,6 @@
             "FLANAGAN, David. JavaScript: o guia definitivo. Bookman Editora, 2004.",
             "FREEMAN, Eric. Use a Cabeça! Programação em HTML 5. Alta Books Editora, 2014.",
             "QUEIRÓS, R., PORTELA, F. Desenvolvimento Avançado para a Web: do Front-end ao Back-end. FCA, 2020."
-            
         ],
         "bibliografia_complementar": [
             "KUROSE, J. F., ROSS, K. W. . Redes de computadores e a Internet: Uma abordagem top-down. Tradução da 5ª edição, Pearson, 2010.",
@@ -6403,128 +6456,406 @@
         ]
     },
     {
-        "codigo": "TN744",
-        "nucleo": "Formação Específica e Optativas",
-        "nome": "ROTEAMENTO EM REDES DE COMPUTADORES",
-        "periodo": -1,
-        "creditos": 4,
-        "carga_horaria": 60,
-        "pre_requisito": [
-            {
-                "nome": "Redes e Sistemas Distribuídos",
-                "codigo": "TN729"
-            }
-        ],
-        "objetivo": [
-            "Compreender conceitos fundamentais do encaminhamento e roteamento de pacotes unicast, multicast e broadcast em redes cabeadas e redes sem fio",
-            "Compreender modelos de roteamento por vetores de distância e por estado de enlace",
-            "Conhecer os principais padrões e protocolos relacionados ao roteamento de pacotes",
-            "Adquirir noções básicas sobre novas tecnologias na área de roteamento"
-        ],
-        "ementa": [
-            "Princípios do roteamento em redes de computadores: vetores de distância e estado de enlace",
-            "Roteamento na Internet",
-            "Endereçamento hierárquico",
-            "Roteamento intra-domínio",
-            "Roteamento inter-domínio",
-            "Roteamento multicast",
-            "Roteamento em redes sem fio",
-            "Tópicos avançados em roteamento"
-        ],
-        "conteudo_programatico": [
-            {
-                "unidade": "UNIDADE I - Princípios do roteamento em redes de computadores",
-                "topicos": [
-                    "Introdução",
-                    "Encaminhamento e roteamento",
-                    "Roteamento unicast, multicast e broadcast"
-                ]
-            },
-            {
-                "unidade": "UNIDADE II - Endereçamento",
-                "topicos": [
-                    "Tipos de endereço",
-                    "Protocolo IP",
-                    "Sub-redes",
-                    "Endereçamento hierárquico"
-                ]
-            },
-            {
-                "unidade": "UNIDADE III - ROTEAMENTO",
-                "topicos": [
-                    "Roteamento intra-domínio: RIP, OSPF",
-                    "Roteamento inter-domínio: BGP",
-                    "Roteamento multicast"
-                ]
-            },
-            {
-                "unidade": "UNIDADE IV - ROTEAMENTO EM REDES SEM FIO",
-                "topicos": [
-                    "Desafios específicos das redes sem fio",
-                    "Protocolos para roteamento sem fio"
-                ]
-            },
-            {
-                "unidade": "UNIDADE V - TOPICOS AVANÇADOS",
-                "topicos": [
-                    "Novas tecnologias em roteamento"
-                ]
-            }
-        ],
-        "bibliografia_basica": [
-            "C. Huitema, Routing in the Internet, 2nd Edition, Prentice Hall, 1999, ISBN 0-13-022647-5"
-        ],
-        "bibliografia_complementar": [
-            "J. Schiller, Mobile Communications, 2a edição, Prentice Hall, 2003"
-        ]
-    },
-    {
         "nome": "Fundamentos de Sistemas",
         "codigo": "IM899",
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "ementa": [
+            "Introdução",
+            "Sistemas de Informação",
+            "Requisitos",
+            "Processo de Engenharia de Requisitos",
+            "Prática de Estudo de Caso"
+        ]
     },
     {
         "nome": "Tópicos Especiais em Ciência da Computação",
+        "eixo": [
+            2,
+            3
+        ],
         "codigo": "TM411",
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "pre_requisito": [
+            {
+                "nome": "Programação Estruturada",
+                "codigo": "TN706"
+            }
+        ],
+        "ementa": [
+            "Opções possíveis: Arquiteturas paralelas (SIMD/MIMD) de processadores, computadores e clusters. Modelos de programação paralela por troca de mensagens e memória compartilhada. Programação paralela aplicada, caracterização de carga de trabalho, e avaliação de desempenho. Escalonamento. Balanceamento de carga. Gerenciamento de recursos geograficamente distribuídos. Tolerância a falhas. Fundamentos de Cluster computing, Fundamentos Grid computing. ———— Modelo Distribuído. Modelo de Computação (Eventos, ordens e estados globais, complexidade de computações distribuídas, sincronismo e assincronismo, programação com MPI). Algoritmos Básicos (Propagação de informação, conectividade de grafos, distâncias mais curtas, terminação, eleição de um líder, registro de estado global) Compartilhamento de recursos. Algoritmos em grafos. ———— Fundamentos de programação paralela. Estudo e implementação das metaheurísticas Busca Tabu, Algoritmos Genéticos, GRASP, entre outras utilizando recursos paralelos."
+        ]
+    },
+    {
+        "nome": "Tópicos Especiais em Inteligência Artificial",
+        "eixo": [
+            4
+        ],
+        "codigo": "TM416",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "pre_requisito": [
+            {
+                "nome": "Inteligência Artificial",
+                "codigo": "TN724"
+            }
+        ]
     },
     {
         "nome": "Projeto de Sistemas",
         "codigo": "TM413",
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "ementa": [
+            "Fundamentos do Projeto de Sistemas",
+            "Modelagem da Solução",
+            "Padrões de Projeto",
+            "Modelagem de Interface Homem-Computador",
+            "Prática de Estudo de Caso"
+        ],
+        "objetivo": [
+            "Compreender as etapas do projeto de software e aplicar em estudo de casos",
+            "Aplicar padrões de projeto em estudos de caso",
+            "Aplicar as técnicas de modelagem de interface homem-computador em estudos de caso"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - FUNDAMENTOS DO PROJETO DE SISTEMAS",
+                "topicos": [
+                    "Princípios do projeto de software",
+                    "Passagem da etapa de análise para o projeto de sistemas",
+                    "Técnicas",
+                    "Processo: Visão geral e atividades"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - MODELAGEM DA SOLUÇÃO",
+                "topicos": [
+                    "Modelagem de classes de Projeto",
+                    "Detalhamento dos diagramas de interação para inserção de decisões de projeto",
+                    "Outras visões da solução: testes, arquitetura da solução, implementação, visão de dados, componentes e implantação",
+                    "Prática de estudos de caso"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - PADRÕES DE PROJETO",
+                "topicos": [
+                    "Padrões GRASP",
+                    "High Coesion",
+                    "Low Coupling",
+                    "Expert",
+                    "Creator",
+                    "Controller",
+                    "Outros Padrões relevantes"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - PROJETO DE INTERFACE HOMEM-MÁQUINA",
+                "topicos": [
+                    "Fundamentos: Engenharia Cognitiva e Engenharia Semiótica",
+                    "Modelagem dos usuários de software.",
+                    "Modelagem das tarefas",
+                    "Aplicação do Modelo de Casos de Uso da Análise",
+                    "Detalhamento dos Cenários de Caso de Uso do ponto de vista da utilização da interface",
+                    "Diagramas de atividades com tipagem dos requisitos de interação",
+                    "Diagrama de navegação ente janelas",
+                    "Storyboardings",
+                    "Documentação dos storyboardings",
+                    "Protótipos de baixa fidelidade"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "Craig Larman. Utilizando UML e Padrões. 3a Ed.. Bookman. 2007",
+            "Eric Gamma, et al.. Padrões de Projetos: Soluções Reutilizáveis de Software Orientados a Objetos. . Ed Bookman. 2000",
+            "Filho, W.P.P.. Engenharia de Software: fundamentos, métodos e padrões. 3ª. ed. São Paulo: LTC. 2009",
+            "Bezerra, E.. Princípios de Análise e Projeto de Sistemas com UML. . Rio de Janeiro: Campus. 2007"
+        ]
     },
     {
         "nome": "Sistemas Distribuídos",
         "codigo": "IM873",
+        "eixo": [
+            3
+        ],
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "objetivo": [
+            "Compreender os conceitos, características e ferramentas existentes dos Sistemas Distribuídos",
+            "Identificar os componentes de um sistema distribuído, bem como, introduzir as principais técnicas de comunicação entre processos",
+            "Conhecer técnicas relacionadas a sistemas de arquivos distribuídos e tolerância a falhas"
+        ],
+        "ementa": [
+            "Introdução a Sistemas Distribuídos",
+            "O projeto de Sistemas Distribuídos",
+            "Comunicação em Sistemas Distribuídos",
+            "Sincronização em Sistemas Distribuídos",
+            "Segurança em Sistemas Distribuídos",
+            "Sistema de Arquivos Distribuídos",
+            "Componentes para Computação Distribuída",
+            "Sistemas Distribuídos baseados na WEB",
+            "Tópicos especiais"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - INTRODUÇÃO A SISTEMAS DISTRIBUÍDOS",
+                "topicos": [
+                    "Definição, objetivos e tipos de Sistemas Distribuídos",
+                    "Sistemas Distribuídos, Concorrentes e Paralelos: Categorização e terminologia básica",
+                    "Arquitetura de sistemas distribuídos: centralizada, descentralizada e híbrida"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - O PROJETO DE SISTEMAS DISTRIBUÍDOS",
+                "topicos": [
+                    "Aspectos críticos que influenciam o projeto de SDs"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - COMUNICAÇÃO NOS SISTEMAS DISTRIBUÍDOS",
+                "topicos": [
+                    "Protocolos em Camadas",
+                    "Chamada Remota a Procedimentos",
+                    "Modelo Cliente-Servidor",
+                    "Modelo P2P",
+                    "Usando Sockets e TCP/IP, RMI-Java e CORBA",
+                    "Novas técnicas para distribuição de processamento: Comunicação híbrida - mensagem e memória compartilhada - OpenMP + MPI."
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - SINCRONIZAÇÃO EM SISTEMAS DISTRIBUÍDOS",
+                "topicos": [
+                    "Sincronização através de clock e clocks lógicos",
+                    "Exclusão mútua",
+                    "Algoritmos eletivos",
+                    "Deadlocks"
+                ]
+            },
+            {
+                "unidade": "UNIDADE V - O PROJETO DE SISTEMAS DISTRIBUÍDOS",
+                "topicos": [
+                    "Introdução",
+                    "Canais de segurança",
+                    "Controle de acesso",
+                    "Gerenciamento de segurança"
+                ]
+            },
+            {
+                "unidade": "UNIDADE VI - SISTEMA DE ARQUIVOS DISTRIBUÍDOS",
+                "topicos": [
+                    "Fundamentos, Nomeação e Acesso a arquivos remotos",
+                    "Serviço e Replicação de Arquivos (estudo sobre replicação e consistência de dados)",
+                    "O NFS - Network File System"
+                ]
+            },
+            {
+                "unidade": "UNIDADE VII - COMPONENTES PARA COMPUTAÇÃO DISTRIBUÍDA",
+                "topicos": [
+                    "Fundamentos para a computação distribuída",
+                    "RMI",
+                    "CORBA"
+                ]
+            },
+            {
+                "unidade": "UNIDADE VIII - SISTEMAS DISTRIBUÍDOS BASEADOS NA WEB",
+                "topicos": [
+                    "Conceitos básicos",
+                    "Web Servers"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IX - TÓPICOS ESPECIAIS",
+                "topicos": [
+                    "Clusters, Grids",
+                    "CloudingComputing"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "Coulouris, G. F.. Distributed systems: concepts and design. 3nd. ed.. London: Addison-Wesley. 2001",
+            "Tanembaum, A. S., Steen, M. V.. Distributed Systems: Principles and Paradigms. 2nd. Ed.. Pearson. 2007"
+        ]
     },
     {
         "nome": "Computação III",
         "codigo": "TM414",
         "carga_horaria": 60,
-        "periodo": -1
-    },
-    {
-        "nome": "Tópicos Especiais em Banco de Dados e Engenharia de Software",
-        "codigo": "TM415",
-        "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "ementa": [
+            "Desenvolvimento em N Camadas com Aplicação de Padrões de Projeto",
+            "Componentização",
+            "Frameworks",
+            "Prática de Estudo de Caso"
+        ],
+        "objetivo": [
+            "Aplicar padrões de projeto e técnicas profissionais de desenvolvimento de software em estudos de caso reais",
+            "Desenvolver um sistema de informação praticando todas as etapas do desenvolvimento de software profissiona"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - DESENVOLVIMENTO EM N CAMADAS",
+                "topicos": [
+                    "Fundamentos do desenvolvimento de software com arquiteturas avançadas",
+                    "Etapas e conceitos do desenvolvimento em n camadas"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - COMPONENTIZAÇÃO",
+                "topicos": [
+                    "Conceitos básicos e ambiente de desenvolvimento dos componentes",
+                    "Metodologias e ferramentas",
+                    "Prática de estudos de caso"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - FRAMEWORKS",
+                "topicos": [
+                    "Conceitos básicos e ambiente de desenvolvimento com frameworks",
+                    "Metodologias e ferramentas",
+                    "Prática de estudos de caso"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "Bezerra, E.. Princípios de Análise e Projeto de Sistemas com UML.. . Campus. 2007",
+            "Eric Gamma, et al. Padrões de Projeto. . Ed Bookman. 2009",
+            "Filho, W.P.P. Engenharia de Software: fundamentos, métodos e padrões.. 3a. ed.. LTC. 2009",
+            "Bezerra, E.. Princípios de Análise e Projeto de Sistemas com UML.. . Campus. 2007",
+            "Szyperski, Clemens. Component Software: Beyond Object-Oriented Programming. 2nd Edition. Addison Wesley Professional. 2003",
+            "Cornell, G.; Horstmann, C.. Core Java: Volume II - Recursos Avançados. . Makron Books. 2001"
+        ]
     },
     {
         "nome": "Tópicos Especiais em Inteligência Artificial",
         "codigo": "TN753",
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "ementa": [
+            "Introdução e Conceitos Básicos",
+            "Hierarquia do Aprendizado",
+            "Paradigmas de Aprendizado: Simbólico, Estatístico, Baseado em Exemplos, Conexionista e Evolutivo",
+            "Aprendizado Supervisionado: Conceitos e Definições",
+            "Métodos e Critérios de Avaliação e Comparação de Algoritmos de Aprendizado"
+        ],
+        "objetivo": [
+            "Compreender as principais técnicas e conceitos da área Aprendizado de Máquina e exemplos de aplicação",
+            "Desenvolver um raciocínio crítico, lógico e analítico voltado à concepção de soluções envolvendo a aplicação de Aprendizado de Máquina",
+            "Saber aplicar o algoritmo adequado de acordo com o problema",
+            "Saber interpretar os resultados dos algoritmos",
+            "Saber comparar o desempenho de diferentes algoritmos preditivos"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - FUNDAMENTOS",
+                "topicos": [
+                    "História do Aprendizado de Máquina",
+                    "Definição de Problemas de Aprendizado",
+                    "Design de um Sistema de Aprendizado",
+                    "Tipos de Aprendizado",
+                    "Aplicações"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - Metodologia Experimental",
+                "topicos": [
+                    "Visualização e Análise de Dados",
+                    "Métodos de Validação",
+                    "Métricas de Qualidade e Tempo",
+                    "Visualização e Análise de Resultados",
+                    "Teste de Hipótese"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - Engenharia de Atributos",
+                "topicos": [
+                    "Processamento e Representação de Atributos Categóricos e Numéricos",
+                    "Normalização de Atributos",
+                    "Seleção de Atributos",
+                    "Redução de Dimensionalidade"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - Seleção de Modelos",
+                "topicos": [
+                    "Generalização",
+                    "Regularização",
+                    "Ajuste de Parâmetros",
+                    "Métodos Ensemble"
+                ]
+            },
+            {
+                "unidade": "UNIDADE V - Métodos Preditivos",
+                "topicos": [
+                    "Algoritmos para Classificação",
+                    "Algoritmos para Regressão",
+                    "Algoritmos para Agrupamento",
+                    "Interpretação de Modelos"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "DUDA, Richard O. et al.. Pattern classification. 2nd. Edition.. Wiley. 2001",
+            "MITCHELL, Tom.. Machine Learning. . McGraw-Hill. 1997",
+            "BISHOP, Christopher M.. Pattern recognition and machine learning. 1st Ed.. Springer. 2006"
+        ]
     },
     {
         "nome": "Tópicos Especiais em Programação de Computadores",
         "codigo": "TM418",
+        "eixo": [
+            3
+        ],
         "carga_horaria": 60,
-        "periodo": -1
+        "periodo": -1,
+        "ementa": [
+            "Variável a cada semestre, ficando vinculado ao ementário adotado para a oferta no semestre"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - Arquitetura de computadores voltadas para programação paralela",
+                "topicos": [
+                    "Pipeline, computadores superescalares, multicores",
+                    "Coerência de cache em sistemas multiprocessados",
+                    "Arquitetura Flynn",
+                    "Clusters e grids"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - Programação em ambientes de Memória Compartilhada",
+                "topicos": [
+                    "Conceitos básicos: semáforos, exclusão mútua, sincronização, dependência de dados, problemas de sincronização clássicos",
+                    "Pthreads, OpenMP"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - Programação em ambientes de Memória Distribuída",
+                "topicos": [
+                    "Redes de interconexão",
+                    "Modelos de Comunicação: Mestre-escravo, Peer-to-Peer",
+                    "Operações de troca de mensagens: MPI"
+                ]
+            },
+            {
+                "unidade": "UNIDADE IV - Placas gráficas para computação de propósito geral (GPGPU)",
+                "topicos": [
+                    "Arquitetura de Hardware da GPU",
+                    "Hierarquia de memória",
+                    "Acesso as memórias - coalescência e não-coalescência de acesso",
+                    "Modelo de Programação SIMT (Single Instruction Multiple Threads",
+                    "WARP - Funcionamento de divergência",
+                    "Paralelismo dinâmico",
+                    "Multiplas GPUs (ambiente distribuído)",
+                    "CUDA Profiler como ferramenta de avaliação de performance"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "KUMAR, V.; KARYPIS, G.; GUPTA, A.; GRAMA, A.. Introduction to parallel computing. 2a ed.. Pearson. 2003",
+            "HWO, W.W.. Programming Massively Parallel Processors ? A Hands-on Approach. . Morgan- Kaufmann. 2010",
+            "COOK, S.. CUDA Programming: A Developer's Guide to Parallel Computing with GPUs (Applications of GPU Computing). . ELSEVIER. 2013",
+            "CHENG, J., GROSSMAN, M., MCKERCHER, T.. PROFESSIONAL CUDA C Programming. . NVIDIA. 2014"
+        ]
     },
     {
         "nome": "TRABALHO DE CONCLUSÃO DE CURSO I",
@@ -6542,7 +6873,7 @@
         "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO I",
         "codigo": "TN756",
         "carga_horaria": 60,
-        "periodo": 8
+        "periodo": 7
     },
     {
         "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO II",
@@ -6633,5 +6964,376 @@
         "codigo": "AB787",
         "carga_horaria": 30,
         "periodo": -2
+    },
+    {
+        "nome": "INTRODUÇÃO A PESQUISA OPERACIONAL",
+        "codigo": "TN738",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "eixo": [
+            1
+        ],
+        "ementa": [
+            "Modelos de Filas",
+            "Modelos de Estoque",
+            "Teoria de Decisão"
+        ]
+    },
+    {
+        "codigo": "AC785",
+        "nome": "LECIONAÇÃO DE CURSOS DE EXTENSÃO I",
+        "carga_horaria": 90,
+        "periodo": -1,
+        "ementa": [
+            "Introdução a conceitos de didática",
+            "Introdução a métodos e técnicas para o ensino de conteúdo tecnológico de forma expositiva",
+            "Introdução a noções de planejamento para apresentação de conteúdo tecnológico de forma expositiva",
+            "Introdução a estratégias de avaliação de aprendizagem",
+            "Aprofundamento do aprendizado do conteúdo tecnológico a ser lecionado nos cursos de extensão"
+        ]
+    },
+    {
+        "codigo": "AC786",
+        "nome": "LECIONAÇÃO DE CURSOS DE EXTENSÃO II",
+        "carga_horaria": 90,
+        "periodo": -1,
+        "ementa": [
+            "Métodos e técnicas para o ensino de conteúdo tecnológico de forma prática",
+            "Noções de planejamento para apresentação de conteúdo tecnológico na forma prática",
+            "Estratégias de avaliação de aprendizagem de conteúdo tecnológico prático",
+            "Especialização no conteúdo tecnológico prático a ser lecionado nos cursos de extensão"
+        ]
+    },
+    {
+        "nome": "LECIONAÇÃO DE CURSOS DE EXTENSÃO III",
+        "codigo": "AC787",
+        "carga_horaria": 90,
+        "periodo": -1,
+        "ementa": [
+            "Métodos e técnicas para o ensino de conteúdo tecnológico através da resolução de problemas",
+            "Noções de planejamento de atividades através da resolução de problemas práticos",
+            "Estratégias de orientação para resolução de problemas práticos",
+            "Especialização na resolução de problemas práticos com o conteúdo tecnológico a ser lecionado nos cursos de extensão"
+        ]
+    },
+    {
+        "codigo": "AC788",
+        "nome": "DESENVOLVIMENTO DE ARTEFATO TECNOLÓGICO I",
+        "carga_horaria": 90,
+        "periodo": -1,
+        "ementa": [
+            "Estudo de técnicas para a especificação de uma proposta de artefato tecnológico em software e/ou hardware",
+            "Estudo do impacto do artefato proposto na sociedade",
+            "Estudo de técnicas de documentação do artefato tecnológico proposto",
+            "Divulgação científica dos estudos a respeito do artefato tecnológico proposto"
+        ]
+    },
+    {
+        "codigo": "AC789",
+        "nome": "DESENVOLVIMENTO DE ARTEFATO TECNOLÓGICO II",
+        "carga_horaria": 90,
+        "periodo": -1,
+        "ementa": [
+            "Aplicação de técnicas para a implementação de um protótipo de artefato tecnológico em software e/ou hardware",
+            "Estudo de técnicas de teste e validação do protótipo de artefato tecnológico através de estudos de caso práticos",
+            "Divulgação científica e/ou treinamento de uso do protótipo de artefato tecnológico desenvolvido"
+        ]
+    },
+    {
+        "codigo": "AD781",
+        "nome": "DIVULGAÇÃO CIENTÍFICA EM SISTEMAS INTELIGENTES",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Tópicos especiais na área de Sistemas Inteligentes",
+            "Impacto dos tópicos especiais da área de Sistemas Inteligentes na sociedade",
+            "Introdução à divulgação científica na área de Sistemas Inteligentes"
+        ]
+    },
+    {
+        "codigo": "AD782",
+        "nome": "DIVULGAÇÃO CIENTÍFICA EM SISTEMAS DE COMPUTAÇÃO",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Tópicos especiais na área de Sistemas de Computação",
+            "Impacto dos tópicos especiais da área de Sistemas de Computação na sociedade",
+            "Introdução à divulgação científica na área de Sistemas de Computação"
+        ]
+    },
+    {
+        "nome": "DIVULGAÇÃO CIENTÍFICA EM ENGENHARIA DE SISTEMAS E INFORMAÇÃO",
+        "codigo": "AD783",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Tópicos especiais na área de Engenharia de Sistemas e Informação",
+            "Impacto dos tópicos especiais da área de Engenharia de Sistemas e Informação na sociedade",
+            "Introdução à divulgação científica na área de Engenharia de Sistemas e Informação"
+        ]
+    },
+    {
+        "nome": "DIVULGAÇÃO CIENTÍFICA EM ALGORITMOS E COMBINATÓRIA",
+        "codigo": "AD784",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Tópicos especiais na área de Algoritmos e Combinatória",
+            "Impacto dos tópicos especiais da área de Algoritmos e Combinatória na sociedade",
+            "Introdução à divulgação científica na área de Algoritmos e Combinatória"
+        ]
+    },
+    {
+        "nome": "SÉRIES",
+        "codigo": "IM467",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "objetivo": [
+            "Oferecer ao aluno um conhecimento sólido sobre séries numéricas e séries de funções e suas respectivas aplicações"
+        ],
+        "ementa": [
+            "Sequência e Séries numéricas",
+            "Sequência e Séries",
+            "Funções"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - SÉRIES NUMÉRICAS",
+                "topicos": [
+                    "Sequências numéricas",
+                    "Limite. Convergência, divergência de sequências",
+                    "Séries numéricas",
+                    "Somas parciais. Convergência, divergência de séries"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - SÉRIES DE FUNÇÕES",
+                "topicos": [
+                    "Definição e exemplos de séries de funções",
+                    "Limites",
+                    "Convergência de séries de funções",
+                    "Convergência pontual e Uniforme",
+                    "Séries de Potência, raio de convergência, testes de convergência",
+                    "Séries de Taylor e Mclaurin",
+                    "Série de Fourier, existência, determinação, convergência e aplicações"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "ANTON, M. A.. Cálculo. v.2. LTC. 1982",
+            "LIMA ,E.L. Análise Real. v.1. SBM. 1997",
+            "FIGUEIREDO, D. G. Análise de Fourier e Equações Diferenciais Parciais. 4ª ed. IMPA, Projeto Euclides. 2009"
+        ]
+    },
+    {
+        "nome": "EMPREENDEDORISMO EM INFORMÁTICA",
+        "codigo": "IM877",
+        "eixo": [
+            2
+        ],
+        "carga_horaria": 60,
+        "periodo": -1,
+        "objetivo": [
+            "Compreender como exercer o papel de empreendedor em pequenos empreendimentos",
+            "Conhecer e aplicar atitudes empreendedoras e ferramentas da administração de negócios",
+            "Compreender os fatores globais que influenciam o desenvolvimento dos negócios em informática",
+            "Desenvolver habilidades iniciais para planejamento e implantação de negócios tecnológicos"
+        ],
+        "ementa": [
+            "Estudo de mecanismos e procedimentos para criação de uma empresa",
+            "Estudar, analisar e desenvolver o perfil do empreendedor",
+            "Sistemas de Gerenciamento",
+            "Técnicas de Negociação Marketing",
+            "Análise de Casos",
+            "Elaboração de plano de negócios"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - INTRODUÇÃO",
+                "topicos": [
+                    "Histórico do empreendedorismo",
+                    "Conceitos básicos",
+                    "Contexto do empreendedorismo brasileiro e mundial",
+                    "Tipos de empreendedorismo",
+                    "Perfil do empreendedor"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - PROCESSO EMPREENDEDOR",
+                "topicos": [
+                    "Principais fases",
+                    "Fatores críticos",
+                    "Modelo de Timmons",
+                    "Geração de ideias, criatividade, processo criativo",
+                    "Identificação de oportunidades"
+                ]
+            },
+            {
+                "unidade": "UNIDADE III - PLANO DE NEGÓCIOS",
+                "topicos": [
+                    "Sumário executivo",
+                    "Produtos e serviços",
+                    "Mercado e competidores",
+                    "Marketing e vendas",
+                    "Plano operacional",
+                    "Plano financeiro"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - PROCESSO EMPREENDEDOR",
+                "topicos": [
+                    "Captação de recursos",
+                    "Questões legais",
+                    "Gestão do negócio",
+                    "Discurso de venda"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "DORNELAS, J. C. A.. Empreendedorismo: Transformando Ideias em Negócios. 5ª Ed.. Empreende/LTC. 2014",
+            "FERRARI, R.. Empreendedorismo para Computação. . Elsevier. 2010",
+            "DOLABELA, F.,. O Segredo de Luisa. . Cultura Editores Associados. 2003"
+        ]
+    },
+    {
+        "codigo": "IM879",
+        "nome": "SISTEMAS MULTÍMIDIA",
+        "eixo": [
+            3
+        ],
+        "carga_horaria": 60,
+        "periodo": -1
+    },
+    {
+        "nome": "GERÊNCIA DE PROJETOS",
+        "codigo": "TM419",
+        "eixo": [
+            2
+        ],
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Conceitos básicos da gerência de projetos",
+            "Metodologia de Gerência de Projetos",
+            "Planejamento Básico",
+            "Planejamento de Projetos",
+            "Estudo de viabilidade",
+            "Plano de Tarefas",
+            "Fatores Críticos de Sucesso Alocação de Recursos",
+            "Gerência de Projetos de Sistemas de Informação",
+            "Técnicas de Estimativa: tempo, custo, pessoal, produtividade",
+            "Modelo de Estimativa de esforço",
+            "Riscos: Análise e Gerência",
+            "Determinação do Cronograma de Projeto",
+            "Medida de Software"
+        ],
+        "objetivo": [
+            "Compreender os conceitos de gerência de projetos",
+            "Aplicar os conceitos de gerência de projeto em projetos de desenvolvimento de sistemas de informação"
+        ],
+        "conteudo_programatico": [
+            {
+                "unidade": "UNIDADE I - FUNDAMENTOS",
+                "topicos": [
+                    "Conceitos básicos da gerência de projetos",
+                    "Metodologia de Gerência de Projetos",
+                    "Planejamento Básico",
+                    "Planejamento de Projetos",
+                    "Estudo de viabilidade",
+                    "Plano de Tarefas",
+                    "Fatores Críticos de Sucesso",
+                    "Alocação de Recursos"
+                ]
+            },
+            {
+                "unidade": "UNIDADE II - GERÊNCIA DE PROJETOS DE SISTEMAS DE INFORMAÇÃO",
+                "topicos": [
+                    "Técnicas de Estimativa: tempo, custo, pessoal, produtividade",
+                    "Modelo de Estimativa de esforço",
+                    "Riscos em projetos de desenvolvimento de sistemas de informação 4.Análise e Gerência",
+                    "Determinação do Cronograma de Projeto",
+                    "Medida de Software"
+                ]
+            }
+        ],
+        "bibliografia_basica": [
+            "Martins, J. C. C. Gerenciando Projetos de Desenvolvimento de Software com PMI, RUP e UML. 4a edição. Rio de Janeiro: Brasport, 2007",
+            "Vazquez, C. E. SIMÕES, G. S. ALBERT, R. M. Análise de Pontos de Função: Medição, Estimativas e Gerenciamento de Projetos de Software. 5a Edição. São Paulo: Érica, 2003.",
+            "Fernandes, A. A. Gerência de software através de métricas: garantindo a qualidade do projeto, processo e produto. São Paulo: Atlas, 1995.",
+            "Lencar, A. J. Schmitz, E. A. Análise de Risco em Gerência de Projetos. Rio de Janeiro: Brasport, 2006. 5.Dolabela, F., O Segredo de Luisa, São Paulo: Cultura Editores Associados, 200"
+        ],
+        "bibliografia_complementar": [
+            "Souza, Sonia Maria Ribeiro de. Um outro olhar: filosofia. São Paulo, FTD, 1995",
+            "Ceruzzi, Paul E, 1998. A History of Modern Computing. Massachusetts, MIT Press",
+            "Edwards, Paul N., 1997. The Closed World : Computers and the Politics of Discourse in Cold War America. Massachussetts, MIT Press",
+            "Haraway, Donna J., 1991, Simians, cyborgs and women: the reinvention of nature. New York, Routledge",
+            "Hayles, N. Katherine , 1999, How We Became Posthuman : Virtual Bodies in Cybernetics, Literature, and Informatics. Chicago, University Of Chicago Press",
+            "Latour, Bruno, 1987, Science in Action. Massachusetts, Harvard University Press"
+        ]
+    },
+    {
+        "nome": "OTIMIZAÇÃO COMBINATÓRIA",
+        "codigo": "TM437",
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Formulações de problemas de Otimização Combinatória",
+            "Desigualdades válidas",
+            "Relaxação linear",
+            "Métodos de resolução exata",
+            "Programação dinâmica",
+            "Branch-and-bound",
+            "Bonecas russas",
+            "Branch-and-cut",
+            "Branch-and-price",
+            "Aplicações"
+        ]
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM BANCO DE DADOS E ENGENHARIA DE SOFTWARE",
+        "codigo": "TN752",
+        "eixo": [
+            2
+        ],
+        "carga_horaria": 60,
+        "periodo": -1,
+        "ementa": [
+            "Dificuldades no processamento de dados textuais",
+            "O processo de descoberta de conhecimento em textos (KDT) e áreas de conhecimento relacionadas",
+            "Pré-processamento de documentos textuais: etapas, técnicas e algoritmos",
+            "Representação de documentos",
+            "Tarefas de mineração de dados textuais: classificação de documentos, agrupamento de documentos, extração de informação e sumarização e algoritmos",
+            "Métricas de avaliação de desempenho",
+            "Exemplos de ferramentas e coleções de documentos",
+            "Exemplos de aplicações"
+        ]
+    },
+    {
+        "nome": "CICLO DE SEMINÁRIOS - COMPUTAÇÃO E SEUS IMPACTOS NA SOCIEDADE",
+        "codigo": "AC792",
+        "carga_horaria": 45,
+        "periodo": 1,
+        "ementa": [
+            "Desenvolvimento de prática extensionista a partir de eventos de divulgação para a comunidade acadêmica/externa de temas relevantes, consolidados ou emergentes, da ou relacionados à área da Computação"
+        ]
+    },
+    {
+        "nome": "CÁLCULO APLICADO",
+        "codigo": "TM406",
+        "carga_horaria": 60,
+        "periodo": 4,
+        "pre_requisito": [
+            {
+                "nome": "Cálculo II",
+                "codigo": "IM404"
+            }
+        ],
+        "ementa": [
+            "Funções com Valores Vetoriais",
+            "Integrais de Linha",
+            "Integrais de Superfície",
+            "Séries",
+            "Equações Diferenciais."
+        ]
     }
 ]

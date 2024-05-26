@@ -11,6 +11,7 @@ export default class extends BaseSchema {
       table.integer('periodo').notNullable()
       table.integer('creditos')
       table.integer('carga_horaria')
+      table.specificType('eixo', 'integer[]').defaultTo('{}')
       table.specificType('objetivo', 'text[]').defaultTo('{}')
       table.specificType('ementa', 'text[]').defaultTo('{}')
       table.specificType('bibliografia_basica', 'text[]').defaultTo('{}')
@@ -42,6 +43,5 @@ export default class extends BaseSchema {
     this.schema.dropTable('disciplinas')
     this.schema.dropTable('disciplina_pre_requisitos')
     this.schema.dropTable('conteudo_programaticos')
-    this.schema.dropTable('topicos')
   }
 }
