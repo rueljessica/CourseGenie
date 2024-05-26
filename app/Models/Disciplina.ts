@@ -28,6 +28,9 @@ export default class Disciplina extends BaseModel {
   public cargaHoraria: number
 
   @column()
+  public eixo: number[]
+
+  @column()
   public objetivo: string[]
 
   @column()

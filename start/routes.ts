@@ -81,6 +81,9 @@ Route.get('sobre', async ({ view }) => { return view.render('home/sobre') })
 // Rota para gerar usuários e disciplinas cursadas
 Route.get('/generateTestData/:id', 'TestDataController.index')
 
+// Rota para cadastrar turmas
+Route.get('turmas', 'TurmasController.create')
+
 // Rota para manipulação da imagem de perfil
 Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')
 
@@ -89,3 +92,5 @@ Route.get('/esqueci-senha', async ({ view }) => {
   return view.render('users/esqueci_senha')
 })* O QUE FAZER??*/ 
 
+// Rota para cadastrar turmas
+Route.get('teste', 'RecomendacaoGradesController.index')
