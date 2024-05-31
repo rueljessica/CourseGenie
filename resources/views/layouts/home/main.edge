@@ -27,12 +27,12 @@
     @!section('body')
 
     @if(auth.isAuthenticated)
-        @include('components/navbar_user')
+        @include('components/default/navbar_user')
     @else
-        @include('components/navbar')
+        @include('components/default/navbar')
     @endif
 
-    @include('components/banner')
+    @include('components/default/banner')
 
     <footer class="footer">
         
