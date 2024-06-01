@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
+    <title>{{ disciplina.nome }}</title>
     @entryPointStyles('app')
     @entryPointScripts('app')
     <script>
@@ -16,14 +16,19 @@
     </script>
   </head>
     @!section('body')
-    
-    @if(auth.isAuthenticated)
-      @include('components/default/navbar_user')
-    @else
-      @include('components/default/navbar')
-    @endif
-    
-    @include('components/default/sobre')
 
-  <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+    @if(auth.isAuthenticated)
+    @include('components/default/navbar_user')
+    @else
+        @include('components/default/navbar')
+    @endif
+
+    <section class="bg-gray-50 dark:bg-gray-900 sm:ml-64 md:h-screen p-4">
+        <div class="mt-20 text-center">
+            <h1 class="text-4xl font-bold tracking-wide text-gray-800 dark:text-white mb-4">Página Não Encontrada</h1>
+            <a href="/" class="text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-600">Voltar à página inicial</a>
+        </div>
+    </section>
+
+    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
 </html>

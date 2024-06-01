@@ -54,7 +54,7 @@ Route.group(() => {
   //Route.get('/recomendacao', 'RecomendacaoGradesController.index').as('recomendacao.get')
 }).middleware('auth')
 
-Route.get('/recomendacao', 'RecomendacaoGradesController.index').as('recomendacao.get')
+Route.get('/recomendacao', 'RecomendacaoGradesController.index').as('recomendacao.get') 
 
 // Professors Routes
 Route.get('/professores', 'ProfessorsController.list').middleware('auth')
