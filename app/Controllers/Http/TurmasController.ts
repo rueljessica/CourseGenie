@@ -114,12 +114,12 @@ export default class TurmasController {
                     if (turmaData.horario) {
                         turma.horario = turmaData.horario
                         const todosFormatadosCorretamente = turma.horario.flatMap((item) => {
-                            if (!/^[1-7]{2}[TN][1-5]$/.test(item)) {
-                                return false;
+                            if (/^[1-7]{2}[T|N][1-5]{1}$/.test(item)) {
+                                return true;
                             }
+                            return false;
                         });
-
-                        if (todosFormatadosCorretamente) {
+                        if (todosFormatadosCorretamente.every(Boolean)) {
                             turma.horario = turma.horario.flatMap((item) => {
                                 const dias = item.substring(0, 2);
                                 return [`${dias}T56`];
