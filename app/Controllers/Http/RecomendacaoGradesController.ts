@@ -385,23 +385,37 @@ export default class RecomendacaoGradesController {
 
     // Lista de turmas disponíveis após aplicar os filtros
     let turmasDisponiveis = await this.processTurmas(turmas, disciplinasCursadas, periodoAluno, eixosCount, user.id, limiteTurno);
+    /*turmasDisponiveis.forEach((turmaDispon) => {
+      console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
+        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
+        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
+        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
+    })
 
+    console.log('==========================================================')*/
     // Calcula o peso total para cada turma disponível
     turmasDisponiveis = this.calculaPesos(turmasDisponiveis);
 
+    let turmasRecomendadas: any[] = [];
+    let turmasRestantes: any[] = [];
+
     // Separar as turmas em duas listas: com periodoAtual e as restantes
-    let turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0);
-    let turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0);
+    if (turmasDisponiveis.length > numberOfDiscs) {
+      turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0);
+      turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0);
 
-    // Ordenar as listas pelo peso total em ordem decrescente
-    turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal);
-    turmasRestantes.sort((a, b) => b.pesoTotal - a.pesoTotal);
+      // Ordenar as listas pelo peso total em ordem decrescente
+      turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal);
+      turmasRestantes.sort((a, b) => b.pesoTotal - a.pesoTotal);
 
-    // Verifica se há turmas com o mesmo código na lista turmasRecomendadas
-    ({ turmasRecomendadas, turmasRestantes, numberOfDiscs } = this.ajustarTurmasRecomendadas(turmasRecomendadas, turmasRestantes, numberOfDiscs));
+      // Verifica se há turmas com o mesmo código na lista turmasRecomendadas
+      ({ turmasRecomendadas, turmasRestantes, numberOfDiscs } = this.ajustarTurmasRecomendadas(turmasRecomendadas, turmasRestantes, numberOfDiscs));
 
-    // Verifica se há turmas com choque de horarios
-    ({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs));
+      // Verifica se há turmas com choque de horarios
+      ({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs));
+    } else {
+      turmasRecomendadas = turmasDisponiveis;
+    }
 
     // Exibir as turmas
     turmasRecomendadas.forEach((turmaDispon) => {
