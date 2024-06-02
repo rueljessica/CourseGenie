@@ -1,7 +1,7 @@
 <div class="bg-white dark:bg-gray-700 p-2 shadow-md rounded-lg border-dashed flex flex-col mb-1 w-fit">
     <div class="flex items-center justify-between">
-        <span class="text-gray-500 dark:text-gray-400"> <span
-                class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo }}</span> -
+        <span class="text-gray-500 dark:text-gray-400"> <span class="text-gray-900 dark:text-gray-100">{{
+                turma.$attributes.codigo }}</span> -
             {{ turma.$attributes.nome }}</span>
         <svg data-popover-target="info" data-popover-placement=""
             class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-2"
@@ -21,8 +21,10 @@
             <div data-popper-arrow></div>
         </div>
     </div>
-    <span class="text-gray-900 dark:text-gray-100">Docente <span
-            class="text-gray-500 dark:text-gray-400">{{ turma.$preloaded.professor.nome }}</span></span>
-    <span class="text-gray-900 dark:text-gray-100">Turma <span
-            class="text-gray-500 dark:text-gray-400">{{ turma.$attributes.turma }}</span></span>
+    @if(turma.$preloaded.professor?.nome)
+    <span class="text-gray-900 dark:text-gray-100">Docente <span class="text-gray-500 dark:text-gray-400">{{
+            turma.$preloaded.professor.nome }}</span></span>
+    @endif
+    <span class="text-gray-900 dark:text-gray-100">Turma <span class="text-gray-500 dark:text-gray-400">{{
+            turma.$attributes.turma }}</span></span>
 </div>
