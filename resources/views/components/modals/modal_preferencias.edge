@@ -23,21 +23,22 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form id="configForm">
+            <form method="POST" action="{{ route('recomendacao.generate') }}" id="configForm">
+                {{ csrfField() }}
                 <div class="p-6 space-y-3 text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="sm:col-span-2">
                             <label for="numDisciplinas"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white tracking-wide">Quantas
                                 disciplinas deseja cursar?</label>
-                            <select id="numDisciplinas"
+                            <select id="numDisciplinas" name="numDisciplinas"
                                 class="bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm mt-1 rounded-lg block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0">
-                                <option selected>1</option>
+                                <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
-                                <option>6</option>
+                                <option selected>6</option>
                                 <option>7</option>
                                 <option>8</option>
                                 <option>9</option>
@@ -49,21 +50,21 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white tracking-wide">Indique
                                 sua(s) disponibilidade(s) de turno(s):</label>
                             <div class="inline-flex items-center mt-2 mr-4">
-                                <input id="manha" type="checkbox" value=""
+                                <input id="manha" name="manha" type="checkbox" checked="checked"
                                     class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600">
                                 <label for="default-checkbox"
                                     class="ms-1 text-sm font-medium tracking-wide text-gray-900 dark:text-gray-400 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0">Manhã
                                 </label>
                             </div>
                             <div class="inline-flex items-center mt-2 mr-4">
-                                <input id="default-checkbox" type="checkbox" value=""
+                                <input id="tarde" name="tarde" type="checkbox" checked="checked"
                                     class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600">
                                 <label for="default-checkbox"
                                     class="ms-1 text-sm font-medium text-gray-900 dark:text-gray-400 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0">Tarde
                                 </label>
                             </div>
                             <div class="inline-flex items-center mt-2">
-                                <input id="default-checkbox" type="checkbox" value=""
+                                <input id="noite" name="noite" type="checkbox"
                                     class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600">
                                 <label for="default-checkbox"
                                     class="ms-1 text-sm font-medium text-gray-900 dark:text-gray-400 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0">Noite
@@ -75,7 +76,7 @@
                 <!-- Modal footer -->
                 <div
                     class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-700">
-                    <button type="button" onclick="saveConfig()" class=" relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium
+                    <button type="submit" class=" relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium
                         text-gray-900 rounded-lg group bg-gradient-to-br from-violet-800 to-blue
                         group-hover:from-violet-800 group-hover:to-blue hover:text-white dark:text-white">
                         <span
@@ -83,7 +84,7 @@
                         </span>
                     </button>
                 </div>
-            </form>
+            </>
         </div>
     </div>
 </div>
