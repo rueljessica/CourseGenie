@@ -6,7 +6,8 @@
                     <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/tight text-dark">
                         <span class="mr-3 text-gray-800 dark:text-white">Sugestão de Grade Curricular</span>
                         <div class="flex items-center">
-                            <span class="font-medium text-gray-500 dark:text-gray-400 text-base">Editar Preferências</span>
+                            <span class="font-medium text-gray-500 dark:text-gray-400 text-base">Editar
+                                Preferências</span>
                             <button id="openModalButton" onclick="openModal()">
                                 <svg class="text-gray-400 dark:hover:text-gray-300 hover:text-gray-500 mt-5 ml-4 h-6 transform -translate-x-1/2 -translate-y-1/2 transition duration-300 hover:rotate-90"
                                     data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
@@ -250,8 +251,9 @@
                                 <h4 class="text-sm text-slate-400">
                                     @each(turma in turmasRestantes)
                                     <span class="text-gray-500 dark:text-gray-400"> <span
-                                        class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo }}</span> -
-                                    {{ turma.$attributes.nome }}</span>
+                                            class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo
+                                            }}</span> -
+                                        {{ turma.$attributes.nome }}</span>
                                     @endeach
                                 </h4>
                             </div>
@@ -267,11 +269,11 @@
     document.addEventListener('DOMContentLoaded', () => {
         const configModal = document.getElementById('configModal');
         const openModalButton = document.getElementById('openModalButton');
-
-        // Verifica o localStorage para ver se as configurações foram salvas anteriormente
-        if (!localStorage.getItem('configSaved')) {
+        const rec = '{{ rec }}';
+        if (rec.toLowerCase() !== 'true') {
             configModal.classList.remove('hidden');
         } else {
+            configModal.classList.add('hidden');
             openModalButton.classList.remove('hidden');
         }
     });
@@ -279,18 +281,6 @@
     function openModal() {
         const configModal = document.getElementById('configModal');
         configModal.classList.remove('hidden');
-    }
-
-    // Função para salvar as configurações e fechar o modal
-    function saveConfig() {
-        const configModal = document.getElementById('configModal');
-        const openModalButton = document.getElementById('openModalButton');
-
-        // Salva as preferências do usuário (você pode adicionar mais lógica aqui)
-        localStorage.setItem('configSaved', 'true');
-            
-        configModal.classList.add('hidden');
-        openModalButton.classList.remove('hidden');
     }
 
     function closeEditModal() {

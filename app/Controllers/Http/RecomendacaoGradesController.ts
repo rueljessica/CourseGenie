@@ -49,10 +49,7 @@ export default class RecomendacaoGradesController {
   private async discCursada(turma, disciplinasCursadas): Promise<boolean> {
     const disciplina = await Disciplina.query().where('id', turma.disciplinaId).first()
     if (disciplina) {
-      return disciplinasCursadas.some(
-        (disciplinaC) =>
-          disciplinaC.codigo === disciplina.codigo || disciplinaC.equivalenciaId === disciplina.id
-      )
+      return disciplinasCursadas.some((disciplinaC) => disciplinaC.codigo === disciplina.codigo || disciplinaC.equivalenciaId === disciplina.id)
     }
     return false
   }
@@ -66,16 +63,11 @@ export default class RecomendacaoGradesController {
       .first()
 
     if (disciplina) {
-      if (!disciplina.preRequisitos || disciplina.preRequisitos.length === 0) {
+      if (!disciplina.preRequisitos || disciplina.preRequisitos.length === 0)
         return true
-      }
 
       return disciplina.preRequisitos.every((preRequisito) =>
-        disciplinasCursadas.some(
-          (disciplinaC) =>
-            disciplinaC.codigo === preRequisito.codigo ||
-            disciplinaC.equivalenciaId === preRequisito.id
-        )
+        disciplinasCursadas.some((disciplinaC) => disciplinaC.codigo === preRequisito.codigo || disciplinaC.equivalenciaId === preRequisito.id)
       )
     }
     return false
@@ -88,13 +80,11 @@ export default class RecomendacaoGradesController {
 
   private async obAnterioresPreReq(turma, periodo): Promise<boolean> {
     const disciplina = await Disciplina.query().where('id', turma.disciplinaId).first()
-    if (disciplina && (disciplina.periodo >= periodo || disciplina.periodo < 1)) {
+    if (disciplina && (disciplina.periodo >= periodo || disciplina.periodo < 1))
       return false
-    }
-    const preRequisitos = await DisciplinaPreRequisito.query().where(
-      'pre_requisito_id',
-      disciplina?.id
-    )
+
+    const preRequisitos = await DisciplinaPreRequisito.query().where('pre_requisito_id', disciplina?.id)
+
     const validacao = await Promise.all(
       preRequisitos.map(async (preRequisito) => {
         const disciplina = await Disciplina.query().where('id', preRequisito.disciplinaId).first()
@@ -107,10 +97,7 @@ export default class RecomendacaoGradesController {
   private async obAnteriores(turma, periodo): Promise<boolean> {
     const disciplina = await Disciplina.query().where('id', turma.disciplinaId).first()
     if (disciplina && disciplina.periodo < periodo && disciplina.periodo >= 1) {
-      const preRequisitos = await DisciplinaPreRequisito.query().where(
-        'pre_requisito_id',
-        disciplina.id
-      )
+      const preRequisitos = await DisciplinaPreRequisito.query().where('pre_requisito_id', disciplina.id)
       return preRequisitos.length === 0
     }
     return false
@@ -141,13 +128,10 @@ export default class RecomendacaoGradesController {
 
       if (disciplinasProfessor.length !== 0) {
         const regex = /^A[A-D][0-9]{3}$/
-        const disciplinasFiltradas = disciplinasProfessor.filter(
-          (disciplina) => !regex.test(disciplina.codigo)
-        )
+        const disciplinasFiltradas = disciplinasProfessor.filter((disciplina) => !regex.test(disciplina.codigo))
 
-        if (disciplinasFiltradas.length === 0) {
+        if (disciplinasFiltradas.length === 0)
           return 0
-        }
 
         const totalAprovacoes = disciplinasFiltradas.filter((disciplinaCursada) =>
           ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'].includes(
@@ -183,13 +167,9 @@ export default class RecomendacaoGradesController {
 
       if (disciplinasProfessor.length !== 0) {
         const regex = /^A[A-D][0-9]{3}$/
-        const disciplinasFiltradas = disciplinasProfessor.filter(
-          (disciplina) => !regex.test(disciplina.codigo)
-        )
+        const disciplinasFiltradas = disciplinasProfessor.filter((disciplina) => !regex.test(disciplina.codigo))
 
-        if (disciplinasFiltradas.length === 0) {
-          return 0
-        }
+        if (disciplinasFiltradas.length === 0) return 0
 
         const totalNotas = disciplinasFiltradas.reduce((total, disciplina) => {
           return total + (disciplina.media || 0)
@@ -213,14 +193,7 @@ export default class RecomendacaoGradesController {
     return parseFloat((totalNotas / disciplinas.length).toFixed(1))
   }
 
-  private async processTurmas(
-    turmas,
-    disciplinasCursadas,
-    periodoAluno,
-    eixosCount,
-    userId,
-    limiteTurno
-  ) {
+  private async processTurmas(turmas, disciplinasCursadas, periodoAluno, eixosCount, userId, limiteTurno) {
     let turmasDisponiveis = await Promise.all(
       turmas.map(async (turma) => {
         // Verifica se a turma já foi cursada pelo usuário
@@ -329,9 +302,7 @@ export default class RecomendacaoGradesController {
 
   private ajustarTurmasRecomendadas(turmasRecomendadas, turmasRestantes, numberOfDiscs) {
     const codigosTurmas = turmasRecomendadas.map((turma) => turma?.$attributes.codigo)
-    const duplicatasCodigo = codigosTurmas.filter(
-      (codigo, index) => codigosTurmas.indexOf(codigo) !== index
-    )
+    const duplicatasCodigo = codigosTurmas.filter((codigo, index) => codigosTurmas.indexOf(codigo) !== index)
 
     numberOfDiscs += duplicatasCodigo.length
 
@@ -365,10 +336,7 @@ export default class RecomendacaoGradesController {
       const numeroDuplicatasHorario = Math.floor(horariosComuns.length / 2)
       // Atualiza a lista de turmas se houver duplicatas
       if (turmasRecomendadas.length < numberOfDiscs + numeroDuplicatasHorario) {
-        const turmasAdicionais = turmasRestantes.slice(
-          0,
-          numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length
-        )
+        const turmasAdicionais = turmasRestantes.slice(0, numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length)
         turmasRecomendadas = [...turmasRecomendadas, ...turmasAdicionais]
         turmasRestantes = turmasRestantes.slice(turmasAdicionais.length)
       } else {
@@ -378,131 +346,84 @@ export default class RecomendacaoGradesController {
     return { turmasRecomendadas, turmasRestantes }
   }
 
-  public async index({ auth, view }: HttpContextContract) {
-    let numberOfDiscs = 5
-    const limiteTurno = []
-    const anoAtual = 2024
-    const periodoAtual = 1
+  private trataInput(data) {
+    const numberOfDiscs = parseInt(data.numDisciplinas);
+    let limiteTurno = ['M', 'T', 'N'];
 
-    const user = await User.findOrFail(auth.user?.id)
+    limiteTurno = data.manha ? limiteTurno.filter(item => item !== 'M') : limiteTurno;
+    limiteTurno = data.tarde ? limiteTurno.filter(item => item !== 'T') : limiteTurno;
+    limiteTurno = data.noite ? limiteTurno.filter(item => item !== 'N') : limiteTurno;
 
-    const anoLetivo = user.anoLetivo.split('.')
-    //const anoLetivo = ["2023", "1"];
-    const periodoAluno = (anoAtual - parseInt(anoLetivo[0])) * 2 + periodoAtual
+    return { numberOfDiscs, limiteTurno };
+  }
+
+  public async generate({ auth, request, view }: HttpContextContract) {
+    const data = request.all();
+    let { numberOfDiscs, limiteTurno } = this.trataInput(data);
+
+    const anoAtual = 2024;
+    const periodoAtual = 1;
+
+    const user = await User.findOrFail(auth.user?.id);
+
+    const anoLetivo = user.anoLetivo.split('.');
+    const periodoAluno = (anoAtual - parseInt(anoLetivo[0])) * 2 + periodoAtual;
 
     const turmas = await Turma.query()
       .where('ano', anoAtual)
       .where('periodo', periodoAtual)
       .preload('professor', (professor) => {
         professor.select(['id', 'nome'])
-      })
+      });
 
     // Busca as disciplinas cursadas pelo usuário
     const disciplinasCursadas = await DisciplinasCursadas.query()
       .where('user_id', user.id)
-      .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP'])
+      .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
 
-    let eixosCount = await this.verificaEixos(disciplinasCursadas)
+    let eixosCount = await this.verificaEixos(disciplinasCursadas);
 
     // Lista de turmas disponíveis após aplicar os filtros
-    let turmasDisponiveis = await this.processTurmas(
-      turmas,
-      disciplinasCursadas,
-      periodoAluno,
-      eixosCount,
-      user.id,
-      limiteTurno
-    )
+    let turmasDisponiveis = await this.processTurmas(turmas, disciplinasCursadas, periodoAluno, eixosCount, user.id, limiteTurno);
 
     // Calcula o peso total para cada turma disponível
-    turmasDisponiveis = this.calculaPesos(turmasDisponiveis)
+    turmasDisponiveis = this.calculaPesos(turmasDisponiveis);
 
     // Separar as turmas em duas listas: com periodoAtual e as restantes
-    let turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0)
-    let turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0)
+    let turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0);
+    let turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0);
 
     // Ordenar as listas pelo peso total em ordem decrescente
-    turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal)
-    turmasRestantes.sort((a, b) => b.pesoTotal - a.pesoTotal)
+    turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal);
+    turmasRestantes.sort((a, b) => b.pesoTotal - a.pesoTotal);
 
     // Verifica se há turmas com o mesmo código na lista turmasRecomendadas
-    ;({ turmasRecomendadas, turmasRestantes, numberOfDiscs } = this.ajustarTurmasRecomendadas(
-      turmasRecomendadas,
-      turmasRestantes,
-      numberOfDiscs
-    ))
+    ({ turmasRecomendadas, turmasRestantes, numberOfDiscs } = this.ajustarTurmasRecomendadas(turmasRecomendadas, turmasRestantes, numberOfDiscs));
 
     // Verifica se há turmas com choque de horarios
-    ;({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(
-      turmasRecomendadas,
-      turmasRestantes,
-      numberOfDiscs
-    ))
+    ({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs));
 
     // Exibir as turmas
-    turmasRecomendadas.forEach((turmaDispon) => {
-      console.log(
-        turmaDispon?.$attributes.nome +
-          ' | ' +
-          turmaDispon?.$attributes.codigo +
-          ' | ' +
-          turmaDispon?.$attributes.turma +
-          ' | ' +
-          turmaDispon?.$attributes.horario +
-          ' | ' +
-          turmaDispon?.periodoAtual +
-          ' | ' +
-          turmaDispon?.periodoAnteriorPreReq +
-          ' | ' +
-          turmaDispon?.periodoAnterior +
-          ' | ' +
-          turmaDispon?.complementaEixo +
-          ' | ' +
-          turmaDispon?.indiceAprProfessor +
-          ' | ' +
-          turmaDispon?.indiceAprDisciplina +
-          ' | ' +
-          turmaDispon?.mediaProfessor +
-          ' | ' +
-          turmaDispon?.mediaDisciplina +
-          ' | ' +
-          turmaDispon?.pesoTotal
-      )
+    turmasRecomendadas.forEach((turmaDispon) => { 
+      console.log(turmaDispon?.$attributes.nome +  ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
+      turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' + 
+      turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
+      turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
+
     console.log('----------------------------------------------------------------')
-    turmasRestantes.forEach((turmaDispon) => {
-      console.log(
-        turmaDispon?.$attributes.nome +
-          ' | ' +
-          turmaDispon?.$attributes.codigo +
-          ' | ' +
-          turmaDispon?.$attributes.turma +
-          ' | ' +
-          turmaDispon?.$attributes.horario +
-          ' | ' +
-          turmaDispon?.periodoAtual +
-          ' | ' +
-          turmaDispon?.periodoAnteriorPreReq +
-          ' | ' +
-          turmaDispon?.periodoAnterior +
-          ' | ' +
-          turmaDispon?.complementaEixo +
-          ' | ' +
-          turmaDispon?.indiceAprProfessor +
-          ' | ' +
-          turmaDispon?.indiceAprDisciplina +
-          ' | ' +
-          turmaDispon?.mediaProfessor +
-          ' | ' +
-          turmaDispon?.mediaDisciplina +
-          ' | ' +
-          turmaDispon?.pesoTotal
-      )
+    // Exibir as turmas restantes
+    turmasRestantes.forEach((turmaDispon) => { 
+      console.log(turmaDispon?.$attributes.nome +  ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
+      turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' + 
+      turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
+      turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
 
     return view.render('disciplinas/recomendacao', {
       turmasRecomendadas,
-      turmasRestantes
+      turmasRestantes,
+      rec: true
     })
   }
 }
