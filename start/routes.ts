@@ -74,9 +74,3 @@ Route.get('turmas', 'TurmasController.create')
 
 // Rota para manipulação da imagem de perfil
 Route.get('/file/:id', 'FilesController.show').as('files.show').middleware('auth')
-
-/*
-Route.get('/esqueci-senha', async ({ view }) => {
-  return view.render('users/esqueci_senha')
-})* O QUE FAZER??*/ 
-

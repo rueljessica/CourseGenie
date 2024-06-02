@@ -2,7 +2,7 @@
     <form id="loginForm" method="POST" action="{{ route('auth.login')}}"> {{ csrfField() }}
         <div class="flex flex-col flex-shrink-0 overflow-hidden items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="w-full bg-white shadow-md rounded-lg sm:max-w-md dark:bg-gray-800 dark:border-gray-700">
-                <h2 class="mt-5 text-center text-2xl font-sans leading-9 tracking-wide text-gray-900 dark:text-white">Entre na sua conta</h2>
+                <h2 class="mt-5 text-center text-2xl font-sans leading-9 tracking-wide text-gray-900 dark:text-white">Acessar conta</h2>
                 @if(flashMessages.has('toast'))
                     <!--TOAST-->
                     <div id="{{flashMessages.get('toast')}}" class="flex fixed top-24 -right-0 items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
@@ -20,7 +20,7 @@
                         </button>
                     </div>
                 @endif
-                <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form class="space-y-6" action="#" method="POST">
                     <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">E-mail</label>
@@ -37,11 +37,8 @@
                         <input id="password" name="password" type="password" autocomplete="current-password" required
                             class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0">
                         </div>
-                        <div class="text-sm mt-2 text-end">
-                        <a href="/esqueci-senha" class="font-medium text-gray-600 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100e">Esqueceu a senha?</a>
-                        </div>
                     </div>
-                    <div class="flex justify-center">
+                    <div class="flex justify-center mt-5">
                         <button type="submit" id="loginButton" class="relative inline-flex items-center justify-center p-0.5 mb-5 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-violet-800 to-blue group-hover:from-violet-800 group-hover:to-blue hover:text-white dark:text-white">
                             <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-800 rounded-md group-hover:bg-opacity-0">Entrar</span>
                         </button>
