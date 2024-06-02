@@ -26,8 +26,11 @@
                             <label for="senha"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
                             <input type="password" name="password" id="password" placeholder="••••••••"
-                                class="bblock p-2.5 border rounded-lg border-gray-300 w-full text-sm dark:border-gray-600 dark:bg-gray-700 form-input text-gray-600 dark:text-gray-300 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
-                                required="">
+                                class="block p-2.5 border rounded-lg border-gray-300 w-full text-sm dark:border-gray-600 dark:bg-gray-700 form-input text-gray-600 dark:text-gray-300 focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
+                                minlength="6" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Za-z]).{6,}$"
+                                title="A senha deve ter pelo menos 6 caracteres, incluindo um número e um caractere especial."
+                                required>
+                            <div id="passwordError" class="text-red-600 mt-2"></div>
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
