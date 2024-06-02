@@ -209,7 +209,7 @@ export default class RecomendacaoGradesController {
           turma.horario.toString().includes(turno)
         )
 
-        if (contemLimiteTurno) return null
+        if (contemLimiteTurno && !['TN756', 'TN757'].includes(turma.codigo)) return null; // isenta as disciplinas de orientação
 
         return {
           ...turma,
@@ -404,20 +404,20 @@ export default class RecomendacaoGradesController {
     ({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs));
 
     // Exibir as turmas
-    turmasRecomendadas.forEach((turmaDispon) => { 
-      console.log(turmaDispon?.$attributes.nome +  ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
-      turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' + 
-      turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
-      turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
+    turmasRecomendadas.forEach((turmaDispon) => {
+      console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
+        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
+        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
+        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
 
     console.log('----------------------------------------------------------------')
     // Exibir as turmas restantes
-    turmasRestantes.forEach((turmaDispon) => { 
-      console.log(turmaDispon?.$attributes.nome +  ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
-      turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' + 
-      turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
-      turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
+    turmasRestantes.forEach((turmaDispon) => {
+      console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
+        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
+        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
+        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
 
     return view.render('disciplinas/recomendacao', {
