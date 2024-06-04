@@ -6878,6 +6878,12 @@
     {
         "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO II",
         "codigo": "TN757",
+        "pre_requisito": [
+            {
+                "nome": "ORIENTAÇÃO DE TRABALHO CONCLUSÃO DE CURSO I",
+                "codigo": "TN756"
+            }
+        ],
         "carga_horaria": 60,
         "periodo": 8
     },

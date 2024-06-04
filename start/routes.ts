@@ -51,10 +51,9 @@ Route.group(() => {
   Route.get('/quinto-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_cinco') })
   Route.get('/sexto-periodo', async ({ view }) => { return view.render('disciplinas/periodos/periodo_seis') })
   Route.get('/optativas', async ({ view }) => { return view.render('disciplinas/optativas') })
-  //Route.get('/recomendacao', 'RecomendacaoGradesController.index').as('recomendacao.get')
+  Route.get('/recomendacao', async ({ view }) => { return view.render('disciplinas/recomendacao') })
+  Route.post('/recomendacao', 'RecomendacaoGradesController.generate').as('recomendacao.generate')
 }).middleware('auth')
-
-Route.get('/recomendacao', 'RecomendacaoGradesController.index').as('recomendacao.get') 
 
 // Professors Routes
 Route.get('/professores', 'ProfessorsController.list').middleware('auth')

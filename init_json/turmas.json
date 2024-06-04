@@ -215,6 +215,9 @@
         "ano": "2024",
         "periodo": "1",
         "turma": "15",
+        "horario": [
+            "35M23"
+        ],
         "capacidade": 45
     },
     {
@@ -223,6 +226,10 @@
         "ano": "2024",
         "periodo": "1",
         "turma": "16",
+        "horario": [
+            "24T5",
+            "24N1"
+        ],
         "capacidade": 45
     },
     {
@@ -231,6 +238,9 @@
         "ano": "2024",
         "periodo": "1",
         "turma": "15",
+        "horario": [
+            "46M23"
+        ],
         "capacidade": 45
     },
     {
@@ -239,6 +249,10 @@
         "ano": "2024",
         "periodo": "1",
         "turma": "16",
+        "horario": [
+            "35T5",
+            "35N1"
+        ],
         "capacidade": 45
     },
     {
@@ -370,7 +384,7 @@
         "professor": "RONALDO MALHEIROS GREGORIO",
         "horario": [
             "2N45",
-            "5N23" 
+            "5N23"
         ],
         "local": "Bloco Administrativo - Sala 305 - Segunda Horários 20:00 às 21:00Bloco Administrativo - Sala 305 - Segunda Horários 21:00 às 22:00Bloco Administrativo - Sala 305 - Quinta Horários 18:00 às 19:00Bloco Administrativo - Sala 305 - Quinta Horários 19:00 às 20:00",
         "capacidade": 30
@@ -384,7 +398,7 @@
         "professor": "ERITO MARQUES DE SOUZA FILHO",
         "horario": [
             "34T5",
-            "34N1" 
+            "34N1"
         ],
         "local": "Bloco Multimídia - Sala 210 - Terça Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Quarta Horários 16:00 às 17:00Bloco Multimídia - Sala 210 - Terça Horários 17:00 às 18:00Bloco Multimídia - Sala 210 - Quarta Horários 17:00 às 18:00",
         "capacidade": 60
