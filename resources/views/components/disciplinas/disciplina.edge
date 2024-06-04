@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 h-screen p-4 sm:ml-64 overflow-auto">
+<section class="bg-gray-50 dark:bg-gray-900 h-screen p-4 sm:ml-64 sm:overflow-auto">
     <div class="grid grid-cols-1 mt-16">
         <div id="toast" class="fixed top-20 right-4 w-full max-w-xs p-4 text-gray-500 bg-gray-50 rounded-lg shadow dark:bg-gray-700 dark:text-gray-400" role="alert">
             <div class="flex">
@@ -20,10 +20,7 @@
                 </button>
             </div>
         </div>
-        <div>
-            <span class="text-gray-900 dark:text-white text-3xl pl-2">{{disciplina.nome}}</span>
-            <span class="text-gray-500 dark:text-gray-400 text-lg pl-1">{{disciplina.codigo}}</span>
-        </div>
+        <span class="text-gray-900 dark:text-white text-3xl pl-2 pb-1"> {{disciplina.codigo}} - {{disciplina.nome}}</span>
         <div class="col-span-1">
             <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 p-5 h-80 overflow-auto">
                 <div>
