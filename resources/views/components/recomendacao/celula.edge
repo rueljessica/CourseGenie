@@ -1,28 +1,32 @@
-<div class="bg-white dark:bg-gray-700 p-2 shadow-md rounded-lg border-dashed flex flex-col mb-1 w-fit">
+<div class="bg-white dark:bg-gray-700 p-2 shadow-md rounded-lg border-dashed flex flex-col mb-1 w-52">
     <div class="flex items-center justify-between">
-        <span class="text-gray-500 dark:text-gray-400"> <span
-                class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo }}</span> -
-            {{ turma.$attributes.nome }}</span>
-        <svg data-popover-target="info" data-popover-placement=""
-            class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-2"
-            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z" />
-        </svg>
-        <div data-popover id="info" role="tooltip"
-            class="absolute z-10 invisible inline-block text-gray-500 transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:text-gray-400">
-            <div class="p-3">
-                <h3 class="text-gray-900 dark:text-white">Aproveitamento:
-                </h3>
-                <p>{{turma.pesoTotal}}</p>
-                <h3 class="text-gray-900 dark:text-white">Calculation</h3>
-                <p></p>
-            </div>
-            <div data-popper-arrow></div>
+        <span class="text-gray-500 dark:text-gray-400"> 
+            <span class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo }}</span> - {{ turma.$attributes.nome }}
+        </span>
+    </div>
+    <span class="text-gray-900 dark:text-gray-100">Docente 
+        <span class="text-gray-500 dark:text-gray-400">{{ turma.$preloaded.professor.nome }}</span>
+    </span>
+
+    <div class="flex items-center justify-between">
+        <span class="text-gray-900 dark:text-gray-100">Turma 
+            <span class="text-gray-500 dark:text-gray-400">{{ turma.$attributes.turma }}</span>
+        </span>
+        <div class="">
+            <span data-tippy-content="Aproveitamento: {{turma.pesoTotal}}%" class="text-gray-800 font-medium hover:text-gray-600 dark:hover:text-gray-300 dark:text-gray-400">
+                <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z" />
+                </svg>
+            </span>
         </div>
     </div>
-    <span class="text-gray-900 dark:text-gray-100">Docente <span
-            class="text-gray-500 dark:text-gray-400">{{ turma.$preloaded.professor.nome }}</span></span>
-    <span class="text-gray-900 dark:text-gray-100">Turma <span
-            class="text-gray-500 dark:text-gray-400">{{ turma.$attributes.turma }}</span></span>
 </div>
+
+<script>
+    tippy('[data-tippy-content]', {
+        theme: 'custom',
+        animation: 'shift-away',
+        placement: 'bottom'
+    });
+</script>
+

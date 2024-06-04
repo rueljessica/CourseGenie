@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    @entryPointStyles('app')
-    @entryPointScripts('app')
-    <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-      } else {
-          document.documentElement.classList.remove('dark')
-      }
-    </script>
-  </head>
-    @!section('body')
 
-    @include('components/default/sidebar')
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+  <style>
+    /* Estilo personalizado para o tema Tippy.js */
+    .tippy-box[data-theme~='custom'] {
+      background-color: #121317;
+      color: #fff;
+      border-radius: 10px;
+      padding: 5px;
+      font-size: 13px;
+    }
 
-    @include('components/recomendacao/recomendacao')
+    .tippy-box[data-theme~='custom'] .tippy-arrow {
+      color: #121317;
+    }
+  </style>
+</head>
+@!section('body')
 
-    <script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+@include('components/default/sidebar')
+
+@include('components/recomendacao/recomendacao')
+
+<script src={{"../path/to/flowbite/dist/flowbite.min.js"}}></script>
+
 </html>
