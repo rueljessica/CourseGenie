@@ -9,6 +9,7 @@
                 <div id="{{flashMessages.get('toast')}}"
                     class="flex fixed top-24 -right-0 items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
                     role="alert">
+                    @if(flashMessages.get('toast') == 'toast-success')
                     <div
                         class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
                         <svg class="w-5 h-5" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
@@ -16,8 +17,17 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
                         </svg>
                     </div>
+                    @endif
+                    @if(flashMessages.get('toast') == 'toast-danger')
+                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"/>
+                        </svg>
+                    </div>
+                    @endif
                     <div class="ms-3 text-sm font-normal text-gray-700 dark:text-white">
-                        {{flashMessages.get('notification')}}</div>
+                        {{flashMessages.get('notification')}}
+                    </div>
                     <button type="button"
                         class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                         data-dismiss-target="#{{flashMessages.get('toast')}}" aria-label="Close">
@@ -35,14 +45,18 @@
                         Senha</label>
                     <input type="password" name="password" id="password" placeholder="••••••••"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
-                        required="">
+                        minlength="6" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Za-z]).{6,}$"
+                        title="A senha deve ter pelo menos 6 caracteres, incluindo um número e um caractere especial."
+                        required>
                 </div>
                 <div class="pb-3">
-                    <label for="confirm-password"
+                    <label for="confirmPassword"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar senha</label>
-                    <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••"
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none dark:focus:outline-none focus:ring-0 dark:focus:ring-0"
-                        required="">
+                        minlength="6" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Za-z]).{6,}$"
+                        title="A senha deve ter pelo menos 6 caracteres, incluindo um número e um caractere especial."
+                        required>
                 </div>
                 <div class="flex justify-center">
                     <button id="reset-confirm-btn" type="submit"
