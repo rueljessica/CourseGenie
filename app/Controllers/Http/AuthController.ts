@@ -119,17 +119,26 @@ export default class AuthController {
 
     public async registerUpdate({ auth, request, response, session }: HttpContextContract) {
         try {
-            var password = await Hash.make(request.input('password'))
+            var password = request.input('password')
+            var confirmPassword = request.input('confirmPassword')
+
+            console.log(password +"|" + confirmPassword)
+            if(password !== confirmPassword){
+                throw "Senhas diferentes."
+            }
+
             await User
                 .query()
                 .where('email', auth.user?.email)
-                .update({ password: password })
+                .update({ password: await Hash.make(password) })
 
             session.flash('notification', 'Senha alterada com sucesso!')
             session.flash('toast', 'toast-success')
             return response.redirect('back')
         } catch (error) {
-            response.badRequest('Não foi possível executar a alteração de senha' + error.messages) // criar pg/pop para falha na alteração
+            session.flash('notification', error)
+            session.flash('toast', 'toast-danger')
+            return response.redirect('back')
         }
     }
 
