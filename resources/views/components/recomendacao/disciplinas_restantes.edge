@@ -2,7 +2,7 @@
     <div class="w-[1500px] flex items-center justify-center">
         <div class="grid grid-cols-3 gap-4">
             @each(turma in turmasRecomendadas)
-            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full border border-green-300">
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full m-5" id="turma">
                 <div>
                     <div class="px-4 sm:px-0">
                         <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
@@ -30,7 +30,7 @@
                             <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
                                 <dt class="font-medium leading-6 text-gray-900 dark:text-white">Horário</dt>
                                 <dd
-                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide" id="horario">
                                     {{ turma.$attributes.horario }}
                                 </dd>
                             </div>
@@ -100,11 +100,17 @@
                         Média da Disciplina: {{ turma.mediaDisciplina }}
                     </span>
                     @endif
+                    <span style="background-color:red"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2 hidden" id="choque">
+                        CHOQUE
+                    </span>
                 </div>
             </div>
             @endeach
+        </div>
+        <div class="grid grid-cols-3 gap-4">
             @each(turma in turmasRestantes)
-            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full">
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full" id="turma">
                 <div>
                     <div class="px-4 sm:px-0">
                         <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
@@ -113,6 +119,7 @@
                     </div>
                     <div class="mt-5 ">
                         <dl class="divide-y divide-gray-300 dark:divide-gray-600">
+                            @if(turma.$preloaded.professor)
                             <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
                                 <dt class="font-medium leading-6 text-gray-900 dark:text-white">Docente</dt>
                                 <dd
@@ -120,6 +127,7 @@
                                     {{ turma.$preloaded.professor.nome }}
                                 </dd>
                             </div>
+                            @endif
                             <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
                                 <dt class="font-medium leading-6 text-gray-900 dark:text-white">Turma</dt>
                                 <dd
@@ -130,7 +138,7 @@
                             <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
                                 <dt class="font-medium leading-6 text-gray-900 dark:text-white">Horário</dt>
                                 <dd
-                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide" id="horario">
                                     {{ turma.$attributes.horario }}
                                 </dd>
                             </div>
@@ -200,6 +208,10 @@
                         Média da Disciplina: {{ turma.mediaDisciplina }}
                     </span>
                     @endif
+                    <span style="background-color:red"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2 hidden" id="choque">
+                        CHOQUE
+                    </span>
                 </div>
             </div>
             @endeach
@@ -212,5 +224,40 @@
         theme: 'custom',
         animation: 'shift-away',
         placement: 'bottom'
+    });
+
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const turmas = document.querySelectorAll('#turma');
+
+        const horariosMap = {};
+
+        turmas.forEach(turma => {
+            const horario = turma.querySelector('#horario').textContent.trim();
+
+            const horarios = horario.split(',');
+
+            horarios.forEach(h => {
+                const horarioSemEspacos = h.replace(/\s/g, ''); // Remove espaços em branco
+                if (!horariosMap[horarioSemEspacos]) {
+                    horariosMap[horarioSemEspacos] = [];
+                }
+                horariosMap[horarioSemEspacos].push(turma);
+            });
+        });
+
+        Object.keys(horariosMap).forEach(horario => {
+            const turmasComMesmoHorario = horariosMap[horario];
+            
+            if (turmasComMesmoHorario.length > 1) {
+                turmasComMesmoHorario.forEach(turma => {
+                    turma.classList.add('border', 'border-red-500');  // border
+                    const choque = turma.querySelector('#choque');
+                    choque.classList.remove('hidden'); // badge
+                });
+            }
+        });
     });
 </script>
