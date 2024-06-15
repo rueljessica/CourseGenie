@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon'
+  import { DateTime } from 'luxon'
 import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import Disciplina from './Disciplina'
 
