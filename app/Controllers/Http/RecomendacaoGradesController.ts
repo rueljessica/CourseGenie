@@ -318,9 +318,8 @@ export default class RecomendacaoGradesController {
   private async ajustarTurmasNecessarias(turmasRecomendadasAux, turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal) {
     let turmasRecomendadas: any[] = [];
     let turmasRestantes: any[] = [];
-    cargaHorariaOptativaTotal+=240
 
-    async function processTurmas(turmas: any[], cargaHorariaObrigatoriaTotal: number, cargaHorariaOptativaTotal: number, turmasAux: any[]) {
+    async function processTurmas(turmas: any[], cargaHorariaObrigatoriaTotal: number, cargaHorariaOptativaTotal: number, turmasAux: any[], rec: boolean) {
       const alreadyProcessed = new Set();
 
       await Promise.all(turmas.map(async (turma) => {
@@ -345,7 +344,7 @@ export default class RecomendacaoGradesController {
 
               // Adicionar outras turmas com o mesmo código
               turmas.forEach((otherTurma) => {
-                if (otherTurma.$attributes.codigo === turma.$attributes.codigo && otherTurma !== turma) {
+                if (otherTurma.$attributes.codigo === turma.$attributes.codigo && otherTurma !== turma && rec) {
                   turmasAux.push(otherTurma);
                   alreadyProcessed.add(otherTurma.$attributes.codigo);
                 }
@@ -356,8 +355,8 @@ export default class RecomendacaoGradesController {
       }));
     }
 
-    await processTurmas(turmasRecomendadasAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRecomendadas);
-    await processTurmas(turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRestantes);
+    await processTurmas(turmasRecomendadasAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRecomendadas, true);
+    await processTurmas(turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRestantes, false);
 
     return { turmasRecomendadas, turmasRestantes }
   }
@@ -445,14 +444,7 @@ export default class RecomendacaoGradesController {
 
     // Lista de turmas disponíveis após aplicar os filtros
     let turmasDisponiveis = await this.processTurmas(turmas, disciplinasCursadas, periodoAluno, eixosCount, user.id, limiteTurno);
-    /*turmasDisponiveis.forEach((turmaDispon) => {
-      console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
-        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
-        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
-        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
-    })
 
-    console.log('==========================================================')*/
     // Calcula o peso total para cada turma disponível
     turmasDisponiveis = this.calculaPesos(turmasDisponiveis);
 
@@ -502,6 +494,7 @@ export default class RecomendacaoGradesController {
         turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
         turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
+    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
 
     return view.render('disciplinas/recomendacao', {
       turmasRecomendadas,
