@@ -4,8 +4,8 @@
             <!-- Profile Card -->
             <div class="bg-white p-3 shadow-md rounded-lg border-dashed dark:bg-gray-800">
                 <div class="image overflow-hidden">
-                    <div class="relative overflow-hidden bg-gray-100 rounded w-36 dark:bg-gray-700">
-                        <img class="rounded w-36 h-36" src="{{ route('files.show', { id: auth.user.avatar }) }}"/>
+                    <div class="relative overflow-hidden bg-gray-100 rounded w-36 h-36 dark:bg-gray-700">
+                        <img class="rounded w-36 h-36 object-cover" src="{{ route('files.show', { id: auth.user.avatar }) }}"/>
                     </div>
                 </div>
                 <h1 class="text-gray-900 dark:text-white text-xl leading-8 my-1 pt-1"> {{auth.user.name}}</h1>
