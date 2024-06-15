@@ -156,7 +156,7 @@ export default class RecomendacaoGradesController {
       )
     ).length
 
-    return (totalAprovacoes / disciplinas.length) * 100
+    return parseFloat(((totalAprovacoes / disciplinas.length) * 100).toFixed(1))
   }
 
   private async mediaProfessor(turma, userId): Promise<number> {

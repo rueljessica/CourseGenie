@@ -1,8 +1,110 @@
 <div class="content" id="content2">
     <div class="w-[1500px] flex items-center justify-center">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-3 gap-4">
+            @each(turma in turmasRecomendadas)
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full border border-green-300">
+                <div>
+                    <div class="px-4 sm:px-0">
+                        <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
+                            {{ turma.$attributes.codigo }} - {{ turma.$attributes.nome }}
+                        </h3>
+                    </div>
+                    <div class="mt-5 ">
+                        <dl class="divide-y divide-gray-300 dark:divide-gray-600">
+                            @if(turma.$preloaded?.professor)
+                            <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
+                                <dt class="font-medium leading-6 text-gray-900 dark:text-white">Docente</dt>
+                                <dd
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    {{ turma.$preloaded.professor.nome }}
+                                </dd>
+                            </div>
+                            @endif
+                            <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
+                                <dt class="font-medium leading-6 text-gray-900 dark:text-white">Turma</dt>
+                                <dd
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    {{ turma.$attributes.turma }}
+                                </dd>
+                            </div>
+                            <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
+                                <dt class="font-medium leading-6 text-gray-900 dark:text-white">Horário</dt>
+                                <dd
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    {{ turma.$attributes.horario }}
+                                </dd>
+                            </div>
+                            <div class="px-2 py-2 sm:grid sm:grid-cols-2 sm:px-0">
+                                <dt class="font-medium leading-6 text-gray-900 dark:text-white">Aproveitamento</dt>
+                                <dd
+                                    class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-1 sm:mt-0 tracking-wide">
+                                    {{ turma.pesoTotal.toFixed(1) }}%
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                <div class="mt-3 flex items-start -ml-3">
+                    @if(turma.periodoAtual === 100)
+                    <span style="background-color:#33c033;"
+                        class="green- 800 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
+                        Período Atual: {{ turma.periodoAtual === 100 ? 'Sim' : (turma.periodoAtual === 0 ? 'Não' :
+                        turma.periodoAtual) }}
+                    </span>
+                    @endif
+                    @if(turma.periodoAnterior === 100)
+                    <span style="background-color:#4dc94d;"
+                        class="green- 700 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Período Anterior: {{ turma.periodoAnterior === 100 ? 'Sim' : (turma.periodoAnterior === 0 ?
+                        'Não' : turma.periodoAnterior) }}
+                    </span>
+                    @endif
+                    @if(turma.periodoAnteriorPreReq === 100)
+                    <span style="background-color:#66d166;"
+                        class="text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Período Anterior e Pré-Requisito: {{ turma.periodoAnteriorPreReq === 100 ? 'Sim' :
+                        (turma.periodoAnteriorPreReq === 0 ? 'Não' : turma.periodoAnteriorPreReq) }}
+                    </span>
+                    @endif
+                    @if(turma.complementaEixo > 0)
+                    <span style="background-color:#80d980;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+
+                        <span data-tippy-content="Disciplina do eixo x"
+                            class="text-gray-800 font-medium hover:text-gray-600 dark:hover:text-gray-300">
+                            Complementa eixo
+                        </span>
+                    </span>
+                    @endif
+                    @if(turma.indiceAprProfessor > 0)
+                    <span style="background-color:#99e199;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Índice de Aprovação com Docente: {{ turma.indiceAprProfessor.toFixed(1) }}%
+                    </span>
+                    @endif
+                    @if(turma.indiceAprDisciplina > 0)
+                    <span style="background-color:#b3e8b3;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Índice de Aprovação da Disciplina: {{ turma.indiceAprDisciplina }}%
+                    </span>
+                    @endif
+                    @if(turma.indiceAprDisciplina > 0)
+                    <span style="background-color:#ccf0cc;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Média com Docente: {{ turma.mediaProfessor }}
+                    </span>
+                    @endif
+                    @if(turma.mediaDisciplina > 0)
+                    <span style="background-color:#e6f7e6;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Média da Disciplina: {{ turma.mediaDisciplina }}
+                    </span>
+                    @endif
+                </div>
+            </div>
+            @endeach
             @each(turma in turmasRestantes)
-            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg border-dashed w-full">
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full">
                 <div>
                     <div class="px-4 sm:px-0">
                         <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
@@ -40,52 +142,63 @@
                                 </dd>
                             </div>
                         </dl>
-                        
                     </div>
                 </div>
                 <div class="mt-3 flex items-start -ml-3">
-                    @if(turma.periodoAtual === 100) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Período Atual: {{ turma.periodoAtual === 100 ? 'Sim' : (turma.periodoAtual === 0 ? 'Não' : turma.periodoAtual) }}
-                        </span>
+                    @if(turma.periodoAtual === 100)
+                    <span style="background-color:#33c033;"
+                        class="green- 800 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
+                        Período Atual: {{ turma.periodoAtual === 100 ? 'Sim' : (turma.periodoAtual === 0 ? 'Não' :
+                        turma.periodoAtual) }}
+                    </span>
                     @endif
-                    @if(turma.periodoAnterior === 100) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Período Anterior: {{ turma.periodoAnterior === 100 ? 'Sim' : (turma.periodoAnterior === 0 ? 'Não' : turma.periodoAnterior) }}
-                        </span>
+                    @if(turma.periodoAnterior === 100)
+                    <span style="background-color:#4dc94d;"
+                        class="green- 700 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Período Anterior: {{ turma.periodoAnterior === 100 ? 'Sim' : (turma.periodoAnterior === 0 ?
+                        'Não' : turma.periodoAnterior) }}
+                    </span>
                     @endif
-                    @if(turma.periodoAnteriorPreReq === 100) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Período Anterior e Pré-Requisito: {{ turma.periodoAnteriorPreReq === 100 ? 'Sim' : (turma.periodoAnteriorPreReq === 0 ? 'Não' : turma.periodoAnteriorPreReq) }}
-                        </span>
+                    @if(turma.periodoAnteriorPreReq === 100)
+                    <span style="background-color:#66d166;"
+                        class="text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Período Anterior e Pré-Requisito: {{ turma.periodoAnteriorPreReq === 100 ? 'Sim' :
+                        (turma.periodoAnteriorPreReq === 0 ? 'Não' : turma.periodoAnteriorPreReq) }}
+                    </span>
                     @endif
-                    @if(turma.complementaEixo > 0) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            
-                            <span data-tippy-content="Disciplina do eixo x" class="text-gray-800 font-medium hover:text-gray-600 dark:hover:text-gray-300 dark:text-gray-400">
-                                Complementa eixo
-                            </span>
+                    @if(turma.complementaEixo > 0)
+                    <span style="background-color:#80d980;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+
+                        <span data-tippy-content="Disciplina do eixo x"
+                            class="text-gray-800 font-medium hover:text-gray-600 dark:hover:text-gray-300">
+                            Complementa eixo
                         </span>
+                    </span>
                     @endif
-                    @if(turma.indiceAprProfessor > 0) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Índice de Aprovação com Docente: {{ turma.indiceAprProfessor.toFixed(1) }}%
-                        </span>
+                    @if(turma.indiceAprProfessor > 0)
+                    <span style="background-color:#99e199;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Índice de Aprovação com Docente: {{ turma.indiceAprProfessor.toFixed(1) }}%
+                    </span>
                     @endif
-                    @if(turma.indiceAprDisciplina > 0) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Índice de Aprovação da Disciplina: {{ turma.indiceAprDisciplina }}%
-                        </span>
+                    @if(turma.indiceAprDisciplina > 0)
+                    <span style="background-color:#b3e8b3;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Índice de Aprovação da Disciplina: {{ turma.indiceAprDisciplina }}%
+                    </span>
                     @endif
-                    @if(turma.indiceAprDisciplina > 0) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Média com Docente: {{ turma.mediaProfessor }}
-                        </span>
+                    @if(turma.indiceAprDisciplina > 0)
+                    <span style="background-color:#ccf0cc;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Média com Docente: {{ turma.mediaProfessor }}
+                    </span>
                     @endif
-                    @if(turma.mediaDisciplina > 0) 
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300 ms-2">
-                            Média da Disciplina: {{ turma.mediaDisciplina }}
-                        </span>
+                    @if(turma.mediaDisciplina > 0)
+                    <span style="background-color:#e6f7e6;"
+                        class=" text-black text-xs font-medium px-2.5 py-0.5 rounded-lg dark:bg-gray-700 ms-2">
+                        Média da Disciplina: {{ turma.mediaDisciplina }}
+                    </span>
                     @endif
                 </div>
             </div>

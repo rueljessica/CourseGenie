@@ -4,10 +4,11 @@
             <span class="text-gray-900 dark:text-gray-100">{{ turma.$attributes.codigo }}</span> - {{ turma.$attributes.nome }}
         </span>
     </div>
+    @if(turma.$preloaded?.professor)
     <span class="text-gray-900 dark:text-gray-100">Docente 
         <span class="text-gray-500 dark:text-gray-400">{{ turma.$preloaded.professor.nome }}</span>
     </span>
-
+    @endif
     <div class="flex items-center justify-between">
         <span class="text-gray-900 dark:text-gray-100">Turma 
             <span class="text-gray-500 dark:text-gray-400">{{ turma.$attributes.turma }}</span>
