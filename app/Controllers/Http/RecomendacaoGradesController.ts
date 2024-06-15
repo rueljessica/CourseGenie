@@ -315,53 +315,6 @@ export default class RecomendacaoGradesController {
     return { turmasRecomendadas, turmasRestantes, numberOfDiscs }
   }
 
-  private async ajustarTurmasNecessarias(turmasRecomendadasAux, turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal) {
-    let turmasRecomendadas: any[] = [];
-    let turmasRestantes: any[] = [];
-    cargaHorariaOptativaTotal+=240
-
-    async function processTurmas(turmas: any[], cargaHorariaObrigatoriaTotal: number, cargaHorariaOptativaTotal: number, turmasAux: any[]) {
-      const alreadyProcessed = new Set();
-
-      await Promise.all(turmas.map(async (turma) => {
-        if (turma.$attributes.disciplinaId && !alreadyProcessed.has(turma.$attributes.codigo)) {
-          const disciplina = await Disciplina.query().where('id', turma.$attributes.disciplinaId).first();
-          if (disciplina) {
-            let shouldAdd = false;
-            if (disciplina.periodo > 0 && cargaHorariaObrigatoriaTotal >= disciplina.cargaHoraria) {
-              shouldAdd = true;
-              cargaHorariaObrigatoriaTotal -= disciplina.cargaHoraria;
-              if (["TN756", "TN757"].includes(disciplina.codigo)) {
-                cargaHorariaObrigatoriaTotal -= 120; // disciplina TCC I e II
-              }
-            } else if (disciplina.periodo < 0 && cargaHorariaOptativaTotal >= disciplina.cargaHoraria) {
-              shouldAdd = true;
-              cargaHorariaOptativaTotal -= disciplina.cargaHoraria;
-            }
-
-            if (shouldAdd) {
-              turmasAux.push(turma);
-              alreadyProcessed.add(turma.$attributes.codigo);
-
-              // Adicionar outras turmas com o mesmo código
-              turmas.forEach((otherTurma) => {
-                if (otherTurma.$attributes.codigo === turma.$attributes.codigo && otherTurma !== turma) {
-                  turmasAux.push(otherTurma);
-                  alreadyProcessed.add(otherTurma.$attributes.codigo);
-                }
-              });
-            }
-          }
-        }
-      }));
-    }
-
-    await processTurmas(turmasRecomendadasAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRecomendadas);
-    await processTurmas(turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRestantes);
-
-    return { turmasRecomendadas, turmasRestantes }
-  }
-
   private verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs) {
     let foundDuplicate = true
 
@@ -428,19 +381,6 @@ export default class RecomendacaoGradesController {
       .where('user_id', user.id)
       .whereIn('situacao', ['CUMPRIU', 'APR', 'APRN', 'INCORP', 'CUMP']);
 
-    // calculo de quantos horas o aluno precisa completar
-    let cargaHorariaObrigatoriaTotal = 2280;
-    let cargaHorariaOptativaTotal = 720;
-
-    disciplinasCursadas.forEach((disciplina) => {
-      // Verificando o tipo da disciplina
-      if (disciplina.tipo === 'OB' || disciplina.tipo === "EQOB") {
-        cargaHorariaObrigatoriaTotal -= disciplina.cargaHoraria || 0;
-      } else if (disciplina.tipo === 'OP' || disciplina.tipo === "EQOP" || disciplina.tipo === 'EL') {
-        cargaHorariaOptativaTotal -= disciplina.cargaHoraria || 0;
-      }
-    });
-
     let eixosCount = await this.verificaEixos(disciplinasCursadas);
 
     // Lista de turmas disponíveis após aplicar os filtros
@@ -459,7 +399,7 @@ export default class RecomendacaoGradesController {
     let turmasRecomendadas: any[] = [];
     let turmasRestantes: any[] = [];
 
-    // Separar as turmas em duas listas: com periodoAtual e as restantes 
+    // Separar as turmas em duas listas: com periodoAtual e as restantes
     if (turmasDisponiveis.length > numberOfDiscs) {
       turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0);
       turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0);
@@ -471,19 +411,10 @@ export default class RecomendacaoGradesController {
       // Verifica se há turmas com o mesmo código na lista turmasRecomendadas
       ({ turmasRecomendadas, turmasRestantes, numberOfDiscs } = this.ajustarTurmasRecomendadas(turmasRecomendadas, turmasRestantes, numberOfDiscs));
 
-      // Verifica se o aluno precisa da disciplina
-      ({ turmasRecomendadas, turmasRestantes } = await this.ajustarTurmasNecessarias(turmasRecomendadas, turmasRestantes, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal));
-
       // Verifica se há turmas com choque de horarios
       ({ turmasRecomendadas, turmasRestantes } = this.verificaChoque(turmasRecomendadas, turmasRestantes, numberOfDiscs));
     } else {
       turmasRecomendadas = turmasDisponiveis;
-
-      // Ordenar as listas pelo peso total em ordem decrescente
-      turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal);
-
-      // Verifica se o aluno precisa da disciplina
-      ({ turmasRecomendadas, turmasRestantes } = await this.ajustarTurmasNecessarias(turmasRecomendadas, turmasRestantes, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal));
     }
 
     // Exibir as turmas
