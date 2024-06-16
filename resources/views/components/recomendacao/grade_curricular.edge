@@ -1,4 +1,6 @@
 <div class="content" id="content1">
+    <!-- Include Modal -->
+    @include('components/modals/modal_preferencias')
     <div class="w-[1500px]">
         <div class="relative overflow-hidden shadow-md rounded-lg">
             <table id="table"
@@ -236,3 +238,41 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Verifica se o usuário já configurou suas preferências
+    document.addEventListener('DOMContentLoaded', () => {
+        const configModal = document.getElementById('configModal');
+        const openModalButton = document.getElementById('openModalButton');
+        const rec = '{{ rec }}';
+        if (rec.toLowerCase() !== 'true') {
+            configModal.classList.remove('hidden');
+        } else {
+            configModal.classList.add('hidden');
+            openModalButton.classList.remove('hidden');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Adicionar a classe 'border-red' às células de turmas com horários duplicados
+        const tableCells = document.querySelectorAll('td');
+        tableCells.forEach(cell => {
+            const elements = cell.querySelectorAll('#celula');
+            if (elements.length > 1) {
+                elements.forEach(element => {
+                    element.classList.add('border', 'border-red-700');
+                });
+            }
+        });
+    });
+
+    function openModal() {
+        const configModal = document.getElementById('configModal');
+        configModal.classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+        const configModal = document.getElementById('configModal');
+        configModal.classList.add('hidden');
+    }
+</script>
