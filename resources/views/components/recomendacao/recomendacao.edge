@@ -10,7 +10,7 @@
                         class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400 rounded-md  transition-all duration-300">Sugestão de Grade Curricular</button>
                     <button x-on:click="openTab = 2" :class="{ 'dark:text-white text-gray-700': openTab === 2 }"
                         onclick="handleButtonClick('content2')"
-                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">Outras disciplinas</button>
+                        class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400  rounded-md  transition-all duration-300">Saiba mais</button>
                 </div>   
                 <div x-show="openTab === 1" class="transition-all duration-300 w-[1500px]">
                     @include('components/recomendacao/grade_curricular')

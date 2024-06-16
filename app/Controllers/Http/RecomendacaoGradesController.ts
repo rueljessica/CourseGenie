@@ -478,7 +478,7 @@ export default class RecomendacaoGradesController {
       ({ turmasRecomendadas, turmasRestantes } = await this.ajustarTurmasNecessarias(turmasRecomendadas, turmasRestantes, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal));
     }
 
-    /* Exibir as turmas
+    // Exibir as turmas
     turmasRecomendadas.forEach((turmaDispon) => {
       console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
         turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
@@ -495,7 +495,7 @@ export default class RecomendacaoGradesController {
         turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
     console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    */
+    
     return view.render('disciplinas/recomendacao', {
       turmasRecomendadas,
       turmasRestantes,
