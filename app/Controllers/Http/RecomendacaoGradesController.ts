@@ -369,25 +369,24 @@ export default class RecomendacaoGradesController {
       const horariosTurmas = turmasRecomendadas.map((turma) => turma?.$attributes.horario)
       const horariosComuns = horariosTurmas.filter((horarios, index) => {
         return turmasRecomendadas.some((turma, i) => {
-          if (
-            i !== index &&
-            turma?.$attributes.codigo !== turmasRecomendadas[index]?.$attributes.codigo
-          ) {
+          if (i !== index && turma?.$attributes.codigo !== turmasRecomendadas[index]?.$attributes.codigo) {
             return turma?.$attributes.horario.some((horario) => horarios.includes(horario))
           }
           return false
         })
       })
-
       const numeroDuplicatasHorario = Math.floor(horariosComuns.length / 2)
       // Atualiza a lista de turmas se houver duplicatas
-      if (turmasRecomendadas.length < numberOfDiscs + numeroDuplicatasHorario) {
+      if (turmasRecomendadas.length < numberOfDiscs + numeroDuplicatasHorario && turmasRestantes.length >= (numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length)) {
         const turmasAdicionais = turmasRestantes.slice(0, numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length)
         turmasRecomendadas = [...turmasRecomendadas, ...turmasAdicionais]
         turmasRestantes = turmasRestantes.slice(turmasAdicionais.length)
-      } else {
-        foundDuplicate = false // Termina o loop se não encontrou mais duplicatas
+        continue;
+      } else if (turmasRecomendadas.length < numberOfDiscs + numeroDuplicatasHorario && !(turmasRestantes.length >= (numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length))) {
+        turmasRecomendadas = [...turmasRecomendadas, ...turmasRestantes]
+        turmasRestantes = []
       }
+      foundDuplicate = false
     }
     return { turmasRecomendadas, turmasRestantes }
   }
@@ -455,7 +454,6 @@ export default class RecomendacaoGradesController {
     if (turmasDisponiveis.length > numberOfDiscs) {
       turmasRecomendadas = turmasDisponiveis.filter((turma) => turma.periodoAtual > 0);
       turmasRestantes = turmasDisponiveis.filter((turma) => turma.periodoAtual === 0);
-
       // Ordenar as listas pelo peso total em ordem decrescente
       turmasRecomendadas.sort((a, b) => b.pesoTotal - a.pesoTotal);
       turmasRestantes.sort((a, b) => b.pesoTotal - a.pesoTotal);
@@ -494,8 +492,7 @@ export default class RecomendacaoGradesController {
         turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
         turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
     })
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    
+    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
     return view.render('disciplinas/recomendacao', {
       turmasRecomendadas,
       turmasRestantes,
