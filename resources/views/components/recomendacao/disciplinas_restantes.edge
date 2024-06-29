@@ -2,7 +2,7 @@
     <div class="w-[1500px] flex items-center justify-center">
         <div class="grid grid-cols-3 gap-4">
             @each(turma in turmasRecomendadas)
-            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full m-1 relative" id="turma">
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full h-[300px] m-1 relative" id="turma">
                 <div class="mb-5">
                     <div class="px-4 sm:px-0">
                         <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
@@ -44,7 +44,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="absolute bottom-2 left-0 flex flex-wrap justify-center">
+                <div class="flex flex-wrap gap-0.5 absolute bottom-2 left-0">
                     @if(turma.periodoAtual === 100)
                     <span
                         class="text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg bg-green-700 ms-2 text-center">
@@ -99,7 +99,7 @@
             @endeach
             
             @each(turma in turmasRestantes)
-            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full m-1 relative" id="turma">
+            <div class="bg-white dark:bg-gray-800 p-3 shadow-md rounded-lg w-full h-[300px] m-1 relative" id="turma">
                 <div class="mb-5">
                     <div class="px-4 sm:px-0">
                         <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white whitespace-nowrap">
@@ -141,7 +141,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="absolute bottom-2 left-0 flex flex-wrap justify-center">
+                <div class="flex flex-wrap gap-0.5 absolute bottom-2 left-0">
                     @if(turma.periodoAtual === 100)
                     <span class="text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-lg bg-green-700 ms-2 text-center">
                         Período Atual: {{ turma.periodoAtual === 100 ? 'Sim' : (turma.periodoAtual === 0 ? 'Não' :
@@ -229,7 +229,6 @@
             
             if (turmasComMesmoHorario.length > 1) {
                 turmasComMesmoHorario.forEach(turma => {
-                    turma.classList.add('border', 'border-red-700');  // border
                     const choque = turma.querySelector('#choque');
                     choque.classList.remove('hidden'); // badge
                 });
