@@ -46,11 +46,9 @@ module.exports = {
     fontFamily: {
       body: [
         'staatliches',
-       
       ],
       sans: [
-        'staatliches',
-          
+        'oxygen', 
       ],
     },
   }, 

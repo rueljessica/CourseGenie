@@ -5,14 +5,14 @@
             <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-lg border-dashed">
                 <div class="flex flex-col">
                     <div>
-                        <p class="text-gray-900 dark:text-white text-xl leading-8">{{ professor.nome }}</p>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">E-mail: {{professor.email}}</span>
+                        <p class="text-gray-900 dark:text-white text-xl leading-8 font-body">{{ professor.nome }}</p>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm font-body">E-mail: {{professor.email}}</span>
                     </div>
                     <div class="border-t-2 border-gray-200 dark:border-gray-700 mt-5">
                         <button onclick="setProfessorId('{{ professor.id }}')"
                             class="flex items-center justify-between group mt-2">
                             <span
-                                class="text-gray-600 dark:text-gray-500 text-xs group-hover:text-secondary hover:text-indigo-600 dark:hover:text-indigo-600">Ver
+                                class="text-gray-600 dark:text-gray-500 text-xs group-hover:text-secondary hover:text-indigo-600 dark:hover:text-indigo-600 font-body">Ver
                                 Professor</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-indigo-600 ml-1">

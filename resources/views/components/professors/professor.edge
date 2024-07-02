@@ -5,23 +5,28 @@
                 <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 p-3">
                     <div>
                         <div class="px-4 sm:px-0">
-                            <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white">
-                                {{ professor.nome }}
+                            <h3 class="text-xl tracking-wide leading-7 text-gray-900 dark:text-white font-body flex items-center gap-2">
+                                {{ professor.nome }} 
+                                <a href="{{ professor.lattes }}">
+                                    <svg class="h-5 text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-600" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"></path>
+                                    </svg>
+                                </a>
                             </h3>
-                            <p class="mt-1 text-sm max-w-2xl leading-6 text-gray-500">
+                            <p class="mt-1 text-sm max-w-2xl leading-6 text-gray-500 font-body">
                                 Professor Permanente
                             </p>
                         </div>
                         <div class="mt-6 border-t border-gray-300 dark:border-gray-600">
                             <dl class="divide-y divide-gray-300 dark:divide-gray-600">
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-5 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">Sala</dt>
+                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white font-body">Sala</dt>
                                     <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-4 sm:mt-0 tracking-wide">
                                         {{ professor.sala }}
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-5 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">
+                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white font-body">
                                         E-mail
                                     </dt>
                                     <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-4 sm:mt-0 tracking-wide">
@@ -29,7 +34,7 @@
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-5 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">
+                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white font-body">
                                         Disciplinas
                                     </dt>
                                     <dd id="disciplinas-list" class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-4 sm:mt-0 tracking-wide text-justify">
@@ -37,7 +42,7 @@
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-5 sm:px-0">
-                                    <dt  class="font-medium leading-6 text-gray-900 dark:text-white">
+                                    <dt  class="font-medium leading-6 text-gray-900 dark:text-white font-body">
                                         Áreas de interesse
                                     </dt>
                                     <dd id="areasInteresse-list" class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-4 sm:mt-0 tracking-wide text-justify">
@@ -45,7 +50,7 @@
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-5 sm:px-0">
-                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white">Sobre</dt>
+                                    <dt class="font-medium leading-6 text-gray-900 dark:text-white font-body">Sobre</dt>
                                     <dd class="mt-1 leading-6 text-gray-500 dark:text-gray-400 sm:col-span-4 sm:mt-0 tracking-wide text-justify">
                                         {{ professor.descricao }}
                                     </dd>
@@ -60,7 +65,7 @@
             <div class=" bg-white rounded-lg shadow dark:bg-gray-800 h-full p-4">
                 <div class="mb-3">
                     <div class="flex items-center">
-                        <h5 class="text-xl tracking-wide leading-none text-gray-900 dark:text-white pe-1">Índice de
+                        <h5 class="text-xl tracking-wide leading-none text-gray-900 dark:text-white pe-1 font-body">Índice de
                             Aprovação
                         </h5>
                         <svg data-popover-target="chart-info" data-popover-placement="bottom"
@@ -71,12 +76,11 @@
                                 d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z" />
                         </svg>
                         <div data-popover id="chart-info" role="tooltip"
-                            class="absolute z-10 invisible inline-block text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                            class="absolute z-10 invisible inline-block text-gray-500 transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-700 dark:text-gray-400">
                             <div class="p-3 space-y-2">
-                                <h3 class="font-semibold text-gray-900 dark:text-white">Índice de Aprovação e Média - Cálculo</h3>
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Como o cálculo é realizado?</h3>
                                 <p>O cálculo do índice de aprovação e da média do docente leva em consideração todas as 
-                                    ocorrências registradas nos históricos acadêmicos dos alunos cadastrados no Course Genie, nas quais esse professor esteve 
-                                    responsável pela disciplina.</p>
+                                    ocorrências registradas nos históricos acadêmicos dos alunos cadastrados no Course Genie, nas quais esse professor ministrou a disciplina.</p>
                             </div>
                             <div data-popper-arrow></div>
                         </div>
