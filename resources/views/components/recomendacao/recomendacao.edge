@@ -4,7 +4,7 @@
         @include('components/modals/modal_preferencias')
         <div x-data="{ openTab: 1 }" class="p-8">
             <div class=" mx-auto">
-                <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <div class="mb-4 flex space-x-4 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-md font-body">
                     <button x-on:click="openTab = 1" :class="{ 'dark:text-white text-gray-700': openTab === 1 }"
                         onclick="handleButtonClick('content1')"
                         class="flex-1 py-2 px-4 whitespace-nowrap text-gray-600 dark:text-gray-400 rounded-md  transition-all duration-300">Sugestão de Grade Curricular</button>

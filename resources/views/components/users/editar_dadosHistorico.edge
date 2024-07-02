@@ -1,4 +1,4 @@
-<section class="bg-gray-50 dark:bg-gray-900 h-screen flex items-center justify-center overflow-auto">
+<section class="bg-gray-50 dark:bg-gray-900 h-screen flex items-center justify-center overflow-auto font-body">
     <div class="mt-10">
         <!-- Include Modal -->
         @include('components/modals/modal_addDisc')
@@ -54,7 +54,7 @@
                             <th scope="col" class="px-6 py-3">
                                 Classificação
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 w-40">
 
                             </th>
                         </tr>
@@ -100,10 +100,12 @@
                                 OPTATIVA
                                 @end
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 flex justify-end">
                                 <button
-                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professorId }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')"
-                                    class="px-4 py-2 bg-blue-500 text-gray-700 dark:text-gray-200 rounded hover:bg-blue-700">Editar
+                                    onclick="openEditModal('{{ disciplina.id }}', '{{ disciplina.nome }}', '{{ disciplina.codigo }}', '{{ disciplina.situacao }}', '{{ disciplina.ano }}', '{{ disciplina.professorId }}', '{{ disciplina.cargaHoraria }}','{{ disciplina.media || '' }}', '{{ disciplina.tipo }}', '{{ disciplina.equivalenciaId }}')">
+                                    <svg class="h-6 text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-600" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"></path>
+                                    </svg>
                                 </button>
                             </td>
                         </tr>

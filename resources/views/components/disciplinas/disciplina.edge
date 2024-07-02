@@ -9,7 +9,7 @@
                     </svg>
                 </div>
                 <div class="ms-3 text-sm font-normal">
-                    <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white tracking-wide">Atenção!</span>
+                    <span class="mb-1 text-base font-semibold text-gray-900 dark:text-white tracking-wide font-body">Atenção!</span>
                     <div class="mb-2 text-sm font-normal">As informações contidas nessa página são baseadas nos históricos cadastrados em nosso banco de dados.</div>  
                 </div>
                 <button type="button" class="ms-auto -mx-1.5 -my-1.5 items-center justify-center flex-shrink-0 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-0 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-700" data-dismiss-target="#toast" aria-label="Close">
@@ -20,14 +20,14 @@
                 </button>
             </div>
         </div>
-        <span class="text-gray-900 dark:text-white text-3xl pl-2 pb-1"> {{disciplina.codigo}} - {{disciplina.nome}}</span>
+        <span class="text-gray-900 dark:text-white text-3xl pl-2 pb-1 font-body"> {{disciplina.codigo}} - {{disciplina.nome}}</span>
         <div class="col-span-1">
             <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800 p-5 h-80 overflow-auto">
                 <div>
                     <div>
                         <div class="{{ disciplina.preRequisitos.length > 0 ? '' : 'hidden' }}">
-                            <span class="tracking-wide text-lg text-gray-900 dark:text-white">Pré-requisitos</span>
-                            <div class="ml-auto mb-3">
+                            <span class="tracking-wide text-xl text-gray-900 dark:text-white font-semibold">Pré-requisitos</span>
+                            <div class="ml-auto mb-3 capitalize">
                                 @each(pre_requisito in disciplina.preRequisitos)  
                                     <span class="text-lg text-gray-500 dark:text-gray-400">
                                         {{ pre_requisito.nome }} ({{ pre_requisito.codigo }})
@@ -36,15 +36,15 @@
                             </div>
                             <div class="border border-opacity-15 mb-2 border-gray-600"></div>
                         </div>
-                        <span class="tracking-wide text-xl text-gray-900 dark:text-white">Conteúdo Programático</span>
+                        <span class="tracking-wide text-xl text-gray-900 dark:text-white font-semibold">Conteúdo Programático</span>
                     </div>
                     <div>  
-                        <dl class="max-w-md text-gray-900 dark:text-white divide-y divide-gray-200  dark:divide-gray-700">
+                        <dl class="max-w-md text-gray-900 dark:text-white divide-y divide-gray-200 dark:divide-gray-700">
                             @each(unidade in disciplina.conteudoProgramaticos)
-                                <div class="flex flex-col pt-3">
-                                    <dt class="mb-1 text-lg text-gray-900 dark:text-white">{{unidade.unidade}}</dt>
+                                <div class="flex flex-col pt-4">
+                                    <dt class="mb-1 text-lg text-gray-900 dark:text-white whitespace-nowrap">{{unidade.unidade}}</dt>
                                     @each(topico in unidade.topicos)
-                                        <dd class="pl-2 text-md text-gray-500 dark:text-gray-400">{{ topico }}</dd>
+                                        <dd class="pl-2 text-md text-gray-500 dark:text-gray-400 whitespace-nowrap mb-2">{{ topico }}</dd>
                                     @endeach
                                 </div>
                             @endeach
@@ -59,7 +59,7 @@
             <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800">
                 <div class="flex justify-between m-2">
                     <dl>
-                        <dt class="text-xl font-normal text-gray-900 dark:text-white pt-3 pl-3">Índice de Aprovação da Disciplina <span class="pl-2 text-gray-500 dark:text-gray-400">{{ indiceAprGlobal }}%</span></dt>
+                        <dt class="text-xl font-normal text-gray-900 dark:text-white pt-3 pl-3 font-body">Índice de Aprovação da Disciplina: <span class="pl-2 text-gray-500 dark:text-gray-400">{{ indiceAprGlobal }}%</span></dt>
                     </dl>
                 </div>
                 <div class="text-sm m-3" id="bar-chart"></div>
@@ -69,7 +69,7 @@
             <div class="bg-white shadow-md rounded-lg border-dashed dark:bg-gray-800">
                 <div class="flex justify-between mt-2">
                     <dl>
-                        <dt class="text-xl font-normal text-gray-900 dark:text-white pt-3 pl-3">Média da Disciplina <span class="pl-2 text-gray-500 dark:text-gray-400">{{ mediaGlobal }}</span></dt>
+                        <dt class="text-xl font-normal text-gray-900 dark:text-white pt-3 pl-3 font-body">Média da Disciplina: <span class="pl-2 text-gray-500 dark:text-gray-400">{{ mediaGlobal }}</span></dt>
                     </dl>
                 </div>
                 <div class="text-sm m-3" id="column-chart"></div>
