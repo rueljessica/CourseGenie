@@ -113,7 +113,8 @@ export default class RecomendacaoGradesController {
         if (eixosCount[eixoKey].precisa === eixosCount[eixoKey].possui) {
           peso += 0
         } else {
-          peso += 10 - (eixosCount[eixoKey].precisa - eixosCount[eixoKey].possui)
+          if (eixosCount[eixoKey].precisa - eixosCount[eixoKey].possui !== 0)
+            peso = 30 - eixosCount[eixoKey].precisa
         }
       }
     }
@@ -139,7 +140,7 @@ export default class RecomendacaoGradesController {
           )
         ).length
 
-        return (totalAprovacoes / disciplinasFiltradas.length) * 100
+        return parseFloat(((totalAprovacoes / disciplinasFiltradas.length) * 100).toFixed(1))
       }
     }
     return 0
@@ -213,14 +214,14 @@ export default class RecomendacaoGradesController {
 
         return {
           ...turma,
-          periodoAtual: (await this.ePeriodoAluno(turma, periodoAluno)) ? 100 : 0,
-          periodoAnteriorPreReq: (await this.obAnterioresPreReq(turma, periodoAluno)) ? 100 : 0,
-          periodoAnterior: (await this.obAnteriores(turma, periodoAluno)) ? 100 : 0,
+          periodoAtual: (await this.ePeriodoAluno(turma, periodoAluno)) ? 1 : 0,
+          periodoAnteriorPreReq: (await this.obAnterioresPreReq(turma, periodoAluno)) ? 60 : 0,
+          periodoAnterior: (await this.obAnteriores(turma, periodoAluno)) ? 45 : 0,
           complementaEixo: await this.complementaEixo(turma, eixosCount),
-          indiceAprProfessor: await this.indiceAprProfessor(turma, userId),
-          indiceAprDisciplina: await this.indiceAprDisciplina(turma),
-          mediaProfessor: await this.mediaProfessor(turma, userId),
-          mediaDisciplina: await this.mediaDisciplina(turma),
+          indiceAprProfessor: parseFloat((await this.indiceAprProfessor(turma, userId) * 0.1).toFixed(1)),
+          indiceAprDisciplina: parseFloat((await this.indiceAprDisciplina(turma) * 0.1).toFixed(1)),
+          mediaProfessor: parseFloat((await this.mediaProfessor(turma, userId)).toFixed(1)),
+          mediaDisciplina: parseFloat((await this.mediaDisciplina(turma)).toFixed(1)),
         }
       })
     )
@@ -229,18 +230,6 @@ export default class RecomendacaoGradesController {
   }
 
   private calculaPesos(turmasDisponiveis) {
-    // Pesos para cada critério
-    const pesos = {
-      periodoAtual: 1,
-      periodoAnteriorPreReq: 0.8,
-      periodoAnterior: 0.6,
-      complementaEixo: 0.7,
-      indiceAprProfessor: 0.5,
-      indiceAprDisciplina: 0.5,
-      mediaProfessor: 0.4,
-      mediaDisciplina: 0.4,
-    }
-
     turmasDisponiveis = turmasDisponiveis.map((turma) => {
       const {
         periodoAtual,
@@ -256,47 +245,15 @@ export default class RecomendacaoGradesController {
       let pesoTotal
 
       // Atribui peso 100 se o periodoAtual for verdadeiro
-      if (periodoAtual > 0) {
+      if (periodoAtual) {
         pesoTotal = 100
       } else {
-        pesoTotal = parseFloat(
-          (
-            periodoAnteriorPreReq * pesos.periodoAnteriorPreReq +
-            periodoAnterior * pesos.periodoAnterior +
-            complementaEixo * pesos.complementaEixo +
-            indiceAprProfessor * pesos.indiceAprProfessor +
-            indiceAprDisciplina * pesos.indiceAprDisciplina +
-            mediaProfessor * pesos.mediaProfessor +
-            mediaDisciplina * pesos.mediaDisciplina
-          ).toFixed(1)
-        )
+        pesoTotal = periodoAnteriorPreReq + periodoAnterior + indiceAprProfessor + indiceAprDisciplina + mediaProfessor + mediaDisciplina + complementaEixo;
+        pesoTotal = parseFloat((pesoTotal).toFixed(1));
       }
 
       return { ...turma, pesoTotal }
     })
-
-    // Encontrar o máximo peso total das turmas que não têm periodoAtual
-    const maxPesoTotalSemPeriodoAtual = Math.max(
-      ...turmasDisponiveis
-        .filter((turma) => turma.periodoAtual === 0)
-        .map((turma) => turma.pesoTotal || 0)
-    )
-
-    // Ajustar pesos proporcionalmente para garantir que as turmas com periodoAtual tenham 100%
-    turmasDisponiveis = turmasDisponiveis.map((turma) => {
-      if (turma.periodoAtual > 0) {
-        return { ...turma, pesoTotal: 100 }
-      } else if (maxPesoTotalSemPeriodoAtual > 0) {
-        const ajusteProporcional = 100 / maxPesoTotalSemPeriodoAtual
-        return {
-          ...turma,
-          pesoTotal: parseFloat((turma.pesoTotal * ajusteProporcional).toFixed(1)),
-        }
-      } else {
-        return turma
-      }
-    })
-
     return turmasDisponiveis
   }
 
@@ -319,7 +276,7 @@ export default class RecomendacaoGradesController {
     let turmasRecomendadas: any[] = [];
     let turmasRestantes: any[] = [];
 
-    async function processTurmas(turmas: any[], cargaHorariaObrigatoriaTotal: number, cargaHorariaOptativaTotal: number, turmasAux: any[], rec: boolean) {
+    async function processTurmas(turmas: any[], cargaHorariaObrigatoriaTotal: number, cargaHorariaOptativaTotal: number, turmasAux: any[]) {
       const alreadyProcessed = new Set();
 
       await Promise.all(turmas.map(async (turma) => {
@@ -344,7 +301,7 @@ export default class RecomendacaoGradesController {
 
               // Adicionar outras turmas com o mesmo código
               turmas.forEach((otherTurma) => {
-                if (otherTurma.$attributes.codigo === turma.$attributes.codigo && otherTurma !== turma && rec) {
+                if (otherTurma.$attributes.codigo === turma.$attributes.codigo && otherTurma !== turma) {
                   turmasAux.push(otherTurma);
                   alreadyProcessed.add(otherTurma.$attributes.codigo);
                 }
@@ -355,8 +312,8 @@ export default class RecomendacaoGradesController {
       }));
     }
 
-    await processTurmas(turmasRecomendadasAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRecomendadas, true);
-    await processTurmas(turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRestantes, false);
+    await processTurmas(turmasRecomendadasAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRecomendadas);
+    await processTurmas(turmasRestantesAux, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal, turmasRestantes);
 
     return { turmasRecomendadas, turmasRestantes }
   }
@@ -375,7 +332,10 @@ export default class RecomendacaoGradesController {
           return false
         })
       })
-      const numeroDuplicatasHorario = Math.floor(horariosComuns.length / 2)
+      let numeroDuplicatasHorario = Math.floor(horariosComuns.length / 2)
+      if(horariosComuns.length % 2 !== 0)
+        numeroDuplicatasHorario += 1
+
       // Atualiza a lista de turmas se houver duplicatas
       if (turmasRecomendadas.length < numberOfDiscs + numeroDuplicatasHorario && turmasRestantes.length >= (numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length)) {
         const turmasAdicionais = turmasRestantes.slice(0, numberOfDiscs + numeroDuplicatasHorario - turmasRecomendadas.length)
@@ -476,23 +436,24 @@ export default class RecomendacaoGradesController {
       ({ turmasRecomendadas, turmasRestantes } = await this.ajustarTurmasNecessarias(turmasRecomendadas, turmasRestantes, cargaHorariaObrigatoriaTotal, cargaHorariaOptativaTotal));
     }
 
+    console.log('----------------------------TURMAS RECOMENDADAS (Final)------------------------------------')
     // Exibir as turmas
     turmasRecomendadas.forEach((turmaDispon) => {
       console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
-        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
-        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
-        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
+        turmaDispon?.$attributes.horario + ' | pA: ' + turmaDispon?.periodoAtual + ' | pAPR: ' + turmaDispon?.periodoAnteriorPreReq + ' | pAN: ' +
+        turmaDispon?.periodoAnterior + ' | cE: ' + turmaDispon?.complementaEixo + ' | iAP: ' + turmaDispon?.indiceAprProfessor + ' | iAD: ' +
+        turmaDispon?.indiceAprDisciplina + ' | mP: ' + turmaDispon?.mediaProfessor + ' | mD: ' + turmaDispon?.mediaDisciplina + ' | APRO: ' + turmaDispon?.pesoTotal)
     })
 
-    console.log('----------------------------------------------------------------')
+    console.log('----------------------------TURMAS RESTANTES (Final)------------------------------------')
     // Exibir as turmas restantes
     turmasRestantes.forEach((turmaDispon) => {
       console.log(turmaDispon?.$attributes.nome + ' | ' + turmaDispon?.$attributes.codigo + ' | ' + turmaDispon?.$attributes.turma + ' | ' +
-        turmaDispon?.$attributes.horario + ' | ' + turmaDispon?.periodoAtual + ' | ' + turmaDispon?.periodoAnteriorPreReq + ' | ' +
-        turmaDispon?.periodoAnterior + ' | ' + turmaDispon?.complementaEixo + ' | ' + turmaDispon?.indiceAprProfessor + ' | ' +
-        turmaDispon?.indiceAprDisciplina + ' | ' + turmaDispon?.mediaProfessor + ' | ' + turmaDispon?.mediaDisciplina + ' | ' + turmaDispon?.pesoTotal)
+        turmaDispon?.$attributes.horario + ' | pA: ' + turmaDispon?.periodoAtual + ' | pAPR: ' + turmaDispon?.periodoAnteriorPreReq + ' | pAN: ' +
+        turmaDispon?.periodoAnterior + ' | cE: ' + turmaDispon?.complementaEixo + ' | iAP: ' + turmaDispon?.indiceAprProfessor + ' | iAD: ' +
+        turmaDispon?.indiceAprDisciplina + ' | mP: ' + turmaDispon?.mediaProfessor + ' | mD: ' + turmaDispon?.mediaDisciplina + ' | APRO: ' + turmaDispon?.pesoTotal)
     })
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+    console.log('===================================================================================');
     return view.render('disciplinas/recomendacao', {
       turmasRecomendadas,
       turmasRestantes,
