@@ -12,27 +12,6 @@ O Course Genie é uma plataforma web desenvolvida para auxiliar os alunos de Ci�
 - Lucid ORM
 - TailwindCSS
 
-## 🔧 Como Executar
-
-1. Clone o repositório:
-```
-git clone https://github.com/rueljessica/devstage.git
-```
-
-
-2. Instale as dependências:
-```
-npm install
-```
-3. Inicie o servidor de desenvolvimento:
-```
-npm run dev
-```
-4. Abra a seguinte página no navegador:
-```
-http://localhost:3000
-```
-
 ## 🌟 Funcionalidades
 
 - Cadastro de usuário e autenticação
